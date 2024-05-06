@@ -42,8 +42,34 @@ const Tab = () => {
   ];
 
   const indivdualData = [
+    
     {
       idx: 0,
+      ele: (
+        <>
+          <IndividualForm
+            userData={userData}
+            setUserData={setUserData}
+            errors={errors}
+
+          />
+        </>
+      ),
+    },
+
+
+    {
+      idx: 1,
+      ele: (
+        <>
+          <ImageSection userData={userData} setUserData={setUserData} />
+        </>
+      ),
+    },
+
+    
+    {
+      idx: 2,
       ele: (
         <>
           <div>
@@ -56,28 +82,6 @@ const Tab = () => {
         </>
       ),
     },
-
-    {
-      idx: 1,
-      ele: (
-        <>
-          <IndividualForm
-            userData={userData}
-            setUserData={setUserData}
-            errors={errors}
-          />
-        </>
-      ),
-    },
-
-    {
-      idx: 2,
-      ele: (
-        <>
-          <ImageSection userData={userData} setUserData={setUserData} />
-        </>
-      ),
-    },
   ];
 
   let maxIndex = 4 - 1;
@@ -85,7 +89,7 @@ const Tab = () => {
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
 
-    if (newIndex > 1 && val > 0) {
+    if (newIndex > 0 && val > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (emailRegex.test(userData?.email) && userData?.email?.length > 0) {
         setErrors({});

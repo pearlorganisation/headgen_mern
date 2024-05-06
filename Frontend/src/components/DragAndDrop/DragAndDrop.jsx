@@ -42,7 +42,7 @@ const DragAndDrop = ({ addFile, removeFile, setSelectedImage, maxUploads }) => {
         beforeUpload={beforeUploadHandler}
         onPreview={handlePreview}
         accept="image/*"
-        className="h-[150px]"
+        className="h-[120px]"
       >
         <p className="ant-upload-drag-icon flex justify-center">
           <GoPlus size={48} className="text-blue-700" />

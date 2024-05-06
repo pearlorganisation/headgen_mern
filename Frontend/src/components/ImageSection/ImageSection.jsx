@@ -83,23 +83,24 @@ const ImageSection = () => {
 
   return (
     <div className="flex w-full h-full justify-center">
-      <Card
-        className="w-[40%] h-[100%] relative"
-        // actions={[<Button type="primary">Submit</Button>]}
-      >
-        <DragAndDrop
-          addFile={addFile}
-          removeFile={removeFile}
-          setSelectedImage={setSelectedImage}
-          maxUploads={maxUploads}
-        />
-
-        <div className="absolute top-[60%] px-2">
+      <div className="bg-white rounded-lg overflow-auto">
+        <Card
+          className="w-[100%] h-[350px] !shadow-none !border-none !mb-2"
+          // actions={[<Button type="primary">Submit</Button>]}
+        >
+          <DragAndDrop
+            addFile={addFile}
+            removeFile={removeFile}
+            setSelectedImage={setSelectedImage}
+            maxUploads={maxUploads}
+          />
+        </Card>
+        <div className="px-6 text-sm">
           <h2 class="mb-2 text-lg font-semibold text-gray-900">
             Upload requirements:
           </h2>
           <ul class="max-w-md space-y-1 text-gray-700 list-disc list-inside">
-            <li>Please upload  1-4 images.</li>
+            <li>Please upload 1-4 images.</li>
             <li>Accepted format .jpeg, .jpg or .heic</li>
             <li>Please ensure that your image is less than 2mb</li>
             <li>Please make sure only 1 person is in the image.</li>
@@ -109,7 +110,7 @@ const ImageSection = () => {
             </li>
           </ul>
         </div>
-      </Card>
+      </div>
 
       <div className="w-[60%] max-h-full overflow-auto px-4 flex flex-col gap-2">
         {selectedImage && (

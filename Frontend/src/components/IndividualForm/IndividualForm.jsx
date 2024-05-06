@@ -47,6 +47,11 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
     },
     {
       name: "Doctor Headshots",
+      headshotInfo: {
+        title: "",
+        content: "",
+        imgPath: "/headshots/healthcare.webp"
+      }
     },
     {
       name: "Lawyer Headshots",
