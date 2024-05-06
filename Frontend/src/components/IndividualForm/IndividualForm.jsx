@@ -48,22 +48,48 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
     {
       name: "Doctor Headshots",
       headshotInfo: {
+        tag: "Doctor Headshots",
         title: "",
         content: "",
-        imgPath: "/headshots/healthcare.webp"
-      }
+        imgPath: "/headshots/healthcare.webp",
+      },
     },
     {
       name: "Lawyer Headshots",
+      headshotInfo: {
+        tag: "Lawyer Headshots",
+        title: "",
+        content: "",
+        imgPath: "/headshots/lawyer.webp",
+      },
     },
     {
       name: "Sales Headshots",
+      headshotInfo: {
+        tag: "Sales Headshots",
+        title: "",
+        content: "",
+        imgPath: "/headshots/sales.webp",
+      },
     },
     {
       name: "Students Headshots",
+      headshotInfo: {
+        tag: "Students Headshots",
+        title: "",
+        content: "",
+        imgPath: "/headshots/student.webp",
+      },
     },
     {
       name: "Teacher Headshots",
+      headshotInfo: {
+        tag: "Teacher Headshots",
+        title: "The best AI headshots for teachers",
+        content:
+          "Get professional headshots in minutes with the most realistic AI headshot generator ever. Perfect for school websites, learning platform, and more. Set a good first impression for students and their parents.",
+        imgPath: "/headshots/teacher.webp",
+      },
     },
     {
       name: "Youtube / Instagram",
@@ -93,6 +119,7 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
             placeholder="Enter your email"
             className="w-2/3 text-center bg-[#f1f1f1]  text-[#131313] text-[18px] px-2 rounded-lg  shadow-[0_0_0_1px_#5d5b68] focus:shadow-[0_0_0_1px_#1d2838]"
           />
+
           <div className="text-[#ff1717] text-[16px] leading-3">
             {errors?.email && errors?.email}
           </div>
@@ -113,7 +140,7 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
                   className={`bg-[#f1f1f1]  text-[#131313] ${
                     userData?.gender === item?.name
                       ? "!bg-[#355cc9] text-[#f1f1f1]"
-                      : "bg-[#f1f1f1] "
+                      : "bg-[#f1f1f1]"
                   } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-1/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2`}
                 >
                   <span className="flex flex-col justify-center">
@@ -131,25 +158,27 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
       <div className="flex w-full ">
         <div className="flex flex-col justify-center items-center gap-2 w-1/2 max-h-[400px] overflow-auto">
           <div className="text-2xl">Headshot Type:</div>
-          {headshots &&
-            headshots?.map((item, idx) => (
-              <div
-                key={`headshotType${idx}`}
-                className={`bg-[#f1f1f1]  text-[#131313] ${
-                  userData?.headshotType === item?.name
-                    ? "!bg-[#355cc9] text-[#f1f1f1]"
-                    : "bg-[#f1f1f1] "
-                } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-2/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
-                onClick={() => {
-                  setHeadshotType(item?.name);
-                }}
-              >
-                <span>{item?.name}</span>
-                <span className="absolute right-4 -translate-y-1/2 top-1/2">
-                  <FaChevronRight />
-                </span>
-              </div>
-            ))}
+          <div className="flex flex-row justify-center flex-wrap gap-1">
+            {headshots &&
+              headshots?.map((item, idx) => (
+                <div
+                  key={`headshotType${idx}`}
+                  className={`bg-[#f1f1f1]  text-[#131313] ${
+                    userData?.headshotType === item?.name
+                      ? "!bg-[#355cc9] text-[#f1f1f1]"
+                      : "bg-[#f1f1f1] "
+                  } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-[48%] transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
+                  onClick={() => {
+                    setHeadshotType(item?.name);
+                  }}
+                >
+                  <span>{item?.name}</span>
+                  <span className="absolute right-4 -translate-y-1/2 top-1/2">
+                    <FaChevronRight />
+                  </span>
+                </div>
+              ))}
+          </div>
         </div>
 
         <div className="flex flex-col justify-center items-center gap-2 w-1/2 max-h-[400px] overflow-auto">
@@ -177,6 +206,36 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
           </Swiper>
         </div>
       </div>
+      {headshots
+        ?.filter((item) => {
+          return item?.name === headshotType && item?.headshotInfo;
+        })
+        .map((filteredItem, idx) => (
+          <div
+            key={`filteredItem${idx}`}
+            className="w-full !glassMorphism !bg-gradient-to-br from-[#1b222d] via-[#212d3f] to-[#161f2c] mt-10 py-10 rounded-xl flex shadow-[0_0_1px#ababab] relative"
+          >
+            <div className="w-fit px-2 rounded-lg bg-orange-500 text-white text-lg absolute left-10">
+              {filteredItem?.headshotInfo?.tag}
+            </div>
+            <div className="flex flex-col justify-center gap-4 w-[50%] px-10">
+              <div className="text-5xl text-[#F1F1F1]">
+                {filteredItem?.headshotInfo?.title}
+              </div>
+              <div className="text-base 2xl:text-[24px] text-[#F1F1F1]">
+                {filteredItem?.headshotInfo?.content}
+              </div>
+            </div>
+            <div className=" w-[50%]">
+              <img
+                src={`${filteredItem?.headshotInfo?.imgPath}`}
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        ))}
+
+      <div></div>
     </div>
   );
 };
