@@ -134,7 +134,7 @@ const Customize = () => {
                                     <label onClick={() => {
                                         setSubSectionData(item?.subSection)
                                     }}
-                                        className='px-6 py-2 flex gap-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300' htmlFor={item?.section}>
+                                        className='px-6 py-2 flex justify-center hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:text-blue-700 peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300' htmlFor={item?.section}>
                                         <span>
                                             {item?.icon}
                                         </span>
@@ -180,7 +180,7 @@ const Customize = () => {
                                     <label onClick={() => {
                                         setSubSectionImages(item?.images)
                                     }}
-                                        className='px-6 py-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300' htmlFor={item?.title}>{item?.title} </label>
+                                        className='px-6 py-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] peer-checked:text-blue-700 ring-indigo-500/80 transition duration-300' htmlFor={item?.title}>{item?.title} </label>
 
 
                                 </div>
@@ -192,7 +192,7 @@ const Customize = () => {
                     <section className='flex justify-around gap-4 items-center flex-wrap'>
                         {
                             subSectionImages?.map(item => {
-                                return <img src={item?.path} className='w-[200px] h-[200px] cursor-pointer hover:shadow-[0_0_0_1px#ffffff] rounded-xl transition duration-300' />
+                                return <img src={item?.path} className='w-[200px] h-[200px] cursor-pointer hover:shadow-[0_0_0_1px#001066] rounded-xl transition duration-300' />
                             })
                         }
                     </section>
