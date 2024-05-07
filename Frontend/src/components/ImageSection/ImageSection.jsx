@@ -82,7 +82,7 @@ const ImageSection = () => {
   ];
 
   return (
-    <div className="flex w-full h-full justify-center">
+    <div className="flex w-full h-full justify-center max-h-[650px]">
       <div className="bg-white rounded-lg overflow-auto">
         <Card
           className="w-[100%] h-[350px] !shadow-none !border-none !mb-2"
@@ -125,7 +125,7 @@ const ImageSection = () => {
           </>
         )}
 
-        <div className="w-full h-fit bg-[#ecfff1] text-black rounded-md flex flex-col gap-2 p-4">
+        <div className="w-full h-[400px] bg-[#ecfff1] text-black rounded-md flex flex-col gap-2 p-4">
           <div className="text-[18px]">✅ PHOTO REQUIREMENTS</div>
           <div className="w-full flex h-[360px] gap-2 p-4">
             {correctData &&
@@ -133,7 +133,7 @@ const ImageSection = () => {
                 <div className="flex flex-col  rounded-2xl w-[32%] max-w-[200px]">
                   <img
                     src={item?.imgPath}
-                    className="w-full h-2/3 rounded-2xl"
+                    className="w-full h-[190px] rounded-2xl"
                   />
                   <span className="text-justified text-[14px] text-[#131313] leading-relaxed p-1">
                     {item?.content}
@@ -143,7 +143,7 @@ const ImageSection = () => {
           </div>
         </div>
 
-        <div className="w-full h-fit bg-[#ffecec] text-black rounded-md flex flex-col gap-2 p-4">
+        <div className="w-full h-[400px] bg-[#ffecec] text-black rounded-md flex flex-col gap-2 p-4">
           <div className="text-[18px]">❌ PHOTO RESTRICTIONS</div>
           <div className="w-full flex h-[360px] gap-2 p-4">
             {incorrectData &&
@@ -151,7 +151,7 @@ const ImageSection = () => {
                 <div className="flex flex-col  rounded-2xl w-[32%] max-w-[200px]">
                   <img
                     src={item?.imgPath}
-                    className="w-full h-2/3 rounded-2xl"
+                    className="w-full h-[190px] rounded-2xl"
                   />
                   <span className="text-justified text-[14px] text-[#131313] leading-relaxed p-1">
                     {item?.content}

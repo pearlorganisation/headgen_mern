@@ -49,8 +49,8 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
       name: "Doctor Headshots",
       headshotInfo: {
         tag: "Doctor Headshots",
-        title: "",
-        content: "",
+        title: "Professional Medical, Doctor, & ERAS Headshots with AI",
+        content: "Elevate your healthcare profile with professional AI-generated medical headshots—perfect for doctors, medical school applications, or ERAS residency. Built by AI researchers from Meta and Microsoft.",
         imgPath: "/headshots/healthcare.webp",
       },
     },
@@ -58,8 +58,8 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
       name: "Lawyer Headshots",
       headshotInfo: {
         tag: "Lawyer Headshots",
-        title: "",
-        content: "",
+        title: "Professional Lawyer Headshots with AI",
+        content: "Get professional attorney headshots in minutes with the most realistic AI headshot generator ever. Built by AI researchers from Meta and Microsoft.",
         imgPath: "/headshots/lawyer.webp",
       },
     },
@@ -67,8 +67,8 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
       name: "Sales Headshots",
       headshotInfo: {
         tag: "Sales Headshots",
-        title: "",
-        content: "",
+        title: "Close more leads with our charming AI headshots",
+        content: "Update your professional headshot in minutes with the most realistic AI headshot generator ever. Built by AI researchers from Meta and Microsoft.",
         imgPath: "/headshots/sales.webp",
       },
     },
@@ -76,8 +76,8 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
       name: "Students Headshots",
       headshotInfo: {
         tag: "Students Headshots",
-        title: "",
-        content: "",
+        title: "Land more jobs with our professional AI headshots",
+        content: "Get affordable professional headshots in minutes with the most realistic AI headshot generator ever. Built by AI researchers from Meta and Microsoft.",
         imgPath: "/headshots/student.webp",
       },
     },
@@ -219,7 +219,7 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
               {filteredItem?.headshotInfo?.tag}
             </div>
             <div className="flex flex-col justify-center gap-4 w-[50%] px-10">
-              <div className="text-5xl text-[#F1F1F1]">
+              <div className="text-5xl text-[#F1F1F1] font-bold">
                 {filteredItem?.headshotInfo?.title}
               </div>
               <div className="text-base 2xl:text-[24px] text-[#F1F1F1]">

@@ -553,7 +553,7 @@ const Home = () => {
         </div>
 
         {/* turn your selfie info card */}
-        <div className="w-full bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-10 rounded-xl shadow-[0_0_0_1px_#2563EB] flex ">
+        <div className="w-full bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-10 rounded-xl shadow-[0_0_5px_2px#f1f1f1] flex ">
           <div className="flex flex-col justify-evenly gap-4 w-[50%] px-10">
             <div className="text-[32px] xl:text-[48px] 2xl:text-5xl text-[#F1F1F1]">
               Turn your selfie into
