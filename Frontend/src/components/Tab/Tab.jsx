@@ -4,13 +4,18 @@ import { useState } from "react";
 import PriceCards from "../PriceCards/PriceCards";
 import IndividualForm from "../IndividualForm/IndividualForm";
 import ImageSection from "../ImageSection/ImageSection";
+import Customize from "../Customize/Customize";
 
 const Tab = () => {
-  const [userData, setUserData] = useState({email:''});
+  const [userData, setUserData] = useState({ email: "" });
   const [errors, setErrors] = useState({});
 
   const [tabSwitched, setTabSwitched] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const tabs = ["Individual", "Teams", "Customize", "Prompts"];
+  const [tabText, setTabText] = useState("Individual");
+  const fieldsRef = useRef();
 
   const tabContentRef = useRef(null);
 
@@ -42,7 +47,6 @@ const Tab = () => {
   ];
 
   const indivdualData = [
-    
     {
       idx: 0,
       ele: (
@@ -51,12 +55,10 @@ const Tab = () => {
             userData={userData}
             setUserData={setUserData}
             errors={errors}
-
           />
         </>
       ),
     },
-
 
     {
       idx: 1,
@@ -67,7 +69,6 @@ const Tab = () => {
       ),
     },
 
-    
     {
       idx: 2,
       ele: (
@@ -117,36 +118,42 @@ const Tab = () => {
 
   return (
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px]">
-      <div className="rounded-full w-[200px] bg-gradient-to-br from-[#1d2838] to-[#1d283880] p-1 px-2 relative h-[50px] flex justify-between">
-        <span
-          className="text-center w-1/2 flex flex-col justify-center text-[#a9acb1] cursor-pointer"
-          onClick={() => setTabSwitched(true)}
-        >
-          Individual
-        </span>
-        <span
-          className="text-center w-1/2 flex flex-col justify-center text-[#a9acb1] cursor-pointer"
-          onClick={() => setTabSwitched(false)}
-        >
-          Teams
-        </span>
-        <div
-          className={`absolute rounded-full w-1/2 top-1/2 -translate-y-1/2 h-[80%] flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] ${
-            tabSwitched ? "translate-x-0" : "translate-x-[85%]"
-          } z-[10] transition duration-300`}
-        >
-          <div>
-            <div
-              className={"text-[#ffffff] font-semibold transition duration-300"}
-            >
-              {tabSwitched ? "Individual" : "Teams"}
+      <div
+        ref={fieldsRef}
+        className="rounded-full   bg-gradient-to-br from-[#1d2838] to-[#1d283880] p-1 px-2 relative h-[50px] flex justify-between"
+      >
+        {tabs?.map((item) => {
+          return (
+            <div className="relative">
+              <div
+                className={` ${
+                  tabText === item ? "flex" : "hidden"
+                }  absolute text-white h-full `}
+              >
+                <span
+                  className={` rounded-full h-full w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
+                  onClick={() => {}}
+                >
+                  {item}
+                </span>
+              </div>
+
+              <span
+                className={` rounded-full h-full w-[10rem] cursor-pointer  flex flex-col justify-center text-center text-white  z-[10] transition duration-300`}
+                onClick={() => {
+                  setTabSwitched(true);
+                  setTabText(item);
+                }}
+              >
+                {item}
+              </span>
             </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
-      <div className="shadow-[0_0_0_1px_#babcbf80] rounded-xl px-20 2xl:px-24 py-12 w-full 2xl:w-[1200px]  bg-gradient-to-br from-[#1d2838] to-[#1d283880]">
+      <div className="shadow-[0_0_0_1px_#babcbf80] rounded-xl px-20 2xl:px-24 py-12 w-full 2xl:w-[1200px] h-[700px] bg-gradient-to-br from-[#1d2838] to-[#1d283880]">
         <div className="text-white text-3xl h-full ">
-          {tabSwitched ? (
+          {tabText === "Individual" && (
             <div
               className="flex flex-col justify-between h-full gap-8"
               ref={tabContentRef}
@@ -154,7 +161,14 @@ const Tab = () => {
               {indivdualData &&
                 indivdualData?.map((item, idx) => {
                   if (item?.idx === currentIndex) {
-                    return <div className="h-[90%] w-full" key={`individualData${idx}`}>{item?.ele}</div>;
+                    return (
+                      <div
+                        className="h-[90%] w-full"
+                        key={`individualData${idx}`}
+                      >
+                        {item?.ele}
+                      </div>
+                    );
                   }
                 })}
 
@@ -177,9 +191,14 @@ const Tab = () => {
                 </button>
               </div>
             </div>
-          ) : (
-            "Teams"
           )}
+          {tabText === "Teams" && <div>{tabText}</div>}
+          {tabText === "Customize" && (
+            <div>
+              <Customize />
+            </div>
+          )}
+          {tabText === "Prompts" && <div>{tabText}</div>}
         </div>
       </div>
     </div>

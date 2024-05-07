@@ -14,13 +14,11 @@ import CancellationAndRefunds from "./pages/CancellationAndRefunds/CancellationA
 import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import UploadPage from "./pages/UploadPage/UploadPage";
-import Customize from "./pages/Customize/Customize";
 import PaymentSuccess from "./pages/PaymentSuccess/PaymentSuccess";
 import PaymentCancel from "./pages/PaymentCancel/PaymentCancel";
+import Checkout from "./pages/Checkout/Checkout";
 
 function App() {
-
-
   return (
     <>
       <Header />
@@ -33,8 +31,7 @@ function App() {
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/dating" element={<Dating />} />
         <Route path="/upload/:headshot?" element={<UploadPage />} />
-        <Route path="/test" element={<BeforeAfterSlider />} />
-        <Route path="/customize" element={<Customize />} />
+        <Route path="/test" element={<Checkout />} />
         <Route path="/success" element={<PaymentSuccess />} />
         <Route path="/cancel" element={<PaymentCancel />} />
         
