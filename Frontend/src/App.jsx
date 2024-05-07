@@ -15,6 +15,8 @@ import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import Customize from "./pages/Customize/Customize";
+import PaymentSuccess from "./pages/paymentSuccess/paymentSuccess";
+import PaymentCancel from "./pages/paymentCancel/paymentCancel";
 
 function App() {
 
@@ -33,6 +35,9 @@ function App() {
         <Route path="/upload/:headshot?" element={<UploadPage />} />
         <Route path="/test" element={<BeforeAfterSlider />} />
         <Route path="/customize" element={<Customize />} />
+        <Route path="/success" element={<PaymentSuccess />} />
+        <Route path="/cancel" element={<PaymentCancel />} />
+        
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
