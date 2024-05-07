@@ -20,7 +20,7 @@ app.use(
         "http://localhost:5173",
         "https://headgen-mern-2.vercel.app",
       ],
-      credentials: true,
+      // credentials: true,
       methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
       exposedHeaders: ["*", "Authorization"],
