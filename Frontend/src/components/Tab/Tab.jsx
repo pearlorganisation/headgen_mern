@@ -88,6 +88,7 @@ const Tab = () => {
   let maxIndex = 4 - 1;
   const tabs = ["Individual", "Teams", 'Customize', 'Prompts']
   const [tabText, setTabText] = useState('Individual')
+  const fieldsRef = useRef()
 
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
@@ -121,7 +122,7 @@ const Tab = () => {
 
   return (
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px]">
-      <div className="rounded-full   bg-gradient-to-br from-[#1d2838] to-[#1d283880] p-1 px-2 relative h-[50px] flex justify-between">
+      <div ref={fieldsRef} className="rounded-full   bg-gradient-to-br from-[#1d2838] to-[#1d283880] p-1 px-2 relative h-[50px] flex justify-between">
 
         {
           tabs?.map(item => {
