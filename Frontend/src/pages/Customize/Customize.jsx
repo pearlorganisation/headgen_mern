@@ -120,26 +120,24 @@ const Customize = () => {
 
 
     return (
-        <div className="flex flex-col justify-center items-center gap-10 px-10 pt-40 2xl:px-[80px]">
-            <div className="shadow-[0_0_0_1px_#babcbf80] grid place-items-center rounded-xl px-20 2xl:px-24 py-12 w-full 2xl:w-[1200px] h-[700px] bg-gradient-to-br from-[#1d2838] to-[#1d283880]">
-                <div className="text-[#121212] text-3xl h-fit space-y-8 bg-[#f1f1f1] p-10 rounded-2xl">
-                    <div className='w-full flex justify-center gap-3'>
-                        {
-                            temp?.map(item => {
-                                return <div className=' w-1/4'>
-                                    <input
+        <div className="text-[#121212] text-3xl h-fit space-y-8 bg-[#f1f1f1] p-10 rounded-2xl">
+            <div className='w-full flex justify-center gap-3'>
+                {
+                    temp?.map(item => {
+                        return <div className=' w-1/4'>
+                            <input
 
-                                        name='sectionName'
-                                        className="peer hidden" type="radio" value={item?.section} id={`${item?.section}`} />
-                                    <label onClick={() => {
-                                        setSubSectionData(item?.subSection)
-                                    }}
-                                        className='px-6 py-2 flex gap-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300' htmlFor={item?.section}>
-                                        <span>
-                                            {item?.icon}
-                                        </span>
-                                        {item?.section} </label>
-                                    {/* <button onClick={() => {
+                                name='sectionName'
+                                className="peer hidden" type="radio" value={item?.section} id={`${item?.section}`} />
+                            <label onClick={() => {
+                                setSubSectionData(item?.subSection)
+                            }}
+                                className='px-6 py-2  flex justify-center items-center gap-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300' htmlFor={item?.section}>
+                                <span>
+                                    {item?.icon}
+                                </span>
+                                {item?.section} </label>
+                            {/* <button onClick={() => {
                                         setSubSectionData(item?.subSection)
                                     }} className='flex flex-col w-full justify-center items-center  hover:shadow-[0_3px#0000FF] hover:text-blue-700 px-6 py-3  cursor-pointer border-4 border-transparent peer-checked:border-white peer-checked:ring-4 ring-indigo-500/80 transition-all'>
                                         <span>
@@ -149,9 +147,9 @@ const Customize = () => {
                                             {item?.section}
                                         </span>
                                     </button> */}
-                                </div>
+                        </div>
 
-                                {/* <div className="relative ">
+                        {/* <div className="relative ">
                                     <input
 
                                         name='subSectionTitle'
@@ -165,40 +163,38 @@ const Customize = () => {
                                 </div> */}
 
 
-                            })
-                        }
-                    </div>
-                    <section className='flex justify-around items-center flex-wrap p-2 text-lg gap-3'>
-                        {
-                            subSectionData?.map(item => {
-
-                                return <div className="relative ">
-                                    <input
-
-                                        name='subSectionTitle'
-                                        className="peer hidden" type="radio" value={item?.title} id={`${item?.title}`} />
-                                    <label onClick={() => {
-                                        setSubSectionImages(item?.images)
-                                    }}
-                                        className='px-6 py-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300' htmlFor={item?.title}>{item?.title} </label>
-
-
-                                </div>
-
-
-                            })
-                        }
-                    </section>
-                    <section className='flex justify-around gap-4 items-center flex-wrap'>
-                        {
-                            subSectionImages?.map(item => {
-                                return <img src={item?.path} className='w-[200px] h-[200px] cursor-pointer hover:shadow-[0_0_0_1px#ffffff] rounded-xl transition duration-300' />
-                            })
-                        }
-                    </section>
-                    {/* <div><img src="/slider1/1.jpg" className='w-[200px] h-[200px] hover:shadow-[0_0_0_1px#ffffff] rounded-xl transition duration-300' /></div> */}
-                </div>
+                    })
+                }
             </div>
+            <section className='flex justify-around items-center flex-wrap p-2 text-lg gap-3'>
+                {
+                    subSectionData?.map(item => {
+
+                        return <div className="relative ">
+                            <input
+
+                                name='subSectionTitle'
+                                className="peer hidden" type="radio" value={item?.title} id={`${item?.title}`} />
+                            <label onClick={() => {
+                                setSubSectionImages(item?.images)
+                            }}
+                                className='px-6 py-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300' htmlFor={item?.title}>{item?.title} </label>
+
+
+                        </div>
+
+
+                    })
+                }
+            </section>
+            <section className='flex justify-around gap-4 items-center flex-wrap'>
+                {
+                    subSectionImages?.map(item => {
+                        return <img src={item?.path} className='w-[200px] h-[200px] cursor-pointer hover:shadow-[0_0_0_1px#ffffff] rounded-xl transition duration-300' />
+                    })
+                }
+            </section>
+            {/* <div><img src="/slider1/1.jpg" className='w-[200px] h-[200px] hover:shadow-[0_0_0_1px#ffffff] rounded-xl transition duration-300' /></div> */}
         </div>
     )
 }
