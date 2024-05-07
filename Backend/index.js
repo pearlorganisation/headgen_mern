@@ -16,7 +16,10 @@ app.use(express.json());
 
 app.use(
     cors({
-      origin: ["http://localhost:5173"],
+      origin: [
+        "http://localhost:5173",
+        "https://headgen-mern-2.vercel.app",
+      ],
       credentials: true,
       methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
