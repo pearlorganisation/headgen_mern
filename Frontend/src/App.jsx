@@ -15,8 +15,8 @@ import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import Customize from "./pages/Customize/Customize";
-import PaymentSuccess from "./pages/paymentSuccess/paymentSuccess";
-import PaymentCancel from "./pages/paymentCancel/paymentCancel";
+import PaymentSuccess from "./pages/PaymentSuccess/PaymentSuccess";
+import PaymentCancel from "./pages/PaymentCancel/PaymentCancel";
 
 function App() {
 
