@@ -121,7 +121,7 @@ const Customize = () => {
 
     return (
         <div className="text-[#121212] text-3xl h-fit space-y-8 bg-[#f1f1f1] p-10 rounded-2xl">
-            <div className='w-full flex justify-center gap-3'>
+            <div className='w-full flex justify-center flex-wrap gap-3'>
                 {
                     temp?.map(item => {
                         return <div className=' w-1/4'>

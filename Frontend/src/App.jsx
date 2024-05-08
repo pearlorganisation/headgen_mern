@@ -15,6 +15,8 @@ import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import Customize from "./pages/Customize/Customize";
+import ImgCropT from "./pages/CropTool/ImgCropT";
+
 
 function App() {
 
@@ -33,6 +35,7 @@ function App() {
         <Route path="/upload/:headshot?" element={<UploadPage />} />
         <Route path="/test" element={<BeforeAfterSlider />} />
         <Route path="/customize" element={<Customize />} />
+        <Route path="/imageCrop" element={<ImgCropT />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
