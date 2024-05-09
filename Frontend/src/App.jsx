@@ -16,6 +16,7 @@ import ContactUs from "./pages/ContactUs/ContactUs";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import Customize from "./pages/Customize/Customize";
 import ImgCropT from "./pages/CropTool/ImgCropT";
+import Test from "./pages/Test/Test";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path="/test" element={<BeforeAfterSlider />} />
         <Route path="/customize" element={<Customize />} />
         <Route path="/imageCrop" element={<ImgCropT selectedImage='https://i0.wp.com/picjumbo.com/wp-content/uploads/camping-on-top-of-the-mountain-during-sunset-free-photo.jpg?w=600&quality=80' />} />
+        <Route path='/tests' element={<Test />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
