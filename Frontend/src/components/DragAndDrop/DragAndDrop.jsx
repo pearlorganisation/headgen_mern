@@ -9,7 +9,7 @@ const DragAndDrop = ({ addFile, removeFile, setSelectedImage, maxUploads }) => {
 
   const beforeUploadHandler = (file) => {
     addFile(file);
-    
+
     return false;
   };
 

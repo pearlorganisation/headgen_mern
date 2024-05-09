@@ -3,17 +3,18 @@ import React, { useEffect, useRef, useState } from "react";
 import useFileSelection from "../../hooks/useFileSelection";
 import DragAndDrop from "../DragAndDrop/DragAndDrop";
 import { Button, Card } from "antd";
+import ImgCropT from "../../pages/CropTool/ImgCropT";
 
 const ImageSection = () => {
   const maxUploads = 4;
   const [selectedImage, setSelectedImage] = useState(null);
-  const [addFile, removeFile] = useFileSelection();
+  const [addFile, removeFile, updateFile] = useFileSelection();
 
   // react image crop here
 
-  useEffect(() => {
-    console.log(selectedImage);
-  }, [selectedImage]);
+  // useEffect(() => {
+  //   console.log(selectedImage);
+  // }, [selectedImage]);
 
   const correctData = [
     {
@@ -86,7 +87,7 @@ const ImageSection = () => {
       <div className="bg-white rounded-lg overflow-auto">
         <Card
           className="w-[100%] h-[350px] !shadow-none !border-none !mb-2"
-          // actions={[<Button type="primary">Submit</Button>]}
+        // actions={[<Button type="primary">Submit</Button>]}
         >
           <DragAndDrop
             addFile={addFile}
@@ -112,13 +113,13 @@ const ImageSection = () => {
         </div>
       </div>
 
-      <div className="w-[60%] max-h-full overflow-auto px-4 flex flex-col gap-2">
+      <div className="w-[60%] relative max-h-full overflow-auto px-4 flex flex-col gap-2">
         {selectedImage && (
           <>
             <div>
               {selectedImage && (
-                <div className="absolute w-[500px] h-[500px]">
-                  {/* react image crop here!! */}
+                <div className="absolute  w-full h-full top-0 bg-white/10 backdrop-blur-md">
+                  <ImgCropT selectedImage={selectedImage} updateFile={updateFile} />
                 </div>
               )}
             </div>

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import ReactCrop, {
   centerCrop,
@@ -35,7 +35,7 @@ function centerAspectCrop(
   );
 }
 
-const ImgCropT = () => {
+const ImgCropT = ({ selectedImage, updateFile }) => {
   const [imgSrc, setImgSrc] = useState("");
   const previewCanvasRef = useRef<HTMLCanvasElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -57,6 +57,12 @@ const ImgCropT = () => {
       reader.readAsDataURL(e.target.files[0]);
     }
   }
+
+  useEffect(() => {
+    if (selectedImage) {
+      setImgSrc(selectedImage);
+    }
+  }, [selectedImage]);
 
   function onImageLoad(e: React.SyntheticEvent<HTMLImageElement>) {
     if (aspect) {
@@ -109,10 +115,20 @@ const ImgCropT = () => {
     }
     blobUrlRef.current = URL.createObjectURL(blob);
 
+    // converting blob to base64
+    const reader = new FileReader();
+    reader.onload = function () {
+      const base64 = reader.result;
+      updateFile(selectedImage, base64);
+      console.log(base64, "base64");
+    };
+    reader.readAsDataURL(blob);
     if (hiddenAnchorRef.current) {
       hiddenAnchorRef.current.href = blobUrlRef.current;
       hiddenAnchorRef.current.click();
     }
+
+    console.log(blobUrlRef.current, "blobUrlRef.current");
   }
 
   useDebounceEffect(
@@ -150,63 +166,96 @@ const ImgCropT = () => {
         // Updates the preview
         setCompletedCrop(convertToPixelCrop(newCrop, width, height));
       }
+      if (hiddenAnchorRef.current) {
+        hiddenAnchorRef.current.href = blobUrlRef.current;
+        hiddenAnchorRef.current.click();
+      }
     }
   }
 
   return (
-    <div className="min-h-screen bg-white pt-32">
-      <div className="Crop-Controls">
-        <input type="file" accept="image/*" onChange={onSelectFile} />
-        <div>
-          <label htmlFor="scale-input">Scale: </label>
-          <input
-            id="scale-input"
-            type="number"
-            step="0.1"
-            value={scale}
-            disabled={!imgSrc}
-            onChange={(e) => setScale(Number(e.target.value))}
-          />
-        </div>
-        <div>
-          <label htmlFor="rotate-input">Rotate: </label>
-          <input
-            id="rotate-input"
-            type="number"
-            value={rotate}
-            disabled={!imgSrc}
-            onChange={(e) =>
-              setRotate(Math.min(180, Math.max(-180, Number(e.target.value))))
-            }
-          />
-        </div>
-        <div>
-          <button onClick={handleToggleAspectClick}>
-            Toggle aspect {aspect ? "off" : "on"}
-          </button>
+    <div className=" bg-white">
+      {/* imgSrc */}
+      <div className="w-full h-full border-2 space-y-2 p-1 border-red-600">
+        {selectedImage && (
+          <ReactCrop
+            crop={crop}
+            onChange={(_, percentCrop) => setCrop(percentCrop)}
+            onComplete={(c) => setCompletedCrop(c)}
+            aspect={undefined}
+            // minWidth={400}
+            minHeight={100}
+            // circularCrop
+          >
+            <img
+              ref={imgRef}
+              alt="Crop me"
+              src={
+                selectedImage ||
+                "https://i0.wp.com/picjumbo.com/wp-content/uploads/camping-on-top-of-the-mountain-during-sunset-free-photo.jpg?w=600&quality=80"
+              }
+              style={{
+                width: "500px",
+                // height: "500px",
+                transform: `scale(${scale}) rotate(${rotate}deg)`,
+              }}
+              onLoad={onImageLoad}
+            />
+          </ReactCrop>
+        )}
+        <button
+          onClick={onDownloadCropClick}
+          className="px-6 py-2 !text-base bg-indigo-500 rounded-md"
+        >
+          Save
+        </button>
+        <div className="Crop-Controls space">
+          {/* <input type="file" accept="image/*" onChange={onSelectFile} /> */}
+          <div className="PB-range-slider-div">
+            <label htmlFor="scale-input" className="text-black">
+              Scale:{" "}
+            </label>
+            <input
+              id="scale-input"
+              type="range"
+              step="0.1"
+              max="5"
+              min="1"
+              value={scale}
+              disabled={!imgSrc}
+              onChange={(e) => setScale(Number(e.target.value))}
+              className="PB-range-slider"
+            />
+            <p className="PB-range-slidervalue">50px</p>
+          </div>
+
+          <div className="PB-range-slider-div">
+            <label htmlFor="rotate-input" className="text-black">
+              Rotate:{" "}
+            </label>
+            <input
+              type="range"
+              step="0.1"
+              id="rotate-input"
+              value={rotate}
+              disabled={!imgSrc}
+              onChange={(e) =>
+                setRotate(Math.min(180, Math.max(-180, Number(e.target.value))))
+              }
+              className="PB-range-slider"
+            />
+            <p className="PB-range-slidervalue">50px</p>
+          </div>
+
+          <div>
+            <button onClick={handleToggleAspectClick}>
+              Toggle aspect {aspect ? "off" : "on"}
+            </button>
+          </div>
         </div>
       </div>
-      {!!imgSrc && (
-        <ReactCrop
-          crop={crop}
-          onChange={(_, percentCrop) => setCrop(percentCrop)}
-          onComplete={(c) => setCompletedCrop(c)}
-          aspect={aspect}
-          // minWidth={400}
-          minHeight={100}
-          // circularCrop
-        >
-          <img
-            ref={imgRef}
-            alt="Crop me"
-            src={imgSrc}
-            style={{ transform: `scale(${scale}) rotate(${rotate}deg)` }}
-            onLoad={onImageLoad}
-          />
-        </ReactCrop>
-      )}
       {!!completedCrop && (
-        <>
+        <div className="hidden">
           <div>
             <canvas
               ref={previewCanvasRef}
@@ -219,7 +268,12 @@ const ImgCropT = () => {
             />
           </div>
           <div>
-            <button onClick={onDownloadCropClick}>Download Crop</button>
+            <button
+              onClick={onDownloadCropClick}
+              className="px-6 py-2 !font-medium bg-green-500 rounded-md"
+            >
+              Save
+            </button>
             <div style={{ fontSize: 12, color: "#666" }}>
               If you get a security error when downloading try opening the
               Preview in a new tab (icon near top right).
@@ -237,7 +291,7 @@ const ImgCropT = () => {
               Hidden download
             </a>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

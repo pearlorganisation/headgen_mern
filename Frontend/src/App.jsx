@@ -35,7 +35,7 @@ function App() {
         <Route path="/upload/:headshot?" element={<UploadPage />} />
         <Route path="/test" element={<BeforeAfterSlider />} />
         <Route path="/customize" element={<Customize />} />
-        <Route path="/imageCrop" element={<ImgCropT />} />
+        <Route path="/imageCrop" element={<ImgCropT selectedImage='https://i0.wp.com/picjumbo.com/wp-content/uploads/camping-on-top-of-the-mountain-during-sunset-free-photo.jpg?w=600&quality=80' />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
