@@ -268,6 +268,7 @@ const Home = () => {
 
       {/* featured by */}
 
+      {/* 
       <div className="flex flex-col items-center gap-6">
         <div
           className={`flex flex-row gap-6  ${
@@ -321,7 +322,7 @@ const Home = () => {
           </div>
 
         </div>
-      </div>
+      </div> */}
 
       {/* trusted by */}
 
@@ -418,7 +419,7 @@ const Home = () => {
       {/* swipe section */}
 
       <div className="px-10  xl:px-[160px] 2xl:px-[250px] flex justify-between cursor-default">
-        <div className="w-[50%] 2xl:w-[55%] bg-gradient-to-br from-[#2648a7] to-[#101a35] rounded-2xl shadow-[0_0_0_1px_#ffffff] py-10 relative transition duration-500">
+        <div className="w-[50%] 2xl:w-[55%] bg-gradient-to-br from-[#000000] via-[#000000] to-[#000000] rounded-2xl shadow-[0_0_0_1px_#ffffff] py-10 relative transition duration-500">
           <div className="flex flex-col justify-between gap-20 items-center h-full">
             <div className="flex flex-col items-center text-[48px] font-semibold text-[#F1F1F1]">
               <div>Ultra Realistic</div>
@@ -431,7 +432,7 @@ const Home = () => {
               <div>Images that are quick, easy, cheap & convenient!</div>
             </div>
           </div>
-          <div className="w-[200px] h-[200px] 2xl:w-[270px] 2xl:h-[220px] flex flex-col justify-evenly items-center !glassMorphism p-4 absolute top-1/2 -translate-y-1/2 -left-14 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff]">
+          <div className="w-[200px] h-[200px] 2xl:w-[270px] 2xl:h-[220px] flex flex-col justify-evenly items-center bg-gradient-to-br from-[#053499] to-[#2563EB] p-4 absolute top-1/2 -translate-y-1/2 -left-14 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff]">
             <div className="text-[24px] font-bold text-center">
               Professional Photoshoot
             </div>
@@ -441,7 +442,7 @@ const Home = () => {
               <div>Tedious Process</div>
             </div>
           </div>
-          <div className="w-[200px] h-[200px] 2xl:w-[270px] 2xl:h-[220px] flex flex-col justify-evenly items-center !glassMorphism p-4 absolute top-1/2 -translate-y-1/2 -right-14 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff] ">
+          <div className="w-[200px] h-[200px] 2xl:w-[270px] 2xl:h-[220px] flex flex-col justify-evenly items-center bg-gradient-to-br from-[#053499] to-[#2563EB]  p-4 absolute top-1/2 -translate-y-1/2 -right-14 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff] ">
             <div className="text-[24px] font-bold text-center">HeadGen AI</div>
             <div className="flex flex-col gap-2 text-[18px]">
               <div>$29</div>
