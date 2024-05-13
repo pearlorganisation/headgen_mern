@@ -149,18 +149,7 @@ const Customize = () => {
                                     </button> */}
                         </div>
 
-                        {/* <div className="relative ">
-                                    <input
 
-                                        name='subSectionTitle'
-                                        className="peer hidden" type="radio" value={item?.title} id={`${item?.title}`} />
-                                    <label onClick={() => {
-                                        setSubSectionImages(item?.images)
-                                    }}
-                                        className='px-6 py-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300' htmlFor={item?.title}>{item?.title} </label>
-
-
-                                </div> */}
 
 
                     })

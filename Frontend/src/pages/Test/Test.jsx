@@ -132,18 +132,18 @@ const Test = () => {
         { value: 'Corporate Gift Or Benefit', label: 'Corporate Gift Or Benefit' }
     ]
     return (
-        <div className='min-h-screen pt-32 flex justify-center items-center '>
+        <div className='!text-base flex justify-center items-center '>
 
             {
-                form ? <div className='shadow-[0_0_0_1px#f1f1f1] rounded-2xl text-white p-6 max-w-3xl w-full'>
+                form ? <div className='shadow-[0_0_0_1px#f1f1f1 rounded-2xl text-white p-6 max-w-3xl w-full'>
                     <div class="flex flex-col gap-2 pb-2">
                         <div class="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text text-4xl font-bold tracking-tight">Get in touch</div>
-                        <div class="text-white font-semibold">Get more than 25% percent off when you sign up by May 15</div>
+
                     </div>
                     <form className='space-y-3'>
                         <div className="w-full">
                             <div className="mb-2 ">Team or Company Name</div>
-                            <input className="w-full !text-black rounded-md border border-solid px-4 py-3 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
+                            <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
                         </div>
                         <div className='flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3'>
                             <div className="w-full text-black">
@@ -152,7 +152,7 @@ const Test = () => {
                                     styles={{
                                         control: (baseStyles, state) => ({
                                             ...baseStyles,
-                                            padding: '0.29rem 0',
+                                            padding: '0.08rem 0',
 
 
                                         }),
@@ -165,7 +165,7 @@ const Test = () => {
                                     styles={{
                                         control: (baseStyles, state) => ({
                                             ...baseStyles,
-                                            padding: '0.29rem 0',
+                                            padding: '0.08rem 0',
 
 
                                         }),
@@ -177,11 +177,11 @@ const Test = () => {
                         <div className='flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3'>
                             <div className="w-full">
                                 <div className="mb-2 ">First Name</div>
-                                <input className="w-full !text-black rounded-md border border-solid px-4 py-3 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
+                                <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
                             </div>
                             <div className="w-full">
                                 <div className="mb-2 ">Last Name</div>
-                                <input className="w-full !text-black rounded-md border border-solid px-4 py-3 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
+                                <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
                             </div>
                         </div>
                         <div className="w-full text-black">
@@ -190,7 +190,7 @@ const Test = () => {
                                 styles={{
                                     control: (baseStyles, state) => ({
                                         ...baseStyles,
-                                        padding: '0.29rem 0',
+                                        padding: '0.08rem 0',
 
 
                                     }),
@@ -199,11 +199,11 @@ const Test = () => {
                         </div>
                         <div className="w-full">
                             <div className="mb-2 ">Contact Email</div>
-                            <input className="w-full !text-black rounded-md border border-solid px-4 py-3 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
+                            <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
                         </div>
                         <div className="w-full">
                             <div className="mb-2 ">Website (Optional)</div>
-                            <input className="w-full !text-black rounded-md border border-solid px-4 py-3 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
+                            <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
                         </div>
                         <div>
                             <button type='button' className='py-3 bg-gradient-to-r mt-2 active:scale-[0.98] transition-all from-[#02AFDC] to-[#2563EB] w-full rounded-lg'>Submit</button>
@@ -212,7 +212,7 @@ const Test = () => {
 
                     </form>
 
-                </div> : <div className='max-w-5xl min-h-[30rem]  w-full grid md:grid-cols-2 gap-3 shadow-[0_0_0_1px#f1f1f1] rounded-2xl text-white'>
+                </div> : <div className='max-w-5xl min-h-[30rem]  w-full grid md:grid-cols-2 gap-3 shadow-[0_0_0_1px#f1f1f1 rounded-2xl text-white'>
                     <div className='flex flex-col justify-between p-6'>
                         <div className='space-y-6'>
 
