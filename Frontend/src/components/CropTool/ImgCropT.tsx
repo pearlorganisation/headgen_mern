@@ -78,9 +78,6 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
       throw new Error("Crop canvas does not exist");
     }
 
-    // This will size relative to the uploaded image
-    // size. If you want to size according to what they
-    // are looking at on screen, remove scaleX + scaleY
     const scaleX = image.naturalWidth / image.width;
     const scaleY = image.naturalHeight / image.height;
 
@@ -175,9 +172,11 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
 
   return (
     <div className=" bg-white">
-      {/* imgSrc */}
-      <div className="w-full h-full border-2 space-y-2 p-1 border-red-600">
+
+      <div className="w-full h-full space-y-2 p-1">
         {selectedImage && (
+          <div className="flex justify-center">
+
           <ReactCrop
             crop={crop}
             onChange={(_, percentCrop) => setCrop(percentCrop)}
@@ -185,6 +184,7 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
             aspect={undefined}
             // minWidth={400}
             minHeight={100}
+          
             // circularCrop
           >
             <img
@@ -195,24 +195,21 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
                 "https://i0.wp.com/picjumbo.com/wp-content/uploads/camping-on-top-of-the-mountain-during-sunset-free-photo.jpg?w=600&quality=80"
               }
               style={{
-                width: "500px",
+                width: "100%",
                 // height: "500px",
                 transform: `scale(${scale}) rotate(${rotate}deg)`,
               }}
               onLoad={onImageLoad}
             />
           </ReactCrop>
+          </div>
         )}
-        <button
-          onClick={onDownloadCropClick}
-          className="px-6 py-2 !text-base bg-indigo-500 rounded-md"
-        >
-          Save
-        </button>
-        <div className="Crop-Controls space">
+       
+        <div className="flex flex-col items-center gap-4 w-full px-4 pt-3">
+       
           {/* <input type="file" accept="image/*" onChange={onSelectFile} /> */}
-          <div className="PB-range-slider-div">
-            <label htmlFor="scale-input" className="text-black">
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="scale-input" className="block mb-2 text-lg font-medium text-gray-900 ">
               Scale:{" "}
             </label>
             <input
@@ -224,14 +221,14 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
               value={scale}
               disabled={!imgSrc}
               onChange={(e) => setScale(Number(e.target.value))}
-              className="PB-range-slider"
+              className="w-full h-1 mb-6 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm "
             />
-            <p className="PB-range-slidervalue">50px</p>
+          
           </div>
 
-          <div className="PB-range-slider-div">
-            <label htmlFor="rotate-input" className="text-black">
-              Rotate:{" "}
+          <div className="flex flex-col gap-2 w-full">
+            <label htmlFor="rotate-input" className="block mb-2 text-lg font-medium text-gray-900 ">
+              Rotation:{" "}
             </label>
             <input
               type="range"
@@ -242,10 +239,16 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
               onChange={(e) =>
                 setRotate(Math.min(180, Math.max(-180, Number(e.target.value))))
               }
-              className="PB-range-slider"
+              className="w-full h-1 mb-6 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm "
             />
-            <p className="PB-range-slidervalue">50px</p>
+            
           </div>
+          <button
+          onClick={onDownloadCropClick}
+          className="hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-lg text-[#F1F1F1] rounded-lg w-1/2 py-1  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+        >
+          Save
+        </button>
 
           <div>
             <button onClick={handleToggleAspectClick}>

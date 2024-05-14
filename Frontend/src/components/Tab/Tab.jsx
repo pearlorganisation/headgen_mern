@@ -5,11 +5,14 @@ import PriceCards from "../PriceCards/PriceCards";
 import IndividualForm from "../IndividualForm/IndividualForm";
 import ImageSection from "../ImageSection/ImageSection";
 import Customize from "../Customize/Customize";
+import OrderDetails from "../OrderDetails/OrderDetails";
 
 const Tab = () => {
   const [userData, setUserData] = useState({ email: "" });
   const [errors, setErrors] = useState({});
-
+  const [files, setFiles] = useState([]);
+  const [previewImages, setPreviewImages] = useState([]);
+  
   const [tabSwitched, setTabSwitched] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -64,7 +67,7 @@ const Tab = () => {
       idx: 1,
       ele: (
         <>
-          <ImageSection userData={userData} setUserData={setUserData} />
+          <ImageSection userData={userData} setUserData={setUserData} files={files} setFiles={setFiles} previewImages={previewImages} setPreviewImages={setPreviewImages} />
         </>
       ),
     },
@@ -78,6 +81,21 @@ const Tab = () => {
               data={priceCardData}
               userData={userData}
               setUserData={setUserData}
+            />
+          </div>
+        </>
+      ),
+    },
+
+
+    {
+      idx: 3,
+      ele: (
+        <>
+          <div>
+            <OrderDetails
+              userData={userData}
+              previewImages={previewImages}
             />
           </div>
         </>
@@ -97,7 +115,6 @@ const Tab = () => {
         if (maxIndex === currentIndex && val > 0) {
           return;
         }
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         setCurrentIndex(newIndex);
       } else {
         setErrors({ email: "Incorrect/Missing email" });
@@ -115,6 +132,20 @@ const Tab = () => {
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
   }, [userData]);
+
+
+  useEffect(() => {
+    if(localStorage.getItem("userData")){
+      localStorage.clear()
+    }
+  }, [])
+
+  useEffect(() => {
+    if(previewImages.length > 0){
+      localStorage.setItem('userImgs', previewImages)
+    }
+  }, [previewImages])
+
 
   return (
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px]">
