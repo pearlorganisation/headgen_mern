@@ -12,16 +12,19 @@ import Footer from "./components/Layout/Footer/Footer"
 import BeforeAfterSlider from "./components/BeforeAfterSlider/BeforeAfterSlider";
 import CancellationAndRefunds from "./pages/CancellationAndRefunds/CancellationAndRefunds";
 import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
-import ContactUs from "./pages/ContactUs/ContactUs";
-import UploadPage from "./pages/UploadPage/UploadPage";
-import Customize from "./pages/Customize/Customize";
+
 import ImgCropT from "./pages/CropTool/ImgCropT";
 import Test from "./pages/Test/Test";
 
+import PaymentSuccess from "./pages/PaymentSuccess/PaymentSuccess";
+import PaymentCancel from "./pages/PaymentCancel/PaymentCancel";
+import Checkout from "./pages/Checkout/Checkout";
+import ContactUs from "./pages/ContactUs/ContactUs";
+
+import UploadPage from "./pages/UploadPage/UploadPage";
+import Customize from "./components/Customize/Customize";
 
 function App() {
-
-
   return (
     <>
       <Header />
@@ -38,6 +41,10 @@ function App() {
         <Route path="/customize" element={<Customize />} />
         <Route path="/imageCrop" element={<ImgCropT selectedImage='https://i0.wp.com/picjumbo.com/wp-content/uploads/camping-on-top-of-the-mountain-during-sunset-free-photo.jpg?w=600&quality=80' />} />
         <Route path='/tests' element={<Test />} />
+        <Route path="/test" element={<Checkout />} />
+        <Route path="/success" element={<PaymentSuccess />} />
+        <Route path="/cancel" element={<PaymentCancel />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

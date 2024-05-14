@@ -48,22 +48,52 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
     {
       name: "Doctor Headshots",
       headshotInfo: {
-        title: "",
-        content: "",
-        imgPath: "/headshots/healthcare.webp"
-      }
+        tag: "Doctor Headshots",
+        title: "Professional Medical, Doctor, & ERAS Headshots with AI",
+        content:
+          "Elevate your healthcare profile with professional AI-generated medical headshots—perfect for doctors, medical school applications, or ERAS residency. Built by AI researchers from Meta and Microsoft.",
+        imgPath: "/headshots/healthcare.webp",
+      },
     },
     {
       name: "Lawyer Headshots",
+      headshotInfo: {
+        tag: "Lawyer Headshots",
+        title: "Professional Lawyer Headshots with AI",
+        content:
+          "Get professional attorney headshots in minutes with the most realistic AI headshot generator ever. Built by AI researchers from Meta and Microsoft.",
+        imgPath: "/headshots/lawyer.webp",
+      },
     },
     {
       name: "Sales Headshots",
+      headshotInfo: {
+        tag: "Sales Headshots",
+        title: "Close more leads with our charming AI headshots",
+        content:
+          "Update your professional headshot in minutes with the most realistic AI headshot generator ever. Built by AI researchers from Meta and Microsoft.",
+        imgPath: "/headshots/sales.webp",
+      },
     },
     {
       name: "Students Headshots",
+      headshotInfo: {
+        tag: "Students Headshots",
+        title: "Land more jobs with our professional AI headshots",
+        content:
+          "Get affordable professional headshots in minutes with the most realistic AI headshot generator ever. Built by AI researchers from Meta and Microsoft.",
+        imgPath: "/headshots/student.webp",
+      },
     },
     {
       name: "Teacher Headshots",
+      headshotInfo: {
+        tag: "Teacher Headshots",
+        title: "The best AI headshots for teachers",
+        content:
+          "Get professional headshots in minutes with the most realistic AI headshot generator ever. Perfect for school websites, learning platform, and more. Set a good first impression for students and their parents.",
+        imgPath: "/headshots/teacher.webp",
+      },
     },
     {
       name: "Youtube / Instagram",
@@ -79,80 +109,35 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
   }, [email, gender, headshotType]);
 
   return (
-    <div className="flex flex-col gap-2 justify-between relative h-full items-center">
-      <div className="flex w-full">
-        <div className="flex flex-col items-center gap-4 w-1/2 relative">
-          <label htmlFor="email" className="text-center text-2xl text-white ">
-            Enter your Email:
-          </label>
-
-          <input
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            type="text"
-            placeholder="Enter your email"
-            className="w-2/3 text-center bg-[#f1f1f1]  text-[#131313] text-[18px] px-2 rounded-lg  shadow-[0_0_0_1px_#5d5b68] focus:shadow-[0_0_0_1px_#1d2838]"
-          />
-          <div className="text-[#ff1717] text-[16px] leading-3">
-            {errors?.email && errors?.email}
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-4 w-1/2">
-          <label htmlFor="gender" className="text-center text-2xl text-white">
-            What's your gender?
-          </label>
-          <div className="flex gap-2 justify-center">
-            {genderSelections &&
-              genderSelections?.map((item, idx) => (
-                <div
-                  onClick={() => {
-                    setGender(item?.name);
-                  }}
-                  key={`gender${idx}`}
-                  className={`bg-[#f1f1f1]  text-[#131313] ${
-                    userData?.gender === item?.name
-                      ? "!bg-[#355cc9] text-[#f1f1f1]"
-                      : "bg-[#f1f1f1] "
-                  } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-1/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2`}
-                >
-                  <span className="flex flex-col justify-center">
-                    {item?.svg}
-                  </span>
-                  <span>{item?.name}</span>
-                </div>
-              ))}
-          </div>
-          <div className="text-[#ff1717] text-[16px] leading-3">
-            {errors?.gender && errors?.gender}
-          </div>
-        </div>
-      </div>
+    <div className="flex flex-col gap-4 justify-between relative h-full items-center space-y-10">
+      <div>Pick from our custom headshot templates:</div>
       <div className="flex w-full ">
         <div className="flex flex-col justify-center items-center gap-2 w-1/2 max-h-[400px] overflow-auto">
           <div className="text-2xl">Headshot Type:</div>
-          {headshots &&
-            headshots?.map((item, idx) => (
-              <div
-                key={`headshotType${idx}`}
-                className={`bg-[#f1f1f1]  text-[#131313] ${
-                  userData?.headshotType === item?.name
-                    ? "!bg-[#355cc9] text-[#f1f1f1]"
-                    : "bg-[#f1f1f1] "
-                } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-2/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
-                onClick={() => {
-                  setHeadshotType(item?.name);
-                }}
-              >
-                <span>{item?.name}</span>
-                <span className="absolute right-4 -translate-y-1/2 top-1/2">
-                  <FaChevronRight />
-                </span>
-              </div>
-            ))}
+          <div className="flex flex-row justify-center flex-wrap gap-1">
+            {headshots &&
+              headshots?.map((item, idx) => (
+                <div
+                  key={`headshotType${idx}`}
+                  className={`bg-[#f1f1f1]  text-[#131313] ${
+                    userData?.headshotType === item?.name
+                      ? "!bg-[#355cc9] text-[#f1f1f1]"
+                      : "bg-[#f1f1f1] "
+                  } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-2/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
+                  onClick={() => {
+                    setHeadshotType(item?.name);
+                  }}
+                >
+                  <span>{item?.name}</span>
+                  <span className="absolute right-4 -translate-y-1/2 top-1/2">
+                    <FaChevronRight />
+                  </span>
+                </div>
+              ))}
+          </div>
         </div>
 
-        <div className="flex flex-col justify-center items-center gap-2 w-1/2 max-h-[400px] overflow-auto">
+        <div className="flex flex-col justify-center items-center w-1/2 max-h-[400px] overflow-auto">
           <div className="text-center text-xl py-2">What you'll get:</div>
           <Swiper
             modules={[Navigation, A11y, Autoplay]}
@@ -175,6 +160,87 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
               <img src="/slider1/1.jpg" className="h-full max-h-[300px]" />
             </SwiperSlide>
           </Swiper>
+        </div>
+      </div>
+
+      <div className="px-1 flex justify-center">
+        {headshots
+          ?.filter((item) => {
+            return item?.name === headshotType && item?.headshotInfo;
+          })
+          .map((filteredItem, idx) => (
+            <div
+              key={`filteredItem${idx}`}
+              className="w-[95%] !glassMorphism !bg-gradient-to-br from-[#1b222d] via-[#212d3f] to-[#161f2c] mt-10 mx-20 py-10 rounded-xl flex shadow-[0_0_1px#ababab] relative"
+            >
+              <div className="w-fit px-2 rounded-lg bg-orange-500 text-white text-lg absolute left-10">
+                {filteredItem?.headshotInfo?.tag}
+              </div>
+              <div className="flex flex-col justify-center gap-5 w-[50%] px-10">
+                <div className="text-3xl text-[#F1F1F1] font-bold">
+                  {filteredItem?.headshotInfo?.title}
+                </div>
+                <div className="text-base 2xl:text-[24px] text-[#F1F1F1]">
+                  {filteredItem?.headshotInfo?.content}
+                </div>
+              </div>
+              <div className=" w-[50%]">
+                <img
+                  src={`${filteredItem?.headshotInfo?.imgPath}`}
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+          ))}
+      </div>
+
+      <div className="flex w-full">
+        <div className="flex flex-col items-center gap-4 w-1/2 relative">
+          <label htmlFor="email" className="text-center text-2xl text-white ">
+            Enter your Email:
+          </label>
+
+          <input
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            type="text"
+            placeholder="Enter your email"
+            className="w-2/3 text-center bg-[#f1f1f1]  text-[#131313] text-[18px] px-2 rounded-lg  shadow-[0_0_0_1px_#5d5b68] focus:shadow-[0_0_0_1px_#1d2838]"
+          />
+
+          <div className="text-[#ff1717] text-[16px] leading-3">
+            {errors?.email && errors?.email}
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 w-1/2">
+          <label htmlFor="gender" className="text-center text-2xl text-white">
+            What's your gender?
+          </label>
+          <div className="flex gap-2 justify-center">
+            {genderSelections &&
+              genderSelections?.map((item, idx) => (
+                <div
+                  onClick={() => {
+                    setGender(item?.name);
+                  }}
+                  key={`gender${idx}`}
+                  className={`bg-[#f1f1f1]  text-[#131313] ${
+                    userData?.gender === item?.name
+                      ? "!bg-[#355cc9] text-[#f1f1f1]"
+                      : "bg-[#f1f1f1]"
+                  } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-1/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2`}
+                >
+                  <span className="flex flex-col justify-center">
+                    {item?.svg}
+                  </span>
+                  <span>{item?.name}</span>
+                </div>
+              ))}
+          </div>
+          <div className="text-[#ff1717] text-[16px] leading-3">
+            {errors?.gender && errors?.gender}
+          </div>
         </div>
       </div>
     </div>

@@ -7,8 +7,8 @@ dotenv.config();
 export const mongoConnect = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI, {
-        dbName: 'headgenAi',
-      });
+      dbName: "headgenAI",
+    });
     console.log(chalk.white.bgBlue("MongoDB connected successfully"));
   } catch (error) {
     console.log(

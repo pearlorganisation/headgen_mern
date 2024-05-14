@@ -83,8 +83,8 @@ const ImageSection = () => {
   ];
 
   return (
-    <div className="flex w-full h-full justify-center">
-      <div className="bg-white rounded-lg overflow-auto">
+    <div className="grid grid-cols-[40%_auto] w-full  h-full justify-center">
+      <div className="bg-white  rounded-lg overflow-auto">
         <Card
           className="w-[100%] h-[350px] !shadow-none !border-none !mb-2"
         // actions={[<Button type="primary">Submit</Button>]}
@@ -113,54 +113,56 @@ const ImageSection = () => {
         </div>
       </div>
 
-      <div className="w-[60%] relative max-h-full overflow-auto px-4 flex flex-col gap-2">
-        {selectedImage && (
+      <div className="relative max-h-full px-4 flex flex-col gap-2">
+        {selectedImage ? (
           <>
-            <div>
+            <div className="w-full">
               {selectedImage && (
-                <div className="absolute  w-full h-full top-0 bg-white/10 backdrop-blur-md">
+                <div className="  w-full h-full top-0 bg-white/10 backdrop-blur-md">
                   <ImgCropT selectedImage={selectedImage} updateFile={updateFile} />
                 </div>
               )}
             </div>
           </>
-        )}
-
-        <div className="w-full h-fit bg-[#ecfff1] text-black rounded-md flex flex-col gap-2 p-4">
-          <div className="text-[18px]">✅ PHOTO REQUIREMENTS</div>
-          <div className="w-full flex h-[360px] gap-2 p-4">
-            {correctData &&
-              correctData?.map((item, idx) => (
-                <div className="flex flex-col  rounded-2xl w-[32%] max-w-[200px]">
-                  <img
-                    src={item?.imgPath}
-                    className="w-full h-2/3 rounded-2xl"
-                  />
-                  <span className="text-justified text-[14px] text-[#131313] leading-relaxed p-1">
-                    {item?.content}
-                  </span>
-                </div>
-              ))}
+        ) : <>
+          <div className="w-full h-fit bg-[#ecfff1] text-black rounded-md flex flex-col gap-2 p-4">
+            <div className="text-[18px]">✅ PHOTO REQUIREMENTS</div>
+            <div className="w-full flex h-[360px] gap-2 p-4">
+              {correctData &&
+                correctData?.map((item, idx) => (
+                  <div className="flex flex-col  rounded-2xl w-[32%] max-w-[200px]">
+                    <img
+                      src={item?.imgPath}
+                      className="w-full h-2/3 rounded-2xl"
+                    />
+                    <span className="text-justified text-[14px] text-[#131313] leading-relaxed p-1">
+                      {item?.content}
+                    </span>
+                  </div>
+                ))}
+            </div>
           </div>
-        </div>
 
-        <div className="w-full h-fit bg-[#ffecec] text-black rounded-md flex flex-col gap-2 p-4">
-          <div className="text-[18px]">❌ PHOTO RESTRICTIONS</div>
-          <div className="w-full flex h-[360px] gap-2 p-4">
-            {incorrectData &&
-              incorrectData?.map((item, idx) => (
-                <div className="flex flex-col  rounded-2xl w-[32%] max-w-[200px]">
-                  <img
-                    src={item?.imgPath}
-                    className="w-full h-2/3 rounded-2xl"
-                  />
-                  <span className="text-justified text-[14px] text-[#131313] leading-relaxed p-1">
-                    {item?.content}
-                  </span>
-                </div>
-              ))}
+          <div className="w-full h-fit bg-[#ffecec] text-black rounded-md flex flex-col gap-2 p-4">
+            <div className="text-[18px]">❌ PHOTO RESTRICTIONS</div>
+            <div className="w-full flex h-[360px] gap-2 p-4">
+              {incorrectData &&
+                incorrectData?.map((item, idx) => (
+                  <div className="flex flex-col  rounded-2xl w-[32%] max-w-[200px]">
+                    <img
+                      src={item?.imgPath}
+                      className="w-full h-2/3 rounded-2xl"
+                    />
+                    <span className="text-justified text-[14px] text-[#131313] leading-relaxed p-1">
+                      {item?.content}
+                    </span>
+                  </div>
+                ))}
+            </div>
           </div>
-        </div>
+        </>}
+
+
       </div>
       {/* {croppedImage && <img src={croppedImage} />} */}
     </div>

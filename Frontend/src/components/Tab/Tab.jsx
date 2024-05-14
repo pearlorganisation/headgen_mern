@@ -4,8 +4,9 @@ import { useState } from "react";
 import PriceCards from "../PriceCards/PriceCards";
 import IndividualForm from "../IndividualForm/IndividualForm";
 import ImageSection from "../ImageSection/ImageSection";
-import Customize from "../../pages/Customize/Customize";
+
 import Test from "../../pages/Test/Test";
+import Customize from "../Customize/Customize";
 
 const Tab = () => {
   const [userData, setUserData] = useState({ email: '' });
@@ -13,6 +14,8 @@ const Tab = () => {
 
   const [tabSwitched, setTabSwitched] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+
 
   const tabContentRef = useRef(null);
 
@@ -44,7 +47,6 @@ const Tab = () => {
   ];
 
   const indivdualData = [
-
     {
       idx: 0,
       ele: (
@@ -53,12 +55,10 @@ const Tab = () => {
             userData={userData}
             setUserData={setUserData}
             errors={errors}
-
           />
         </>
       ),
     },
-
 
     {
       idx: 1,
@@ -68,7 +68,6 @@ const Tab = () => {
         </>
       ),
     },
-
 
     {
       idx: 2,
@@ -181,7 +180,14 @@ const Tab = () => {
               {indivdualData &&
                 indivdualData?.map((item, idx) => {
                   if (item?.idx === currentIndex) {
-                    return <div className="h-[90%] w-full" key={`individualData${idx}`}>{item?.ele}</div>;
+                    return (
+                      <div
+                        className="h-[90%] w-full"
+                        key={`individualData${idx}`}
+                      >
+                        {item?.ele}
+                      </div>
+                    );
                   }
                 })}
 
@@ -216,7 +222,7 @@ const Tab = () => {
                 {indivdualData &&
                   indivdualData?.map((item, idx) => {
                     if (item?.idx === currentIndex) {
-                      return <div className="h-[90%] w-full" key={`individualData${idx}`}>{item?.ele}</div>;
+                      return <div className="h-[90%] w-full " key={`individualData${idx}`}>{item?.ele}</div>;
                     }
                   })}
 

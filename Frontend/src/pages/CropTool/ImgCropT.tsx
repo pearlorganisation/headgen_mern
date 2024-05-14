@@ -174,9 +174,9 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
   }
 
   return (
-    <div className=" bg-white">
+    <div className=" bg-black/70 !text-white">
       {/* imgSrc */}
-      <div className="w-full h-full border-2 space-y-2 p-1 border-red-600">
+      <div className="w-full h-full space-y-2 p-1 ">
         {selectedImage && (
           <ReactCrop
             crop={crop}
@@ -195,7 +195,7 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
                 "https://i0.wp.com/picjumbo.com/wp-content/uploads/camping-on-top-of-the-mountain-during-sunset-free-photo.jpg?w=600&quality=80"
               }
               style={{
-                width: "500px",
+                width: "100%",
                 // height: "500px",
                 transform: `scale(${scale}) rotate(${rotate}deg)`,
               }}
@@ -203,55 +203,59 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
             />
           </ReactCrop>
         )}
-        <button
-          onClick={onDownloadCropClick}
-          className="px-6 py-2 !text-base bg-indigo-500 rounded-md"
-        >
-          Save
-        </button>
-        <div className="Crop-Controls space">
-          {/* <input type="file" accept="image/*" onChange={onSelectFile} /> */}
-          <div className="PB-range-slider-div">
-            <label htmlFor="scale-input" className="text-black">
-              Scale:{" "}
-            </label>
-            <input
-              id="scale-input"
-              type="range"
-              step="0.1"
-              max="5"
-              min="1"
-              value={scale}
-              disabled={!imgSrc}
-              onChange={(e) => setScale(Number(e.target.value))}
-              className="PB-range-slider"
-            />
-            <p className="PB-range-slidervalue">50px</p>
-          </div>
+        <div className="flex flex-col">
+          <div className="Crop-Controls space">
+            {/* <input type="file" accept="image/*" onChange={onSelectFile} /> */}
+            <div className="text-lg font-medium">
+              <label htmlFor="scale-input " className="">
+                Scale:{" "}
+              </label>
+              <input
+                id="scale-input"
+                type="range"
+                step="0.1"
+                max="5"
+                min="1"
+                value={scale}
+                disabled={!imgSrc}
+                onChange={(e) => setScale(Number(e.target.value))}
+                className="PB-range-slider"
+              />
+              <p className="PB-range-slidervalue">50px</p>
+            </div>
 
-          <div className="PB-range-slider-div">
-            <label htmlFor="rotate-input" className="text-black">
-              Rotate:{" "}
-            </label>
-            <input
-              type="range"
-              step="0.1"
-              id="rotate-input"
-              value={rotate}
-              disabled={!imgSrc}
-              onChange={(e) =>
-                setRotate(Math.min(180, Math.max(-180, Number(e.target.value))))
-              }
-              className="PB-range-slider"
-            />
-            <p className="PB-range-slidervalue">50px</p>
-          </div>
+            <div className="text-lg font-medium">
+              <label htmlFor="rotate-input" className="">
+                Rotate:{" "}
+              </label>
+              <input
+                type="range"
+                step="0.1"
+                id="rotate-input"
+                value={rotate}
+                disabled={!imgSrc}
+                onChange={(e) =>
+                  setRotate(
+                    Math.min(180, Math.max(-180, Number(e.target.value)))
+                  )
+                }
+                className="PB-range-slider"
+              />
+              <p className="PB-range-slidervalue">50px</p>
+            </div>
 
-          <div>
-            <button onClick={handleToggleAspectClick}>
-              Toggle aspect {aspect ? "off" : "on"}
-            </button>
+            {/* <div>
+              <button onClick={handleToggleAspectClick}>
+                Toggle aspect {aspect ? "off" : "on"}
+              </button>
+            </div> */}
           </div>
+          <button
+            onClick={onDownloadCropClick}
+            className="px-6 py-2 w-full !text-base bg-blue-600 active:scale-95 transition-all rounded-md"
+          >
+            Save
+          </button>
         </div>
       </div>
       {!!completedCrop && (
@@ -274,7 +278,7 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
             >
               Save
             </button>
-            <div style={{ fontSize: 12, color: "#666" }}>
+            <div style={{ fontSize: 12, color: "#000000" }}>
               If you get a security error when downloading try opening the
               Preview in a new tab (icon near top right).
             </div>
