@@ -71,7 +71,7 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
     }
   }
 
-  async function onDownloadCropClick() {
+  async function onSaveCropClick() {
     const image = imgRef.current;
     const previewCanvas = previewCanvasRef.current;
     if (!image || !previewCanvas || !completedCrop) {
@@ -117,15 +117,15 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
     reader.onload = function () {
       const base64 = reader.result;
       updateFile(selectedImage, base64);
-      console.log(base64, "base64");
+      // console.log(base64, "base64");
     };
     reader.readAsDataURL(blob);
-    if (hiddenAnchorRef.current) {
-      hiddenAnchorRef.current.href = blobUrlRef.current;
-      hiddenAnchorRef.current.click();
-    }
+    // if (hiddenAnchorRef.current) {
+    //   hiddenAnchorRef.current.href = blobUrlRef.current;
+    //   hiddenAnchorRef.current.click();
+    // }
 
-    console.log(blobUrlRef.current, "blobUrlRef.current");
+    // console.log(blobUrlRef.current, "blobUrlRef.current");
   }
 
   useDebounceEffect(
@@ -244,7 +244,7 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
             
           </div>
           <button
-          onClick={onDownloadCropClick}
+          onClick={onSaveCropClick}
           className="hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-lg text-[#F1F1F1] rounded-lg w-1/2 py-1  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
         >
           Save
@@ -272,7 +272,7 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
           </div>
           <div>
             <button
-              onClick={onDownloadCropClick}
+              onClick={onSaveCropClick}
               className="px-6 py-2 !font-medium bg-green-500 rounded-md"
             >
               Save

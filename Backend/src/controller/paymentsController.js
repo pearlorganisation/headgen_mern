@@ -21,6 +21,22 @@ const stripeLinks = [
   },
 ];
 
+
+const stripeDatingLinks = [
+  {
+    price: "$29",
+    url: "https://buy.stripe.com/28o14ncfc93C3io6oq",
+  },
+  {
+    price: "$45",
+    url: "https://buy.stripe.com/aEU3cva74enWf16147",
+  },
+  {
+    price: "$79",
+    url: "https://buy.stripe.com/dR68wP1AydjSf1628c",
+  },
+];
+
 export const checkout = async (req, res) => {
   res.status(200).json({ res: res });
 

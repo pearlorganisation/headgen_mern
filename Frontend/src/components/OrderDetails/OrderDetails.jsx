@@ -48,7 +48,8 @@ const OrderDetails = ({ userData, previewImages }) => {
           </dl>
         </div>
       </div>
-      <div className="w-2/3 overflow-auto">
+
+      <div className="w-[60%] overflow-auto">
         <div className="flex gap-2">
           {previewImages &&
             previewImages?.map((item) => (

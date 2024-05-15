@@ -75,6 +75,15 @@ const ImageSection = ({files, setFiles, previewImages, setPreviewImages}) => {
     },
   ];
 
+
+  const updateFile = (oldFile, newFile) => {
+    setPreviewImages((currentSelection) => {
+      const newSelection = currentSelection.slice();
+      const fileIndex = currentSelection.indexOf(oldFile);
+      newSelection[fileIndex] = newFile;
+      return newSelection;
+    })
+  }
  
   
 
@@ -90,7 +99,7 @@ const ImageSection = ({files, setFiles, previewImages, setPreviewImages}) => {
                 <div className="relative w-full">
                   <ImgCropT
                     selectedImage={selectedImage}
-                    // updateFile={updateFile}
+                    updateFile={updateFile}
                   />
                 </div>
               )}

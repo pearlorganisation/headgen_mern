@@ -6,6 +6,7 @@ import IndividualForm from "../IndividualForm/IndividualForm";
 import ImageSection from "../ImageSection/ImageSection";
 import Customize from "../Customize/Customize";
 import OrderDetails from "../OrderDetails/OrderDetails";
+import Teams from "../Teams/Teams";
 
 const Tab = () => {
   const [userData, setUserData] = useState({ email: "" });
@@ -223,7 +224,9 @@ const Tab = () => {
               </div>
             </div>
           )}
-          {tabText === "Teams" && <div>{tabText}</div>}
+          {tabText === "Teams" && (
+            <Teams />
+          )}
           {tabText === "Customize" && (
             <div>
               <Customize />
