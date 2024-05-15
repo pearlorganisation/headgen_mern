@@ -11,9 +11,8 @@ import Teams from "../Teams/Teams";
 const Tab = () => {
   const [userData, setUserData] = useState({ email: "" });
   const [errors, setErrors] = useState({});
-  const [files, setFiles] = useState([]);
-  const [previewImages, setPreviewImages] = useState([]);
-  
+  const [fileErrorMsg, setFileErrorMsg] = useState(null)
+  const [files, setFiles] = useState([]);  
   const [tabSwitched, setTabSwitched] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -68,7 +67,7 @@ const Tab = () => {
       idx: 1,
       ele: (
         <>
-          <ImageSection userData={userData} setUserData={setUserData} files={files} setFiles={setFiles} previewImages={previewImages} setPreviewImages={setPreviewImages} />
+          <ImageSection userData={userData} setUserData={setUserData} files={files} setFiles={setFiles} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg}  />
         </>
       ),
     },
@@ -96,7 +95,7 @@ const Tab = () => {
           <div>
             <OrderDetails
               userData={userData}
-              previewImages={previewImages}
+              files={files}
             />
           </div>
         </>
@@ -142,10 +141,10 @@ const Tab = () => {
   }, [])
 
   useEffect(() => {
-    if(previewImages.length > 0){
-      localStorage.setItem('userImgs', previewImages)
+    if(files.length > 0){
+      localStorage.setItem('userImgs', files)
     }
-  }, [previewImages])
+  }, [files])
 
 
   return (

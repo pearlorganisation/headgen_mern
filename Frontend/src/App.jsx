@@ -17,6 +17,7 @@ import UploadPage from "./pages/UploadPage/UploadPage";
 import PaymentSuccess from "./pages/PaymentSuccess/PaymentSuccess";
 import PaymentCancel from "./pages/PaymentCancel/PaymentCancel";
 import Checkout from "./pages/Checkout/Checkout";
+import HowItWorks from "./pages/HowItWorks/HowItWorks";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/cancellationandrefunds" element={<CancellationAndRefunds />} />
         <Route path="/termsandconditions" element={<TermsAndConditions />} />

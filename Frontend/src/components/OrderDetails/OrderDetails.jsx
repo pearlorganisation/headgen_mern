@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 
-const OrderDetails = ({ userData, previewImages }) => {
+const OrderDetails = ({ userData, files }) => {
   const handleCheckout = () => {
-    if (!validateUserData(userData, previewImages)) {
+    if (!validateUserData(userData, files)) {
       console.log("error");
     } else {
       console.log("checking out");
@@ -51,8 +51,8 @@ const OrderDetails = ({ userData, previewImages }) => {
 
       <div className="w-[60%] overflow-auto">
         <div className="flex gap-2">
-          {previewImages &&
-            previewImages?.map((item) => (
+          {files &&
+            files?.map((item) => (
           <img src={item} className="h-[200px]" />
              
             ))}

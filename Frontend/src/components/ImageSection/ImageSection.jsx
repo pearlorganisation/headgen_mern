@@ -5,7 +5,7 @@ import DragAndDrop from "../DragAndDrop/DragAndDrop";
 import { Button, Card } from "antd";
 import ImgCropT from "../CropTool/ImgCropT";
 
-const ImageSection = ({files, setFiles, previewImages, setPreviewImages}) => {
+const ImageSection = ({files, setFiles, fileErrorMsg, setFileErrorMsg}) => {
   const maxUploads = 4;
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -76,8 +76,21 @@ const ImageSection = ({files, setFiles, previewImages, setPreviewImages}) => {
   ];
 
 
+  const deleteFile = (file) => {
+    
+    setFiles((currentSelection) => {
+      const newSelection = currentSelection.slice();
+      const fileIndex = currentSelection.indexOf(file);
+      if(selectedImage === file) {
+        setSelectedImage(null)
+      }
+      newSelection.splice(fileIndex, 1)
+      return newSelection;
+    })
+  }
+
   const updateFile = (oldFile, newFile) => {
-    setPreviewImages((currentSelection) => {
+    setFiles((currentSelection) => {
       const newSelection = currentSelection.slice();
       const fileIndex = currentSelection.indexOf(oldFile);
       newSelection[fileIndex] = newFile;
@@ -89,7 +102,7 @@ const ImageSection = ({files, setFiles, previewImages, setPreviewImages}) => {
 
   return (
     <div className="flex w-full h-full max-h-[700px] justify-center">
-      <DragAndDrop files={files} setFiles={setFiles} maxUploads={maxUploads} previewImages={previewImages} setPreviewImages={setPreviewImages} setSelectedImage={setSelectedImage} />
+      <DragAndDrop files={files} setFiles={setFiles} maxUploads={maxUploads}  setSelectedImage={setSelectedImage} deleteFile={deleteFile} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg} />
 
       <div className="w-[60%] relative max-h-full overflow-auto px-4 flex flex-col gap-2">
         {selectedImage && (
@@ -100,6 +113,7 @@ const ImageSection = ({files, setFiles, previewImages, setPreviewImages}) => {
                   <ImgCropT
                     selectedImage={selectedImage}
                     updateFile={updateFile}
+                    
                   />
                 </div>
               )}

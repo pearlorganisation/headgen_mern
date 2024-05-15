@@ -4,7 +4,8 @@ import { GoPlus } from "react-icons/go";
 import { MdDelete } from "react-icons/md";
 import { FaCropSimple } from "react-icons/fa6";
 
-const DragAndDrop = ({ files, setFiles, previewImages, setPreviewImages, setSelectedImage }) => {
+const DragAndDrop = ({ files, setFiles, setSelectedImage,deleteFile, fileErrorMsg, setFileErrorMsg }) => {
+  
   const [isDragActive, setIsDragActive] = useState(false);
 
   const handleFileChange = (event) => {
@@ -15,12 +16,12 @@ const DragAndDrop = ({ files, setFiles, previewImages, setPreviewImages, setSele
       (key) => selectedFiles[key]
     );
     filesArray.forEach((file) => {
-      setFiles((prevFiles) => {
-        if (prevFiles.length < 4) {
-          displayFile(file);
-          return [...prevFiles, file];
-        }
-      });
+      if(file.size/1000000 <= 2){
+        displayFile(file);
+      } else {
+        setFileErrorMsg("Couldn't upload file greater than  2mb")
+        return
+      }
     });
   };
 
@@ -42,16 +43,18 @@ const DragAndDrop = ({ files, setFiles, previewImages, setPreviewImages, setSele
       (key) => selectedFiles[key]
     );
     filesArray.forEach((file) => {
-      setFiles((prevFiles) => {
-        if (prevFiles.length < 4) {
-          displayFile(file);
-          return [...prevFiles, file];
-        }
-      });
+      if(file.size/1000000 <= 2){
+        displayFile(file);
+        
+      } else {
+        setFileErrorMsg("Couldn't upload file greater than  2mb")
+        return
+      }
     });
   };
 
   const displayFile = (selectedFile) => {
+    
     const validExtensions = [
       "image/jpeg",
       "image/jpg",
@@ -62,11 +65,16 @@ const DragAndDrop = ({ files, setFiles, previewImages, setPreviewImages, setSele
     if (validExtensions.includes(selectedFile.type)) {
       const fileReader = new FileReader();
       fileReader.onload = () => {
-        console.log(fileReader.result);
+
         const fileURL = fileReader.result;
-        setPreviewImages((prevImages) => [...prevImages, fileURL]);
+        setFiles((prevImages) => {
+          if(prevImages.length < 4){
+            return [...prevImages, fileURL]
+          }
+          return prevImages
+        }
+      );
       };
-      fileReader.readAsDataURL(selectedFile);
     } else {
       alert("This is not an Image File");
       setFiles([]);
@@ -109,10 +117,14 @@ const DragAndDrop = ({ files, setFiles, previewImages, setPreviewImages, setSele
           />
         </div>
       </div>
-
+      {fileErrorMsg && (
+        <div className="text-red-500 text-center text-lg">
+          {fileErrorMsg}
+        </div>
+      )}
       <div className="w-full flex flex-wrap gap-2">
-        {previewImages &&
-          previewImages?.map((item) => (
+        {files &&
+          files?.map((item) => (
             <div className="w-[100px] h-[100px] rounded-lg shadow-[0_0_0_1px#ffffff] group relative">
               <img src={item} className="w-full h-full rounded-lg" />
               <div className="absolute flex justify-center w-full top-1/2 -translate-y-1/2  gap-4">
@@ -127,6 +139,7 @@ const DragAndDrop = ({ files, setFiles, previewImages, setPreviewImages, setSele
                   <MdDelete
                     size={26}
                     className="text-white cursor-pointer hover:text-blue-200"
+                    onClick={() => deleteFile(item)}
                   />
                 </div>
               </div>
