@@ -12,7 +12,7 @@ const Tab = () => {
   const [userData, setUserData] = useState({ email: "" });
   const [errors, setErrors] = useState({});
   const [fileErrorMsg, setFileErrorMsg] = useState(null)
-  const [files, setFiles] = useState([]);  
+  const [files, setFiles] = useState([]);
   const [tabSwitched, setTabSwitched] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -67,7 +67,7 @@ const Tab = () => {
       idx: 1,
       ele: (
         <>
-          <ImageSection userData={userData} setUserData={setUserData} files={files} setFiles={setFiles} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg}  />
+          <ImageSection userData={userData} setUserData={setUserData} files={files} setFiles={setFiles} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg} />
         </>
       ),
     },
@@ -135,13 +135,13 @@ const Tab = () => {
 
 
   useEffect(() => {
-    if(localStorage.getItem("userData")){
+    if (localStorage.getItem("userData")) {
       localStorage.clear()
     }
   }, [])
 
   useEffect(() => {
-    if(files.length > 0){
+    if (files.length > 0) {
       localStorage.setItem('userImgs', files)
     }
   }, [files])
@@ -157,13 +157,12 @@ const Tab = () => {
           return (
             <div className="relative">
               <div
-                className={` ${
-                  tabText === item ? "flex" : "hidden"
-                }  absolute text-white h-full `}
+                className={` ${tabText === item ? "flex" : "hidden"
+                  }  absolute text-white h-full `}
               >
                 <span
                   className={` rounded-full h-full w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
-                  onClick={() => {}}
+                  onClick={() => { }}
                 >
                   {item}
                 </span>
@@ -233,13 +232,13 @@ const Tab = () => {
           )}
           {tabText === "Prompts" && (
             <>
-             <div className="text-2xl text-center">Enter your Prompts for our cutting edge AI</div>
+              <div className="text-2xl text-center">Enter your Prompts for our cutting edge AI</div>
               <section className="py-14">
-                
+
                 <div className="max-w-screen-xl mx-auto md:px-8">
                   <div className="grid md:grid-cols-2 gap-x-12 sm:px-4 md:px-0 lg:flex">
                     <div className="w-full  w px-4 space-y-3 mt-6 sm:px-0 md:mt-0 ">
-                     
+
                       <textarea
                         placeholder="E.g. Portrait, smile, white shirt, outside, city, blurred background..."
                         className="w-full text-lg !h-[50%] bg-black/30 outline-none focus:ring-4 ring-white/10 rounded-md px-3 py-1 shadow-[0_0_0_1px#ffffff]"
