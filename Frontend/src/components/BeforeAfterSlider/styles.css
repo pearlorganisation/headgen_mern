@@ -74,8 +74,9 @@ img {
   position: absolute;
   background-color: #fff;
   color: black;
-  padding: .5rem;
-  border-radius: 100vw;
+  height:40px;
+  width:40px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
   top: 50%;

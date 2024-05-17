@@ -17,67 +17,67 @@ const Home = () => {
   const imgData1 = [
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1zltDX4qtRqhuof60XWaTdOwQXSCQhETw=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1HMLeKlSPY97lR-viypYIXazQF8uKjra5=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1zltDX4qtRqhuof60XWaTdOwQXSCQhETw=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1HMLeKlSPY97lR-viypYIXazQF8uKjra5=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s800",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s800",
     },
   ];
 
@@ -106,21 +106,21 @@ const Home = () => {
       content:
         "Start your professional AI image generation experience by uploading your selfie.",
       imgPath:
-        "https://lh3.googleusercontent.com/d/1Z2eHvjtVo6jYo9EGwSPYILub23hsMxBY=s800?authuser=0",
+        "https://drive.google.com/thumbnail?id=1Z2eHvjtVo6jYo9EGwSPYILub23hsMxBY&sz=s800",
     },
     {
       title: "Make Payment",
       content:
         "Make your payment to unlock the power of AI and transform your image into stunning professional images.",
       imgPath:
-        "https://lh3.googleusercontent.com/d/1pndNiBuEgvuDl_RVGFTpw_W6vCCWvCn1=s800?authuser=0",
+        "https://drive.google.com/thumbnail?id=1pndNiBuEgvuDl_RVGFTpw_W6vCCWvCn1&sz=s800",
     },
     {
       title: "Get Professional Images",
       content:
         "Get professional images all delivered to you within a swift window of time.",
       imgPath:
-        "https://lh3.googleusercontent.com/d/17smkegUhG8QWeR3v8xMhLqx8gGPG8l1a=s800?authuser=0",
+        "https://drive.google.com/thumbnail?id=17smkegUhG8QWeR3v8xMhLqx8gGPG8l1a&sz=s800",
     },
   ];
 
@@ -128,58 +128,58 @@ const Home = () => {
     {
       name: "walmart logo",
       imgPath:
-        "https://lh3.googleusercontent.com/d/1up3Y8G7BYQt4vFDeXYicUUbrnMDNz0QK=s600?authuser=0",
+        "https://drive.google.com/thumbnail?id=1up3Y8G7BYQt4vFDeXYicUUbrnMDNz0QK&sz=s600",
     },
     {
       name: "microsoft logo",
       imgPath:
-        "https://lh3.googleusercontent.com/d/10vAAtNBCVa35oLUmY6NZKDwrq2kl8w6V=s600?authuser=0",
+        "https://drive.google.com/thumbnail?id=10vAAtNBCVa35oLUmY6NZKDwrq2kl8w6V&sz=s600",
     },
     {
       name: "google logo",
       imgPath:
-        "https://lh3.googleusercontent.com/d/1T5_P_dHHDNxPdlN_oCp8lxcxAM7BXYEp=s600?authuser=0",
+        "https://drive.google.com/thumbnail?id=1T5_P_dHHDNxPdlN_oCp8lxcxAM7BXYEp&sz=s600",
     },
     {
       name: "airbnb logo",
       imgPath:
-        "https://lh3.googleusercontent.com/d/1m45hPUM6sDgtDdC1hG89FKgd7MAmAwsi=s600?authuser=0",
+        "https://drive.google.com/thumbnail?id=1m45hPUM6sDgtDdC1hG89FKgd7MAmAwsi&sz=s600",
     },
     {
       name: "amazon logo",
       imgPath:
-        "https://lh3.googleusercontent.com/d/1bupr8brSqprqrt5xDygIUbcTkxkc-uX0=s600?authuser=0",
+        "https://drive.google.com/thumbnail?id=1bupr8brSqprqrt5xDygIUbcTkxkc-uX0&sz=s600",
     },
   ];
 
   const carouselData = [
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP",
+      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s800",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw",
+      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s800",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf",
+      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s800",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL",
+      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s800",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5",
+      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s800",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh",
+      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s800",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF",
+      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s800",
     },
   ];
 
@@ -188,7 +188,7 @@ const Home = () => {
       title: "Linkedin Photo",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "/useCase/LinkedIn.png",
+      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s800",
       svg: (
         <>
           <FaLinkedin size={22} className="text-blue-500" />
@@ -199,7 +199,7 @@ const Home = () => {
       title: "Resume",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "/useCase/Resume.png",
+      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s800",
       svg: (
         <>
           <IoDocumentTextOutline size={22} className="text-blue-500" />
@@ -210,7 +210,7 @@ const Home = () => {
       title: "Team photo",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "/useCase/TeamPhoto.png",
+      path: "https://drive.google.com/thumbnail?id=1g8wYwg9AJBt-XGjDLw1vFSgpS-e9R0Gr&sz=s800",
       svg: (
         <>
           <MdGroups size={22} className="text-blue-500" />
@@ -221,13 +221,13 @@ const Home = () => {
       title: "Portfolio Website",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "/useCase/PortfolioWebsite.png",
+      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s800",
     },
     {
       title: "Job Portal",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "/useCase/JobPortal.png",
+      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s800",
     },
   ];
 
@@ -294,7 +294,7 @@ const Home = () => {
         <div
           className={`max-w-[834px] w-1/2 flex flex-col gap-0 items-center pt-10`}
         >
-          <div className="flex flex-col items-center mb-2">
+          <div className="flex flex-col items-center mb-4">
             <div
               className={`text-[24px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold ${
                 isAnimated ? "animatedReveal" : "invisible"
@@ -335,7 +335,7 @@ const Home = () => {
           className={`max-w-[834px] w-1/2 flex flex-col gap-4 items-center pt-10`}
         >
           <img
-            src={`https://lh3.googleusercontent.com/d/1UA7FyAGDxxNyOmQI2aEocXL8V1a70uJ-=s800?authuser=0`}
+            src={`https://drive.google.com/thumbnail?id=1UA7FyAGDxxNyOmQI2aEocXL8V1a70uJ-&sz=s800`}
             className="h-full"
           />
         </div>
@@ -474,11 +474,11 @@ const Home = () => {
         <div className="flex flex-wrap flex-col gap-2 md:flex-row md:justify-between ">
           {cardData &&
             cardData?.map((item, idx) => (
-              <div className="relative w-full max-w-[420px] 2xl:h-[500px] md:w-[32%]  rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
+              <div className="relative w-full max-w-[420px] h-[300px] md:w-[32%] rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
                 <div className="w-[150px] h-[150px] absolute -top-20 right-2">
                 <img src={item?.imgPath} className="w-full h-full" />
                 </div>
-                <div className="flex flex-col gap-2 px-6">
+                <div className="flex flex-col gap-2 px-6 h-[200px]">
                   <div className="text-7xl text-[#0055D4] font-medium">
                     {`0${idx + 1}`}
                   </div>
@@ -502,7 +502,7 @@ const Home = () => {
         <div className="w-[50%] 2xl:w-[55%] bg-gradient-to-br from-[#000000] via-[#000000] to-[#000000] rounded-2xl shadow-[0_0_0_1px_#ffffff] py-10 relative transition duration-500">
           <div className="flex flex-col justify-between gap-20 items-center h-full">
             <div className="flex flex-col items-center text-[48px] font-semibold text-[#F1F1F1]">
-              <div>Ultra Realistic</div>
+              <div>The Most Realistic</div>
               <div>AI Image Generator</div>
             </div>
             <div className="text-[#f1f1f1] text-[80px] italic">VS</div>
