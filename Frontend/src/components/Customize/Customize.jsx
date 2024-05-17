@@ -1,5 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import AppSvgs from '../../components/AppSvgs/AppSvgs'
+import OrderDetails from '../OrderDetails/OrderDetails'
+import PriceCards from '../PriceCards/PriceCards'
+import CustomizeTabs from './CustomizeTabs'
+import { useStateManager } from 'react-select'
+import IndividualForm from '../IndividualForm/IndividualForm'
 
 const Customize = () => {
     const temp = [
@@ -117,85 +122,171 @@ const Customize = () => {
 
     const [subSectionData, setSubSectionData] = useState(temp[0]?.subSection || [])
     const [subSectionImages, setSubSectionImages] = useState(temp[0]?.subSection[0]?.images || [])
+    const [userData, setUserData] = useState({ email: "" });
+    const [errors, setErrors] = useState({});
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const tabContentRef = useRef(null);
+    const fieldsRef = useRef();
+
+    const priceCardData = [
+        {
+            title: "STARTER PACK",
+            originalPrice: "$35",
+            price: "$29",
+            features: ["Basic Quality", "2 Hour Turn Around Time"],
+            packName: "Starter Pack",
+            tag: "",
+        },
+        {
+            title: "BASIC PACK",
+            originalPrice: "$79",
+            price: "$45",
+            features: ["High Quality", "1 Hour Turn Around Time"],
+            packName: "Basic Pack",
+            tag: "83% pick this plan",
+        },
+
+    ];
+
+    const indivdualData = [
+        {
+            idx: 0,
+            ele: (
+                <>
+                    <IndividualForm
+                        userData={userData}
+                        setUserData={setUserData}
+                        errors={errors}
+                    />
+                </>
+            ),
+        },
+
+        {
+            idx: 1,
+            ele: (
+                <>
+                    <CustomizeTabs />
+                </>
+            ),
+        },
+
+        {
+            idx: 2,
+            ele: (
+                <>
+                    <div>
+                        <PriceCards
+                            data={priceCardData}
+                            userData={userData}
+                            setUserData={setUserData}
+                        />
+                    </div>
+                </>
+            ),
+        },
+
+
+        {
+            idx: 3,
+            ele: (
+                <>
+                    <div>
+                        Order Details
+                        {/* <OrderDetails
+                            userData={userData}
+                            files={files}
+                        /> */}
+                    </div>
+                </>
+            ),
+        },
+    ];
+
+    let maxIndex = 4 - 1;
+
+    const updateIndex = (val) => {
+        let newIndex = Math.max(currentIndex + val, 0);
+
+        if (newIndex > 0 && val > 0) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailRegex.test(userData?.email) && userData?.email?.length > 0) {
+                setErrors({});
+                if (maxIndex === currentIndex && val > 0) {
+                    return;
+                }
+                setCurrentIndex(newIndex);
+            } else {
+                setErrors({ email: "Incorrect/Missing email" });
+                return;
+            }
+        } else {
+            if (maxIndex === currentIndex && val > 0) {
+                return;
+            }
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            setCurrentIndex(newIndex);
+        }
+    };
+
+    useEffect(() => {
+        localStorage.setItem("userData", JSON.stringify(userData));
+    }, [userData]);
+
+
+    useEffect(() => {
+        if (localStorage.getItem("userData")) {
+            localStorage.clear()
+        }
+    }, [])
 
 
     return (
-        <div className="text-[#121212] text-3xl h-fit space-y-8 bg-[#f1f1f1] p-10 rounded-2xl">
-            <div className='w-full flex justify-center flex-wrap gap-3'>
-                {
-                    temp?.map(item => {
-                        return <div className=' w-1/4'>
-                            <input
-
-                                name='sectionName'
-                                className="peer hidden" type="radio" value={item?.section} id={`${item?.section}`} />
-                            <label onClick={() => {
-                                setSubSectionData(item?.subSection)
-                            }}
-                                className='px-6 py-2  flex justify-center items-center gap-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300' htmlFor={item?.section}>
-                                <span>
-                                    {item?.icon}
-                                </span>
-                                {item?.section} </label>
-                            {/* <button onClick={() => {
-                                        setSubSectionData(item?.subSection)
-                                    }} className='flex flex-col w-full justify-center items-center  hover:shadow-[0_3px#0000FF] hover:text-blue-700 px-6 py-3  cursor-pointer border-4 border-transparent peer-checked:border-white peer-checked:ring-4 ring-indigo-500/80 transition-all'>
-                                        <span>
-                                            {item?.icon}
-                                        </span>
-                                        <span>
-                                            {item?.section}
-                                        </span>
-                                    </button> */}
-                        </div>
-
-                        {/* <div className="relative ">
-                                    <input
-
-                                        name='subSectionTitle'
-                                        className="peer hidden" type="radio" value={item?.title} id={`${item?.title}`} />
-                                    <label onClick={() => {
-                                        setSubSectionImages(item?.images)
-                                    }}
-                                        className='px-6 py-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300' htmlFor={item?.title}>{item?.title} </label>
+        <>
 
 
-                                </div> */}
 
+            <div
+                className="flex flex-col justify-between h-full gap-8"
+                ref={tabContentRef}
+            >
+                {indivdualData &&
+                    indivdualData?.map((item, idx) => {
+                        if (item?.idx === currentIndex) {
+                            return (
+                                <div
+                                    className="h-[90%] w-full"
+                                    key={`individualData${idx}`}
+                                >
+                                    {item?.ele}
+                                </div>
+                            );
+                        }
+                    })}
 
-                    })
-                }
+                <div className="flex justify-center gap-2">
+                    {currentIndex > 0 && (
+                        <button
+                            className={`hover:squeezyBtn px-8 py-3 bg-[#b41f58] hover:bg-[#b41f58a8] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                            onClick={() => updateIndex(-1)}
+                        >
+                            Back
+                        </button>
+                    )}
+                    <button
+                        className={`hover:squeezyBtn px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                        onClick={() => {
+                            updateIndex(1);
+                        }}
+                    >
+                        Next
+                    </button>
+                </div>
             </div>
-            <section className='flex justify-around items-center flex-wrap p-2 text-lg gap-3'>
-                {
-                    subSectionData?.map(item => {
 
-                        return <div className="relative ">
-                            <input
-
-                                name='subSectionTitle'
-                                className="peer hidden" type="radio" value={item?.title} id={`${item?.title}`} />
-                            <label onClick={() => {
-                                setSubSectionImages(item?.images)
-                            }}
-                                className='px-6 py-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300' htmlFor={item?.title}>{item?.title} </label>
+        </>
 
 
-                        </div>
-
-
-                    })
-                }
-            </section>
-            <section className='flex justify-around gap-4 items-center flex-wrap'>
-                {
-                    subSectionImages?.map(item => {
-                        return <img src={item?.path} className='w-[200px] h-[200px] cursor-pointer hover:shadow-[0_0_0_1px#ffffff] rounded-xl transition duration-300' />
-                    })
-                }
-            </section>
-            {/* <div><img src="/slider1/1.jpg" className='w-[200px] h-[200px] hover:shadow-[0_0_0_1px#ffffff] rounded-xl transition duration-300' /></div> */}
-        </div>
     )
 }
 
