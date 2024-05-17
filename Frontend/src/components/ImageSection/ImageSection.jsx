@@ -1,8 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-
-import useFileSelection from "../../hooks/useFileSelection";
+import React, { useState } from "react";
 import DragAndDrop from "../DragAndDrop/DragAndDrop";
-import { Button, Card } from "antd";
 import ImgCropT from "../CropTool/ImgCropT";
 
 const ImageSection = ({files, setFiles, fileErrorMsg, setFileErrorMsg}) => {

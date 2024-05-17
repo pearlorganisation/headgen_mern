@@ -15,41 +15,89 @@ const Home = () => {
   const [isAnimated, setIsAnimated] = useState(false);
 
   const imgData1 = [
-    { name: "", path: "/slider1/1.jpg" },
-    { name: "", path: "/slider1/2.jpg" },
-    { name: "", path: "/slider1/3.jpg" },
-    { name: "", path: "/slider1/4.jpg" },
-    { name: "", path: "/slider1/5.jpg" },
-    { name: "", path: "/slider1/6.jpg" },
-    { name: "", path: "/slider1/7.jpg" },
-    { name: "", path: "/slider1/8.jpg" },
-    { name: "", path: "/slider1/9.jpg" },
-    { name: "", path: "/slider1/10.jpg" },
-    { name: "", path: "/slider1/11.jpg" },
-    { name: "", path: "/slider1/12.jpg" },
-    { name: "", path: "/slider1/13.jpg" },
-    { name: "", path: "/slider1/14.jpg" },
-    { name: "", path: "/slider1/15.jpg" },
-    { name: "", path: "/slider1/16.jpg" },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1zltDX4qtRqhuof60XWaTdOwQXSCQhETw=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1HMLeKlSPY97lR-viypYIXazQF8uKjra5=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1zltDX4qtRqhuof60XWaTdOwQXSCQhETw=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1HMLeKlSPY97lR-viypYIXazQF8uKjra5=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP=s800?authuser=0",
+    },
   ];
 
   const reviewData1 = [
     { name: "", path: "/reviewSlider/1.png" },
-    { name: "", path: "/reviewSlider/2.png" },
-    { name: "", path: "/reviewSlider/1.png" },
-    { name: "", path: "/reviewSlider/2.png" },
-    { name: "", path: "/reviewSlider/1.png" },
-    { name: "", path: "/reviewSlider/2.png" },
-    { name: "", path: "/reviewSlider/1.png" },
-    { name: "", path: "/reviewSlider/2.png" },
-    { name: "", path: "/reviewSlider/1.png" },
-    { name: "", path: "/reviewSlider/2.png" },
-    { name: "", path: "/reviewSlider/1.png" },
-    { name: "", path: "/reviewSlider/2.png" },
-    { name: "", path: "/reviewSlider/1.png" },
-    { name: "", path: "/reviewSlider/2.png" },
-    { name: "", path: "/reviewSlider/1.png" },
-    { name: "", path: "/reviewSlider/2.png" },
+    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
+    { name: "", path: "/reviewSlider/1.png", linkType: "local" },
+    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
+    { name: "", path: "/reviewSlider/1.png", linkType: "local" },
+    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
+    { name: "", path: "/reviewSlider/1.png", linkType: "local" },
+    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
+    { name: "", path: "/reviewSlider/1.png", linkType: "local" },
+    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
+    { name: "", path: "/reviewSlider/1.png", linkType: "local" },
+    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
+    { name: "", path: "/reviewSlider/1.png", linkType: "local" },
+    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
+    { name: "", path: "/reviewSlider/1.png", linkType: "local" },
+    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
   ];
 
   const cardData = [
@@ -57,54 +105,82 @@ const Home = () => {
       title: "Upload a selfie",
       content:
         "Start your professional AI image generation experience by uploading your selfie.",
-      imgPath: "/cardImgs/1.png",
+      imgPath:
+        "https://lh3.googleusercontent.com/d/1Z2eHvjtVo6jYo9EGwSPYILub23hsMxBY=s800?authuser=0",
     },
     {
       title: "Make Payment",
       content:
         "Make your payment to unlock the power of AI and transform your image into stunning professional images.",
-      imgPath: "/cardImgs/2.png",
+      imgPath:
+        "https://lh3.googleusercontent.com/d/1pndNiBuEgvuDl_RVGFTpw_W6vCCWvCn1=s800?authuser=0",
     },
     {
       title: "Get Professional Images",
       content:
         "Get professional images all delivered to you within a swift window of time.",
-      imgPath: "/cardImgs/3.png",
+      imgPath:
+        "https://lh3.googleusercontent.com/d/17smkegUhG8QWeR3v8xMhLqx8gGPG8l1a=s800?authuser=0",
     },
   ];
 
   const logoData = [
     {
-      name: "nike logo",
-      imgPath: "/logos/nike.png",
+      name: "walmart logo",
+      imgPath:
+        "https://lh3.googleusercontent.com/d/1up3Y8G7BYQt4vFDeXYicUUbrnMDNz0QK=s600?authuser=0",
     },
     {
       name: "microsoft logo",
-      imgPath: "/logos/microsoft.png",
+      imgPath:
+        "https://lh3.googleusercontent.com/d/10vAAtNBCVa35oLUmY6NZKDwrq2kl8w6V=s600?authuser=0",
     },
     {
       name: "google logo",
-      imgPath: "/logos/google.png",
+      imgPath:
+        "https://lh3.googleusercontent.com/d/1T5_P_dHHDNxPdlN_oCp8lxcxAM7BXYEp=s600?authuser=0",
     },
     {
-      name: "walmart logo",
-      imgPath: "/logos/walmart.png",
+      name: "airbnb logo",
+      imgPath:
+        "https://lh3.googleusercontent.com/d/1m45hPUM6sDgtDdC1hG89FKgd7MAmAwsi=s600?authuser=0",
     },
     {
-      name: "harvard logo",
-      imgPath: "/logos/harvard.png",
+      name: "amazon logo",
+      imgPath:
+        "https://lh3.googleusercontent.com/d/1bupr8brSqprqrt5xDygIUbcTkxkc-uX0=s600?authuser=0",
     },
   ];
 
   const carouselData = [
-    { name: "", path: "/slider1/1.jpg" },
-    { name: "", path: "/slider1/2.jpg" },
-    { name: "", path: "/slider1/3.jpg" },
-    { name: "", path: "/slider1/4.jpg" },
-    { name: "", path: "/slider1/1.jpg" },
-    { name: "", path: "/slider1/2.jpg" },
-    { name: "", path: "/slider1/3.jpg" },
-    { name: "", path: "/slider1/4.jpg" },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF",
+    },
   ];
 
   const useCaseData = [
@@ -216,29 +292,29 @@ const Home = () => {
 
       <div className="flex justify-center px-10  xl:px-[160px] 2xl:px-[250px]">
         <div
-          className={`max-w-[834px] w-[100%] flex flex-col gap-6 items-center pt-10`}
+          className={`max-w-[834px] w-1/2 flex flex-col gap-0 items-center pt-10`}
         >
-          <div
-            className={`text-[26px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold ${
-              isAnimated ? "animatedReveal" : "invisible"
-            }`}
-          >
-            AI HEADSHOT GENERATOR
-          </div>
-          <div className="flex flex-col leading-[75px] items-center">
+          <div className="flex flex-col items-center mb-2">
             <div
-              className={`text-white text-[55px] 2xl:text-[72px] font-normal ${
+              className={`text-[24px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold ${
                 isAnimated ? "animatedReveal" : "invisible"
               }`}
             >
-              AI Tool for
+              AI HEADSHOT GENERATOR
             </div>
             <div
-              className={`text-[55px] 2xl:text-[72px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold font-bold ${
+              className={`text-white oswald text-[9rem] font-bold ${
                 isAnimated ? "animatedReveal" : "invisible"
               }`}
             >
-              Professional Headshots
+              AI Tool
+            </div>
+            <div
+              className={`text-[24px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
+                isAnimated ? "animatedReveal" : "invisible"
+              }`}
+            >
+              FOR PROFESSIONAL HEADSHOTS
             </div>
           </div>
           <div
@@ -246,18 +322,22 @@ const Home = () => {
               isAnimated ? "animatedReveal" : "invisible"
             }`}
           >
-            <div className="text-[#F1F1F1] text-[20px] ">
-              Upload a selfie and get Professional Images for your
-              LinkedIn/Business Profile.
-            </div>
             <button
-              className={`hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-1/3 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${
+              className={`hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg px-2 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${
                 isAnimated ? "animatedReveal" : "invisible"
               }`}
             >
               Get your photos for $29
             </button>
           </div>
+        </div>
+        <div
+          className={`max-w-[834px] w-1/2 flex flex-col gap-4 items-center pt-10`}
+        >
+          <img
+            src={`https://lh3.googleusercontent.com/d/1UA7FyAGDxxNyOmQI2aEocXL8V1a70uJ-=s800?authuser=0`}
+            className="h-full"
+          />
         </div>
       </div>
 
@@ -326,9 +406,9 @@ const Home = () => {
 
       {/* trusted by */}
 
-      <div className="flex flex-col items-center gap-6">
+      <div className="flex  justify-center gap-6">
         <div
-          className={`text-center font-bold text-[20px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
+          className={`flex flex-col justify-center text-center font-bold text-[20px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text ${
             isAnimated ? "animatedReveal" : "invisible"
           }`}
         >
@@ -347,7 +427,7 @@ const Home = () => {
               <img
                 src={item?.imgPath}
                 alt={item?.name}
-                className="w-auto h-[40px]"
+                className="w-auto h-full"
               />
             </div>
           ))}
@@ -394,8 +474,11 @@ const Home = () => {
         <div className="flex flex-wrap flex-col gap-2 md:flex-row md:justify-between ">
           {cardData &&
             cardData?.map((item, idx) => (
-              <div className="w-full max-w-[420px] 2xl:h-[500px] md:w-[32%]  rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
-                <div className="flex flex-col gap-8 px-6">
+              <div className="relative w-full max-w-[420px] 2xl:h-[500px] md:w-[32%]  rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
+                <div className="w-[150px] h-[150px] absolute -top-20 right-2">
+                <img src={item?.imgPath} className="w-full h-full" />
+                </div>
+                <div className="flex flex-col gap-2 px-6">
                   <div className="text-7xl text-[#0055D4] font-medium">
                     {`0${idx + 1}`}
                   </div>
@@ -403,13 +486,10 @@ const Home = () => {
                     <div className="text-[#0C062C] text-2xl font-medium">
                       {item?.title}
                     </div>
-                    <div className="text-[#232833] text-base">
-                      {item?.content}
-                    </div>
                   </div>
                 </div>
-                <div className="w-full h-[200px] 2xl:h-[230px] flex justify-center">
-                  <img src={item?.imgPath} className="w-full h-full" />
+                <div className="w-full h-[150px] bg-[#0055D4] text-white px-4 pb-2 flex justify-center items-center">
+                  {item?.content}
                 </div>
               </div>
             ))}
