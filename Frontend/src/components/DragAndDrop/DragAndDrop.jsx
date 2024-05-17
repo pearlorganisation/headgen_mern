@@ -69,9 +69,11 @@ const DragAndDrop = ({ files, setFiles, setSelectedImage,deleteFile, fileErrorMs
         const fileURL = fileReader.result;
         setFiles((prevImages) => {
           if(prevImages.length < 4){
-            return [...prevImages, fileURL]
+            return  [...prevImages, fileURL]
+            
+          } else {
+            return prevImages
           }
-          return prevImages
         }
       );
       };

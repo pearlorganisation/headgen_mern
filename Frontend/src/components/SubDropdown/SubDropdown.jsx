@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-const SubDropdown = ({ data,  setShowMobDropdown }) => {
+const SubDropdown = ({ data, setShowMobDropdown }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   return (
     <>
@@ -13,7 +13,7 @@ const SubDropdown = ({ data,  setShowMobDropdown }) => {
         <span className="w-[120px] flex justify-center gap-1">
           {data.name}
           <span className="flex flex-col justify-center">
-          <IoIosArrowDown />
+            <IoIosArrowDown />
           </span>
         </span>
       </div>

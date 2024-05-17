@@ -17,7 +17,7 @@ const DatingHero = () => {
             </div>
       </div>
       <div className='w-1/2 flex flex-col justify-center items-end'>
-        <img src="/dating/heroImg.png" className='h-2/3' alt="" />
+        <img src="https://lh3.googleusercontent.com/d/11mgX3mlp1kIqIc9ehghQ8DRzD1GVBwvv=s800?authuser=0" className='h-full' alt="" />
       </div>
     </div>
   )
