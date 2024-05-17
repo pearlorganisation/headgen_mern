@@ -2,32 +2,29 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import HeaderLink from "./HeaderLink";
-
-import { IoIosMenu } from "react-icons/io";
+import SubDropdown from "../../SubDropdown/SubDropdown";
 
 const Header = () => {
-
-  const location = useLocation()
-  const [toggleNav, setToggleNav] = useState(false)
-  const [toggleCss, setToggleCss] = useState('')
-  const [isDatingPage, setIsDatingPage] = useState(false)
-
+  const location = useLocation();
+  const [toggleNav, setToggleNav] = useState(false);
+  const [toggleCss, setToggleCss] = useState("");
+  const [isDatingPage, setIsDatingPage] = useState(false);
+  const [showMobDropdown, setShowMobDropdown] = useState(false);
   // const [showMenuDropdown, setShowMenuDropdown] = useState(false)
 
-  useEffect(()=> {
-    
-    if(location.pathname === '/dating') {
-      setIsDatingPage(true)
-      setToggleCss('bg-gradient-to-r from-[#810000] to-red-800')
+  useEffect(() => {
+    if (location.pathname === "/dating") {
+      setIsDatingPage(true);
+      setToggleCss("bg-gradient-to-r from-[#810000] to-red-800");
     } else {
-      setIsDatingPage(false)
-      setToggleCss('bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800')
+      setIsDatingPage(false);
+      setToggleCss("bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800");
     }
-  }, [location])
-  
+  }, [location]);
+
   //state for window width
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  
+
   // useEffect for window width
   useEffect(() => {
     const handleResize = () => {
@@ -47,10 +44,7 @@ const Header = () => {
     };
   }, []);
 
-
   let offsetY = 50;
-  
-
 
   useEffect(() => {
     const handleNavBar = () => {
@@ -62,18 +56,14 @@ const Header = () => {
       }
     };
 
-  
     window.addEventListener("scroll", handleNavBar);
-  
 
-    handleNavBar()
+    handleNavBar();
 
     return () => {
       window.removeEventListener("scroll", handleNavBar);
     };
   }, []);
-
-
 
   const navData = [
     {
@@ -112,10 +102,6 @@ const Header = () => {
           name: "Youtube / Instagram",
           path: "/upload/Youtube%20Instagram%20Headhots",
         },
-        {
-          name: "Customize",
-          path: "/customize",
-        },
       ],
       showDropdown: true,
     },
@@ -152,10 +138,12 @@ const Header = () => {
     },
   ];
 
-
-
   return (
-    <nav className={`fixed w-full ${toggleNav ? toggleCss : ''} px-10 2xl:px-[250px] h-fit border-[#737373] border-b-[2px] z-[99]`}>
+    <nav
+      className={`fixed w-full ${
+        toggleNav ? toggleCss : ""
+      } px-10 2xl:px-[250px] h-fit border-[#737373] border-b-[2px] z-[99]`}
+    >
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex flex-col justify-center">
           <Link to="/">
@@ -166,15 +154,13 @@ const Header = () => {
         {windowWidth <= 970 ? (
           <>
             <button
-              data-collapse-toggle="navbar-multi-level"
               type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="navbar-multi-level"
-              aria-expanded="false"
+              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              onClick={() => setShowMobDropdown(!showMobDropdown)}
             >
-              <span className="sr-only">Open main menu</span>
+              <span class="sr-only">Open main menu</span>
               <svg
-                className="w-5 h-5"
+                class="w-5 h-5"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -182,188 +168,71 @@ const Header = () => {
               >
                 <path
                   stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
                   d="M1 1h15M1 7h15M1 13h15"
                 />
               </svg>
             </button>
-            <div className="hidden w-full" id="navbar-multi-level">
-              <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
-                    aria-current="page"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <button
-                    id="dropdownNavbarLink"
-                    data-dropdown-toggle="dropdownNavbar"
-                    className="flex items-center justify-between w-full py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
-                  >
-                    Dropdown{" "}
-                    <svg
-                      className="w-2.5 h-2.5 ms-2.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 10 6"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="m1 1 4 4 4-4"
+            <div
+              className={`${
+                showMobDropdown ? "" : "hidden"
+              } absolute top-[102%] left-0 w-full bg-[#2f2f31] flex flex-col shadow-[0_2px_2px#121212]`}
+            >
+              {navData &&
+                navData.map((item, idx) => (
+                  <>
+                    {item.showDropdown ? (
+                      <SubDropdown
+                        key={`navData${idx}`}
+                        data={item}
+                        setShowMobDropdown={setShowMobDropdown}
                       />
-                    </svg>
-                  </button>
-
-                  <div
-                    id="dropdownNavbar"
-                    className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-                  >
-                    <ul
-                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                      aria-labelledby="dropdownLargeButton"
-                    >
-                      <li>
-                        <a
-                          href="#"
-                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Dashboard
-                        </a>
-                      </li>
-                      <li aria-labelledby="dropdownNavbarLink">
-                        <button
-                          id="doubleDropdownButton"
-                          data-dropdown-toggle="doubleDropdown"
-                          data-dropdown-placement="right-start"
-                          type="button"
-                          className="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Dropdown
-                          <svg
-                            className="w-2.5 h-2.5 ms-2.5"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 10 6"
-                          >
-                            <path
-                              stroke="currentColor"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="m1 1 4 4 4-4"
-                            />
-                          </svg>
-                        </button>
-                        <div
-                          id="doubleDropdown"
-                          className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-                        >
-                          <ul
-                            className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                            aria-labelledby="doubleDropdownButton"
-                          >
-                            <li>
-                              <a
-                                href="#"
-                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                              >
-                                Overview
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                href="#"
-                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                              >
-                                My downloads
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                href="#"
-                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                              >
-                                Billing
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                href="#"
-                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                              >
-                                Rewards
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Earnings
-                        </a>
-                      </li>
-                    </ul>
-                    <div className="py-1">
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    ) : (
+                      <Link
+                        key={`navData${idx}`}
+                        href={item.path}
+                        className="w-full flex justify-center hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-lg py-2 hover:bg-blue-600 hover:text-white transition duration-300 "
+                        onClick={() => setShowMobDropdown(false)}
                       >
-                        Sign out
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Contact
-                  </a>
-                </li>
-              </ul>
+                        <span className="w-[120px] text-center">
+                          {item.name}
+                        </span>
+                      </Link>
+                    )}
+                  </>
+                ))}
             </div>
           </>
         ) : (
           <>
             <div className="flex flex-row gap-4">
               {navData.map((item, idx) => (
-                <HeaderLink key={`header${idx}`} data={item} showDropdown={item?.showDropdown}  />
+                <HeaderLink
+                  key={`header${idx}`}
+                  data={item}
+                  showDropdown={item?.showDropdown}
+                />
               ))}
 
               {/* button */}
               <div className="h-full py-3">
-                <button className={`hover:squeezyBtn px-5 py-4 ${toggleNav ? `${isDatingPage ? 'shadow-[0_1px_2px_0_#131313] bg-[#af2828d8] hover:bg-[#1d2838]' : 'shadow-[0_1px_2px_0_#131313] bg-[#4f3bffd8] hover:bg-[#1d2838]' }` : `${isDatingPage ? 'bg-[#1d2838] hover:bg-[#af2828d8]' : 'bg-[#1d2838] hover:bg-[#1f58ad]'}`} hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#ffffff] text-[15px] font-medium transition duration-[0.6s]`}>
+                <button
+                  className={`hover:squeezyBtn px-5 py-4 ${
+                    toggleNav
+                      ? `${
+                          isDatingPage
+                            ? "shadow-[0_1px_2px_0_#131313] bg-[#af2828d8] hover:bg-[#1d2838]"
+                            : "shadow-[0_1px_2px_0_#131313] bg-[#4f3bffd8] hover:bg-[#1d2838]"
+                        }`
+                      : `${
+                          isDatingPage
+                            ? "bg-[#1d2838] hover:bg-[#af2828d8]"
+                            : "bg-[#1d2838] hover:bg-[#1f58ad]"
+                        }`
+                  } hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#ffffff] text-[15px] font-medium transition duration-[0.6s]`}
+                >
                   Get Started
                 </button>
               </div>
@@ -372,7 +241,6 @@ const Header = () => {
         )}
       </div>
     </nav>
-
   );
 };
 
