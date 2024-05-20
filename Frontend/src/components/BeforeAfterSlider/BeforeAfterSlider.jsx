@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import './styles.css'; // Import your CSS file
+import React, { useState } from "react";
+import "./styles.css"; // Import your CSS file
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
-const BeforeAfterSlider = ({img1, img2}) => {
+const BeforeAfterSlider = ({ img1, img2 }) => {
   const [position, setPosition] = useState(50);
 
   const handleInputChange = (e) => {
@@ -10,7 +11,10 @@ const BeforeAfterSlider = ({img1, img2}) => {
 
   return (
     <>
-      <div className="beforeAfterContainer" style={{ '--position': `${position}%` }}>
+      <div
+        className="beforeAfterContainer"
+        style={{ "--position": `${position}%` }}
+      >
         <div className="image-container">
           <img
             className="image-before slider-image"
@@ -33,23 +37,12 @@ const BeforeAfterSlider = ({img1, img2}) => {
           onChange={handleInputChange}
         />
         <div className="slider-line" aria-hidden="true"></div>
-        <div className="slider-button" aria-hidden="true">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
-            fill="currentColor"
-            viewBox="0 0 256 256"
-          >
-            {/* SVG Content */}
-          </svg>
+        <div className="slider-button flex " aria-hidden="true">
+          <MdKeyboardArrowLeft size={24} />
+          <MdKeyboardArrowRight size={24} />
         </div>
-      </div>   
+      </div>
     </>
- 
- 
-     
-
   );
 };
 

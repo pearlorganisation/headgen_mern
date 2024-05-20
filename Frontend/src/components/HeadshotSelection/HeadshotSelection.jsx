@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 // import { GenIcon } from "react-icons";
 import { FaChevronRight } from "react-icons/fa";
-import { IoManSharp, IoWoman } from "react-icons/io5";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,33 +12,12 @@ import "swiper/css/scrollbar";
 import { A11y, Autoplay, Navigation } from "swiper/modules";
 import { useParams } from "react-router-dom";
 
-const IndividualForm = ({ userData, setUserData, errors }) => {
-  const [email, setEmail] = useState(userData?.email);
-  const [gender, setGender] = useState(userData?.gender);
-  const [headshotType, setHeadshotType] = useState(userData?.headshotType);
-
+const HeadshotSelection = ({ userData, setUserData, errors }) => {
   let { headshot } = useParams();
 
   const decodedParam = decodeURIComponent(headshot);
 
-  const genderSelections = [
-    {
-      name: "Male",
-      svg: (
-        <>
-          <IoManSharp size={22} />
-        </>
-      ),
-    },
-    {
-      name: "Female",
-      svg: (
-        <>
-          <IoWoman size={22} />
-        </>
-      ),
-    },
-  ];
+  const [headshotType, setHeadshotType] = useState(userData?.headshotType);
 
   const headshots = [
     {
@@ -96,17 +74,25 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
       },
     },
     {
-      name: "Youtube / Instagram",
+      name: "Youtube or Instagram",
     },
   ];
 
   useEffect(() => {
-    const updatedUserData = { ...userData };
-    updatedUserData.email = email;
-    updatedUserData.gender = gender;
-    updatedUserData.headshotType = headshotType;
-    setUserData(updatedUserData);
-  }, [email, gender, headshotType]);
+    if (headshotType) {
+      console.log(headshotType);
+      const updatedUserData = { ...userData };
+      updatedUserData.headshotType = headshotType;
+      setUserData(updatedUserData);
+    }
+  }, [headshotType]);
+
+  useEffect(() => {
+    console.log(headshotType);
+    if (decodedParam) {
+      setHeadshotType(decodedParam);
+    }
+  }, [decodedParam]);
 
   return (
     <div className="flex flex-col gap-4 justify-between relative h-full items-center space-y-10">
@@ -193,58 +179,8 @@ const IndividualForm = ({ userData, setUserData, errors }) => {
             </div>
           ))}
       </div>
-
-      <div className="flex w-full">
-        <div className="flex flex-col items-center gap-4 w-1/2 relative">
-          <label htmlFor="email" className="text-center text-2xl text-white ">
-            Enter your Email:
-          </label>
-
-          <input
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            type="text"
-            placeholder="Enter your email"
-            className="w-2/3 text-center bg-[#f1f1f1]  text-[#131313] text-[18px] px-2 rounded-lg  shadow-[0_0_0_1px_#5d5b68] focus:shadow-[0_0_0_1px_#1d2838]"
-          />
-
-          <div className="text-[#ff1717] text-[16px] leading-3">
-            {errors?.email && errors?.email}
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-4 w-1/2">
-          <label htmlFor="gender" className="text-center text-2xl text-white">
-            What's your gender?
-          </label>
-          <div className="flex gap-2 justify-center">
-            {genderSelections &&
-              genderSelections?.map((item, idx) => (
-                <div
-                  onClick={() => {
-                    setGender(item?.name);
-                  }}
-                  key={`gender${idx}`}
-                  className={`bg-[#f1f1f1]  text-[#131313] ${
-                    userData?.gender === item?.name
-                      ? "!bg-[#355cc9] text-[#f1f1f1]"
-                      : "bg-[#f1f1f1]"
-                  } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-1/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2`}
-                >
-                  <span className="flex flex-col justify-center">
-                    {item?.svg}
-                  </span>
-                  <span>{item?.name}</span>
-                </div>
-              ))}
-          </div>
-          <div className="text-[#ff1717] text-[16px] leading-3">
-            {errors?.gender && errors?.gender}
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
 
-export default IndividualForm;
+export default HeadshotSelection;

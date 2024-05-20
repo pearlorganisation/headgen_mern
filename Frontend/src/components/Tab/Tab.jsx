@@ -2,19 +2,20 @@ import React, { useEffect, useRef } from "react";
 import "./Tab.css";
 import { useState } from "react";
 import PriceCards from "../PriceCards/PriceCards";
-import IndividualForm from "../IndividualForm/IndividualForm";
+import HeadshotSelection from "../HeadshotSelection/HeadshotSelection";
 import ImageSection from "../ImageSection/ImageSection";
 import Customize from "../Customize/Customize";
 import OrderDetails from "../OrderDetails/OrderDetails";
 import Teams from "../Teams/Teams";
+import UserDetails from "../UserDetails/UserDetails";
 
 const Tab = () => {
   const [userData, setUserData] = useState({ email: "" });
   const [errors, setErrors] = useState({});
   const [fileErrorMsg, setFileErrorMsg] = useState(null)
   const [files, setFiles] = useState([]);
-  const [tabSwitched, setTabSwitched] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [tabSwitched, setTabSwitched] = useState(true);
 
   const tabs = ["Individual", "Teams", "Customize", "Prompts"];
   const [tabText, setTabText] = useState("Individual");
@@ -54,7 +55,7 @@ const Tab = () => {
       idx: 0,
       ele: (
         <>
-          <IndividualForm
+          <HeadshotSelection
             userData={userData}
             setUserData={setUserData}
             errors={errors}
@@ -67,13 +68,26 @@ const Tab = () => {
       idx: 1,
       ele: (
         <>
-          <ImageSection userData={userData} setUserData={setUserData} files={files} setFiles={setFiles} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg} />
+          <UserDetails
+            userData={userData}
+            setUserData={setUserData}
+            errors={errors}
+          />
         </>
       ),
     },
 
     {
       idx: 2,
+      ele: (
+        <>
+          <ImageSection userData={userData} setUserData={setUserData} files={files} setFiles={setFiles} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg} />
+        </>
+      ),
+    },
+
+    {
+      idx: 3,
       ele: (
         <>
           <div>
@@ -89,7 +103,7 @@ const Tab = () => {
 
 
     {
-      idx: 3,
+      idx: 4,
       ele: (
         <>
           <div>
@@ -103,12 +117,12 @@ const Tab = () => {
     },
   ];
 
-  let maxIndex = 4 - 1;
+  let maxIndex = 5 - 1;
 
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
 
-    if (newIndex > 0 && val > 0) {
+    if (newIndex > 1 && val > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (emailRegex.test(userData?.email) && userData?.email?.length > 0) {
         setErrors({});
@@ -145,6 +159,7 @@ const Tab = () => {
       localStorage.setItem('userImgs', files)
     }
   }, [files])
+
 
 
   return (
@@ -227,7 +242,10 @@ const Tab = () => {
           )}
           {tabText === "Customize" && (
             <div>
-              <Customize />
+              <Customize
+                userData={userData} setUserData={setUserData} files={files} setFiles={setFiles} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg}
+                errors={errors}
+              />
             </div>
           )}
           {tabText === "Prompts" && (
