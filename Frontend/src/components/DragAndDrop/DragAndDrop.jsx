@@ -4,8 +4,14 @@ import { GoPlus } from "react-icons/go";
 import { MdDelete } from "react-icons/md";
 import { FaCropSimple } from "react-icons/fa6";
 
-const DragAndDrop = ({ files, setFiles, setSelectedImage,deleteFile, fileErrorMsg, setFileErrorMsg }) => {
-  
+const DragAndDrop = ({
+  files,
+  setFiles,
+  setSelectedImage,
+  deleteFile,
+  fileErrorMsg,
+  setFileErrorMsg,
+}) => {
   const [isDragActive, setIsDragActive] = useState(false);
 
   const handleFileChange = (event) => {
@@ -16,11 +22,11 @@ const DragAndDrop = ({ files, setFiles, setSelectedImage,deleteFile, fileErrorMs
       (key) => selectedFiles[key]
     );
     filesArray.forEach((file) => {
-      if(file.size/1000000 <= 2){
+      if (file.size / 1000000 <= 2) {
         displayFile(file);
       } else {
-        setFileErrorMsg("Couldn't upload file greater than  2mb")
-        return
+        setFileErrorMsg("Couldn't upload file greater than  2mb");
+        return;
       }
     });
   };
@@ -43,18 +49,16 @@ const DragAndDrop = ({ files, setFiles, setSelectedImage,deleteFile, fileErrorMs
       (key) => selectedFiles[key]
     );
     filesArray.forEach((file) => {
-      if(file.size/1000000 <= 2){
+      if (file.size / 1000000 <= 2) {
         displayFile(file);
-        
       } else {
-        setFileErrorMsg("Couldn't upload file greater than  2mb")
-        return
+        setFileErrorMsg("Couldn't upload file greater than  2mb");
+        return;
       }
     });
   };
 
   const displayFile = (selectedFile) => {
-    
     const validExtensions = [
       "image/jpeg",
       "image/jpg",
@@ -65,21 +69,20 @@ const DragAndDrop = ({ files, setFiles, setSelectedImage,deleteFile, fileErrorMs
     if (validExtensions.includes(selectedFile.type)) {
       const fileReader = new FileReader();
       fileReader.onload = () => {
-
         const fileURL = fileReader.result;
         setFiles((prevImages) => {
-          if(prevImages.length < 4){
-            return  [...prevImages, fileURL]
-            
+          if (prevImages.length < 4) {
+            return [...prevImages, fileURL];
           } else {
-            return prevImages
+            setFileErrorMsg(null)
+            return prevImages;
           }
-        }
-      );
+        });
       };
+      fileReader.readAsDataURL(selectedFile);
     } else {
       alert("This is not an Image File");
-      setFiles([]);
+      // setFiles([]);
     }
   };
 
@@ -120,14 +123,12 @@ const DragAndDrop = ({ files, setFiles, setSelectedImage,deleteFile, fileErrorMs
         </div>
       </div>
       {fileErrorMsg && (
-        <div className="text-red-500 text-center text-lg">
-          {fileErrorMsg}
-        </div>
+        <div className="text-red-500 text-center text-lg">{fileErrorMsg}</div>
       )}
       <div className="w-full flex flex-wrap gap-2">
         {files &&
-          files?.map((item) => (
-            <div className="w-[100px] h-[100px] rounded-lg shadow-[0_0_0_1px#ffffff] group relative">
+          files?.map((item, idx) => (
+            <div key={`previewImg${idx}`} className="w-[100px] h-[100px] rounded-lg shadow-[0_0_0_1px#ffffff] group relative">
               <img src={item} className="w-full h-full rounded-lg" />
               <div className="absolute flex justify-center w-full top-1/2 -translate-y-1/2  gap-4">
                 <div className="group-hover:block hidden transition duration-300 ">
@@ -149,10 +150,10 @@ const DragAndDrop = ({ files, setFiles, setSelectedImage,deleteFile, fileErrorMs
           ))}
       </div>
       <div className="px-6 text-sm">
-        <h2 class="mb-2 text-lg font-semibold text-gray-900">
+        <h2 className="mb-2 text-lg font-semibold text-gray-900">
           Upload requirements:
         </h2>
-        <ul class="max-w-md space-y-1 text-gray-700 list-disc list-inside">
+        <ul className="max-w-md space-y-1 text-gray-700 list-disc list-inside">
           <li>Please upload 1-4 images.</li>
           <li>Accepted format .jpeg, .jpg or .heic</li>
           <li>Please ensure that your image is less than 2mb</li>

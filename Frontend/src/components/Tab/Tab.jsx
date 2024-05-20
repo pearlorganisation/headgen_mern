@@ -11,9 +11,13 @@ import Teams from "../Teams/Teams";
 import UserDetails from "../UserDetails/UserDetails";
 
 const Tab = () => {
-  const [userData, setUserData] = useState({ email: "" });
+  const [userData, setUserData] = useState({
+    email: "",
+    gender: "",
+    files: "",
+  });
   const [errors, setErrors] = useState({});
-  const [fileErrorMsg, setFileErrorMsg] = useState(null)
+  const [fileErrorMsg, setFileErrorMsg] = useState(null);
   const [files, setFiles] = useState([]);
   const [tabSwitched, setTabSwitched] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -82,7 +86,14 @@ const Tab = () => {
       idx: 2,
       ele: (
         <>
-          <ImageSection userData={userData} setUserData={setUserData} files={files} setFiles={setFiles} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg} />
+          <ImageSection
+            userData={userData}
+            setUserData={setUserData}
+            files={files}
+            setFiles={setFiles}
+            fileErrorMsg={fileErrorMsg}
+            setFileErrorMsg={setFileErrorMsg}
+          />
         </>
       ),
     },
@@ -102,39 +113,62 @@ const Tab = () => {
       ),
     },
 
-
     {
       idx: 4,
       ele: (
         <>
           <div>
-            <OrderDetails
-              userData={userData}
-              files={files}
-            />
+            <OrderDetails userData={userData} files={files} />
           </div>
         </>
       ),
     },
   ];
 
-  let maxIndex = 4 - 1;
+  let maxIndex = 5 - 1;
 
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
 
-    if (newIndex > 1 && val > 0) {
+    if (newIndex > 1 && newIndex < 3 && val > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (emailRegex.test(userData?.email) && userData?.email?.length > 0) {
+      if (
+        emailRegex.test(userData?.email) &&
+        userData?.email?.length > 0 &&
+        userData?.gender?.length > 0
+      ) {
         setErrors({});
         if (maxIndex === currentIndex && val > 0) {
           return;
         }
         setCurrentIndex(newIndex);
       } else {
-        setErrors({ email: "Incorrect/Missing email" });
+        let error = { email: "", gender: "" };
+        error.email = "Incorrect/Missing email";
+
+        if (userData?.gender?.length == 0) {
+          error.gender = "Please select a gender";
+        }
+        console.log(userData?.gender?.length);
+        setErrors(() => {
+          console.log(error);
+          return error;
+        });
         return;
       }
+    }
+    if (newIndex > 2 && val > 0) {
+      if (files.length > 0 && files.length <= 4) {
+        setFileErrorMsg();
+        console.log('in this')
+        if (maxIndex === currentIndex && val > 0) {
+          return;
+        }
+        setCurrentIndex(newIndex);
+      } else {
+        setFileErrorMsg("Please upload 1-4 images to continue");
+      }
+      return;
     } else {
       if (maxIndex === currentIndex && val > 0) {
         return;
@@ -148,20 +182,17 @@ const Tab = () => {
     localStorage.setItem("userData", JSON.stringify(userData));
   }, [userData]);
 
-
   useEffect(() => {
     if (localStorage.getItem("userData")) {
-      localStorage.clear()
+      localStorage.clear();
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (files.length > 0) {
-      localStorage.setItem('userImgs', files)
+      localStorage.setItem("userImgs", files);
     }
-  }, [files])
-
-
+  }, [files]);
 
   return (
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px]">
@@ -238,9 +269,7 @@ const Tab = () => {
               </div>
             </div>
           )}
-          {tabText === "Teams" && (
-            <Teams />
-          )}
+          {tabText === "Teams" && <Teams />}
           {tabText === "Customize" && (
             <div>
               <Customize
@@ -251,13 +280,13 @@ const Tab = () => {
           )}
           {tabText === "Prompts" && (
             <>
-              <div className="text-2xl text-center">Enter your Prompts for our cutting edge AI</div>
+              <div className="text-2xl text-center">
+                Enter your Prompts for our cutting edge AI
+              </div>
               <section className="py-14">
-
                 <div className="max-w-screen-xl mx-auto md:px-8">
                   <div className="grid md:grid-cols-2 gap-x-12 sm:px-4 md:px-0 lg:flex">
                     <div className="w-full  w px-4 space-y-3 mt-6 sm:px-0 md:mt-0 ">
-
                       <textarea
                         placeholder="E.g. Portrait, smile, white shirt, outside, city, blurred background..."
                         className="w-full text-lg !h-[50%] bg-black/30 outline-none focus:ring-4 ring-white/10 rounded-md px-3 py-1 shadow-[0_0_0_1px#ffffff]"
