@@ -4,7 +4,6 @@ import {IoManSharp, IoWoman} from "react-icons/io5"
 const UserDetails = ({ userData, setUserData, errors }) => {
   const [email, setEmail] = useState(userData?.email);
   const [gender, setGender] = useState(userData?.gender);
-
   const genderSelections = [
     {
       name: "Male",
@@ -77,7 +76,7 @@ const UserDetails = ({ userData, setUserData, errors }) => {
                 </div>
               ))}
           </div>
-          <div className="text-[#ff1717] text-[16px] leading-3">
+          <div className="text-[#ff1717] text-center text-[16px] leading-3">
             {errors?.gender && errors?.gender}
           </div>
         </div>
