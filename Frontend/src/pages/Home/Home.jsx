@@ -295,37 +295,32 @@ const Home = () => {
           className={`max-w-[834px] w-1/2 flex flex-col gap-0 pt-10`}
         >
           <div className="flex flex-col leading-none mb-4">
-          <div
-              className={`text-3xl font-bold pl-[1.55rem] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
-                isAnimated ? "animatedReveal" : "invisible"
-              }`}
+            <div
+              className={`text-3xl font-bold pl-[1.55rem] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
+                }`}
             >
               AI HEADSHOT GENERATOR
             </div>
             <div
-              className={`text-white oswald text-[9rem] font-bold pb-4 ${
-                isAnimated ? "animatedReveal" : "invisible"
-              }`}
+              className={`text-white oswald text-[9rem] font-bold pb-4 ${isAnimated ? "animatedReveal" : "invisible"
+                }`}
             >
               AI TOOL
             </div>
             <div
-              className={`text-[28px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
-                isAnimated ? "animatedReveal" : "invisible"
-              }`}
+              className={`text-[28px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
+                }`}
             >
               FOR PROFESSIONAL HEADSHOTS
             </div>
           </div>
           <div
-            className={`flex flex-col gap-6 text-center ${
-              isAnimated ? "animatedReveal" : "invisible"
-            }`}
+            className={`flex flex-col gap-6 text-center ${isAnimated ? "animatedReveal" : "invisible"
+              }`}
           >
             <button
-              className={`w-1/2 hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg px-2 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${
-                isAnimated ? "animatedReveal" : "invisible"
-              }`}
+              className={`w-1/2 hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg px-2 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${isAnimated ? "animatedReveal" : "invisible"
+                }`}
             >
               Get your photos for $29
             </button>
@@ -408,16 +403,14 @@ const Home = () => {
 
       <div className="flex  justify-center gap-6">
         <div
-          className={`flex flex-col justify-center text-center font-bold text-[20px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text ${
-            isAnimated ? "animatedReveal" : "invisible"
-          }`}
+          className={`flex flex-col justify-center text-center font-bold text-[20px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
+            }`}
         >
           Trusted By
         </div>
         <div
-          className={`flex flex-row ${
-            isAnimated ? "animatedReveal" : "invisible"
-          }`}
+          className={`flex flex-row ${isAnimated ? "animatedReveal" : "invisible"
+            }`}
         >
           {logoData?.map((item, idx) => (
             <div
@@ -476,7 +469,7 @@ const Home = () => {
             cardData?.map((item, idx) => (
               <div className="relative w-full max-w-[420px] h-[300px] md:w-[32%] rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
                 <div className="w-[150px] h-[150px] absolute -top-20 right-2">
-                <img src={item?.imgPath} className="w-full h-full" />
+                  <img src={item?.imgPath} className="w-full h-full" />
                 </div>
                 <div className="flex flex-col gap-2 px-6 h-[200px]">
                   <div className="text-7xl text-[#0055D4] font-medium">

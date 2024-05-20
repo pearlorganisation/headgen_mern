@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {IoManSharp, IoWoman} from "react-icons/io5"
+import { IoManSharp, IoWoman } from "react-icons/io5"
 
 const UserDetails = ({ userData, setUserData, errors }) => {
   const [email, setEmail] = useState(userData?.email);
@@ -63,11 +63,10 @@ const UserDetails = ({ userData, setUserData, errors }) => {
                     setGender(item?.name);
                   }}
                   key={`gender${idx}`}
-                  className={`bg-[#f1f1f1]  text-[#131313] ${
-                    userData?.gender === item?.name
-                      ? "!bg-[#355cc9] text-[#f1f1f1]"
-                      : "bg-[#f1f1f1]"
-                  } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-1/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2`}
+                  className={`bg-[#f1f1f1]  text-[#131313] ${userData?.gender === item?.name
+                    ? "!bg-[#355cc9] text-[#f1f1f1]"
+                    : "bg-[#f1f1f1]"
+                    } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-1/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2`}
                 >
                   <span className="flex flex-col justify-center">
                     {item?.svg}

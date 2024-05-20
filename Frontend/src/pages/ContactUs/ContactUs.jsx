@@ -25,7 +25,7 @@ const ContactUs = () => {
           <br />
           Email: <a href="mailto:support@headgen.ai" className="text-[#e6e4e4] underline hover:text-[#ffffff]">support@headgen.ai</a>
           <br />
-          Customer Care: <a href="tel:+919987357345" className="text-[#e6e4e4] underline hover:text-[#ffffff]">+91 9987357345</a> 
+          Customer Care: <a href="tel:+919987357345" className="text-[#e6e4e4] underline hover:text-[#ffffff]">+91 9987357345</a>
         </>
       ),
     },

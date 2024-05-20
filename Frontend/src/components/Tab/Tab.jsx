@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from "react";
 import "./Tab.css";
 import { useState } from "react";
@@ -203,13 +204,12 @@ const Tab = () => {
           return (
             <div className="relative">
               <div
-                className={` ${
-                  tabText === item ? "flex" : "hidden"
-                }  absolute text-white h-full `}
+                className={` ${tabText === item ? "flex" : "hidden"
+                  }  absolute text-white h-full `}
               >
                 <span
                   className={` rounded-full h-full w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
-                  onClick={() => {}}
+                  onClick={() => { }}
                 >
                   {item}
                 </span>
@@ -272,7 +272,10 @@ const Tab = () => {
           {tabText === "Teams" && <Teams />}
           {tabText === "Customize" && (
             <div>
-              <Customize />
+              <Customize
+                userData={userData} setUserData={setUserData} setErrors={setErrors} files={files} setFiles={setFiles} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg}
+                errors={errors}
+              />
             </div>
           )}
           {tabText === "Prompts" && (

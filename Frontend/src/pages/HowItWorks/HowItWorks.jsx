@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const HowItWorks = () => {
   //   const [isAnimated, setIsAnimated] = useState(false);
@@ -113,9 +113,8 @@ const HowItWorks = () => {
                   <img src={item?.imgPath} className="w-full rounded-xl" />
                 </div>
                 <div
-                  className={`h-[100px] flex flex-col ${
-                    item?.btnLink ? "justify-between" : ""
-                  }  gap-4 items-center`}
+                  className={`h-[100px] flex flex-col ${item?.btnLink ? "justify-between" : ""
+                    }  gap-4 items-center`}
                 >
                   {item?.title?.length > 0 && (
                     <div className="px-2 text-center font-bold text-[#F1F1F1] text-3xl ">
@@ -174,7 +173,7 @@ const HowItWorks = () => {
 
         <div className="container rounded-xl flex ">
           <Link to={`/upload/customize`}>
-          <img src={`/howItWorks/customizeSection.png`} className="w-full rounded-xl"  />
+            <img src={`/howItWorks/customizeSection.png`} className="w-full rounded-xl" />
           </Link>
         </div>
 
@@ -189,9 +188,9 @@ const HowItWorks = () => {
         </div>
 
         <div className="container rounded-xl flex ">
-        <Link to={`/upload/prompt`}>
-          <img src={`/howItWorks/promptSection.png`} className="w-full rounded-xl"  />
-        </Link>
+          <Link to={`/upload/prompt`}>
+            <img src={`/howItWorks/promptSection.png`} className="w-full rounded-xl" />
+          </Link>
 
         </div>
       </div>
