@@ -243,7 +243,7 @@ const Tab = () => {
           {tabText === "Customize" && (
             <div>
               <Customize
-                userData={userData} setUserData={setUserData} files={files} setFiles={setFiles} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg}
+                userData={userData} setUserData={setUserData} setErrors={setErrors} files={files} setFiles={setFiles} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg}
                 errors={errors}
               />
             </div>
