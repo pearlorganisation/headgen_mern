@@ -16,12 +16,12 @@ const DragAndDrop = ({ files, setFiles, setSelectedImage,deleteFile, fileErrorMs
       (key) => selectedFiles[key]
     );
     filesArray.forEach((file) => {
-      if(file.size/1000000 <= 2){
+        console.log(file)
         displayFile(file);
-      } else {
-        setFileErrorMsg("Couldn't upload file greater than  2mb")
-        return
-      }
+      // } else {
+      //   setFileErrorMsg("Couldn't upload file greater than  2mb")
+      //   return
+      // }
     });
   };
 
@@ -54,7 +54,7 @@ const DragAndDrop = ({ files, setFiles, setSelectedImage,deleteFile, fileErrorMs
   };
 
   const displayFile = (selectedFile) => {
-    
+    // console.log(selectedFile)
     const validExtensions = [
       "image/jpeg",
       "image/jpg",
@@ -65,18 +65,19 @@ const DragAndDrop = ({ files, setFiles, setSelectedImage,deleteFile, fileErrorMs
     if (validExtensions.includes(selectedFile.type)) {
       const fileReader = new FileReader();
       fileReader.onload = () => {
-
         const fileURL = fileReader.result;
+        
         setFiles((prevImages) => {
           if(prevImages.length < 4){
             return  [...prevImages, fileURL]
-            
           } else {
             return prevImages
           }
         }
+        
       );
       };
+      fileReader.readAsDataURL(selectedFile)
     } else {
       alert("This is not an Image File");
       setFiles([]);

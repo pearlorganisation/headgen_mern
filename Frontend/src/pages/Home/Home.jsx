@@ -292,25 +292,25 @@ const Home = () => {
 
       <div className="flex justify-center px-10  xl:px-[160px] 2xl:px-[250px]">
         <div
-          className={`max-w-[834px] w-1/2 flex flex-col gap-0 items-center pt-10`}
+          className={`max-w-[834px] w-1/2 flex flex-col gap-0 pt-10`}
         >
-          <div className="flex flex-col items-center mb-4">
-            <div
-              className={`text-[24px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold ${
+          <div className="flex flex-col leading-none mb-4">
+          <div
+              className={`text-3xl font-bold pl-[1.55rem] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
                 isAnimated ? "animatedReveal" : "invisible"
               }`}
             >
               AI HEADSHOT GENERATOR
             </div>
             <div
-              className={`text-white oswald text-[9rem] font-bold ${
+              className={`text-white oswald text-[9rem] font-bold pb-4 ${
                 isAnimated ? "animatedReveal" : "invisible"
               }`}
             >
-              AI Tool
+              AI TOOL
             </div>
             <div
-              className={`text-[24px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
+              className={`text-[28px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
                 isAnimated ? "animatedReveal" : "invisible"
               }`}
             >
@@ -318,12 +318,12 @@ const Home = () => {
             </div>
           </div>
           <div
-            className={`flex flex-col gap-6 items-center text-center ${
+            className={`flex flex-col gap-6 text-center ${
               isAnimated ? "animatedReveal" : "invisible"
             }`}
           >
             <button
-              className={`hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg px-2 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${
+              className={`w-1/2 hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg px-2 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${
                 isAnimated ? "animatedReveal" : "invisible"
               }`}
             >
@@ -332,11 +332,11 @@ const Home = () => {
           </div>
         </div>
         <div
-          className={`max-w-[834px] w-1/2 flex flex-col gap-4 items-center pt-10`}
+          className={`max-w-[834px] w-1/2 flex flex-col gap-4 items-end pt-10`}
         >
           <img
             src={`https://drive.google.com/thumbnail?id=1UA7FyAGDxxNyOmQI2aEocXL8V1a70uJ-&sz=s800`}
-            className="h-full"
+            className="h-full w-full"
           />
         </div>
       </div>
