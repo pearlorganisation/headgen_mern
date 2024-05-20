@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import "./Tab.css";
 import { useState } from "react";
@@ -160,7 +159,7 @@ const Tab = () => {
     if (newIndex > 2 && val > 0) {
       if (files.length > 0 && files.length <= 4) {
         setFileErrorMsg();
-        console.log('in this')
+        console.log("in this");
         if (maxIndex === currentIndex && val > 0) {
           return;
         }
@@ -194,6 +193,13 @@ const Tab = () => {
     }
   }, [files]);
 
+
+
+  const handlePayment = () => {
+      console.log("Handle Payment")
+  }
+
+
   return (
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px]">
       <div
@@ -204,12 +210,13 @@ const Tab = () => {
           return (
             <div className="relative">
               <div
-                className={` ${tabText === item ? "flex" : "hidden"
-                  }  absolute text-white h-full `}
+                className={` ${
+                  tabText === item ? "flex" : "hidden"
+                }  absolute text-white h-full `}
               >
                 <span
                   className={` rounded-full h-full w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
-                  onClick={() => { }}
+                  onClick={() => {}}
                 >
                   {item}
                 </span>
@@ -258,14 +265,27 @@ const Tab = () => {
                     Back
                   </button>
                 )}
-                <button
-                  className={`hover:squeezyBtn px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
-                  onClick={() => {
-                    updateIndex(1);
-                  }}
-                >
-                  Next
-                </button>
+                {currentIndex >= 0 && currentIndex < maxIndex && (
+                  <button
+                    className={`hover:squeezyBtn px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                    onClick={() => {
+                      updateIndex(1);
+                    }}
+                  >
+                    Next
+                  </button>
+                )}
+
+                {currentIndex === maxIndex && (
+                  <button
+                    className={`hover:squeezyBtn px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                    onClick={() => {
+                      handlePayment();
+                    }}
+                  >
+                    Proceed to Payment
+                  </button>
+                )}
               </div>
             </div>
           )}
@@ -273,7 +293,13 @@ const Tab = () => {
           {tabText === "Customize" && (
             <div>
               <Customize
-                userData={userData} setUserData={setUserData} setErrors={setErrors} files={files} setFiles={setFiles} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg}
+                userData={userData}
+                setUserData={setUserData}
+                setErrors={setErrors}
+                files={files}
+                setFiles={setFiles}
+                fileErrorMsg={fileErrorMsg}
+                setFileErrorMsg={setFileErrorMsg}
                 errors={errors}
               />
             </div>
