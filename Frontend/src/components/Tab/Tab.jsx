@@ -2,11 +2,12 @@ import React, { useEffect, useRef } from "react";
 import "./Tab.css";
 import { useState } from "react";
 import PriceCards from "../PriceCards/PriceCards";
-import IndividualForm from "../IndividualForm/IndividualForm";
+import HeadshotSelection from "../HeadshotSelection/HeadshotSelection";
 import ImageSection from "../ImageSection/ImageSection";
 import Customize from "../Customize/Customize";
 import OrderDetails from "../OrderDetails/OrderDetails";
 import Teams from "../Teams/Teams";
+import UserDetails from "../UserDetails/UserDetails";
 
 const Tab = () => {
   const [userData, setUserData] = useState({ email: "" });
@@ -54,7 +55,7 @@ const Tab = () => {
       idx: 0,
       ele: (
         <>
-          <IndividualForm
+          <HeadshotSelection
             userData={userData}
             setUserData={setUserData}
             errors={errors}
@@ -67,13 +68,26 @@ const Tab = () => {
       idx: 1,
       ele: (
         <>
-          <ImageSection userData={userData} setUserData={setUserData} files={files} setFiles={setFiles} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg}  />
+          <UserDetails
+            userData={userData}
+            setUserData={setUserData}
+            errors={errors}
+          />
         </>
       ),
     },
 
     {
       idx: 2,
+      ele: (
+        <>
+          <ImageSection userData={userData} setUserData={setUserData} files={files} setFiles={setFiles} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg}  />
+        </>
+      ),
+    },
+
+    {
+      idx: 3,
       ele: (
         <>
           <div>
@@ -89,7 +103,7 @@ const Tab = () => {
 
 
     {
-      idx: 3,
+      idx: 4,
       ele: (
         <>
           <div>
@@ -108,7 +122,7 @@ const Tab = () => {
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
 
-    if (newIndex > 0 && val > 0) {
+    if (newIndex > 1 && val > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (emailRegex.test(userData?.email) && userData?.email?.length > 0) {
         setErrors({});
@@ -146,6 +160,7 @@ const Tab = () => {
     }
   }, [files])
 
+  
 
   return (
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px]">

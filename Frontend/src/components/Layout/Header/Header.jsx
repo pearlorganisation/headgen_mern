@@ -10,7 +10,6 @@ const Header = () => {
   const [toggleCss, setToggleCss] = useState("");
   const [isDatingPage, setIsDatingPage] = useState(false);
   const [showMobDropdown, setShowMobDropdown] = useState(false);
-  // const [showMenuDropdown, setShowMenuDropdown] = useState(false)
 
   useEffect(() => {
     if (location.pathname === "/dating") {
@@ -34,10 +33,8 @@ const Header = () => {
 
     // Add event listener for window resize
     window.addEventListener("resize", handleResize);
-
     // Call handleResize once to set initial class
     handleResize();
-
     // Remove event listener on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -57,7 +54,6 @@ const Header = () => {
     };
 
     window.addEventListener("scroll", handleNavBar);
-
     handleNavBar();
 
     return () => {
@@ -76,31 +72,31 @@ const Header = () => {
       paths: [
         {
           name: "Corporate Headshots",
-          path: "/upload/Corporate%20Headhots",
+          path: "/upload/Corporate%20Headshots",
         },
         {
           name: "Doctor Headshots",
-          path: "/upload/Doctor%20Headhots",
+          path: "/upload/Doctor%20Headshots",
         },
         {
           name: "Lawyer Headshots",
-          path: "/upload/Lawyer%20Headhots",
+          path: "/upload/Lawyer%20Headshots",
         },
         {
           name: "Sales Headshots",
-          path: "/upload/Sales%20Headhots",
+          path: "/upload/Sales%20Headshots",
         },
         {
           name: "Students Headshots",
-          path: "/upload/Students%20Headhots",
+          path: "/upload/Students%20Headshots",
         },
         {
           name: "Teacher Headshots",
-          path: "/upload/Teacher%20Headhots",
+          path: "/upload/Teacher%20Headshots",
         },
         {
-          name: "Youtube / Instagram",
-          path: "/upload/Youtube%20Instagram%20Headhots",
+          name: "Youtube or Instagram",
+          path: "/upload/Youtube%20or%20Instagram",
         },
       ],
       showDropdown: true,
@@ -155,12 +151,12 @@ const Header = () => {
           <>
             <button
               type="button"
-              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               onClick={() => setShowMobDropdown(!showMobDropdown)}
             >
-              <span class="sr-only">Open main menu</span>
+              <span className="sr-only">Open main menu</span>
               <svg
-                class="w-5 h-5"
+                className="w-5 h-5"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -168,9 +164,9 @@ const Header = () => {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M1 1h15M1 7h15M1 13h15"
                 />
               </svg>

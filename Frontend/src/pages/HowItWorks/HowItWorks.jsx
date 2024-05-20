@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {Link} from "react-router-dom"
 
 const HowItWorks = () => {
   //   const [isAnimated, setIsAnimated] = useState(false);
@@ -16,6 +17,50 @@ const HowItWorks = () => {
       imgPath: "/aiBlog/3.png",
     },
   ];
+
+  const imgData1 = [
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1zltDX4qtRqhuof60XWaTdOwQXSCQhETw=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1HMLeKlSPY97lR-viypYIXazQF8uKjra5=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1zltDX4qtRqhuof60XWaTdOwQXSCQhETw=s800?authuser=0",
+    },
+    {
+      name: "",
+      path: "https://lh3.googleusercontent.com/d/1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf=s800?authuser=0",
+    },
+  ];
+
   return (
     <div className="w-full py-20 flex flex-col bg-[#161616] gap-10">
       <div className="flex justify-center px-10  xl:px-[160px] 2xl:px-[250px] py-14">
@@ -89,6 +134,65 @@ const HowItWorks = () => {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+      <div className="flex flex-col gap-10 px-10  xl:px-[160px] 2xl:px-[250px]">
+        <div className="text-center text-[60px] text-[#F1F1F1]">
+          Get{" "}
+          <span className="text-[55px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+            Team Headshots
+          </span>
+        </div>
+
+        <div className="container mx-auto bg-white py-10 rounded-xl flex ">
+          <div className="grid grid-cols-6 gap-3 px-8">
+            <div className="col-span-2 text-black text-6xl font-sans font-bold">
+              AI Generated Team Gallery
+            </div>
+            {imgData1.map((item) => {
+              return (
+                <div className="text-black border rounded-lg overflow-hidden">
+                  <img src={item?.path} alt="" />
+                  <div className="flex flex-col px-2 py-1">
+                    <span className="font-medium">John Doe</span>
+                    <span className="font-normal">Software Developer</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-10 px-10  xl:px-[160px] 2xl:px-[250px]">
+        <div className="text-center text-[60px] text-[#F1F1F1]">
+          Get{" "}
+          <span className="text-[55px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+            Custom Headshots
+          </span>
+        </div>
+
+        <div className="container rounded-xl flex ">
+          <Link to={`/upload/customize`}>
+          <img src={`/howItWorks/customizeSection.png`} className="w-full rounded-xl"  />
+          </Link>
+        </div>
+
+      </div>
+
+      <div className="flex flex-col gap-10 px-10  xl:px-[160px] 2xl:px-[250px]">
+        <div className="text-center text-[60px] text-[#F1F1F1]">
+          Create{" "}
+          <span className="text-[55px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+            Custom Prompts
+          </span>
+        </div>
+
+        <div className="container rounded-xl flex ">
+        <Link to={`/upload/prompt`}>
+          <img src={`/howItWorks/promptSection.png`} className="w-full rounded-xl"  />
+        </Link>
+
         </div>
       </div>
     </div>
