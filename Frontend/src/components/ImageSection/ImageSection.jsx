@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DragAndDrop from "../DragAndDrop/DragAndDrop";
 import ImgCropT from "../CropTool/ImgCropT";
 
-const ImageSection = ({files, setFiles, fileErrorMsg, setFileErrorMsg}) => {
+const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg }) => {
   const maxUploads = 4;
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -74,11 +74,11 @@ const ImageSection = ({files, setFiles, fileErrorMsg, setFileErrorMsg}) => {
 
 
   const deleteFile = (file) => {
-    
+
     setFiles((currentSelection) => {
       const newSelection = currentSelection.slice();
       const fileIndex = currentSelection.indexOf(file);
-      if(selectedImage === file) {
+      if (selectedImage === file) {
         setSelectedImage(null)
       }
       newSelection.splice(fileIndex, 1)
@@ -94,12 +94,12 @@ const ImageSection = ({files, setFiles, fileErrorMsg, setFileErrorMsg}) => {
       return newSelection;
     })
   }
- 
-  
+
+
 
   return (
     <div className="flex w-full h-full max-h-[700px] justify-center">
-      <DragAndDrop files={files} setFiles={setFiles} maxUploads={maxUploads}  setSelectedImage={setSelectedImage} deleteFile={deleteFile} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg} />
+      <DragAndDrop files={files} setFiles={setFiles} maxUploads={maxUploads} setSelectedImage={setSelectedImage} deleteFile={deleteFile} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg} />
 
       <div className="w-[60%] relative max-h-full overflow-auto px-4 flex flex-col gap-2">
         {selectedImage && (
@@ -110,7 +110,7 @@ const ImageSection = ({files, setFiles, fileErrorMsg, setFileErrorMsg}) => {
                   <ImgCropT
                     selectedImage={selectedImage}
                     updateFile={updateFile}
-                    
+
                   />
                 </div>
               )}
@@ -142,14 +142,14 @@ const ImageSection = ({files, setFiles, fileErrorMsg, setFileErrorMsg}) => {
             {incorrectData &&
               incorrectData?.map((item, idx) => (
                 <div className="flex flex-col  rounded-2xl w-[32%]  max-w-[200px]">
-                <img
-                  src={item?.imgPath}
-                  className="w-full h-[180px] rounded-2xl"
-                />
-                <span className="text-justified text-[14px] text-[#131313] leading-relaxed p-1">
-                  {item?.content}
-                </span>
-              </div>
+                  <img
+                    src={item?.imgPath}
+                    className="w-full h-[180px] rounded-2xl"
+                  />
+                  <span className="text-justified text-[14px] text-[#131313] leading-relaxed p-1">
+                    {item?.content}
+                  </span>
+                </div>
               ))}
           </div>
         </div>

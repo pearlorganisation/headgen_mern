@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from "react";
 import "./Tab.css";
 import { useState } from "react";
@@ -14,8 +15,8 @@ const Tab = () => {
   const [errors, setErrors] = useState({});
   const [fileErrorMsg, setFileErrorMsg] = useState(null)
   const [files, setFiles] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [tabSwitched, setTabSwitched] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const tabs = ["Individual", "Teams", "Customize", "Prompts"];
   const [tabText, setTabText] = useState("Individual");
@@ -117,7 +118,7 @@ const Tab = () => {
     },
   ];
 
-  let maxIndex = 5 - 1;
+  let maxIndex = 4 - 1;
 
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
