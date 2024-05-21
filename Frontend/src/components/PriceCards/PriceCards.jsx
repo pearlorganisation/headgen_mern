@@ -4,8 +4,6 @@ import { FaCheckCircle } from "react-icons/fa";
 const PriceCards = ({ data, userData, setUserData }) => {
 
   const [selectedPlan, setSelectedPlan] = useState(userData?.selectedPlan)
-
-
   useEffect(() => {
     const updatedUserData = { ...userData };
     updatedUserData.selectedPlan = selectedPlan
