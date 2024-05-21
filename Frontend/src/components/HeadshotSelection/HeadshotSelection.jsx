@@ -105,11 +105,10 @@ const HeadshotSelection = ({ userData, setUserData, errors }) => {
               headshots?.map((item, idx) => (
                 <div
                   key={`headshotType${idx}`}
-                  className={`bg-[#f1f1f1]  text-[#131313] ${
-                    userData?.headshotType === item?.name
-                      ? "!bg-[#355cc9] text-[#f1f1f1]"
-                      : "bg-[#f1f1f1] "
-                  } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-2/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
+                  className={`bg-[#f1f1f1]  text-[#131313] ${userData?.headshotType === item?.name
+                    ? "!bg-[#355cc9] text-[#f1f1f1]"
+                    : "bg-[#f1f1f1] "
+                    } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-2/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
                   onClick={() => {
                     setHeadshotType(item?.name);
                   }}
@@ -123,7 +122,7 @@ const HeadshotSelection = ({ userData, setUserData, errors }) => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center items-center w-1/2 max-h-[400px] overflow-auto">
+        <div className="flex flex-col justify-center items-center w-1/2 max-h-[400px]  overflow-auto">
           <div className="text-center text-xl py-2">What you'll get:</div>
           <Swiper
             modules={[Navigation, A11y, Autoplay]}
@@ -133,17 +132,17 @@ const HeadshotSelection = ({ userData, setUserData, errors }) => {
             autoplay={{ delay: 3000 }}
             className="w-full flex justify-center"
           >
-            <SwiperSlide className="flex justify-center h-full">
-              <img src="/slider1/1.jpg" className="h-full max-h-[300px]" />
+            <SwiperSlide className="flex justify-center h-full ">
+              <img src="/slider1/1.jpg" className="h-full max-h-[300px] mx-auto" />
             </SwiperSlide>
             <SwiperSlide className="flex justify-center h-full">
-              <img src="/slider1/1.jpg" className="h-full max-h-[300px]" />
+              <img src="/slider1/1.jpg" className="h-full max-h-[300px] mx-auto" />
             </SwiperSlide>
             <SwiperSlide className="flex justify-center h-full">
-              <img src="/slider1/1.jpg" className="h-full max-h-[300px]" />
+              <img src="/slider1/1.jpg" className="h-full max-h-[300px] mx-auto" />
             </SwiperSlide>
             <SwiperSlide className="flex justify-center h-full">
-              <img src="/slider1/1.jpg" className="h-full max-h-[300px]" />
+              <img src="/slider1/1.jpg" className="h-full max-h-[300px] mx-auto" />
             </SwiperSlide>
           </Swiper>
         </div>
