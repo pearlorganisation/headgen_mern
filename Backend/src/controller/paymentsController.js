@@ -38,7 +38,10 @@ const stripeDatingLinks = [
 ];
 
 export const checkout = async (req, res) => {
-  res.status(200).json({ res: res });
+
+  console.log(req)
+
+ 
 
   const stripeLink = stripeLinks.find((e) => req.body.price === e.price);
 
