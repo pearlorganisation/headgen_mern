@@ -8,6 +8,8 @@ import Customize from "../Customize/Customize";
 import OrderDetails from "../OrderDetails/OrderDetails";
 import Teams from "../Teams/Teams";
 import UserDetails from "../UserDetails/UserDetails";
+import axios from 'axios'
+
 
 const Tab = () => {
   const [userData, setUserData] = useState({
@@ -197,6 +199,20 @@ const Tab = () => {
 
   const handlePayment = () => {
       console.log("Handle Payment")
+      let formData = new FormData()
+      formData.append('email', userData.email)
+      formData.append('gender', userData.gender)
+      formData.append('headshotType', userData.headshotType)
+      formData.append('selectedPlan', JSON.stringify(userData.selectedPlan)) 
+      formData.append('photos', files) 
+
+      axios.post(`${import.meta.env.VITE_API_URL}/payment/checkout`, formData).then((res) => {
+        if(res.data.sessionUrl){
+          window.location.href = res.data.sessionUrl
+        }
+      }).catch(err => {
+        console.error(err)
+      })
   }
 
 
