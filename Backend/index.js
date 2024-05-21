@@ -19,6 +19,7 @@ app.use(
       origin: [
         "http://localhost:5173",
         "https://headgen-mern-2.vercel.app",
+        "headgen-mern.vercel.app",
       ],
       // credentials: true,
       methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
