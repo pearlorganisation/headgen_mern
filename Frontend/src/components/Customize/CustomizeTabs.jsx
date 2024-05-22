@@ -5,10 +5,7 @@ import PriceCards from '../PriceCards/PriceCards'
 import { useStateManager } from 'react-select'
 
 const CustomizeTabs = ({ setUserData, userData }) => {
-    const [data, setData] = useState()
-    useEffect(() => {
-        console.log(data, "data")
-    }, [data])
+
 
     const temp = [
         {
@@ -125,6 +122,12 @@ const CustomizeTabs = ({ setUserData, userData }) => {
 
     const [subSectionData, setSubSectionData] = useState(temp[0]?.subSection || [])
     const [subSectionImages, setSubSectionImages] = useState(temp[0]?.subSection[0]?.images || [])
+    const [data, setData] = useState(temp[0])
+    const [finalData, setFinalData] = useState()
+    useEffect(() => {
+        console.log(data, "data")
+        console.log(finalData, "finalData")
+    }, [data, finalData])
 
 
 
@@ -136,7 +139,9 @@ const CustomizeTabs = ({ setUserData, userData }) => {
                 <div className='w-full flex justify-center flex-wrap gap-3'>
                     {
                         temp?.map(item => {
-                            return <div className=' w-1/4' >
+                            return <div onClick={() => {
+                                setData(item)
+                            }} className=' w-1/4' >
                                 <input
 
                                     name='sectionName'
@@ -189,10 +194,20 @@ const CustomizeTabs = ({ setUserData, userData }) => {
                                     className="peer hidden" type="radio" value={item?.title} id={`${item?.title}`} />
                                 <label onClick={() => {
                                     setSubSectionImages(item?.images)
-                                    setData({
-                                        section: '',
-                                        subSection: ''
+                                    setData(prev => {
+                                        const temp = prev?.subSection?.find(pre => pre?.title === item?.title)
+                                        console.log(temp)
+                                        console.log({
+                                            section: prev?.section,
+                                            subSection: temp?.title
+                                        })
+                                        setFinalData({
+                                            section: prev?.section,
+                                            subSection: temp?.title
+                                        })
+                                        return prev
                                     })
+
                                 }}
                                     className='px-6 py-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300' htmlFor={item?.title}>{item?.title} </label>
 
