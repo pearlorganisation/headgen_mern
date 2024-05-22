@@ -8,8 +8,7 @@ import Customize from "../Customize/Customize";
 import OrderDetails from "../OrderDetails/OrderDetails";
 import Teams from "../Teams/Teams";
 import UserDetails from "../UserDetails/UserDetails";
-import axios from 'axios'
-
+import axios from "axios";
 
 const Tab = () => {
   const [userData, setUserData] = useState({
@@ -195,26 +194,67 @@ const Tab = () => {
     }
   }, [files]);
 
+  const convertFiles = () => {
+    return new Promise((resolve, reject) => {
+      let newFiles = [];
+      let myFiles = [...files];
+      let promises = [];
 
+      myFiles.forEach((element, idx) => {
+        promises.push(
+          fetch(element)
+            .then((res) => res.blob())
+            .then((blob) => {
+              let extension = blob.type.split("/");
 
-  const handlePayment = () => {
-      console.log("Handle Payment")
-      let formData = new FormData()
-      formData.append('email', userData.email)
-      formData.append('gender', userData.gender)
-      formData.append('headshotType', userData.headshotType)
-      formData.append('selectedPlan', JSON.stringify(userData.selectedPlan)) 
-      formData.append('photos', files) 
+              const file = new File([blob], `${idx}.${extension[1]}`);
+              console.log(file);
+              newFiles.push(file);
+            })
+            .catch((error) => reject(error))
+        );
+      });
 
-      axios.post(`${import.meta.env.VITE_API_URL}/payment/checkout`, formData).then((res) => {
-        if(res.data.sessionUrl){
-          window.location.href = res.data.sessionUrl
-        }
-      }).catch(err => {
-        console.error(err)
-      })
-  }
+      Promise.all(promises)
+        .then(() => resolve(newFiles))
+        .catch((error) => reject(error));
+    });
+  };
 
+  const handlePayment = async () => {
+    let newFiles = await convertFiles();
+    let formData = new FormData();
+
+      console.log(newFiles)
+
+      // let newArr = []
+      
+      for (let i = 0 ; i < newFiles.length ; i++) {
+        // newArr.push(newFiles[i])
+        formData.append("images", newFiles[i]);
+    }
+      // formData.append("file", newArr);
+      formData.append("email", userData.email);
+      formData.append("gender", userData.gender);
+      formData.append("headshotType", userData.headshotType);
+      formData.append("selectedPlan", JSON.stringify(userData.selectedPlan));
+
+      axios
+        .post(`${import.meta.env.VITE_API_URL}/payment/checkout`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          if (res.data.sessionUrl) {
+            window.location.href = res.data.sessionUrl;
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    
+  };
 
   return (
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px]">

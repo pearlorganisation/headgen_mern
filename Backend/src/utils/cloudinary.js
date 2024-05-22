@@ -10,24 +10,25 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-export const uploadFile = async (file) => {
+export const uploadFile = async (files) => {
   try {
-    console.log(file)
+    const resultArr = [];
+    files.forEach(async (file) => {
+      const result = await cloudinary.uploader.upload(file.path, {
+        folder: "headgen",
+      });
+      resultArr.push(result);
+      // Delete file from disk storage after successful upload to Cloudinary
+      fs.unlink(file.path, (err) => {
+        if (err) {
+          console.error("Error deleting file from disk:", err);
+        } else {
+          console.log("File deleted from disk:", file.path);
+        }
+      });
+    });
 
-    // const result = await cloudinary.uploader.upload(file.path, {
-    //   folder: "headgen",
-    // });
-
-    // // Delete file from disk storage after successful upload to Cloudinary
-    // fs.unlink(file.path, (err) => {
-    //   if (err) {
-    //     console.error("Error deleting file from disk:", err);
-    //   } else {
-    //     console.log("File deleted from disk:", file.path);
-    //   }
-    // });
-
-    return { status: true, result: result };
+    return { status: true, result: resultArr };
   } catch (error) {
     // console.error("Error uploading file to Cloudinary:", error);
     return { status: false, message: error?.message };
