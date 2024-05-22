@@ -227,7 +227,7 @@ const Tab = () => {
     let newFiles = await convertFiles();
     let formData = new FormData();
 
-      console.log(newFiles)
+      // console.log(newFiles)
 
       // let newArr = []
       
