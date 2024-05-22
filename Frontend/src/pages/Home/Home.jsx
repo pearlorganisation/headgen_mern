@@ -10,6 +10,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { MdGroups } from "react-icons/md";
 import { IoDocumentTextOutline, IoStarSharp } from "react-icons/io5";
 import AppSvgs from "../../components/AppSvgs/AppSvgs";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -318,12 +319,12 @@ const Home = () => {
             className={`flex flex-col gap-6 text-center ${isAnimated ? "animatedReveal" : "invisible"
               }`}
           >
-            <button
+            <Link to="/upload/Corporate%20Headshots"
               className={`w-1/2 hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg px-2 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${isAnimated ? "animatedReveal" : "invisible"
                 }`}
             >
               Get your photos for $29
-            </button>
+            </Link>
           </div>
         </div>
         <div
@@ -439,9 +440,9 @@ const Home = () => {
               <div className="text-[60px] 2xl:text-[72px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
                 works
               </div>
-              <button className="hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]">
+              <Link to="/upload/Corporate%20Headshots" className="hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]">
                 Get your photos for $29
-              </button>
+              </Link>
             </div>
           </div>
           <div className="w-3/5 flex flex-col gap-6 items-center">
@@ -576,9 +577,9 @@ const Home = () => {
               setting
             </div>
             <div className="flex flex-col gap-4 w-1/2 items-center">
-              <button className="hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500">
+              <Link to="/upload/Corporate%20Headshots" className="hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500">
                 Get your photos for $29
-              </button>
+              </Link>
               <span className="flex flex-col text-center text-[19px] text-[#f1f1f1]">
                 <span>
                   Payment handled by{" "}
@@ -639,9 +640,9 @@ const Home = () => {
               High Quality AI Image Generator for your Business Profiles
             </div>
             <div>
-              <button className="hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-2/3 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500">
+              <Link to="/upload/Corporate%20Headshots" className="hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-2/3 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500">
                 Get your photos for $29
-              </button>
+              </Link>
             </div>
           </div>
           <div className=" w-[50%]">
@@ -776,9 +777,9 @@ const Home = () => {
             <div className="text-[#F1F1F1] text-[14px]">
               Try Headgen.ai with confidence. Our results are Mind blowing.
             </div>
-            <button className="hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-2/3 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500">
+            <Link to="/upload/Corporate%20Headshots" className="hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-2/3 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500">
               Get your photos for $29
-            </button>
+            </Link>
           </div>
         </div>
       </div>
