@@ -38,9 +38,10 @@ const stripeDatingLinks = [
 ];
 
 export const checkout = async (req, res) => {
-  res.status(200).json({ res: res });
 
-  const stripeLink = stripeLinks.find((e) => req.body.price === e.price);
+  const selectedPlan = JSON.parse(req.body.selectedPlan)
+
+  const stripeLink = stripeLinks.find((e) => selectedPlan.price === e.price);
 
   if (stripeLink) {
     res.status(200).json({ sessionUrl: `${stripeLink.url}?prefilled_email=${req.body.email}` });
