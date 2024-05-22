@@ -1,45 +1,34 @@
-import React, { useEffect, useRef, useState } from 'react'
-import AppSvgs from '../../components/AppSvgs/AppSvgs'
-import OrderDetails from '../OrderDetails/OrderDetails'
-import PriceCards from '../PriceCards/PriceCards'
-import CustomizeTabs from './CustomizeTabs'
-import { IoManSharp, IoWoman } from "react-icons/io5";
-import UserDetails from '../UserDetails/UserDetails'
-import ImageSection from '../ImageSection/ImageSection'
+import React, { useEffect, useState } from 'react'
+import PromptTab from './PromptTab';
+import UserDetails from '../UserDetails/UserDetails';
+import ImageSection from '../ImageSection/ImageSection';
+import PriceCards from '../PriceCards/PriceCards';
+import OrderDetails from '../OrderDetails/OrderDetails';
 
-const Customize = ({ userData, setUserData, setErrors, errors, fileErrorMsg, setFileErrorMsg, files, setFiles }) => {
-
-
+const Prompt = ({ userData, setUserData, setErrors, errors, fileErrorMsg, setFileErrorMsg, files, setFiles }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     // const tabContentRef = useRef(null);
 
 
-    const customizePriceCardData = [
+    const promptPriceCardData = [
         {
             title: "STARTER PACK",
-            originalPrice: "$35",
-            price: "$29",
+            originalPrice: "$250",
+            price: "$200",
             features: ["Basic Quality", "2 Hour Turn Around Time"],
             packName: "Starter Pack",
             tag: "",
         },
-        {
-            title: "BASIC PACK",
-            originalPrice: "$79",
-            price: "$45",
-            features: ["High Quality", "1 Hour Turn Around Time"],
-            packName: "Basic Pack",
-            tag: "83% pick this plan",
-        },
+
 
     ];
 
-    const customizeData = [
+    const promptData = [
         {
             idx: 0,
             ele: (
                 <>
-                    <CustomizeTabs
+                    <PromptTab
                         userData={userData}
                         setUserData={setUserData}
                         errors={errors}
@@ -76,7 +65,7 @@ const Customize = ({ userData, setUserData, setErrors, errors, fileErrorMsg, set
                 <>
                     <div>
                         <PriceCards
-                            data={customizePriceCardData}
+                            data={promptPriceCardData}
                             userData={userData}
                             setUserData={setUserData}
                         />
@@ -101,16 +90,16 @@ const Customize = ({ userData, setUserData, setErrors, errors, fileErrorMsg, set
         },
     ];
 
-    let customizeMaxIndex = 5 - 1;
+    let promptMaxIndex = 5 - 1;
 
-    const customizeUpdateIndex = (val) => {
+    const promptUpdateIndex = (val) => {
         let newIndex = Math.max(currentIndex + val, 0);
 
         if (newIndex > 1 && val > 0) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (emailRegex.test(userData?.email) && userData?.email?.length > 0) {
                 setErrors({});
-                if (customizeMaxIndex === currentIndex && val > 0) {
+                if (promptMaxIndex === currentIndex && val > 0) {
                     return;
                 }
                 setCurrentIndex(newIndex);
@@ -119,7 +108,7 @@ const Customize = ({ userData, setUserData, setErrors, errors, fileErrorMsg, set
                 return;
             }
         } else {
-            if (customizeMaxIndex === currentIndex && val > 0) {
+            if (promptMaxIndex === currentIndex && val > 0) {
                 return;
             }
             window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -142,18 +131,14 @@ const Customize = ({ userData, setUserData, setErrors, errors, fileErrorMsg, set
             localStorage.setItem("userImgs", files);
         }
     }, [files]);
-
-
-
-
     return (
         <>
             <div
                 className="flex flex-col justify-between h-full gap-8"
             // ref={tabContentRef}
             >
-                {customizeData &&
-                    customizeData?.map((item, idx) => {
+                {promptData &&
+                    promptData?.map((item, idx) => {
                         if (item?.idx === currentIndex) {
                             return (
                                 <div
@@ -170,7 +155,7 @@ const Customize = ({ userData, setUserData, setErrors, errors, fileErrorMsg, set
                     {currentIndex > 0 && (
                         <button
                             className={`hover:squeezyBtn px-8 py-3 bg-[#b41f58] hover:bg-[#b41f58a8] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
-                            onClick={() => customizeUpdateIndex(-1)}
+                            onClick={() => promptUpdateIndex(-1)}
                         >
                             Back
                         </button>
@@ -178,7 +163,7 @@ const Customize = ({ userData, setUserData, setErrors, errors, fileErrorMsg, set
                     <button
                         className={`hover:squeezyBtn px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
                         onClick={() => {
-                            customizeUpdateIndex(1);
+                            promptUpdateIndex(1);
                         }}
                     >
                         Next
@@ -187,9 +172,7 @@ const Customize = ({ userData, setUserData, setErrors, errors, fileErrorMsg, set
             </div>
 
         </>
-
-
     )
 }
 
-export default Customize
+export default Prompt
