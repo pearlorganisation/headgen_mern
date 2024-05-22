@@ -11,9 +11,9 @@ const DatingHero = () => {
             Use our AI headshot generator built by AI researchers to improve your dating profile in just minutes. Look your best to attract the best.
             </div>
             <div>
-            <button className="hover:squeezyBtn bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436] text-[#F1F1F1] rounded-lg w-1/2 h-[58px] hover:shadow-[0_0_0_2px_#babcbf80] transition duration-500 px-2">
-              Get your photos for $35
-            </button>
+            <Link to="/dating/upload" className="hover:squeezyBtn bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436] text-[#F1F1F1] rounded-lg w-1/2 h-[58px] hover:shadow-[0_0_0_2px_#babcbf80] transition duration-500 px-2">
+              Get your photos for $29
+            </Link>
             </div>
       </div>
       <div className='w-1/2 flex flex-col justify-center items-end'>
