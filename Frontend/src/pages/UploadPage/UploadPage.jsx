@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import DatingTab from "../../components/Dating/DatingTab/DatingTab";
 
 const UploadPage = () => {
-  const {headshot} = useParams();
+  const { headshot } = useParams();
   const [isDatingPage, setIsDatingPage] = useState(false);
 
   useEffect(() => {

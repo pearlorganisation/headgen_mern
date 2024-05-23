@@ -8,10 +8,11 @@ import OrderDetails from "../../OrderDetails/OrderDetails";
 import UserDetails from "../../UserDetails/UserDetails";
 import axios from 'axios'
 import Prompt from "../../Prompt/Prompt";
+import DatingGenderSelection from "./DatingGenderSelection";
 
 
 const DatingTab = () => {
-  
+
   const [userData, setUserData] = useState({
     email: "",
     gender: "",
@@ -71,21 +72,10 @@ const DatingTab = () => {
       ),
     },
 
-    {
-      idx: 1,
-      ele: (
-        <>
-          <UserDetails
-            userData={userData}
-            setUserData={setUserData}
-            errors={errors}
-          />
-        </>
-      ),
-    },
+
 
     {
-      idx: 2,
+      idx: 1,
       ele: (
         <>
           <ImageSection
@@ -101,7 +91,7 @@ const DatingTab = () => {
     },
 
     {
-      idx: 3,
+      idx: 2,
       ele: (
         <>
           <div>
@@ -116,7 +106,7 @@ const DatingTab = () => {
     },
 
     {
-      idx: 4,
+      idx: 3,
       ele: (
         <>
           <div>
@@ -127,12 +117,12 @@ const DatingTab = () => {
     },
   ];
 
-  let maxIndex = 5 - 1;
+  let maxIndex = 4 - 1;
 
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
 
-    if (newIndex > 1 && newIndex < 3 && val > 0) {
+    if (newIndex > 0 && newIndex < 2 && val > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (
         emailRegex.test(userData?.email) &&
@@ -159,7 +149,7 @@ const DatingTab = () => {
         return;
       }
     }
-    if (newIndex > 2 && val > 0) {
+    if (newIndex > 1 && val > 0) {
       if (files.length > 0 && files.length <= 4) {
         setFileErrorMsg();
         console.log("in this");
@@ -227,39 +217,39 @@ const DatingTab = () => {
     let newFiles = await convertFiles();
     let formData = new FormData();
 
-      // console.log(newFiles)
+    // console.log(newFiles)
 
-      // let newArr = []
-      
-      for (let i = 0 ; i < newFiles.length ; i++) {
-        // newArr.push(newFiles[i])
-        formData.append("images", newFiles[i]);
+    // let newArr = []
+
+    for (let i = 0; i < newFiles.length; i++) {
+      // newArr.push(newFiles[i])
+      formData.append("images", newFiles[i]);
     }
-      // formData.append("file", newArr);
-      formData.append("email", userData.email);
-      formData.append("gender", userData.gender);
-      formData.append("headshotType", userData.headshotType);
-      formData.append("selectedPlan", JSON.stringify(userData.selectedPlan));
+    // formData.append("file", newArr);
+    formData.append("email", userData.email);
+    formData.append("gender", userData.gender);
+    formData.append("headshotType", userData.headshotType);
+    formData.append("selectedPlan", JSON.stringify(userData.selectedPlan));
 
-      axios
-        .post(`${import.meta.env.VITE_API_URL}/payment/checkout`, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((res) => {
-          if (res.data.sessionUrl) {
-            window.location.href = res.data.sessionUrl;
-          }
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    
+    axios
+      .post(`${import.meta.env.VITE_API_URL}/payment/checkout`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        if (res.data.sessionUrl) {
+          window.location.href = res.data.sessionUrl;
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
   };
 
   return (
-    <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px]">
+    <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px] gradientBgRed py-6">
       <div
         ref={fieldsRef}
         className="rounded-full   bg-gradient-to-br from-[#1d2838] to-[#1d283880] p-1 px-2 relative h-[50px] flex justify-between"
@@ -272,7 +262,7 @@ const DatingTab = () => {
                   }  absolute text-white h-full `}
               >
                 <span
-                  className={` rounded-full h-full w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
+                  className={` rounded-full h-full w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-b from-[#e73e71] to-[#af1040] z-[10] transition duration-300`}
                   onClick={() => { }}
                 >
                   {item}
@@ -316,7 +306,7 @@ const DatingTab = () => {
               <div className="flex justify-center gap-2">
                 {currentIndex > 0 && (
                   <button
-                    className={`hover:squeezyBtn px-8 py-3 bg-[#b41f58] hover:bg-[#b41f58a8] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                    className={`hover:squeezyBtn px-8 py-3 shad bg-[#1d2838] hover:bg-[#1f58ad] shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
                     onClick={() => updateIndex(-1)}
                   >
                     Back
@@ -324,7 +314,7 @@ const DatingTab = () => {
                 )}
                 {currentIndex >= 0 && currentIndex < maxIndex && (
                   <button
-                    className={`hover:squeezyBtn px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                    className={`hover:squeezyBtn px-8 py-3 bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436] hover:shadow-[0_0_0_1px_#ffffff]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
                     onClick={() => {
                       updateIndex(1);
                     }}
