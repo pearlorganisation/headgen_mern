@@ -43,11 +43,12 @@ export const checkout = async (req, res) => {
       mode: 'payment',
       customer_email: req.body.email,
       allow_promotion_codes: true,
-      success_url: `${process.env.BASE_URL}/api/v1/payment/complete`,
-      cancel_url: `${process.env.BASE_URL}/api/v1/payment/cancel`,
+      success_url: `${process.env.BASE_URL}/api/v1/payment/complete?sessionId={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.BASE_URL}/api/v1/payment/cancel?sessionId={CHECKOUT_SESSION_ID}`,
     });
 
-    console.log(session)
+
+    console.log(session.id)
 
     // const paymentLink = await stripe.paymentLinks.retrieve(stripeLinks[idx].id);
     res.status(200).json({
@@ -61,12 +62,7 @@ export const checkout = async (req, res) => {
 };
 
 export const complete = async (req, res) => {
-  const result = Promise.all([
-    stripe.checkout.sessions.retrieve(req.query.session_id, {
-      expand: ["payment_intent.payment_method"],
-    }),
-    stripe.checkout.sessions.listLineItems(req.query.session_id),
-  ]);
+  console.log(req.query)
 
   let userData = {
     email: "jai@pearlorganisation.com",
