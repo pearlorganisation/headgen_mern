@@ -35,7 +35,7 @@ const DatingTab = () => {
       title: "STARTER PACK",
       originalPrice: "$35",
       price: "$29",
-      features: ["Basic Quality", "2 Hour Turn Around Time"],
+      features: ["Basic Quality"],
       packName: "Starter Pack",
       tag: "",
     },
@@ -43,7 +43,7 @@ const DatingTab = () => {
       title: "BASIC PACK",
       originalPrice: "$79",
       price: "$45",
-      features: ["High Quality", "1 Hour Turn Around Time"],
+      features: ["High Quality"],
       packName: "Basic Pack",
       tag: "83% pick this plan",
     },
@@ -51,7 +51,7 @@ const DatingTab = () => {
       title: "PREMIUM PACK",
       originalPrice: "$149",
       price: "$79",
-      features: ["Premium Quality", "30 minutes Turn Around Time"],
+      features: ["Premium Quality"],
       packName: "Premium Pack",
       tag: "Best Value",
     },
@@ -111,7 +111,7 @@ const DatingTab = () => {
       ele: (
         <>
           <div>
-            <OrderDetails userData={userData} files={files} />
+            <OrderDetails userData={userData} files={files} type='Dating' />
           </div>
         </>
       ),
@@ -326,7 +326,7 @@ const DatingTab = () => {
 
                 {currentIndex === maxIndex && (
                   <button
-                    className={`hover:squeezyBtn px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                    className={`hover:squeezyBtn px-8 py-3 bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436] hover:shadow-[0_0_0_1px_#ffffff]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
                     onClick={() => {
                       handlePayment();
                     }}

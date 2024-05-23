@@ -21,7 +21,7 @@ const PriceCards = ({ data, userData, setUserData, type }) => {
             <div
               onClick={() => setSelectedPlan(item)}
               key={`priceCard${idx}`}
-              className={`w-full md:w-[32%] max-w-[400px] !glassMorphism !bg-gradient-to-br ${selectedPlan?.title === item?.title ? '!from-[#2963bede] to-[#073791de] shadow-[0_0_0_2px_#ffffff]' : '!from-[#10151dde] to-[#121720de]shadow-[0_0_0_1px_#babcbf80]'} rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center cursor-pointer  hover:shadow-[0_0_0_2px_#ffffff] min-h-[400px] relative transition duration-300`}
+              className={`w-full md:w-[32%] max-w-[400px] !glassMorphism !bg-gradient-to-br ${selectedPlan?.title === item?.title ? ' shadow-[0_0_0_2px_#ffffff]' : '!from-[#10151dde] to-[#121720de]shadow-[0_0_0_1px_#babcbf80]'} rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center cursor-pointer  hover:shadow-[0_0_0_2px_#ffffff] min-h-[400px] relative transition duration-300`}
             >
               {item?.tag?.length > 0 && (
                 <div className={`absolute rounded-full text-white text-[12px] md:text-[14px] font-bold bg-gradient-to-r ${type != 'Dating' ? 'from-[#02AFDC] to-[#2563EB]' : 'from-[#e73e71] to-[#af1040] '} px-4 -top-2 -translate-y-2 left-1/2 -translate-x-1/2`}>
