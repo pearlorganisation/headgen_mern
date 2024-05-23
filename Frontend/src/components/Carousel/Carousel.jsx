@@ -41,7 +41,7 @@ function Carousel({carouselData}) {
       >
 
         {carouselData && carouselData?.map((item) => (
-        <SwiperSlide className=''>
+        <SwiperSlide className='!w-fit'>
           <img src={item?.path} className=''/>
         </SwiperSlide>
         ))}

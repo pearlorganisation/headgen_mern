@@ -73,9 +73,9 @@ const HowItWorks = () => {
               <div className="text-[60px] 2xl:text-[72px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
                 works
               </div>
-              <button className="hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]">
+              <Link to="/upload/Corporate%20Headshots" className="hover:squeezyBtn flex flex-col justify-center  bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]">
                 Get your photos for $29
-              </button>
+              </Link>
             </div>
           </div>
           <div className="w-3/5 flex flex-col gap-6 items-center">

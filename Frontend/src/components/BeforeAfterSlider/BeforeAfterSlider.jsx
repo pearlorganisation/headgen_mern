@@ -37,7 +37,7 @@ const BeforeAfterSlider = ({ img1, img2 }) => {
           onChange={handleInputChange}
         />
         <div className="slider-line" aria-hidden="true"></div>
-        <div className="slider-button flex " aria-hidden="true">
+        <div className="slider-button" aria-hidden="true">
           <MdKeyboardArrowLeft size={24} />
           <MdKeyboardArrowRight size={24} />
         </div>

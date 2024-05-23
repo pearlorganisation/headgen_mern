@@ -1,24 +1,49 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-const InfinitySlider = ({ imgData }) => {
+const InfinitySlider = ({ imgData1, imgData2 }) => {
+  if (imgData2) {
+    return (
+      <div className="w-full flex flex-col gap-4">
+        <div class="infinitySlider">
+          <div class="slide-track-left">
+            {imgData1?.map((item) => (
+              <div class="slide-left">
+                <img src={item.path} className="!h-[200px] rounded-2xl" />
+              </div>
+            ))}
+          </div>
+        </div>
 
-  return (
-    <div className="w-full">
-      <div class="infinitySlider">
-        <div class="slide-track-left">
-          {imgData?.map((item) => (
-            <div class="slide-left">
-                <img
-                  src={item?.path}
-                  className="!h-[200px] !w-[200px] rounded-2xl"
-                />
-              
-            </div>
-          ))}
+        <div class="infinitySlider">
+          <div class="slide-track-right">
+            {imgData2?.map((item) => (
+              <div class="slide-right">
+                <img src={item.path} className="!h-[200px] rounded-2xl" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <>
+      { console.log(imgData1) }
+      <div className="w-full flex flex-col gap-4">
+        <div class="infinitySlider">
+          <div class="slide-track-left">
+            {imgData1?.map((item) => (
+              <div class="slide-left">
+                <img src={item.path} className="!h-[200px] rounded-2xl" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      </>
+    );
+  }
+  
 };
 
 export default InfinitySlider;

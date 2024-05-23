@@ -1,18 +1,17 @@
 import React, { useEffect, useRef } from "react";
 // import "./DatingTab.css";
 import { useState } from "react";
-import PriceCards from "../PriceCards/PriceCards";
-import HeadshotSelection from "../HeadshotSelection/HeadshotSelection";
-import ImageSection from "../ImageSection/ImageSection";
-import Customize from "../Customize/Customize";
-import OrderDetails from "../OrderDetails/OrderDetails";
-import Teams from "../Teams/Teams";
-import UserDetails from "../UserDetails/UserDetails";
+import PriceCards from "../../PriceCards/PriceCards";
+import ImageSection from "../../ImageSection/ImageSection";
+import Customize from "../../Customize/Customize";
+import OrderDetails from "../../OrderDetails/OrderDetails";
+import UserDetails from "../../UserDetails/UserDetails";
 import axios from 'axios'
-import Prompt from "../Prompt/Prompt";
+import Prompt from "../../Prompt/Prompt";
 
 
 const DatingTab = () => {
+  
   const [userData, setUserData] = useState({
     email: "",
     gender: "",
@@ -24,13 +23,13 @@ const DatingTab = () => {
   const [tabSwitched, setTabSwitched] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const tabs = ["Individual", "Teams", "Customize", "Prompts"];
+  const tabs = ["Individual", "Customize", "Prompts"];
   const [tabText, setTabText] = useState("Individual");
   const fieldsRef = useRef();
 
   const tabContentRef = useRef(null);
 
-  const priceCardData = [
+  const datingPriceIndividual = [
     {
       title: "STARTER PACK",
       originalPrice: "$35",
@@ -62,10 +61,11 @@ const DatingTab = () => {
       idx: 0,
       ele: (
         <>
-          <HeadshotSelection
+          <DatingGenderSelection
             userData={userData}
             setUserData={setUserData}
             errors={errors}
+            dataType={'dating'}
           />
         </>
       ),
@@ -106,7 +106,7 @@ const DatingTab = () => {
         <>
           <div>
             <PriceCards
-              data={priceCardData}
+              data={datingPriceIndividual}
               userData={userData}
               setUserData={setUserData}
             />
@@ -346,7 +346,6 @@ const DatingTab = () => {
               </div>
             </div>
           )}
-          {tabText === "Teams" && <Teams />}
           {tabText === "Customize" && (
             <div>
               <Customize

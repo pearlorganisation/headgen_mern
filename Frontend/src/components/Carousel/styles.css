@@ -9,14 +9,14 @@
 }
 
 .swiper_container {
-  /* height: 52rem;
-  padding: 2rem 0; */
+  /* height: 52rem; */
+  /* padding: 2rem 0;  */
   position: relative;
-  width: 100vw !important;
+  /* width: 90vw !important; */
 }
 
 .swiper-slide {
-  width: 20rem;
+  /* width: fit-content !important; */
   height: 22rem;
   position: relative;
 }

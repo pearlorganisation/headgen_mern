@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import DragAndDrop from "../DragAndDrop/DragAndDrop";
-import ImgCropT from "../CropTool/ImgCropT";
+import DragAndDrop from "./DragAndDrop/DragAndDrop";
+import ImgCropT from "./CropTool/ImgCropT";
 
 const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg }) => {
   const maxUploads = 4;

@@ -10,15 +10,15 @@ const stripe = Stripe(process.env.SK_LIVE);
 const stripeLinks = [
   {
     price: "$29",
-    id: "plink_1PJAibCvLjbx73iCLq1rAhAB",
+    id: "price_1PJ8tNCvLjbx73iCtOaiKMDR",
   },
   {
     price: "$45",
-    id: "plink_1PJAibCvLjbx73iCLq1rAhAB",
+    id: "price_1PJ8tNCvLjbx73iCtOaiKMDR",
   },
   {
     price: "$79",
-    id: "plink_1PJAibCvLjbx73iCLq1rAhAB",
+    id: "price_1PJ8tNCvLjbx73iCtOaiKMDR",
   },
 ];
 
@@ -31,34 +31,42 @@ export const checkout = async (req, res) => {
     const idx = stripeLinks.findIndex((e) => {
       return e.price == selectedPlan.price;
     });
-    const paymentLink = await stripe.paymentLinks.retrieve(stripeLinks[idx].id);
+
+
+    const session = await stripe.checkout.sessions.create({
+      line_items: [
+        {
+          price: `${stripeLinks[idx].id}`,
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      customer_email: req.body.email,
+      allow_promotion_codes: true,
+      success_url: `${process.env.BASE_URL}/api/v1/payment/complete`,
+      cancel_url: `${process.env.BASE_URL}/api/v1/payment/cancel`,
+    });
+
+    console.log(session)
+
+    // const paymentLink = await stripe.paymentLinks.retrieve(stripeLinks[idx].id);
     res.status(200).json({
-      sessionUrl: `${paymentLink.url}?prefilled_email=${req.body.email}`,
+      sessionUrl: `${session.url}`,
     });
 
   } catch (error) {
-    res.json({
-      error: error,
-    });
+    console.error(error)
   }
 
-  // const stripeLink = stripeLinks.find((e) => selectedPlan ``.price === e.price);
-  // res.redirect(`${paymentLink.url}?prefilled_email=${req.body.email}`);
-  // if (stripeLink) {
-  //   res.status(200).json({ sessionUrl: `${stripeLink.url}?prefilled_email=${req.body.email}` });
-  // } else {
-  //   res.status(500).json({ status: false, message: "Pack not found" });
-  // }
 };
 
 export const complete = async (req, res) => {
-  console.log(req);
-  // const result = Promise.all([
-  //   stripe.checkout.sessions.retrieve(req.query.session_id, {
-  //     expand: ["payment_intent.payment_method"],
-  //   }),
-  //   stripe.checkout.sessions.listLineItems(req.query.session_id),
-  // ]);
+  const result = Promise.all([
+    stripe.checkout.sessions.retrieve(req.query.session_id, {
+      expand: ["payment_intent.payment_method"],
+    }),
+    stripe.checkout.sessions.listLineItems(req.query.session_id),
+  ]);
 
   let userData = {
     email: "jai@pearlorganisation.com",

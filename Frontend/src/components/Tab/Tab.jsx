@@ -6,11 +6,10 @@ import HeadshotSelection from "../HeadshotSelection/HeadshotSelection";
 import ImageSection from "../ImageSection/ImageSection";
 import Customize from "../Customize/Customize";
 import OrderDetails from "../OrderDetails/OrderDetails";
-import Teams from "../Teams/Teams";
+import Teams from "./Teams/Teams";
 import UserDetails from "../UserDetails/UserDetails";
-import axios from 'axios'
+import axios from "axios";
 import Prompt from "../Prompt/Prompt";
-
 
 const Tab = () => {
   const [userData, setUserData] = useState({
@@ -18,6 +17,7 @@ const Tab = () => {
     gender: "",
     files: "",
   });
+  
   const [errors, setErrors] = useState({});
   const [fileErrorMsg, setFileErrorMsg] = useState(null);
   const [files, setFiles] = useState([]);
@@ -57,6 +57,65 @@ const Tab = () => {
     },
   ];
 
+  const headshots = [
+    {
+      name: "Corporate Headshots",
+    },
+    {
+      name: "Doctor Headshots",
+      headshotInfo: {
+        tag: "Doctor Headshots",
+        title: "Professional Medical, Doctor, & ERAS Headshots with AI",
+        content:
+          "Elevate your healthcare profile with professional AI-generated medical headshots—perfect for doctors, medical school applications, or ERAS residency. Built by AI researchers from Meta and Microsoft.",
+        imgPath: "/headshots/healthcare.webp",
+      },
+    },
+    {
+      name: "Lawyer Headshots",
+      headshotInfo: {
+        tag: "Lawyer Headshots",
+        title: "Professional Lawyer Headshots with AI",
+        content:
+          "Get professional attorney headshots in minutes with the most realistic AI headshot generator ever. Built by AI researchers from Meta and Microsoft.",
+        imgPath: "/headshots/lawyer.webp",
+      },
+    },
+    {
+      name: "Sales Headshots",
+      headshotInfo: {
+        tag: "Sales Headshots",
+        title: "Close more leads with our charming AI headshots",
+        content:
+          "Update your professional headshot in minutes with the most realistic AI headshot generator ever. Built by AI researchers from Meta and Microsoft.",
+        imgPath: "/headshots/sales.webp",
+      },
+    },
+    {
+      name: "Students Headshots",
+      headshotInfo: {
+        tag: "Students Headshots",
+        title: "Land more jobs with our professional AI headshots",
+        content:
+          "Get affordable professional headshots in minutes with the most realistic AI headshot generator ever. Built by AI researchers from Meta and Microsoft.",
+        imgPath: "/headshots/student.webp",
+      },
+    },
+    {
+      name: "Teacher Headshots",
+      headshotInfo: {
+        tag: "Teacher Headshots",
+        title: "The best AI headshots for teachers",
+        content:
+          "Get professional headshots in minutes with the most realistic AI headshot generator ever. Perfect for school websites, learning platform, and more. Set a good first impression for students and their parents.",
+        imgPath: "/headshots/teacher.webp",
+      },
+    },
+    {
+      name: "Youtube or Instagram",
+    },
+  ];
+
   const indivdualData = [
     {
       idx: 0,
@@ -66,6 +125,7 @@ const Tab = () => {
             userData={userData}
             setUserData={setUserData}
             errors={errors}
+            headshots={headshots}
           />
         </>
       ),
@@ -227,35 +287,34 @@ const Tab = () => {
     let newFiles = await convertFiles();
     let formData = new FormData();
 
-      // console.log(newFiles)
+    // console.log(newFiles)
 
-      // let newArr = []
-      
-      for (let i = 0 ; i < newFiles.length ; i++) {
-        // newArr.push(newFiles[i])
-        formData.append("images", newFiles[i]);
+    // let newArr = []
+
+    for (let i = 0; i < newFiles.length; i++) {
+      // newArr.push(newFiles[i])
+      formData.append("images", newFiles[i]);
     }
-      // formData.append("file", newArr);
-      formData.append("email", userData.email);
-      formData.append("gender", userData.gender);
-      formData.append("headshotType", userData.headshotType);
-      formData.append("selectedPlan", JSON.stringify(userData.selectedPlan));
+    // formData.append("file", newArr);
+    formData.append("email", userData.email);
+    formData.append("gender", userData.gender);
+    formData.append("headshotType", userData.headshotType);
+    formData.append("selectedPlan", JSON.stringify(userData.selectedPlan));
 
-      axios
-        .post(`${import.meta.env.VITE_API_URL}/payment/checkout`, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((res) => {
-          if (res.data.sessionUrl) {
-            window.location.href = res.data.sessionUrl;
-          }
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    
+    axios
+      .post(`${import.meta.env.VITE_API_URL}/payment/checkout`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        if (res.data.sessionUrl) {
+          window.location.href = res.data.sessionUrl;
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   return (
@@ -268,12 +327,13 @@ const Tab = () => {
           return (
             <div className="relative">
               <div
-                className={` ${tabText === item ? "flex" : "hidden"
-                  }  absolute text-white h-full `}
+                className={` ${
+                  tabText === item ? "flex" : "hidden"
+                }  absolute text-white h-full `}
               >
                 <span
                   className={` rounded-full h-full w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
-                  onClick={() => { }}
+                  onClick={() => {}}
                 >
                   {item}
                 </span>

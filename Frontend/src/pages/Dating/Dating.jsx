@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AppSvgs from "../../components/AppSvgs/AppSvgs";
 import { Link } from "react-router-dom";
-import DatingHero from "../../components/DatingHero/DatingHero";
+import DatingHero from "../../components/Dating/DatingHero/DatingHero";
 import BlogCards from "../../components/BlogCards/BlogCards";
 
 const Dating = () => {

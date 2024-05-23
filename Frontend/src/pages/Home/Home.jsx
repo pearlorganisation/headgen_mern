@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import BeforeAfterSlider from "../../components/BeforeAfterSlider/BeforeAfterSlider";
 import InfinitySlider from "../../components/InfinitySlider/InfinitySlider";
-import BiInfinitySlider from "../../components/BiInfinitySlider/BiInfinitySlider";
-import DatingHero from "../../components/DatingHero/DatingHero";
 import FaqAccordian from "../../components/FaqAccordian/FaqAccordian";
 import Carousel from "../../components/Carousel/Carousel";
 import BlogCards from "../../components/BlogCards/BlogCards";
+import DatingHero from "../../components/Dating/DatingHero/DatingHero"
 import { FaLinkedin } from "react-icons/fa";
 import { MdGroups } from "react-icons/md";
 import { IoDocumentTextOutline, IoStarSharp } from "react-icons/io5";
@@ -339,7 +338,7 @@ const Home = () => {
 
       {/* infinity slider */}
       <div className="w-full overflow-hidden px-10  xl:px-[160px] 2xl:px-[250px]">
-        <InfinitySlider imgData={imgData1} />
+        <InfinitySlider imgData1={imgData1} />
       </div>
 
       {/* featured by */}
@@ -465,7 +464,7 @@ const Home = () => {
       {/* use flow card section */}
 
       <div className=" xl:px-[160px] 2xl:px-[250px] pb-20">
-        <div className="flex flex-wrap flex-col gap-2 md:flex-row md:justify-between ">
+        <div className="flex flex-wrap flex-col gap-2 md:flex-row md:justify-between px-2 ">
           {cardData &&
             cardData?.map((item, idx) => (
               <div className="relative w-full max-w-[420px] h-[300px] md:w-[32%] rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
@@ -596,7 +595,7 @@ const Home = () => {
         </div>
 
         <div className="py-16">
-          <BiInfinitySlider imgData1={imgData1} imgData2={imgData1} />
+          <InfinitySlider imgData1={imgData1} imgData2={imgData1} />
         </div>
 
         <div className="flex flex-col gap-10 items-center">
@@ -683,7 +682,7 @@ const Home = () => {
           </span>{" "}
           Our Results
         </div>
-        <BiInfinitySlider imgData1={reviewData1} imgData2={reviewData1} />
+        <InfinitySlider imgData1={reviewData1} imgData2={reviewData1} />
       </div>
 
       <div className="flex flex-col gap-10">
