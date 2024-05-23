@@ -9,28 +9,21 @@ const Footer = () => {
       list: [
         {
           title: "Dating Photos",
-          link: "#",
+          link: "/upload/dating",
         },
         {
           title: "Doctor Headshots",
-          link: "#",
+          link: "/upload/Doctor%20Headshots",
         },
         {
           title: "Lawyer Headshots",
-          link: "#",
-        },
-        {
-          title: "Real Estate Headshots",
-          link: "#",
+          link: "/upload/Lawyer%20Headshots",
         },
         {
           title: "Salesperson",
-          link: "#",
+          link: "/upload/Sales%20Headshots",
         },
-        {
-          title: "Headshots",
-          link: "#",
-        },
+       
       ],
     },
     {
@@ -38,27 +31,19 @@ const Footer = () => {
       list: [
         {
           title: "Corporate Headshots",
-          link: "#",
-        },
-        {
-          title: "Professional",
-          link: "#",
-        },
-        {
-          title: "Headshots",
-          link: "#",
+          link: "/upload/Corporate%20Headshots",
         },
         {
           title: "Student Headshots",
-          link: "#",
+          link: "/upload/Student%20Headshots",
         },
         {
           title: "Teacher Headshots",
-          link: "#",
+          link: "/upload/Teacher%20Headshots",
         },
         {
           title: "YouTube Profile",
-          link: "#",
+          link: "/upload/Youtube%20or%20Instagram%20Headshots",
         },
       ],
     },
@@ -67,23 +52,19 @@ const Footer = () => {
       list: [
         {
           title: "AI Portrait Generator",
-          link: "#",
+          link: "/upload",
         },
         {
           title: "LinkedIn Headshots",
-          link: "#",
+          link: "/upload/Corporate%20Headshots",
         },
-        {
-          title: "Affiliate Program",
-          link: "#",
-        },
+        // {
+        //   title: "Affiliate Program",
+        //   link: "/upload",
+        // },
         {
           title: "Blog",
-          link: "#",
-        },
-        {
-          title: "Featured In",
-          link: "#",
+          link: "/blogs",
         },
       ],
     },
@@ -92,27 +73,23 @@ const Footer = () => {
       list: [
         {
           title: "About us",
-          link: "#",
+          link: "/aboutus",
         },
         {
           title: "Privacy Policy",
-          link: "#",
+          link: "/privacypolicy",
         },
         {
           title: "Terms & Conditions",
-          link: "#",
+          link: "/termsandconditions",
         },
         {
           title: "Cancellation & Refund",
-          link: "#",
-        },
-        {
-          title: "Policy",
-          link: "#",
+          link: "cancellation",
         },
         {
           title: "Contact",
-          link: "#",
+          link: "/contactus",
         },
       ],
     },
@@ -121,7 +98,7 @@ const Footer = () => {
       list: [
         {
           title: "Support@headgen.ai",
-          link: "#",
+          link: "email:support@headgen.ai"
         },
       ],
     },
@@ -160,7 +137,7 @@ const Footer = () => {
                 <div className="flex flex-col gap-1 ">
                   {fc?.list &&
                     fc?.list?.map((item, idx2) => (
-                      <a key={`fcl${idx2}`}>{item?.title}</a>
+                      <Link to={item?.link} key={`fcl${idx2}`}>{item?.title}</Link>
                     ))}
                 </div>
               </div>
