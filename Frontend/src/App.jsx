@@ -36,6 +36,7 @@ function App() {
         <Route path="/test" element={<Checkout />} />
         <Route path="/success" element={<PaymentSuccess />} />
         <Route path="/cancel" element={<PaymentCancel />} />
+        <Route path="/blogs" element={<></>} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -12,7 +12,7 @@ const Header = () => {
   const [showMobDropdown, setShowMobDropdown] = useState(false);
 
   useEffect(() => {
-    if (location.pathname === "/dating") {
+    if (location.pathname === "/dating" || location.pathname === "/upload/dating/") {
       setIsDatingPage(true);
       setToggleCss("bg-gradient-to-r from-[#810000] to-red-800");
     } else {
@@ -132,13 +132,17 @@ const Header = () => {
       ],
       showDropdown: true,
     },
+    {
+      name: "Blogs",
+      path: "/blogs",
+      showDropdown: false,
+    },
   ];
 
   return (
     <nav
-      className={`fixed w-full ${
-        toggleNav ? toggleCss : ""
-      } px-10 2xl:px-[250px] h-fit border-[#737373] border-b-[2px] z-[99]  `}
+      className={`fixed w-full ${toggleNav ? toggleCss : ""
+        } px-10 2xl:px-[250px] h-fit border-[#737373] border-b-[2px] z-[99]  `}
     >
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex flex-col justify-center">
@@ -172,9 +176,8 @@ const Header = () => {
               </svg>
             </button>
             <div
-              className={`${
-                showMobDropdown ? "" : "hidden"
-              } absolute top-[102%] left-0 w-full bg-[#2f2f31] flex flex-col shadow-[0_2px_2px#121212]`}
+              className={`${showMobDropdown ? "" : "hidden"
+                } absolute top-[102%] left-0 w-full bg-[#2f2f31] flex flex-col shadow-[0_2px_2px#121212]`}
             >
               {navData &&
                 navData.map((item, idx) => (
@@ -215,19 +218,16 @@ const Header = () => {
               {/* button */}
               <div className="h-full py-3">
                 <button
-                  className={`hover:squeezyBtn px-5 py-4 ${
-                    toggleNav
-                      ? `${
-                          isDatingPage
-                            ? "shadow-[0_1px_2px_0_#131313] bg-[#af2828d8] hover:bg-[#1d2838]"
-                            : "shadow-[0_1px_2px_0_#131313] bg-[#4f3bffd8] hover:bg-[#1d2838]"
-                        }`
-                      : `${
-                          isDatingPage
-                            ? "bg-[#1d2838] hover:bg-[#af2828d8]"
-                            : "bg-[#1d2838] hover:bg-[#1f58ad]"
-                        }`
-                  } hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#ffffff] text-[15px] font-medium transition duration-[0.6s]`}
+                  className={`hover:squeezyBtn px-5 py-4 ${toggleNav
+                    ? `${isDatingPage
+                      ? "shadow-[0_1px_2px_0_#131313] bg-[#af2828d8] hover:bg-[#1d2838]"
+                      : "shadow-[0_1px_2px_0_#131313] bg-[#4f3bffd8] hover:bg-[#1d2838]"
+                    }`
+                    : `${isDatingPage
+                      ? "bg-[#1d2838] hover:bg-[#af2828d8]"
+                      : "bg-[#1d2838] hover:bg-[#1f58ad]"
+                    }`
+                    } hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#ffffff] text-[15px] font-medium transition duration-[0.6s]`}
                 >
                   Get Started
                 </button>
