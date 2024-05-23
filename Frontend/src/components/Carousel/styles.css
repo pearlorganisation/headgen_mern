@@ -1,26 +1,23 @@
 .carousel-container {
-    /* max-width: 124rem; */
-    /* padding: 4rem 1rem; */
-    margin: 0 auto;
-    /* padding-bottom: 50px; */
-  }
-  
-  .heading {
-    padding: 1rem 0;
-    font-size: 3.5rem;
-    text-align: center;
-  }
+  margin: 0 auto;
+}
 
+.heading {
+  padding: 1rem 0;
+  font-size: 3.5rem;
+  text-align: center;
+}
 
 .swiper_container {
   /* height: 52rem;
   padding: 2rem 0; */
   position: relative;
+  width: 100vw !important;
 }
 
 .swiper-slide {
-    width:20rem;
-    height: 22rem;
+  width: 20rem;
+  height: 22rem;
   position: relative;
 }
 
@@ -39,8 +36,8 @@
 }
 
 .swiper-slide img {
-width:20rem;
-   height: 22rem;
+  width: 20rem;
+  height: 22rem;
   border-radius: 2rem;
   object-fit: cover;
 }
@@ -107,7 +104,7 @@ width:20rem;
 }
 
 .slider-controler .slider-arrow::after {
-  content: '';
+  content: "";
 }
 
 .swiper-pagination {

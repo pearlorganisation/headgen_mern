@@ -138,7 +138,7 @@ const Header = () => {
     <nav
       className={`fixed w-full ${
         toggleNav ? toggleCss : ""
-      } px-10 2xl:px-[250px] h-fit border-[#737373] border-b-[2px] z-[99]`}
+      } px-10 2xl:px-[250px] h-fit border-[#737373] border-b-[2px] z-[99]  `}
     >
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex flex-col justify-center">

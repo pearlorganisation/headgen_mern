@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-// import "./Tab.css";
+// import "./DatingTab.css";
 import { useState } from "react";
 import PriceCards from "../PriceCards/PriceCards";
 import HeadshotSelection from "../HeadshotSelection/HeadshotSelection";
@@ -12,7 +12,7 @@ import axios from 'axios'
 import Prompt from "../Prompt/Prompt";
 
 
-const Tab = () => {
+const DatingTab = () => {
   const [userData, setUserData] = useState({
     email: "",
     gender: "",
@@ -379,4 +379,4 @@ const Tab = () => {
   );
 };
 
-export default Tab;
+export default DatingTab;
