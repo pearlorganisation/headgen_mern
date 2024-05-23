@@ -12,7 +12,8 @@ const Header = () => {
   const [showMobDropdown, setShowMobDropdown] = useState(false);
 
   useEffect(() => {
-    if (location.pathname === "/dating" || location.pathname === "/upload/dating/") {
+    console.log(location)
+    if (location.pathname === "/dating" || location.pathname === "/upload/dating") {
       setIsDatingPage(true);
       setToggleCss("bg-gradient-to-r from-[#810000] to-red-800");
     } else {
