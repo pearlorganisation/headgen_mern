@@ -10,14 +10,16 @@ import Teams from "./Teams/Teams";
 import UserDetails from "../UserDetails/UserDetails";
 import axios from "axios";
 import Prompt from "../Prompt/Prompt";
+import {BeatLoader} from 'react-spinners'
 
 const Tab = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [userData, setUserData] = useState({
     email: "",
     gender: "",
     files: "",
   });
-  
+
   const [errors, setErrors] = useState({});
   const [fileErrorMsg, setFileErrorMsg] = useState(null);
   const [files, setFiles] = useState([]);
@@ -203,6 +205,7 @@ const Tab = () => {
         if (maxIndex === currentIndex && val > 0) {
           return;
         }
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         setCurrentIndex(newIndex);
       } else {
         let error = { email: "", gender: "" };
@@ -226,6 +229,7 @@ const Tab = () => {
         if (maxIndex === currentIndex && val > 0) {
           return;
         }
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         setCurrentIndex(newIndex);
       } else {
         setFileErrorMsg("Please upload 1-4 images to continue");
@@ -248,6 +252,8 @@ const Tab = () => {
     if (localStorage.getItem("userData")) {
       localStorage.clear();
     }
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+
   }, []);
 
   useEffect(() => {
@@ -284,6 +290,8 @@ const Tab = () => {
   };
 
   const handlePayment = async () => {
+    if(isLoading) return
+    setIsLoading(true);
     let newFiles = await convertFiles();
     let formData = new FormData();
 
@@ -310,9 +318,12 @@ const Tab = () => {
       .then((res) => {
         if (res.data.sessionUrl) {
           window.location.href = res.data.sessionUrl;
+          setIsLoading(false);
         }
       })
       .catch((err) => {
+        setIsLoading(false);
+
         console.error(err);
       });
   };
@@ -395,12 +406,12 @@ const Tab = () => {
 
                 {currentIndex === maxIndex && (
                   <button
-                    className={`hover:squeezyBtn px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                    className={`hover:squeezyBtn flex justify-center items-center px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
                     onClick={() => {
                       handlePayment();
                     }}
                   >
-                    Proceed to Payment
+                   {isLoading ? <BeatLoader color="#1f58ad94" /> : 'Proceed to Payment'}
                   </button>
                 )}
               </div>

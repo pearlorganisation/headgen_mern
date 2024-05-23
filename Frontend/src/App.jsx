@@ -32,7 +32,7 @@ function App() {
         <Route path="/termsandconditions" element={<TermsAndConditions />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/dating" element={<Dating />} />
-        <Route path="/upload/:headshot?" element={<UploadPage />} />
+        <Route path="/upload/:headshot" element={<UploadPage />} />
         <Route path="/test" element={<Checkout />} />
         <Route path="/success" element={<PaymentSuccess />} />
         <Route path="/cancel" element={<PaymentCancel />} />
