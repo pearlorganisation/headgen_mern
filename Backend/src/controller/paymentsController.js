@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import Stripe from "stripe";
 import { sendMailToCustomer } from "../utils/nodeMailer.js";
 import { uploadFile } from "../utils/cloudinary.js";
+import { addUser } from "../utils/users.js";
 
 dotenv.config();
 
@@ -25,7 +26,7 @@ const stripeLinks = [
 
 export const checkout = async (req, res) => {
   try {
-
+     const user = await addUser(req.body, req.files)
     // const cloudinaryResult = await uploadFile(req.files)
     const selectedPlan = JSON.parse(req.body.selectedPlan);
     const idx = stripeLinks.findIndex((e) => {
@@ -48,7 +49,7 @@ export const checkout = async (req, res) => {
     });
 
 
-    console.log(session.id)
+    // console.log(session.id)
 
     // const paymentLink = await stripe.paymentLinks.retrieve(stripeLinks[idx].id);
     res.status(200).json({
@@ -62,7 +63,11 @@ export const checkout = async (req, res) => {
 };
 
 export const complete = async (req, res) => {
-  console.log(req.query)
+  const session = await stripe.financialConnections.sessions.retrieve(
+    req.query.sessionId
+  );
+
+  console.log(session)
 
   let userData = {
     email: "jai@pearlorganisation.com",
