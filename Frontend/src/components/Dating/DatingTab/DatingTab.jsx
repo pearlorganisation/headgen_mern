@@ -99,6 +99,7 @@ const DatingTab = () => {
               data={datingPriceIndividual}
               userData={userData}
               setUserData={setUserData}
+              type='Dating'
             />
           </div>
         </>
