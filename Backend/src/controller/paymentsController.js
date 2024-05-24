@@ -26,7 +26,7 @@ const stripeLinks = [
 
 export const checkout = async (req, res) => {
   try {
-     const user = await addUser(req.body, req.files)
+    // const user = await addUser(req.body, req.files)
     // const cloudinaryResult = await uploadFile(req.files)
     const selectedPlan = JSON.parse(req.body.selectedPlan);
     const idx = stripeLinks.findIndex((e) => {
