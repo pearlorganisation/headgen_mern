@@ -2,7 +2,7 @@ import React from "react";
 
 const CancellationAndRefunds = () => {
   const CancellationContent = [
-    {
+    { 
       heading: "",
       content: [
         {
