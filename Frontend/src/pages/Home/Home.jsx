@@ -10,6 +10,7 @@ import { MdGroups } from "react-icons/md";
 import { IoDocumentTextOutline, IoStarSharp } from "react-icons/io5";
 import AppSvgs from "../../components/AppSvgs/AppSvgs";
 import { Link } from "react-router-dom";
+import InfinityTextSlider from "../../components/InfinitySlider/InfinityTextSlider";
 
 const Home = () => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -325,6 +326,12 @@ const Home = () => {
               Get your photos for $29
             </Link>
           </div>
+          <div
+            className={`flex flex-col justify-center items-start mt-2 ${isAnimated ? "animatedReveal" : "invisible"
+              }`}
+          >
+            <img src="https://drive.google.com/thumbnail?id=16C5DFniIaPKuMMKI1DHrYT2P2_YGON-2&sz=s300" className="w-[250px] 2xl:w-[350px]" />
+          </div>
         </div>
         <div
           className={`max-w-[834px] w-1/2 flex flex-col gap-4 items-end pt-10`}
@@ -489,6 +496,10 @@ const Home = () => {
         </div>
       </div>
 
+
+      <div className=" xl:px-[160px] 2xl:px-[250px] pb-20">
+        <InfinityTextSlider />
+      </div>
       {/* swipe section */}
 
       <div className="px-10  xl:px-[160px] 2xl:px-[250px] flex justify-between cursor-default">

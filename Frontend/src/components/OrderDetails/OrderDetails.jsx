@@ -1,14 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
-const OrderDetails = ({ userData, files, type }) => {
-  const handleCheckout = () => {
-    if (!validateUserData(userData, files)) {
-      console.log("error");
-    } else {
-      console.log("checking out");
-    }
-  };
+const OrderDetails = ({ userData, files, type }) => { 
 
   const validateUserData = (item1, item2) => {
     if (

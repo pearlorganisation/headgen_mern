@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const InfinitySlider = ({ imgData1, imgData2 }) => {
   if (imgData2) {
