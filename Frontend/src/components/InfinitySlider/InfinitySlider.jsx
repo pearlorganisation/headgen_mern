@@ -28,7 +28,6 @@ const InfinitySlider = ({ imgData1, imgData2 }) => {
   } else {
     return (
       <>
-      { console.log(imgData1) }
       <div className="w-full flex flex-col gap-4">
         <div class="infinitySlider">
           <div class="slide-track-left">
