@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import Stripe from "stripe";
 import { sendMailToCustomer } from "../utils/nodeMailer.js";
 import { uploadFile } from "../utils/cloudinary.js";
-import { addUser } from "../utils/users.js";
+import { addUser, deleteUser, getUser } from "../utils/users.js";
 
 dotenv.config();
 
@@ -41,16 +41,12 @@ const stripeLinks = [
   },
 ];
 
-
 export const checkout = async (req, res) => {
   try {
-    // const user = await addUser(req.body, req.files)
-    // const cloudinaryResult = await uploadFile(req.files)
     const selectedPlan = JSON.parse(req.body.selectedPlan);
     const idx = stripeLinks.findIndex((e) => {
       return e.price == selectedPlan.price;
     });
-
 
     const session = await stripe.checkout.sessions.create({
       line_items: [
@@ -59,41 +55,51 @@ export const checkout = async (req, res) => {
           quantity: 1,
         },
       ],
-      mode: 'payment',
+      mode: "payment",
       customer_email: req.body.email,
       allow_promotion_codes: true,
       success_url: `${process.env.BASE_URL}/api/v1/payment/complete?sessionId={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.BASE_URL}/api/v1/payment/cancel?sessionId={CHECKOUT_SESSION_ID}`,
     });
 
+    const data = {
+      body: JSON.stringify(req.body),
+      files: JSON.stringify(req.files),
+      sessionId: session.id,
+      stripeLink: stripeLinks[idx],
+    };
 
-    // console.log(session.id)
-
-    // const paymentLink = await stripe.paymentLinks.retrieve(stripeLinks[idx].id);
-    res.status(200).json({
-      sessionUrl: `${session.url}`,
-    });
-
+    const user = addUser(data);
+    if (user.status) {
+      res.status(200).json({
+        sessionUrl: `${session.url}`,
+      });
+    }
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
-
 };
 
 export const complete = async (req, res) => {
-  const session = await stripe.financialConnections.sessions.retrieve(
-    req.query.sessionId
-  );
+  const user = getUser(req.query.sessionId);
 
-  console.log(session)
-
-  let userData = {
-    email: "jai@pearlorganisation.com",
-  };
-
-  await sendMailToCustomer(userData).catch(console.error);
-
-  res.redirect(`${process.env.FRONTEND_URL}/success`);
+  if (user.status) {
+    const imgResult = await uploadFile(JSON.parse(user.user.files));
+    if (imgResult) {
+      await sendMailToCustomer(user.user, imgResult).catch(console.error);
+      const result = deleteUser(req.query.sessionId);
+      // console.log(result);
+      if (result) {
+        res.redirect(`${process.env.FRONTEND_URL}/success`);
+      }
+    } else {
+      // const result = deleteUser(req.query.sessionId);
+      res.redirect(`${process.env.FRONTEND_URL}/success`);
+    }
+  } else {
+    const result = deleteUser(req.query.sessionId);
+    res.send({ status: false, message: "error completing process" });
+  }
 };
 
 export const cancel = (req, res) => {
