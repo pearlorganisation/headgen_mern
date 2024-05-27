@@ -1,14 +1,14 @@
 import React from "react";
 import AppSvgs from "../AppSvgs/AppSvgs";
+import { MdGroups } from "react-icons/md";
 
 const InfinityTextSlider = () => {
   const data = [
     {
-      //   svg: <AppSvgs name="tinder" />,
       content: "AI HEADSHOTS",
     },
     {
-      svg: <AppSvgs name="linkedin" />,
+      svg: <AppSvgs name="linkedIn" width={38} height={38} />,
       content: "LINKEDIN HEADSHOTS",
     },
     {
@@ -16,7 +16,11 @@ const InfinityTextSlider = () => {
       content: "DATING HEADSHOTS",
     },
     {
-      svg: <AppSvgs name="team" />,
+      svg: (
+        <>
+          <MdGroups size={38} className="text-white" />
+        </>
+      ),
       content: "TEAM HEADSHOTS",
     },
     {
@@ -24,7 +28,7 @@ const InfinityTextSlider = () => {
       content: "AI HEADSHOTS",
     },
     {
-      svg: <AppSvgs name="linkedin" />,
+      svg: <AppSvgs name="linkedIn" width={38} height={38} />,
       content: "LINKEDIN HEADSHOTS",
     },
     {
@@ -32,24 +36,11 @@ const InfinityTextSlider = () => {
       content: "DATING HEADSHOTS",
     },
     {
-      svg: <AppSvgs name="team" />,
-      content: "TEAM HEADSHOTS",
-    },
-
-    {
-      //   svg: <AppSvgs name="tinder" />,
-      content: "AI HEADSHOTS",
-    },
-    {
-      svg: <AppSvgs name="linkedin" />,
-      content: "LINKEDIN HEADSHOTS",
-    },
-    {
-      svg: <AppSvgs name="tinder" />,
-      content: "DATING HEADSHOTS",
-    },
-    {
-      svg: <AppSvgs name="team" />,
+      svg: (
+        <>
+          <MdGroups size={38} className="text-white" />
+        </>
+      ),
       content: "TEAM HEADSHOTS",
     },
 
@@ -58,7 +49,7 @@ const InfinityTextSlider = () => {
       content: "AI HEADSHOTS",
     },
     {
-      svg: <AppSvgs name="linkedin" />,
+      svg: <AppSvgs name="linkedIn" width={38} height={38} />,
       content: "LINKEDIN HEADSHOTS",
     },
     {
@@ -66,7 +57,32 @@ const InfinityTextSlider = () => {
       content: "DATING HEADSHOTS",
     },
     {
-      svg: <AppSvgs name="team" />,
+      svg: (
+        <>
+          <MdGroups size={38} className="text-white" />
+        </>
+      ),
+      content: "TEAM HEADSHOTS",
+    },
+
+    {
+      //   svg: <AppSvgs name="tinder" />,
+      content: "AI HEADSHOTS",
+    },
+    {
+      svg: <AppSvgs name="linkedIn" width={38} height={38} />,
+      content: "LINKEDIN HEADSHOTS",
+    },
+    {
+      svg: <AppSvgs name="tinder" />,
+      content: "DATING HEADSHOTS",
+    },
+    {
+      svg: (
+        <>
+          <MdGroups size={38} className="text-white" />
+        </>
+      ),
       content: "TEAM HEADSHOTS",
     },
   ];

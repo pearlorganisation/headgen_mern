@@ -21,24 +21,24 @@ const OrderDetails = ({ userData, files, type }) => {
       <div className="flex justify-between items-center">
         <div className="w-1/2">
           <div className="flex justify-center">
-            <dl class="w-full text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
-              <div class="flex flex-col pb-3">
-                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
+            <dl className="w-full text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+              <div className="flex flex-col pb-3">
+                <div className="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
                   Email address
-                </dt>
-                <dd class="text-lg font-semibold">{userData?.email}</dd>
+                </div>
+                <div className="text-lg font-semibold">{userData?.email}</div>
               </div>
-              <div class="flex flex-col py-3">
-                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
+              <div className="flex flex-col py-3">
+                <dt className="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
                   Gender
                 </dt>
-                <dd class="text-lg font-semibold">{userData?.gender}</dd>
+                <dd className="text-lg font-semibold">{userData?.gender}</dd>
               </div>
-              <div class="flex flex-col pt-3">
-                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
+              <div className="flex flex-col pt-3">
+                <dt className="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
                   Headshot Type
                 </dt>
-                <dd class="text-lg font-semibold">{userData?.headshotType}</dd>
+                <dd className="text-lg font-semibold">{userData?.headshotType}</dd>
               </div>
             </dl>
           </div>

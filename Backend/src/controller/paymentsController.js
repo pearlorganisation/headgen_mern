@@ -11,15 +11,33 @@ const stripe = Stripe(process.env.SK_LIVE);
 const stripeLinks = [
   {
     price: "$29",
-    id: "price_1PJ8tNCvLjbx73iCtOaiKMDR",
+    packName: "Starter Pack",
+    id: "price_1PKz3ECvLjbx73iC7xja49ep",
   },
   {
     price: "$45",
-    id: "price_1PJ8tNCvLjbx73iCtOaiKMDR",
+    packName: "Basic Pack",
+    id: "price_1PKz2rCvLjbx73iCKkVyrJIO",
   },
   {
     price: "$79",
+    packName: "Premium Pack",
     id: "price_1PJ8tNCvLjbx73iCtOaiKMDR",
+  },
+  {
+    price: "$50",
+    packName: "Basic Pack",
+    id: "price_1PKz3lCvLjbx73iChXgMZv2H",
+  },
+  {
+    price: "$100",
+    packName: "Premium Pack",
+    id: "price_1PKz3lCvLjbx73iChXgMZv2H",
+  },
+  {
+    price: "$200",
+    packName: "Prompts Pack",
+    id: "price_1PKz48CvLjbx73iCaqqHpJ5a",
   },
 ];
 

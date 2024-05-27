@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import InfinityTextSlider from "../../components/InfinitySlider/InfinityTextSlider";
 
 const HowItWorks = () => {
   //   const [isAnimated, setIsAnimated] = useState(false);
@@ -73,7 +74,10 @@ const HowItWorks = () => {
               <div className="text-[60px] 2xl:text-[72px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
                 works
               </div>
-              <Link to="/upload/Corporate%20Headshots" className="hover:squeezyBtn flex flex-col justify-center  bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]">
+              <Link
+                to="/upload/Corporate%20Headshots"
+                className="hover:squeezyBtn flex flex-col justify-center  bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]"
+              >
                 Get your photos for $29
               </Link>
             </div>
@@ -113,8 +117,9 @@ const HowItWorks = () => {
                   <img src={item?.imgPath} className="w-full rounded-xl" />
                 </div>
                 <div
-                  className={`h-[100px] flex flex-col ${item?.btnLink ? "justify-between" : ""
-                    }  gap-4 items-center`}
+                  className={`h-[100px] flex flex-col ${
+                    item?.btnLink ? "justify-between" : ""
+                  }  gap-4 items-center`}
                 >
                   {item?.title?.length > 0 && (
                     <div className="px-2 text-center font-bold text-[#F1F1F1] text-3xl ">
@@ -134,7 +139,11 @@ const HowItWorks = () => {
             ))}
           </div>
         </div>
+        <div>
+          <InfinityTextSlider />
+        </div>
       </div>
+
       <div className="flex flex-col gap-10 px-10  xl:px-[160px] 2xl:px-[250px]">
         <div className="text-center text-[60px] text-[#F1F1F1]">
           Get{" "}
@@ -173,10 +182,12 @@ const HowItWorks = () => {
 
         <div className="container rounded-xl flex ">
           <Link to={`/upload/customize`}>
-            <img src={`/howItWorks/customizeSection.png`} className="w-full rounded-xl" />
+            <img
+              src={`/howItWorks/customizeSection.png`}
+              className="w-full rounded-xl"
+            />
           </Link>
         </div>
-
       </div>
 
       <div className="flex flex-col gap-10 px-10  xl:px-[160px] 2xl:px-[250px]">
@@ -189,9 +200,11 @@ const HowItWorks = () => {
 
         <div className="container rounded-xl flex ">
           <Link to={`/upload/prompt`}>
-            <img src={`/howItWorks/promptSection.png`} className="w-full rounded-xl" />
+            <img
+              src={`/howItWorks/promptSection.png`}
+              className="w-full rounded-xl"
+            />
           </Link>
-
         </div>
       </div>
     </div>

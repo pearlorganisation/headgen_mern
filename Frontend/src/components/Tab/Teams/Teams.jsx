@@ -48,12 +48,13 @@ const Teams = () => {
         `Priority Support`
     ]
 
-    const [data, setData] = useState(priceData[0])
-    const [form, setForm] = useState(false)
+    const [data, setData] = useState(priceData[0]);
+    const [form, setForm] = useState(false);
+
     const handleData = (e) => {
         const val = parseInt(e.target.value, 10);
         console.log(typeof val)
-        if (val < 10) {
+        if (val < 51) {
             setData(prev => {
                 const temp = priceData[0]
 
@@ -62,7 +63,7 @@ const Teams = () => {
                     totalPrice: val * temp.price
                 }
             })
-        } else if (val < 21) {
+        } else if (val < 101) {
             setData(prev => {
                 const temp = priceData[1]
 
@@ -71,7 +72,7 @@ const Teams = () => {
                     totalPrice: val * temp.price
                 }
             })
-        } else if (val < 41) {
+        } else if (val < 151) {
             setData(prev => {
                 const temp = priceData[2]
 
@@ -80,7 +81,7 @@ const Teams = () => {
                     totalPrice: val * temp.price
                 }
             })
-        } else if (val < 51) {
+        } else if (val < 251) {
             setData(prev => {
                 const temp = priceData[3]
 
@@ -90,7 +91,7 @@ const Teams = () => {
                 }
             })
         }
-        else if (val <= 61) {
+        else if (val > 250) {
             setData(prev => {
                 const temp = priceData[4]
 
@@ -109,11 +110,11 @@ const Teams = () => {
 
     //<---------------form ---------------------->//
     const teamSize = [
-        { value: '1-10', label: '1-10' },
-        { value: '11-50', label: '11-50' },
-        { value: '51-250', label: '51-250' },
-        { value: '251-500', label: '251-500' },
-        { value: '500+', label: '500+' }
+        { value: '1-50', label: '1-50' },
+        { value: '51-100', label: '51-100' },
+        { value: '101-150', label: '101-150' },
+        { value: '200-250', label: '200-250' },
+        { value: '251+', label: '500+' }
     ]
     const yourRoles = [
         { value: 'Customer Support', label: 'Customer Support' },
@@ -123,14 +124,7 @@ const Teams = () => {
         { value: 'Finance', label: 'Finance' },
         { value: 'Hr', label: 'Hr' }
     ]
-    const useCase = [
-        { value: 'Branded Headshot', label: 'Branded Headshot' },
-        { value: 'Bulk Purchase', label: 'Bulk Purchase' },
-        { value: 'Company Websites', label: 'Company Websites' },
-        { value: 'Confrence And Events', label: 'Confrence And Events' },
-        { value: 'Corporate Badges', label: 'Corporate Badges' },
-        { value: 'Corporate Gift Or Benefit', label: 'Corporate Gift Or Benefit' }
-    ]
+ 
     return (
         <div className='!text-base flex justify-center items-center '>
 
@@ -143,22 +137,9 @@ const Teams = () => {
                     <form className='space-y-3'>
                         <div className="w-full">
                             <div className="mb-2 ">Team or Company Name</div>
-                            <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
+                            <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" name="companyName" />
                         </div>
                         <div className='flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3'>
-                            <div className="w-full text-black">
-                                <div className="mb-2 text-white">Team Size</div>
-                                <Select options={teamSize}
-                                    styles={{
-                                        control: (baseStyles, state) => ({
-                                            ...baseStyles,
-                                            padding: '0.08rem 0',
-
-
-                                        }),
-                                    }}
-                                />
-                            </div>
                             <div className="w-full text-black">
                                 <div className="mb-2 text-white">Your Role</div>
                                 <Select options={yourRoles}
@@ -177,33 +158,20 @@ const Teams = () => {
                         <div className='flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3'>
                             <div className="w-full">
                                 <div className="mb-2 ">First Name</div>
-                                <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
+                                <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" name="companyName" />
                             </div>
                             <div className="w-full">
                                 <div className="mb-2 ">Last Name</div>
-                                <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
+                                <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" name="companyName" />
                             </div>
-                        </div>
-                        <div className="w-full text-black">
-                            <div className="mb-2 text-white">Use Case</div>
-                            <Select options={useCase}
-                                styles={{
-                                    control: (baseStyles, state) => ({
-                                        ...baseStyles,
-                                        padding: '0.08rem 0',
-
-
-                                    }),
-                                }}
-                            />
                         </div>
                         <div className="w-full">
                             <div className="mb-2 ">Contact Email</div>
-                            <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
+                            <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" name="companyName" />
                         </div>
                         <div className="w-full">
                             <div className="mb-2 ">Website (Optional)</div>
-                            <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
+                            <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" name="companyName" />
                         </div>
                         <div>
                             <button type='button' className='py-3 bg-gradient-to-r mt-2 active:scale-[0.98] transition-all from-[#02AFDC] to-[#2563EB] w-full rounded-lg'>Submit</button>
@@ -240,7 +208,7 @@ const Teams = () => {
                             <div className='space-y-6'>
 
                                 <label for="default-range" class="  text-lg font-medium ">USERS <span>{data?.users}</span></label>
-                                <input onChange={handleData} id="default-range" value={data?.users} min={1} max={61} type="range" class="PB-range-slider w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
+                                <input onChange={handleData} id="default-range" value={data?.users} min={1} max={300} type="range" class="PB-range-slider w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
 
                             </div>
 

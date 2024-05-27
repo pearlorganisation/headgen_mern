@@ -1,16 +1,11 @@
 import React, { useEffect, useRef } from "react";
 // import "./Tab.css";
 import { useState } from "react";
-import PriceCards from "../PriceCards/PriceCards";
-import HeadshotSelection from "../HeadshotSelection/HeadshotSelection";
-import ImageSection from "../ImageSection/ImageSection";
 import Customize from "../Customize/Customize";
-import OrderDetails from "../OrderDetails/OrderDetails";
 import Teams from "./Teams/Teams";
-import UserDetails from "../UserDetails/UserDetails";
 import axios from "axios";
 import Prompt from "../Prompt/Prompt";
-import {BeatLoader} from 'react-spinners'
+import IndividualTab from "../IndividualTab/IndividualTab";
 
 const Tab = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,40 +19,13 @@ const Tab = () => {
   const [fileErrorMsg, setFileErrorMsg] = useState(null);
   const [files, setFiles] = useState([]);
   const [tabSwitched, setTabSwitched] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // const [currentIndex, setCurrentIndex] = useState(0);
 
   const tabs = ["Individual", "Teams", "Customize", "Prompts"];
   const [tabText, setTabText] = useState("Individual");
   const fieldsRef = useRef();
 
   const tabContentRef = useRef(null);
-
-  const priceCardData = [
-    {
-      title: "STARTER PACK",
-      originalPrice: "$35",
-      price: "$29",
-      features: ["Basic Quality", "2 Hour Turn Around Time"],
-      packName: "Starter Pack",
-      tag: "",
-    },
-    {
-      title: "BASIC PACK",
-      originalPrice: "$79",
-      price: "$45",
-      features: ["High Quality", "1 Hour Turn Around Time"],
-      packName: "Basic Pack",
-      tag: "83% pick this plan",
-    },
-    {
-      title: "PREMIUM PACK",
-      originalPrice: "$149",
-      price: "$79",
-      features: ["Premium Quality", "30 minutes Turn Around Time"],
-      packName: "Premium Pack",
-      tag: "Best Value",
-    },
-  ];
 
   const headshots = [
     {
@@ -113,136 +81,7 @@ const Tab = () => {
         imgPath: "/headshots/teacher.webp",
       },
     },
-    {
-      name: "Youtube or Instagram",
-    },
   ];
-
-  const indivdualData = [
-    {
-      idx: 0,
-      ele: (
-        <>
-          <HeadshotSelection
-            userData={userData}
-            setUserData={setUserData}
-            errors={errors}
-            headshots={headshots}
-          />
-        </>
-      ),
-    },
-
-    {
-      idx: 1,
-      ele: (
-        <>
-          <UserDetails
-            userData={userData}
-            setUserData={setUserData}
-            errors={errors}
-          />
-        </>
-      ),
-    },
-
-    {
-      idx: 2,
-      ele: (
-        <>
-          <ImageSection
-            userData={userData}
-            setUserData={setUserData}
-            files={files}
-            setFiles={setFiles}
-            fileErrorMsg={fileErrorMsg}
-            setFileErrorMsg={setFileErrorMsg}
-          />
-        </>
-      ),
-    },
-
-    {
-      idx: 3,
-      ele: (
-        <>
-          <div>
-            <PriceCards
-              data={priceCardData}
-              userData={userData}
-              setUserData={setUserData}
-            />
-          </div>
-        </>
-      ),
-    },
-
-    {
-      idx: 4,
-      ele: (
-        <>
-          <div>
-            <OrderDetails userData={userData} files={files} />
-          </div>
-        </>
-      ),
-    },
-  ];
-
-  let maxIndex = 5 - 1;
-
-  const updateIndex = (val) => {
-    let newIndex = Math.max(currentIndex + val, 0);
-
-    if (newIndex > 1 && newIndex < 3 && val > 0) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (
-        emailRegex.test(userData?.email) &&
-        userData?.email?.length > 0 &&
-        userData?.gender?.length > 0
-      ) {
-        setErrors({});
-        if (maxIndex === currentIndex && val > 0) {
-          return;
-        }
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-        setCurrentIndex(newIndex);
-      } else {
-        let error = { email: "", gender: "" };
-        error.email = "Incorrect/Missing email";
-
-        if (userData?.gender?.length == 0) {
-          error.gender = "Please select a gender";
-        }
-        console.log(userData?.gender?.length);
-        setErrors(() => {
-          console.log(error);
-          return error;
-        });
-        return;
-      }
-    }
-    if (newIndex > 2 && val > 0) {
-      if (files.length > 0 && files.length <= 4) {
-        setFileErrorMsg();
-        console.log("in this");
-        if (maxIndex === currentIndex && val > 0) {
-          return;
-        }
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-        setCurrentIndex(newIndex);
-      } else {
-        setFileErrorMsg("Please upload 1-4 images to continue");
-      }
-      return;
-    } else {
-      if (maxIndex === currentIndex && val > 0) {
-        return;
-      }
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-      setCurrentIndex(newIndex);
-    }
-  };
 
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
@@ -253,7 +92,6 @@ const Tab = () => {
       localStorage.clear();
     }
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-
   }, []);
 
   useEffect(() => {
@@ -289,8 +127,8 @@ const Tab = () => {
     });
   };
 
-  const handlePayment = async () => {
-    if(isLoading) return
+  const handlePayment = async (type = undefined) => {
+    if (isLoading) return;
     setIsLoading(true);
     let newFiles = await convertFiles();
     let formData = new FormData();
@@ -308,6 +146,12 @@ const Tab = () => {
     formData.append("gender", userData.gender);
     formData.append("headshotType", userData.headshotType);
     formData.append("selectedPlan", JSON.stringify(userData.selectedPlan));
+
+    if (type === "customize") {
+      formData.append("customizeData", JSON.stringify(userData?.customizeData));
+    } else if (type === "prompts") {
+      formData.append("promptsData", JSON.stringify(userData?.promptsData));
+    }
 
     axios
       .post(`${import.meta.env.VITE_API_URL}/payment/checkout`, formData, {
@@ -366,56 +210,20 @@ const Tab = () => {
       <div className="shadow-[0_0_0_1px_#babcbf80] rounded-xl px-20 2xl:px-24 py-12 w-full 2xl:w-[1200px] min-h-[700px] bg-gradient-to-br from-[#1d2838] to-[#1d283880]">
         <div className="text-white text-3xl h-full ">
           {tabText === "Individual" && (
-            <div
-              className="flex flex-col justify-between h-full gap-8"
-              ref={tabContentRef}
-            >
-              {indivdualData &&
-                indivdualData?.map((item, idx) => {
-                  if (item?.idx === currentIndex) {
-                    return (
-                      <div
-                        className="h-[90%] w-full"
-                        key={`individualData${idx}`}
-                      >
-                        {item?.ele}
-                      </div>
-                    );
-                  }
-                })}
-
-              <div className="flex justify-center gap-2">
-                {currentIndex > 0 && (
-                  <button
-                    className={`hover:squeezyBtn px-8 py-3 bg-[#b41f58] hover:bg-[#b41f58a8] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
-                    onClick={() => updateIndex(-1)}
-                  >
-                    Back
-                  </button>
-                )}
-                {currentIndex >= 0 && currentIndex < maxIndex && (
-                  <button
-                    className={`hover:squeezyBtn px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
-                    onClick={() => {
-                      updateIndex(1);
-                    }}
-                  >
-                    Next
-                  </button>
-                )}
-
-                {currentIndex === maxIndex && (
-                  <button
-                    className={`hover:squeezyBtn flex justify-center items-center px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
-                    onClick={() => {
-                      handlePayment();
-                    }}
-                  >
-                   {isLoading ? <BeatLoader color="#1f58ad94" /> : 'Proceed to Payment'}
-                  </button>
-                )}
-              </div>
-            </div>
+            <IndividualTab
+              userData={userData}
+              setUserData={setUserData}
+              setErrors={setErrors}
+              files={files}
+              setFiles={setFiles}
+              fileErrorMsg={fileErrorMsg}
+              setFileErrorMsg={setFileErrorMsg}
+              errors={errors}
+              headshots={headshots}
+              tabContentRef={tabContentRef}
+              isLoading={isLoading}
+              handlePayment={handlePayment}
+            />
           )}
           {tabText === "Teams" && <Teams />}
           {tabText === "Customize" && (
@@ -429,6 +237,9 @@ const Tab = () => {
                 fileErrorMsg={fileErrorMsg}
                 setFileErrorMsg={setFileErrorMsg}
                 errors={errors}
+                tabContentRef={tabContentRef}
+                isLoading={isLoading}
+                handlePayment={handlePayment}
               />
             </div>
           )}
@@ -436,12 +247,15 @@ const Tab = () => {
             <Prompt
               userData={userData}
               setUserData={setUserData}
-              setErrors={setErrors}
               files={files}
               setFiles={setFiles}
               fileErrorMsg={fileErrorMsg}
               setFileErrorMsg={setFileErrorMsg}
+              setErrors={setErrors}
               errors={errors}
+              tabContentRef={tabContentRef}
+              isLoading={isLoading}
+              handlePayment={handlePayment}
             />
           )}
         </div>
