@@ -1,14 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
-const OrderDetails = ({ userData, files, type }) => {
-  const handleCheckout = () => {
-    if (!validateUserData(userData, files)) {
-      console.log("error");
-    } else {
-      console.log("checking out");
-    }
-  };
+const OrderDetails = ({ userData, files, type }) => { 
 
   const validateUserData = (item1, item2) => {
     if (
@@ -28,24 +21,24 @@ const OrderDetails = ({ userData, files, type }) => {
       <div className="flex justify-between items-center">
         <div className="w-1/2">
           <div className="flex justify-center">
-            <dl class="w-full text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
-              <div class="flex flex-col pb-3">
-                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
+            <dl className="w-full text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+              <div className="flex flex-col pb-3">
+                <div className="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
                   Email address
-                </dt>
-                <dd class="text-lg font-semibold">{userData?.email}</dd>
+                </div>
+                <div className="text-lg font-semibold">{userData?.email}</div>
               </div>
-              <div class="flex flex-col py-3">
-                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
+              <div className="flex flex-col py-3">
+                <dt className="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
                   Gender
                 </dt>
-                <dd class="text-lg font-semibold">{userData?.gender}</dd>
+                <dd className="text-lg font-semibold">{userData?.gender}</dd>
               </div>
-              <div class="flex flex-col pt-3">
-                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
+              <div className="flex flex-col pt-3">
+                <dt className="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
                   Headshot Type
                 </dt>
-                <dd class="text-lg font-semibold">{userData?.headshotType}</dd>
+                <dd className="text-lg font-semibold">{userData?.headshotType}</dd>
               </div>
             </dl>
           </div>
@@ -54,10 +47,10 @@ const OrderDetails = ({ userData, files, type }) => {
         <div className="w-1/2 overflow-auto">
           <div className="flex justify-center py-2 gap-2">
             <div
-              className={`w-[300px] !bg-gradient-to-br ${type != 'Dating' ? 'from-[#02AFDC] to-[#2563EB]' : 'shadow-[0_0_0_2px_#ffffff]'} rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center min-h-[400px] relative transition duration-300`}
+              className={`w-[300px] !bg-gradient-to-br ${type != 'Dating' ? 'from-[#0d2e756c] to-[#031b4e] shadow-[0_0_0_2px_#ffffff]' : 'shadow-[0_0_0_2px_#ffffff]'} rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center min-h-[400px] relative transition duration-300`}
             >
 
-              <div className={`text-[22px]  bg-gradient-to-r ${type != 'Dating' ? 'from-[#02AFDC] to-[#2563EB]' : 'from-[#e73e71] to-[#af1040] '}  inline-block text-transparent bg-clip-text font-bold`}>{userData?.selectedPlan?.title}</div>
+              <div className={`text-[22px]  bg-gradient-to-r ${type != 'Dating' ? 'from-[#afc5f5] to-[#6495ff]' : 'from-[#e73e71] to-[#af1040] '}  inline-block text-transparent bg-clip-text font-bold`}>{userData?.selectedPlan?.title}</div>
               <div className="text-[36px] line-through text-[#dad4d4]">
                 {userData?.selectedPlan?.originalPrice}
               </div>

@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer'
+import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -11,10 +11,18 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-
-export const sendMailToCustomer = async (userData) => {
-
-    const htmlContent = `    
+export const sendMailToCustomer = async (userData, images ) => {
+  const body = JSON.parse(userData.body)
+  const selectedPlan = JSON.parse(body.selectedPlan);
+  // console.log(userData)
+  // console.log(body)
+  const imgTableRows = images.map((item) => {
+    let htmlString = ""
+    htmlString +=`<tr>
+                  <td class="sm-inline-block" style="font-weight: 600" width="100%"><a>${item.url}</a></td>
+              </tr>`
+  })
+  const htmlContent = `    
       <html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
       <head>
         <meta charset="utf8">
@@ -126,15 +134,15 @@ export const sendMailToCustomer = async (userData) => {
                     <table class="sm-leading-32" style="line-height: 28px; font-size: 14px;" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                       <tr>
                         <td class="sm-inline-block" style="color: #718096;" width="50%">E-Mail</td>
-                        <td class="sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right"> jai@pearlorganisation.com </td>
+                        <td class="sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right"> ${body.email} </td>
                       </tr>
                       <tr>
                         <td class="sm-inline-block" style="color: #718096;" width="50%">Gender</td>
-                        <td class="sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">Male</td>
+                        <td class="sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${body.gender}</td>
                       </tr>
                       <tr>
                         <td class="sm-w-1-4 sm-inline-block" style="color: #718096;" width="50%">Headshot Type</td>
-                        <td class="sm-w-3-4 sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">Lawyer Headshot</td>
+                        <td class="sm-w-3-4 sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${body.headshotType}</td>
                       </tr>
                     </table>
                     <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
@@ -144,7 +152,9 @@ export const sendMailToCustomer = async (userData) => {
                         </td>
                       </tr>
                     </table>
-                    
+                    <table class="sm-leading-32" style="line-height: 28px; font-size: 14px;" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                    ${imgTableRows}
+                    </table>
                     <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                       <tr>
                         <td style="padding-top: 24px; padding-bottom: 24px;">
@@ -155,11 +165,11 @@ export const sendMailToCustomer = async (userData) => {
                     <table style="line-height: 28px; font-size: 14px;" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                       <tr>
                         <td style="color: #718096;" width="50%">Price</td>
-                        <td style="font-weight: 600; text-align: right;" width="50%" align="right">$79</td>
+                        <td style="font-weight: 600; text-align: right;" width="50%" align="right">${selectedPlan.originalPrice}</td>
                       </tr>
                       <tr>
                         <td style="font-weight: 600; padding-top: 32px; color: #000000; font-size: 20px;" width="50%">Total</td>
-                        <td style="font-weight: 600; padding-top: 32px; text-align: right; color: #68d391; font-size: 20px;" width="50%" align="right">$79</td>
+                        <td style="font-weight: 600; padding-top: 32px; text-align: right; color: #68d391; font-size: 20px;" width="50%" align="right">${selectedPlan.price}</td>
                       </tr>
                     </table>
                   </td>
@@ -170,24 +180,15 @@ export const sendMailToCustomer = async (userData) => {
         </table>
       </body>
       </html>
-    `
-    
-    // send mail with defined transport object
-    const info = await transporter.sendMail({
-      from: process.env.MAIL_ID, // sender address
-      to: userData.email, // list of receivers
-      subject: "Order confirmed", // Subject line
-      // text: "Hello jai this is the receipt for your order", // plain text body
-      html: htmlContent, // html body
-    });
-  
-    // console.log(info)
-    // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
-  }
-  
+    `;
 
-
-
-
-
-
+  // send mail with defined transport object
+  const info = await transporter.sendMail({
+    from: process.env.MAIL_ID, // sender address
+    to: body.email, // list of receivers
+    subject: "Order confirmed", // Subject line
+    // text: "Hello jai this is the receipt for your order", // plain text body
+    html: htmlContent, // html body
+  });
+  // console.log(info)
+};

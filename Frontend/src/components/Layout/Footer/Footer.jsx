@@ -41,10 +41,6 @@ const Footer = () => {
           title: "Teacher Headshots",
           link: "/upload/Teacher%20Headshots",
         },
-        {
-          title: "YouTube Profile",
-          link: "/upload/Youtube%20or%20Instagram%20Headshots",
-        },
       ],
     },
     {

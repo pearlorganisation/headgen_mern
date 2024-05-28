@@ -12,25 +12,28 @@ cloudinary.config({
 
 export const uploadFile = async (files) => {
   try {
-    const resultArr = [];
-    files.forEach(async (file) => {
-      const result = await cloudinary.uploader.upload(file.path, {
-        folder: "headgen",
-      });
-      resultArr.push(result);
-      // Delete file from disk storage after successful upload to Cloudinary
-      fs.unlink(file.path, (err) => {
-        if (err) {
-          console.error("Error deleting file from disk:", err);
-        } else {
-          console.log("File deleted from disk:", file.path);
-        }
-      });
-    });
-
-    return { status: true, result: resultArr };
+    let resultArr = await Promise.all(files.map(async (file) => {
+      try {
+        const res = await cloudinary.uploader.upload(file.path, {
+          folder: "headgen",
+        });
+        // Deleting the file after successful upload
+        fs.unlink(file.path, (err) => {
+          if (err) {
+            console.error("Error deleting file from disk:", err);
+          } else {
+            console.log("File deleted from disk:", file.path);
+          }
+        });
+        return res;
+      } catch (uploadError) {
+        console.error("Error uploading file:", uploadError);
+        return null; // or handle error as per your requirement
+      }
+    }));
+    
+    return { status: true, result: resultArr.filter(Boolean) };
   } catch (error) {
-    // console.error("Error uploading file to Cloudinary:", error);
     return { status: false, message: error?.message };
   }
 };

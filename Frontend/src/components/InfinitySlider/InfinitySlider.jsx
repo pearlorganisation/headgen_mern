@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const InfinitySlider = ({ imgData1, imgData2 }) => {
   if (imgData2) {
@@ -28,7 +28,6 @@ const InfinitySlider = ({ imgData1, imgData2 }) => {
   } else {
     return (
       <>
-      { console.log(imgData1) }
       <div className="w-full flex flex-col gap-4">
         <div class="infinitySlider">
           <div class="slide-track-left">
