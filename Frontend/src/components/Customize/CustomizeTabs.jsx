@@ -127,12 +127,12 @@ const CustomizeTabs = ({ setUserData, userData }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    if(data?.section?.length > 0 && data?.subSection?.length > 0){
-        setUserData((prevData) => {
-            let tempData = {...prevData}
-            tempData.customizeData = data
-            return tempData
-        })
+    if (data?.section?.length > 0 && data?.subSection?.length > 0) {
+      setUserData((prevData) => {
+        let tempData = { ...prevData }
+        tempData.customizeData = data
+        return tempData
+      })
     }
   }, [data]);
 

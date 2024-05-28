@@ -172,6 +172,12 @@ const Tab = () => {
       });
   };
 
+  useEffect(() => {
+    console.log(userData, "userData")
+    console.log(files, "files")
+  }, [userData, files])
+
+
   return (
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px]">
       <div
@@ -182,13 +188,12 @@ const Tab = () => {
           return (
             <div className="relative">
               <div
-                className={` ${
-                  tabText === item ? "flex" : "hidden"
-                }  absolute text-white h-full `}
+                className={` ${tabText === item ? "flex" : "hidden"
+                  }  absolute text-white h-full `}
               >
                 <span
                   className={` rounded-full h-full w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
-                  onClick={() => {}}
+                  onClick={() => { }}
                 >
                   {item}
                 </span>
@@ -225,7 +230,10 @@ const Tab = () => {
               handlePayment={handlePayment}
             />
           )}
-          {tabText === "Teams" && <Teams />}
+          {tabText === "Teams" && <Teams setUserData={setUserData} userData={userData}
+            handlePayment={handlePayment}
+            isLoading={isLoading}
+          />}
           {tabText === "Customize" && (
             <div>
               <Customize
