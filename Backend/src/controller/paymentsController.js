@@ -3,6 +3,7 @@ import Stripe from "stripe";
 import { sendMailToCustomer } from "../utils/nodeMailer.js";
 import { uploadFile } from "../utils/cloudinary.js";
 import { addUser, deleteUser, getUser } from "../utils/users.js";
+import { addCustomer } from "./customersController.js";
 
 dotenv.config();
 
@@ -84,11 +85,12 @@ export const complete = async (req, res) => {
   const user = getUser(req.query.sessionId);
 
   if (user.status) {
+    // console.log(user?.user)
     const imgResult = await uploadFile(JSON.parse(user.user.files));
+    await addCustomer(user?.user, imgResult?.result);
     if (imgResult) {
-      await sendMailToCustomer(user.user, imgResult).catch(console.error);
+      await sendMailToCustomer(user.user, imgResult.result).catch(console.error);
       const result = deleteUser(req.query.sessionId);
-      // console.log(result);
       if (result) {
         res.redirect(`${process.env.FRONTEND_URL}/success`);
       }
@@ -103,5 +105,6 @@ export const complete = async (req, res) => {
 };
 
 export const cancel = (req, res) => {
+  const result = deleteUser(req.query.sessionId);
   res.redirect(`${process.env.FRONTEND_URL}/cancel`);
 };
