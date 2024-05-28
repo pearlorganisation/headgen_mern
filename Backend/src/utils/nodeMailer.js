@@ -24,6 +24,36 @@ export const sendMailToCustomer = async (userData, images) => {
                 </tr>`;
   });
 
+  let typeInfo = "";
+  switch (body.generationType) {
+    case "individual":
+      typeInfo = `<tr>
+                    <td class="sm-w-1-4 sm-inline-block" style="color: #718096;" width="50%">Headshot Type</td>
+                    <td class="sm-w-3-4 sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${body.headshotType}</td>
+                  </tr>
+                  `;
+      break;
+    case "customize":
+      const customizeData = JSON.parse(body.customizeData);
+      typeInfo = `<tr>
+                      <td class="sm-w-1-4 sm-inline-block" style="color: #718096;" width="50%">Custom Section</td>
+                      <td class="sm-w-3-4 sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${customizeData.section}</td>
+                    </tr>
+                    <tr>
+                      <td class="sm-w-1-4 sm-inline-block" style="color: #718096;" width="50%">Custom Sub-Section</td>
+                      <td class="sm-w-3-4 sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${customizeData.subSection}</td>
+                    </tr>
+                    `;
+      break;
+    case "prompts":
+      typeInfo = `<tr>
+                    <td class="sm-w-1-4 sm-inline-block" style="color: #718096;" width="50%">Prompt</td>
+                    <td class="sm-w-3-4 sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${body.promptData}</td>
+                  </tr>
+                  `;
+      break;
+  }
+
   const htmlContent = `    
         <html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
         <head>
@@ -142,10 +172,7 @@ export const sendMailToCustomer = async (userData, images) => {
                           <td class="sm-inline-block" style="color: #718096;" width="50%">Gender</td>
                           <td class="sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${body.gender}</td>
                         </tr>
-                        <tr>
-                          <td class="sm-w-1-4 sm-inline-block" style="color: #718096;" width="50%">Headshot Type</td>
-                          <td class="sm-w-3-4 sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${body.headshotType}</td>
-                        </tr>
+                        ${typeInfo}
                       </table>
                       <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
@@ -193,18 +220,13 @@ export const sendMailToCustomer = async (userData, images) => {
   });
   // console.log(info)
 
+  // send mail to seller
 
-// send mail to seller
-
-await transporter.sendMail({
-  from: process.env.MAIL_ID, // sender address
-  to: process.env.SELLER_MAIL, // list of receivers
-  subject: `Order by ${body.email}`, // Subject line
-  // text: "Hello jai this is the receipt for your order", // plain text body
-  html: htmlContent, // html body
-});
-
-
-
+  await transporter.sendMail({
+    from: process.env.MAIL_ID, // sender address
+    to: process.env.SELLER_MAIL, // list of receivers
+    subject: `Order by ${body.email}`, // Subject line
+    // text: "Hello jai this is the receipt for your order", // plain text body
+    html: htmlContent, // html body
+  });
 };
-

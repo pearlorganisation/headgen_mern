@@ -43,6 +43,8 @@ const stripeLinks = [
 ];
 
 export const checkout = async (req, res) => {
+  // console.log(req.body)
+  // return
   try {
     const selectedPlan = JSON.parse(req.body.selectedPlan);
     const idx = stripeLinks.findIndex((e) => {
@@ -105,6 +107,7 @@ export const complete = async (req, res) => {
 };
 
 export const cancel = (req, res) => {
+  console.log('cancelling')
   const result = deleteUser(req.query.sessionId);
   res.redirect(`${process.env.FRONTEND_URL}/cancel`);
 };

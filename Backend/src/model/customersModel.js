@@ -26,7 +26,7 @@ const customersSchema = new mongoose.Schema(
       type: [String],
       default: null,
     },
-    promptsData: {
+    promptData: {
       type: [String],
       default: null,
     },
