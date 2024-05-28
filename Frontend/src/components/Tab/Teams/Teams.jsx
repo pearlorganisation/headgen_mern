@@ -444,6 +444,7 @@ const Teams = (
     const handlePayment = () => {
         const formData = new FormData()
         formData.append("teamsData", JSON.stringify(userData));
+        setIsLoading(true)
         axios
             .post(`${import.meta.env.VITE_API_URL}/payment/checkout`, formData, {
                 headers: {
