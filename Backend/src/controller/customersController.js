@@ -21,7 +21,7 @@ export const addCustomer = async (userData, images) => {
       case "customize":
         customerData.customizeData = data.customizeData;
         break;
-      case "prompts":
+      case "prompt":
         customerData.promptData = data.promptData;
         break;
     }

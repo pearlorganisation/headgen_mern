@@ -45,7 +45,7 @@ export const sendMailToCustomer = async (userData, images) => {
                     </tr>
                     `;
       break;
-    case "prompts":
+    case "prompt":
       typeInfo = `<tr>
                     <td class="sm-w-1-4 sm-inline-block" style="color: #718096;" width="50%">Prompt</td>
                     <td class="sm-w-3-4 sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${body.promptData}</td>

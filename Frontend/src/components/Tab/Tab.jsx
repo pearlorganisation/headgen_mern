@@ -149,8 +149,8 @@ const Tab = () => {
     formData.append("generationType", type)
     if (type === "customize") {
       formData.append("customizeData", JSON.stringify(userData?.customizeData));
-    } else if (type === "prompts") {
-      formData.append("promptsData", JSON.stringify(userData?.promptsData));
+    } else if (type === "prompt") {
+      formData.append("promptData", JSON.stringify(userData?.promptData));
     }
 
     axios

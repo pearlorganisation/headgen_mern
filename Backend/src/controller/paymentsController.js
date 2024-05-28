@@ -43,7 +43,7 @@ const stripeLinks = [
 ];
 
 export const checkout = async (req, res) => {
-  // console.log(req.body)
+  console.log(req.body)
   // return
   try {
     const selectedPlan = JSON.parse(req.body.selectedPlan);
