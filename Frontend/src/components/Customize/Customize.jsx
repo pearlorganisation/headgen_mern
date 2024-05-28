@@ -6,11 +6,15 @@ import CustomizeTabs from './CustomizeTabs'
 import { IoManSharp, IoWoman } from "react-icons/io5";
 import UserDetails from '../UserDetails/UserDetails'
 import ImageSection from '../ImageSection/ImageSection'
+import { BeatLoader } from 'react-spinners'
+import axios from 'axios'
 
 const Customize = ({ userData, setUserData, setErrors, errors, fileErrorMsg, setFileErrorMsg, files, setFiles }) => {
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const [currentIndex, setCurrentIndex] = useState(0);
+    let formData = new FormData();
     // const tabContentRef = useRef(null);
 
 
@@ -137,11 +141,72 @@ const Customize = ({ userData, setUserData, setErrors, errors, fileErrorMsg, set
         }
     }, []);
 
-    useEffect(() => {
-        if (files.length > 0) {
-            localStorage.setItem("userImgs", files);
+    const convertFiles = () => {
+        return new Promise((resolve, reject) => {
+            let newFiles = [];
+            let myFiles = [...files];
+            let promises = [];
+
+            myFiles.forEach((element, idx) => {
+                promises.push(
+                    fetch(element)
+                        .then((res) => res.blob())
+                        .then((blob) => {
+                            let extension = blob.type.split("/");
+
+                            const file = new File([blob], `${idx}.${extension[1]}`);
+                            console.log(file);
+                            newFiles.push(file);
+                        })
+                        .catch((error) => reject(error))
+                );
+            });
+
+            Promise.all(promises)
+                .then(() => resolve(newFiles))
+                .catch((error) => reject(error));
+        });
+    };
+
+    const handlePayment = async (formD, media) => {
+        if (isLoading) return
+        setIsLoading(true);
+        let newFiles = await convertFiles();
+        let formData = new FormData();
+
+        // console.log(newFiles)
+
+        // let newArr = []
+
+        for (let i = 0; i < newFiles.length; i++) {
+            // newArr.push(newFiles[i])
+            formData.append("images", newFiles[i]);
         }
-    }, [files]);
+        // formData.append("file", newArr);
+        formData.append("email", userData.email);
+        formData.append("gender", userData.gender);
+        formData.append("section", userData.section);
+        formData.append("subSection", userData.subSection);
+        formData.append("selectedPlan", JSON.stringify(userData.selectedPlan));
+
+        axios
+            .post(`${import.meta.env.VITE_API_URL}/payment/checkout`, formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            })
+            .then((res) => {
+                if (res.data.sessionUrl) {
+                    window.location.href = res.data.sessionUrl;
+                    setIsLoading(false);
+                }
+            })
+            .catch((err) => {
+                setIsLoading(false);
+
+                console.error(err);
+            });
+    };
 
 
 
@@ -175,7 +240,7 @@ const Customize = ({ userData, setUserData, setErrors, errors, fileErrorMsg, set
                             Back
                         </button>
                     )}
-                    <button
+                    {currentIndex >= 0 && currentIndex < customizeMaxIndex && <button
                         className={`hover:squeezyBtn px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
                         onClick={() => {
                             customizeUpdateIndex(1);
@@ -183,6 +248,21 @@ const Customize = ({ userData, setUserData, setErrors, errors, fileErrorMsg, set
                     >
                         Next
                     </button>
+
+                    }
+                    {currentIndex === customizeMaxIndex && (
+                        <button
+                            className={`hover:squeezyBtn flex justify-center items-center px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                            onClick={() => {
+
+
+                                handlePayment();
+                            }}
+                        >
+                            {isLoading ? <BeatLoader color="#1f58ad94" /> : 'Proceed to Payment'}
+                        </button>
+                    )}
+
                 </div>
             </div>
 

@@ -10,7 +10,7 @@ import Teams from "./Teams/Teams";
 import UserDetails from "../UserDetails/UserDetails";
 import axios from "axios";
 import Prompt from "../Prompt/Prompt";
-import {BeatLoader} from 'react-spinners'
+import { BeatLoader } from 'react-spinners'
 
 const Tab = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -289,8 +289,8 @@ const Tab = () => {
     });
   };
 
-  const handlePayment = async () => {
-    if(isLoading) return
+  const handlePayment = async (formD, media) => {
+    if (isLoading) return
     setIsLoading(true);
     let newFiles = await convertFiles();
     let formData = new FormData();
@@ -328,6 +328,12 @@ const Tab = () => {
       });
   };
 
+  useEffect(() => {
+    console.log(userData, "userData")
+    console.log(files, "files")
+  }, [userData, files])
+
+
   return (
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px]">
       <div
@@ -338,13 +344,12 @@ const Tab = () => {
           return (
             <div className="relative">
               <div
-                className={` ${
-                  tabText === item ? "flex" : "hidden"
-                }  absolute text-white h-full `}
+                className={` ${tabText === item ? "flex" : "hidden"
+                  }  absolute text-white h-full `}
               >
                 <span
                   className={` rounded-full h-full w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
-                  onClick={() => {}}
+                  onClick={() => { }}
                 >
                   {item}
                 </span>
@@ -411,7 +416,7 @@ const Tab = () => {
                       handlePayment();
                     }}
                   >
-                   {isLoading ? <BeatLoader color="#1f58ad94" /> : 'Proceed to Payment'}
+                    {isLoading ? <BeatLoader color="#1f58ad94" /> : 'Proceed to Payment'}
                   </button>
                 )}
               </div>

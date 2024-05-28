@@ -127,6 +127,7 @@ const CustomizeTabs = ({ setUserData, userData }) => {
     useEffect(() => {
         console.log(data, "data")
         console.log(finalData, "finalData")
+        setUserData(finalData)
     }, [data, finalData])
 
 

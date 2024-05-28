@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-const PromptTab = () => {
+const PromptTab = ({
+    setUserData, userData
+}) => {
     const [promptData, setPromptData] = useState('')
     useEffect(() => {
         console.log(promptData)
+        setUserData(prev => {
+            return {
+                ...prev, prompt: promptData
+            }
+        })
     }, [promptData])
 
     return (

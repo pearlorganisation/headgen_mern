@@ -2,9 +2,23 @@ import React, { useState } from 'react'
 import { FaCircleCheck } from "react-icons/fa6";
 import { PiCurrencyDollarBold } from "react-icons/pi";
 import './styles.css'
-import Select from 'react-select'
+import Select, { useStateManager } from 'react-select'
+import { Controller, useForm } from "react-hook-form"
+import OrderDetails from '../../OrderDetails/OrderDetails';
 
 const Teams = () => {
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+        control,
+    } = useForm()
+
+    const onSubmit = (data) => {
+        console.log(data)
+        setIndex(3)
+    }
     const priceData = [
         {
             discount: 'Small Business',
@@ -50,6 +64,7 @@ const Teams = () => {
 
     const [data, setData] = useState(priceData[0])
     const [form, setForm] = useState(false)
+    const [index, setIndex] = useState(1)
     const handleData = (e) => {
         const val = parseInt(e.target.value, 10);
         console.log(typeof val)
@@ -131,88 +146,14 @@ const Teams = () => {
         { value: 'Corporate Badges', label: 'Corporate Badges' },
         { value: 'Corporate Gift Or Benefit', label: 'Corporate Gift Or Benefit' }
     ]
+    console.log(data)
+
+
     return (
         <div className='!text-base flex justify-center items-center '>
 
             {
-                form ? <div className='shadow-[0_0_0_1px#f1f1f1 rounded-2xl text-white p-6 max-w-3xl w-full'>
-                    <div class="flex flex-col gap-2 pb-2">
-                        <div class="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text text-4xl font-bold tracking-tight">Get in touch</div>
-
-                    </div>
-                    <form className='space-y-3'>
-                        <div className="w-full">
-                            <div className="mb-2 ">Team or Company Name</div>
-                            <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
-                        </div>
-                        <div className='flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3'>
-                            <div className="w-full text-black">
-                                <div className="mb-2 text-white">Team Size</div>
-                                <Select options={teamSize}
-                                    styles={{
-                                        control: (baseStyles, state) => ({
-                                            ...baseStyles,
-                                            padding: '0.08rem 0',
-
-
-                                        }),
-                                    }}
-                                />
-                            </div>
-                            <div className="w-full text-black">
-                                <div className="mb-2 text-white">Your Role</div>
-                                <Select options={yourRoles}
-                                    styles={{
-                                        control: (baseStyles, state) => ({
-                                            ...baseStyles,
-                                            padding: '0.08rem 0',
-
-
-                                        }),
-                                    }}
-                                />
-                            </div>
-                        </div>
-
-                        <div className='flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3'>
-                            <div className="w-full">
-                                <div className="mb-2 ">First Name</div>
-                                <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
-                            </div>
-                            <div className="w-full">
-                                <div className="mb-2 ">Last Name</div>
-                                <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
-                            </div>
-                        </div>
-                        <div className="w-full text-black">
-                            <div className="mb-2 text-white">Use Case</div>
-                            <Select options={useCase}
-                                styles={{
-                                    control: (baseStyles, state) => ({
-                                        ...baseStyles,
-                                        padding: '0.08rem 0',
-
-
-                                    }),
-                                }}
-                            />
-                        </div>
-                        <div className="w-full">
-                            <div className="mb-2 ">Contact Email</div>
-                            <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
-                        </div>
-                        <div className="w-full">
-                            <div className="mb-2 ">Website (Optional)</div>
-                            <input className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="Acme Inc." type="text" name="companyName" />
-                        </div>
-                        <div>
-                            <button type='button' className='py-3 bg-gradient-to-r mt-2 active:scale-[0.98] transition-all from-[#02AFDC] to-[#2563EB] w-full rounded-lg'>Submit</button>
-                        </div>
-
-
-                    </form>
-
-                </div> : <div className='max-w-5xl min-h-[30rem]  w-full grid md:grid-cols-2 gap-3 shadow-[0_0_0_1px#f1f1f1 rounded-2xl text-white'>
+                index === 1 && <div className='max-w-5xl min-h-[30rem]  w-full grid md:grid-cols-2 gap-3 shadow-[0_0_0_1px#f1f1f1 rounded-2xl text-white'>
                     <div className='flex flex-col justify-between p-6'>
                         <div className='space-y-6'>
 
@@ -245,7 +186,11 @@ const Teams = () => {
                             </div>
 
                         </div>
-                        <button onClick={() => { setForm(true) }} className='font-medium bg-gradient-to-r from-[#02AFDC] to-[#2563EB] py-3 rounded-lg' type="button">Get Started</button>
+                        <button onClick={() => {
+                            setForm(true)
+                            setIndex(2)
+                        }} className='font-medium bg-gradient-to-r from-[#02AFDC] to-[#2563EB] py-3 rounded-lg' type="button">Get Started</button>
+
                     </div>
                     <div className='p-6'>
                         <div className='font-medium'>INCLUDES:</div>
@@ -255,6 +200,335 @@ const Teams = () => {
                                     return <div className='flex justify-start items-center gap-3  py-4 '><FaCircleCheck className='text-blue-500' /> {item}</div>
                                 })
                             }
+                        </div>
+                    </div>
+                </div>
+            }
+            {
+                index === 2 && <div className='shadow-[0_0_0_1px#f1f1f1 rounded-2xl text-white p-6 max-w-3xl w-full'>
+                    <div class="flex flex-col gap-2 pb-2">
+                        <div class="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text text-4xl font-bold tracking-tight">Get in touch</div>
+
+                    </div>
+                    <form onSubmit={handleSubmit(onSubmit)} className='space-y-3'>
+                        <div className="w-full">
+                            <div className="mb-2 ">Team or Company Name</div>
+                            <input {...register("companyName", { required: true })} className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" />
+
+                            {errors.companyName && (
+                                <span className="text-red-500">This field is required </span>
+                            )}
+                        </div>
+                        <div className='flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3'>
+                            <div className="w-full text-black">
+                                <div className="mb-2 text-white">Team Size</div>
+
+                                <Controller
+                                    name="teamSize"
+                                    control={control}
+                                    render={({ field: { onChange, value, ref } }) => (
+                                        <Select
+                                            options={teamSize}
+                                            value={value || null}
+                                            onChange={(val) => {
+                                                onChange(val);
+                                            }}
+                                            styles={{
+                                                control: (baseStyles, state) => ({
+                                                    ...baseStyles,
+                                                    padding: '0.08rem 0',
+
+
+                                                }),
+                                            }}
+                                        />
+                                    )}
+                                    rules={{ required: true }}
+                                />
+
+                                {errors.teamSize && (
+                                    <span className="text-red-500">This field is required </span>
+                                )}
+
+                            </div>
+                            <div className="w-full text-black">
+                                <div className="mb-2 text-white">Your Roles</div>
+
+                                <Controller
+                                    name="Your Roles"
+                                    control={control}
+                                    render={({ field: { onChange, value, ref } }) => (
+                                        <Select
+                                            options={yourRoles}
+                                            value={value || null}
+                                            onChange={(val) => {
+                                                onChange(val);
+                                            }}
+                                            styles={{
+                                                control: (baseStyles, state) => ({
+                                                    ...baseStyles,
+                                                    padding: '0.08rem 0',
+
+
+                                                }),
+                                            }}
+                                        />
+                                    )}
+                                    rules={{ required: true }}
+                                />
+
+                                {errors.useCase && (
+                                    <span className="text-red-500">This field is required </span>
+                                )}
+
+                            </div>
+                        </div>
+
+                        <div className='flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3'>
+                            <div className="w-full">
+                                <div className="mb-2 ">First Name</div>
+                                <input {...register("firstName", { required: true })} className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" />
+                                {errors.firstName && (
+                                    <span className="text-red-500">This field is required </span>
+                                )}
+                            </div>
+                            <div className="w-full">
+                                <div className="mb-2 ">Last Name</div>
+                                <input {...register("lastName", { required: true })} className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" />
+                                {errors.lastName && (
+                                    <span className="text-red-500">This field is required </span>
+                                )}
+                            </div>
+                        </div>
+                        <div className="w-full text-black">
+                            <div className="mb-2 text-white">Use Case</div>
+
+                            <Controller
+                                name="useCase"
+                                control={control}
+                                render={({ field: { onChange, value, ref } }) => (
+                                    <Select
+                                        options={useCase}
+                                        value={value || null}
+                                        onChange={(val) => {
+                                            onChange(val);
+                                        }}
+                                        styles={{
+                                            control: (baseStyles, state) => ({
+                                                ...baseStyles,
+                                                padding: '0.08rem 0',
+
+
+                                            }),
+                                        }}
+                                    />
+                                )}
+                                rules={{ required: true }}
+                            />
+
+                            {errors.useCase && (
+                                <span className="text-red-500">This field is required </span>
+                            )}
+
+                        </div>
+                        <div className="w-full">
+                            <div className="mb-2 ">Contact Email</div>
+                            <input {...register("contactEmail", { required: true })} className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" />
+                            {errors.contactEmail && (
+                                <span className="text-red-500">This field is required </span>
+                            )}
+                        </div>
+                        <div className="w-full">
+                            <div className="mb-2 ">Website (Optional)</div>
+                            <input {...register("website", { required: true })} className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" />
+                        </div>
+                        <div className='flex gap-4 justify-start'>
+                            <button
+                                type='button'
+                                className={`py-3 bg-[#b41f58] hover:bg-[#b41f58a8] mt-2 active:scale-[0.98] transition-all  w-48 rounded-lg`}
+                                onClick={() => { setIndex(prev => prev - 1) }}
+                            >
+                                Back
+                            </button>
+                            <button type='submit' className='py-3 bg-gradient-to-r mt-2 active:scale-[0.98] transition-all from-[#02AFDC] to-[#2563EB] w-48 rounded-lg'>Next</button>
+                        </div>
+
+
+                    </form>
+
+                </div>
+            }
+            {
+                index === 3 && <div className='grid md:grid-cols-2 '>
+                    {/* Order Detils */}
+                    <div className='shadow-[0_0_0_1px#f1f1f1 rounded-2xl text-white p-6 max-w-3xl w-full'>
+                        <div class="flex flex-col gap-2 pb-2">
+                            <div class="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text text-4xl font-bold tracking-tight">Order Details</div>
+
+                        </div>
+                        <form onSubmit={handleSubmit(onSubmit)} className='space-y-3'>
+                            <div className="w-full">
+                                <div className="mb-2 ">Team or Company Name</div>
+                                <input {...register("companyName", { required: true })} className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" />
+
+                                {errors.companyName && (
+                                    <span className="text-red-500">This field is required </span>
+                                )}
+                            </div>
+                            <div className='flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3'>
+                                <div className="w-full text-black">
+                                    <div className="mb-2 text-white">Team Size</div>
+
+                                    <Controller
+                                        name="teamSize"
+                                        control={control}
+                                        render={({ field: { onChange, value, ref } }) => (
+                                            <Select
+                                                options={teamSize}
+                                                value={value || null}
+                                                onChange={(val) => {
+                                                    onChange(val);
+                                                }}
+                                                styles={{
+                                                    control: (baseStyles, state) => ({
+                                                        ...baseStyles,
+                                                        padding: '0.08rem 0',
+
+
+                                                    }),
+                                                }}
+                                            />
+                                        )}
+                                        rules={{ required: true }}
+                                    />
+
+                                    {errors.teamSize && (
+                                        <span className="text-red-500">This field is required </span>
+                                    )}
+
+                                </div>
+                                <div className="w-full text-black">
+                                    <div className="mb-2 text-white">Your Roles</div>
+
+                                    <Controller
+                                        name="Your Roles"
+                                        control={control}
+                                        render={({ field: { onChange, value, ref } }) => (
+                                            <Select
+                                                options={yourRoles}
+                                                value={value || null}
+                                                onChange={(val) => {
+                                                    onChange(val);
+                                                }}
+                                                styles={{
+                                                    control: (baseStyles, state) => ({
+                                                        ...baseStyles,
+                                                        padding: '0.08rem 0',
+
+
+                                                    }),
+                                                }}
+                                            />
+                                        )}
+                                        rules={{ required: true }}
+                                    />
+
+                                    {errors.useCase && (
+                                        <span className="text-red-500">This field is required </span>
+                                    )}
+
+                                </div>
+                            </div>
+
+                            <div className='flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3'>
+                                <div className="w-full">
+                                    <div className="mb-2 ">First Name</div>
+                                    <input {...register("firstName", { required: true })} className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" />
+                                    {errors.firstName && (
+                                        <span className="text-red-500">This field is required </span>
+                                    )}
+                                </div>
+                                <div className="w-full">
+                                    <div className="mb-2 ">Last Name</div>
+                                    <input {...register("lastName", { required: true })} className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" />
+                                    {errors.lastName && (
+                                        <span className="text-red-500">This field is required </span>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="w-full text-black">
+                                <div className="mb-2 text-white">Use Case</div>
+
+                                <Controller
+                                    name="useCase"
+                                    control={control}
+                                    render={({ field: { onChange, value, ref } }) => (
+                                        <Select
+                                            options={useCase}
+                                            value={value || null}
+                                            onChange={(val) => {
+                                                onChange(val);
+                                            }}
+                                            styles={{
+                                                control: (baseStyles, state) => ({
+                                                    ...baseStyles,
+                                                    padding: '0.08rem 0',
+
+
+                                                }),
+                                            }}
+                                        />
+                                    )}
+                                    rules={{ required: true }}
+                                />
+
+                                {errors.useCase && (
+                                    <span className="text-red-500">This field is required </span>
+                                )}
+
+                            </div>
+                            <div className="w-full">
+                                <div className="mb-2 ">Contact Email</div>
+                                <input {...register("contactEmail", { required: true })} className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" />
+                                {errors.contactEmail && (
+                                    <span className="text-red-500">This field is required </span>
+                                )}
+                            </div>
+                            <div className="w-full">
+                                <div className="mb-2 ">Website (Optional)</div>
+                                <input {...register("website", { required: true })} className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" />
+                            </div>
+                            <div className='flex gap-4 justify-start'>
+                                <button
+                                    type='button'
+                                    className={`py-3 bg-[#b41f58] hover:bg-[#b41f58a8] mt-2 active:scale-[0.98] transition-all  w-48 rounded-lg`}
+                                    onClick={() => { setIndex(prev => prev - 1) }}
+                                >
+                                    Back
+                                </button>
+                                <button type='submit' className='py-3 bg-gradient-to-r mt-2 active:scale-[0.98] transition-all from-[#02AFDC] to-[#2563EB] w-48 rounded-lg'>Next</button>
+                            </div>
+
+
+                        </form>
+
+                    </div>
+                    <div className="w-full overflow-auto  grid place-items-center">
+                        <div className="flex justify-center gap-2">
+                            <div
+                                className={`w-[300px] !bg-gradient-to-br !from-[#2963bede] to-[#073791de] rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center min-h-[400px] relative transition duration-300`}
+                            >
+
+                                <div className="text-[22px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold">Price</div>
+                                <div className="text-[40px]  text-[#dad4d4]">
+                                    19 X $34
+                                </div>
+                                <div className="text-2xl font-bold">Total Price - $646</div>
+                                <div className="flex flex-col items-center gap-4">
+
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
