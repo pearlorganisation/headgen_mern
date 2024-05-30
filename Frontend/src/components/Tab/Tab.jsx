@@ -127,7 +127,7 @@ const Tab = () => {
     });
   };
 
-  const handlePayment = async (type = undefined) => {
+  const handlePayment = async (type) => {
     if (isLoading) return;
     setIsLoading(true);
     let newFiles = await convertFiles();
@@ -146,11 +146,11 @@ const Tab = () => {
     formData.append("gender", userData.gender);
     formData.append("headshotType", userData.headshotType);
     formData.append("selectedPlan", JSON.stringify(userData.selectedPlan));
-
+    formData.append("generationType", type)
     if (type === "customize") {
       formData.append("customizeData", JSON.stringify(userData?.customizeData));
-    } else if (type === "prompts") {
-      formData.append("promptsData", JSON.stringify(userData?.promptsData));
+    } else if (type === "prompt") {
+      formData.append("promptData", JSON.stringify(userData?.promptData));
     }
 
     axios

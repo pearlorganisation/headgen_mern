@@ -180,7 +180,7 @@ const Prompt = ({
             <button
               className={`hover:squeezyBtn flex justify-center items-center px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
               onClick={() => {
-                handlePayment("prompts");
+                handlePayment("prompt");
               }}
             >
               {isLoading ? (
