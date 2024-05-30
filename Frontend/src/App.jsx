@@ -18,6 +18,8 @@ import PaymentSuccess from "./pages/PaymentSuccess/PaymentSuccess";
 import PaymentCancel from "./pages/PaymentCancel/PaymentCancel";
 import Checkout from "./pages/Checkout/Checkout";
 import HowItWorks from "./pages/HowItWorks/HowItWorks";
+import Blog from "./pages/Blog/Blog";
+import BlogDetails from "./pages/Blog/BlogDetails";
 
 function App() {
   return (
@@ -36,7 +38,8 @@ function App() {
         <Route path="/test" element={<Checkout />} />
         <Route path="/success" element={<PaymentSuccess />} />
         <Route path="/cancel" element={<PaymentCancel />} />
-        <Route path="/blogs" element={<></>} />
+        <Route path="/blogs" element={<Blog />} />
+        <Route path="/blog/:blogId" element={<BlogDetails />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

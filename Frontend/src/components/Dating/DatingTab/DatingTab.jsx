@@ -29,6 +29,10 @@ const DatingTab = () => {
   const fieldsRef = useRef();
 
   const tabContentRef = useRef(null);
+  useEffect(() => {
+    console.log("userData", userData)
+  }, [userData])
+
 
   const datingPriceIndividual = [
     {
@@ -348,6 +352,7 @@ const DatingTab = () => {
                 fileErrorMsg={fileErrorMsg}
                 setFileErrorMsg={setFileErrorMsg}
                 errors={errors}
+                type='Dating'
               />
             </div>
           )}

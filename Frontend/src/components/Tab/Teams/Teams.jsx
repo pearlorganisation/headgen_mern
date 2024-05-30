@@ -209,10 +209,7 @@ const Teams = (
                                 </div>
 
                             </div>
-                            <button onClick={() => {
-                                setForm(true)
-                                setIndex(2)
-                            }} className='font-medium bg-gradient-to-r from-[#02AFDC] to-[#2563EB] py-3 rounded-lg' type="button">Get Started</button>
+
 
                         </div>
                         <div className='p-6'>
@@ -255,7 +252,7 @@ const Teams = (
                                 <div className="mb-2 text-white">Your Roles</div>
 
                                 <Controller
-                                    name="Your Roles"
+                                    name="YourRoles"
                                     control={control}
                                     render={({ field: { onChange, value, ref } }) => (
                                         <Select
@@ -337,7 +334,7 @@ const Teams = (
                                 <div className="w-full">
                                     <div className="mb-2 ">Team or Company Name</div>
                                     <div className='w-full  rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none '>
-                                        My Company
+                                        {userData?.companyName}
                                     </div>
                                 </div>
                                 <div className='flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3'>
@@ -346,7 +343,7 @@ const Teams = (
                                         <div className="mb-2 text-white">Your Roles</div>
 
                                         <div className='w-full  rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none '>
-                                            Designer
+                                            {userData?.YourRoles?.value}
                                         </div>
 
                                     </div>
@@ -356,11 +353,11 @@ const Teams = (
                                     <div className="w-full">
                                         <div className="mb-2 ">First Name</div>
                                         <div className='w-full  rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none '>
-                                            Abhishek
+                                            {userData?.firstName}
                                         </div>
                                     </div>
                                     <div className="w-full">
-                                        <div className="mb-2 ">Last Name</div>
+                                        <div className="mb-2 ">{userData?.lastName}</div>
                                         <div className='w-full  rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none '>
                                             Bahuguna
                                         </div>
@@ -370,13 +367,13 @@ const Teams = (
                                 <div className="w-full">
                                     <div className="mb-2 ">Contact Email</div>
                                     <div className='w-full  rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none '>
-                                        abhishek@pearlorganisation
+                                        {userData?.contactEmail}
                                     </div>
                                 </div>
                                 <div className="w-full">
                                     <div className="mb-2 ">Website (Optional)</div>
                                     <div className='w-full  rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none '>
-                                        Google.com
+                                        {userData?.website}
                                     </div>
                                 </div>
 
@@ -393,9 +390,9 @@ const Teams = (
 
                                     <div className="text-[22px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold">Price</div>
                                     <div className="text-[40px]  text-[#dad4d4]">
-                                        19 X $34
+                                        {userData?.users} X ${userData?.price}
                                     </div>
-                                    <div className="text-2xl font-bold">Total Price - $646</div>
+                                    <div className="text-2xl font-bold">Total Price - ${userData?.totalPrice}</div>
                                     <div className="flex flex-col items-center gap-4">
 
                                     </div>
