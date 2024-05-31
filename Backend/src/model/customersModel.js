@@ -34,6 +34,10 @@ const customersSchema = new mongoose.Schema(
       type: [String],
       required: [true, "images are required"],
     },
+    packDetails: {
+      type: Object,
+      required: [true, 'pack details are required']
+    }
   },
   { timestamps: true }
 );

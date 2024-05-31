@@ -11,6 +11,7 @@ export const addCustomer = async (userData, images) => {
       email: data.email,
       gender: data.gender,
       images: filteredImgUrls,
+      packDetails: JSON.parse(data.selectedPlan),
       generationType: data.generationType,
     };
 
@@ -25,18 +26,6 @@ export const addCustomer = async (userData, images) => {
         customerData.promptData = data.promptData;
         break;
     }
-
-    // console.log(customerData);
-
-    // const customer = {
-    // email: ,
-    // gender: ,
-    // generationType: ,
-    // headshotType: ,
-    // customizeData: ,
-    // promptsData: ,
-    // images: ,
-    // }
 
     const customer = new customersModel(customerData);
     const result = await customer.save()

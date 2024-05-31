@@ -21,21 +21,21 @@ const OrderDetails = ({ userData, files, type }) => {
       <div className="flex justify-between items-center">
         <div className="w-1/2">
           <div className="flex justify-center">
-            <dl className="w-full text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+            <dl className="w-full text-white divide-y divide-gray-200">
               <div className="flex flex-col pb-3">
-                <div className="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
+                <div className="mb-1 text-white md:text-lg ">
                   Email address
                 </div>
                 <div className="text-lg font-semibold">{userData?.email}</div>
               </div>
               <div className="flex flex-col py-3">
-                <dt className="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
+                <dt className="mb-1 text-gray-400 md:text-lg ">
                   Gender
                 </dt>
                 <dd className="text-lg font-semibold">{userData?.gender}</dd>
               </div>
               <div className="flex flex-col pt-3">
-                <dt className="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
+                <dt className="mb-1 text-gray-400 md:text-lg ">
                   Headshot Type
                 </dt>
                 <dd className="text-lg font-semibold">{userData?.headshotType}</dd>
@@ -47,7 +47,7 @@ const OrderDetails = ({ userData, files, type }) => {
         <div className="w-1/2 overflow-auto">
           <div className="flex justify-center py-2 gap-2">
             <div
-              className={`w-[300px] !bg-gradient-to-br ${type != 'Dating' ? 'from-[#0d2e756c] to-[#031b4e] shadow-[0_0_0_2px_#ffffff]' : 'shadow-[0_0_0_2px_#ffffff]'} rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center min-h-[400px] relative transition duration-300`}
+              className={`w-[300px] !bg-gradient-to-br ${type != 'Dating' ? 'from-[#0d2e756c] to-[#031b4e] shadow-[0_0_0_2px_#ffffff]' : 'from-[#8a0815] shadow-[0_0_0_2px_#ffffff]'} rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center min-h-[400px] relative transition duration-300`}
             >
 
               <div className={`text-[22px]  bg-gradient-to-r ${type != 'Dating' ? 'from-[#afc5f5] to-[#6495ff]' : 'from-[#e73e71] to-[#af1040] '}  inline-block text-transparent bg-clip-text font-bold`}>{userData?.selectedPlan?.title}</div>

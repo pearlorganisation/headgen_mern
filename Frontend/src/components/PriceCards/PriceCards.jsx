@@ -20,7 +20,7 @@ const PriceCards = ({ data, userData, setUserData, type }) => {
               key={`priceCard${idx}`}
               className={`w-full md:w-[32%] max-w-[400px] !glassMorphism !bg-gradient-to-br ${
                 selectedPlan?.title === item?.title
-                  ? " shadow-[0_0_0_2px_#ffffff]"
+                  ? (type != 'Dating' ? " from-[#0d2e756c] to-[#031b4e] shadow-[0_0_0_2px_#ffffff]" : "from-[#8a0815] shadow-[0_0_0_2px_#ffffff]")
                   : "!from-[#10151dde] to-[#121720de]shadow-[0_0_0_1px_#babcbf80]"
               } rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center cursor-pointer  hover:shadow-[0_0_0_2px_#ffffff] min-h-[400px] relative transition duration-300`}
             >

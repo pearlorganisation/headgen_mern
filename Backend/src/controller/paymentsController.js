@@ -43,7 +43,6 @@ const stripeLinks = [
 ];
 
 export const checkout = async (req, res) => {
-  console.log(req.body)
   // return
   try {
     const selectedPlan = JSON.parse(req.body.selectedPlan);
@@ -51,10 +50,12 @@ export const checkout = async (req, res) => {
       return e.price == selectedPlan.price;
     });
 
+    const price = stripeLinks[idx].id;
+
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {
-          price: `${stripeLinks[idx].id}`,
+          price: `${price}`,
           quantity: 1,
         },
       ],
@@ -91,23 +92,43 @@ export const complete = async (req, res) => {
     const imgResult = await uploadFile(JSON.parse(user.user.files));
     await addCustomer(user?.user, imgResult?.result);
     if (imgResult) {
-      await sendMailToCustomer(user.user, imgResult.result).catch(console.error);
+      await sendMailToCustomer(user.user, imgResult.result).catch(
+        console.error
+      );
       const result = deleteUser(req.query.sessionId);
       if (result) {
-        res.redirect(`${process.env.FRONTEND_URL}/success`);
+        console.log(user)
+        const userBody = JSON.parse(user.user.body);
+        const selectedPlan = JSON.parse(userBody.selectedPlan)
+        res.render("payment-success", {
+          email: userBody.email,
+          gender: userBody.gender,
+          amount: selectedPlan.price,
+          packName: selectedPlan.packName,
+          FRONTEND_URL: process.env.FRONTEND_URL
+        });
+
+        // res.redirect(`${process.env.FRONTEND_URL}/success`);
       }
     } else {
       // const result = deleteUser(req.query.sessionId);
-      res.redirect(`${process.env.FRONTEND_URL}/success`);
+
+      res.render("payment-success", {
+        userName: userName,
+        amount: amount,
+        transactionId: transactionId,
+      });
+
+      // res.redirect(`${process.env.FRONTEND_URL}/success`);
     }
   } else {
     const result = deleteUser(req.query.sessionId);
-    res.send({ status: false, message: "error completing process" });
+    res.send({ status: false, message: "There's some error completing this process, kindly go back to main site" });
   }
 };
 
 export const cancel = (req, res) => {
-  console.log('cancelling')
+  
   const result = deleteUser(req.query.sessionId);
   res.redirect(`${process.env.FRONTEND_URL}/cancel`);
 };

@@ -3,8 +3,11 @@ import cors from "cors";
 import { mongoConnect } from './src/config/db.js';
 import dotenv from "dotenv";
 import paymentsRouter from './src/routes/paymentsRoute.js';
+import path from 'path'
+import { fileURLToPath } from 'url';
 
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
@@ -13,6 +16,8 @@ const app = express()
 
 app.use(express.json());
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/src/views'));
 
 app.use(
     cors({
@@ -31,6 +36,8 @@ app.use(
 // routes
 
 app.use('/api/v1/payment', paymentsRouter)
+
+
 
 app.listen(PORT, () => {
     console.log(`Connected to port ${process.env.PORT}`)

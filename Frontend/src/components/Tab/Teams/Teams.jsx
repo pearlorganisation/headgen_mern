@@ -76,12 +76,11 @@ const Teams = (
     const [index, setIndex] = useState(1)
 
     const onSubmit = (data1) => {
-        console.log(data1)
-        console.log(data)
+        // console.log(data1)
+        // console.log(data)
         setFormValid(true)
         setUserData((prevData) => {
             let tempData = { ...data, ...data1 }
-
             return tempData
         })
     }
@@ -151,7 +150,7 @@ const Teams = (
         { value: '200-250', label: '200-250' },
         { value: '251+', label: '300+' }
     ]
-    const yourRoles = [
+    const role = [
         { value: 'Customer Support', label: 'Customer Support' },
         { value: 'Designer', label: 'Designer' },
         { value: 'Developer', label: 'Developer' },
@@ -249,14 +248,14 @@ const Teams = (
                         <div className='flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3'>
 
                             <div className="w-full text-black">
-                                <div className="mb-2 text-white">Your Roles</div>
+                                <div className="mb-2 text-white">Your Role</div>
 
                                 <Controller
-                                    name="YourRoles"
+                                    name="Role"
                                     control={control}
                                     render={({ field: { onChange, value, ref } }) => (
                                         <Select
-                                            options={yourRoles}
+                                            options={role}
                                             value={value || null}
                                             onChange={(val) => {
                                                 onChange(val);
@@ -300,14 +299,14 @@ const Teams = (
 
                         <div className="w-full">
                             <div className="mb-2 ">Contact Email</div>
-                            <input {...register("contactEmail", { required: true })} className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" />
+                            <input {...register("email", { required: true })} className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" />
                             {errors.contactEmail && (
                                 <span className="text-red-500">This field is required </span>
                             )}
                         </div>
                         <div className="w-full">
                             <div className="mb-2 ">Website (Optional)</div>
-                            <input {...register("website", { required: true })} className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" />
+                            <input {...register("website", { required: false })} className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline undefined" placeholder="" type="text" />
                         </div>
                         <div className='flex gap-4 justify-start'>
 
@@ -340,10 +339,10 @@ const Teams = (
                                 <div className='flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3'>
 
                                     <div className="w-full ">
-                                        <div className="mb-2 text-white">Your Roles</div>
+                                        <div className="mb-2 text-white">Your Role</div>
 
                                         <div className='w-full  rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none '>
-                                            {userData?.YourRoles?.value}
+                                            {userData?.role?.value}
                                         </div>
 
                                     </div>
