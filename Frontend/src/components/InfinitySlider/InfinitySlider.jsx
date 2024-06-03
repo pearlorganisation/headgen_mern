@@ -1,6 +1,6 @@
 import React from "react";
 
-const InfinitySlider = ({ imgData1, imgData2 }) => {
+const InfinitySlider = ({ imgData1, imgData2, height='200px' }) => {
   if (imgData2) {
     return (
       <div className="w-full flex flex-col gap-4">
@@ -8,7 +8,7 @@ const InfinitySlider = ({ imgData1, imgData2 }) => {
           <div class="slide-track-left">
             {imgData1?.map((item) => (
               <div class="slide-left">
-                <img src={item.path} className="!h-[200px] rounded-2xl" />
+                <img src={item.path} className={`!h-[${height}] rounded-2xl`} />
               </div>
             ))}
           </div>
@@ -18,7 +18,7 @@ const InfinitySlider = ({ imgData1, imgData2 }) => {
           <div class="slide-track-right">
             {imgData2?.map((item) => (
               <div class="slide-right">
-                <img src={item.path} className="!h-[200px] rounded-2xl" />
+                <img src={item.path} className={`!h-[${height}] rounded-2xl`} />
               </div>
             ))}
           </div>
@@ -33,7 +33,7 @@ const InfinitySlider = ({ imgData1, imgData2 }) => {
           <div class="slide-track-left">
             {imgData1?.map((item) => (
               <div class="slide-left">
-                <img src={item.path} className="!h-[200px] rounded-2xl" />
+                <img src={item.path} className={`!h-[${height}] rounded-2xl`} />
               </div>
             ))}
           </div>

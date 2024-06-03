@@ -18,87 +18,87 @@ const Home = () => {
   const imgData1 = [
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s600",
     },
   ];
 
   const reviewData1 = [
-    { name: "", path: "/reviewSlider/1.png" },
-    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
-    { name: "", path: "/reviewSlider/1.png", linkType: "local" },
-    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
-    { name: "", path: "/reviewSlider/1.png", linkType: "local" },
-    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
-    { name: "", path: "/reviewSlider/1.png", linkType: "local" },
-    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
-    { name: "", path: "/reviewSlider/1.png", linkType: "local" },
-    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
-    { name: "", path: "/reviewSlider/1.png", linkType: "local" },
-    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
-    { name: "", path: "/reviewSlider/1.png", linkType: "local" },
-    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
-    { name: "", path: "/reviewSlider/1.png", linkType: "local" },
-    { name: "", path: "/reviewSlider/2.png", linkType: "local" },
+    { name: "", path: "https://drive.google.com/thumbnail?id=1Bc1R-uk4ngRLdmXBBcJj677SGJgJXrtv&sz=s600" },
+    { name: "", path: "https://drive.google.com/thumbnail?id=1SmSsSqBrh5SxugsEaEqzK64Nhr-WICp4&sz=s600"},
+    { name: "", path: "https://drive.google.com/thumbnail?id=1IIg95YS_zreclTvm-DoQTgu319SawtdT&sz=s600"},
+    { name: "", path: "https://drive.google.com/thumbnail?id=1SA18wMKMO8InJ1sNowKNR4OhkOKFI4ij&sz=s600"},
+    { name: "", path: "https://drive.google.com/thumbnail?id=1vcEFlgTCJTEZBIDZ_xUQHfgsF62Mtkpr&sz=s600"},
+    { name: "", path: "https://drive.google.com/thumbnail?id=1RBKpgH0DMeZn0MxynmHT1A-CtCf81OTW&sz=s600"},
+    { name: "", path: "https://drive.google.com/thumbnail?id=1CgrkGc9WNHApjN3B1dlqsy-7d1KAuMQV&sz=s600"},
+    { name: "", path: "https://drive.google.com/thumbnail?id=1qaKuurwqnK394zdvKZFjzkQH3GgHLrXL&sz=s600"},
+    { name: "", path: "https://drive.google.com/thumbnail?id=1sWgO7cw4AXZs1r4kY-s3wWS4wv5x-2sV&sz=s600"},
+    { name: "", path: "https://drive.google.com/thumbnail?id=1SjLtvNlhN0V2zgwaMip2lyUJD4ROwjHh&sz=s600"},
+    { name: "", path: "https://drive.google.com/thumbnail?id=1sYeaHhoge_XwnWm0GKly9MJwARNSr-PY&sz=s600"},
+    { name: "", path: "https://drive.google.com/thumbnail?id=1SNydenR3lI4nzlRdK2MaC9rWB_fU98Hz&sz=s600"},
+    { name: "", path: "https://drive.google.com/thumbnail?id=1sYeaHhoge_XwnWm0GKly9MJwARNSr-PY&sz=s600"},
+    { name: "", path: "https://drive.google.com/thumbnail?id=1QjXV6VsVmaFcZYVERiHAOxKeENfz0i1C&sz=s600"},
+    { name: "", path: "https://drive.google.com/thumbnail?id=12pZQSymP0k_Y1jEQ_mF5OsC6AYhy87Hr&sz=s600"},
+    { name: "", path: "https://drive.google.com/thumbnail?id=1RBKpgH0DMeZn0MxynmHT1A-CtCf81OTW&sz=s600"},
   ];
 
   const cardData = [
@@ -107,21 +107,21 @@ const Home = () => {
       content:
         "Start your professional AI image generation experience by uploading your selfie.",
       imgPath:
-        "https://drive.google.com/thumbnail?id=1Z2eHvjtVo6jYo9EGwSPYILub23hsMxBY&sz=s800",
+        "https://drive.google.com/thumbnail?id=1Z2eHvjtVo6jYo9EGwSPYILub23hsMxBY&sz=s600",
     },
     {
       title: "Make Payment",
       content:
         "Make your payment to unlock the power of AI and transform your image into stunning professional images.",
       imgPath:
-        "https://drive.google.com/thumbnail?id=1pndNiBuEgvuDl_RVGFTpw_W6vCCWvCn1&sz=s800",
+        "https://drive.google.com/thumbnail?id=1pndNiBuEgvuDl_RVGFTpw_W6vCCWvCn1&sz=s600",
     },
     {
       title: "Get Professional Images",
       content:
         "Get professional images all delivered to you within a swift window of time.",
       imgPath:
-        "https://drive.google.com/thumbnail?id=17smkegUhG8QWeR3v8xMhLqx8gGPG8l1a&sz=s800",
+        "https://drive.google.com/thumbnail?id=17smkegUhG8QWeR3v8xMhLqx8gGPG8l1a&sz=s600",
     },
   ];
 
@@ -156,31 +156,31 @@ const Home = () => {
   const carouselData = [
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
     },
   ];
 
@@ -189,7 +189,7 @@ const Home = () => {
       title: "Linkedin Photo",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s600",
       svg: (
         <>
           <FaLinkedin size={22} className="text-blue-500" />
@@ -200,7 +200,7 @@ const Home = () => {
       title: "Resume",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s600",
       svg: (
         <>
           <IoDocumentTextOutline size={22} className="text-blue-500" />
@@ -211,7 +211,7 @@ const Home = () => {
       title: "Team photo",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "https://drive.google.com/thumbnail?id=1g8wYwg9AJBt-XGjDLw1vFSgpS-e9R0Gr&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1g8wYwg9AJBt-XGjDLw1vFSgpS-e9R0Gr&sz=s600",
       svg: (
         <>
           <MdGroups size={22} className="text-blue-500" />
@@ -222,13 +222,13 @@ const Home = () => {
       title: "Portfolio Website",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
     },
     {
       title: "Job Portal",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s800",
+      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600",
     },
   ];
 
@@ -337,7 +337,7 @@ const Home = () => {
           className={`max-w-[834px] w-1/2 flex flex-col gap-4 items-end pt-10`}
         >
           <img
-            src={`https://drive.google.com/thumbnail?id=1UA7FyAGDxxNyOmQI2aEocXL8V1a70uJ-&sz=s800`}
+            src={`https://drive.google.com/thumbnail?id=1UA7FyAGDxxNyOmQI2aEocXL8V1a70uJ-&sz=s600`}
             className="h-full w-full"
           />
         </div>
@@ -693,7 +693,7 @@ const Home = () => {
           </span>{" "}
           Our Results
         </div>
-        <InfinitySlider imgData1={reviewData1} imgData2={reviewData1} />
+        <InfinitySlider imgData1={reviewData1} imgData2={reviewData1} height={'400px'}/>
       </div>
 
       <div className="flex flex-col gap-10">

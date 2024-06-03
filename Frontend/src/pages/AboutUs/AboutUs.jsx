@@ -191,9 +191,12 @@ const AboutUs = () => {
       </div>
 
       <div className="relative w-full text-white px-10 xl:px-[250px] py-20 bg-[#161616] flex flex-col gap-8 xl:gap-[6rem] tracking-wider">
-        <div className="w-full text-center font-medium text-[44px] md:text-[52px] xl:text-[60px] animatedReveal">
-          Meet the AI Founders of HeadGen
-        </div>
+      <div className="text-[#F1F1F1] text-center text-5xl font-medium">
+            Meet the AI Founders of{" "}
+            <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold py-5">
+              Headgen
+            </span>
+          </div>
 
         <div className="flex flex-row flex-wrap md:justify-between w-full">
           <div className="w-2/5 flex flex-col gap-4 justify-center items-start ">
