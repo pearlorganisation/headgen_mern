@@ -18,6 +18,7 @@ const Prompt = ({
   tabContentRef,
   isLoading,
   handlePayment,
+  type
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
