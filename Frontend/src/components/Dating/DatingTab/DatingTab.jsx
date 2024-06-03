@@ -311,7 +311,7 @@ const DatingTab = () => {
               <div className="flex justify-center gap-2">
                 {currentIndex > 0 && (
                   <button
-                    className={`hover:squeezyBtn px-8 py-3 shad bg-[#1d2838] hover:bg-[#1f58ad] shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                    className={`hover:squeezyBtn px-8 py-3   shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
                     onClick={() => updateIndex(-1)}
                   >
                     Back
