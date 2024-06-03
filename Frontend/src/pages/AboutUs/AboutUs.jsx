@@ -174,9 +174,7 @@ const AboutUs = () => {
         >
           Trusted By
         </div>
-        <div
-          className={`flex flex-row`}
-        >
+        <div className={`flex flex-row`}>
           {logoData?.map((item, idx) => (
             <div
               key={`logo${idx}`}
@@ -192,35 +190,96 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className="relative w-full text-white px-10 xl:px-[250px] bg-[#161616] flex flex-col gap-8 xl:gap-[3.5rem] tracking-wider">
+      <div className="relative w-full text-white px-10 xl:px-[250px] py-20 bg-[#161616] flex flex-col gap-8 xl:gap-[6rem] tracking-wider">
         <div className="w-full text-center font-medium text-[44px] md:text-[52px] xl:text-[60px] animatedReveal">
           Meet the AI Founders of HeadGen
         </div>
-        <div className="flex gap-8 font-regular justify-center text-[#e4e2e2] animatedReveal">
-          {foundersContent &&
-            foundersContent?.map((item) => (
-              <div className="flex flex-col items-center gap-8 w-[48%]">
-                <img src={item?.imagePath} className="rounded-2xl w-full" />
-                <div className="text-[32px] font-medium animatedReveal">
-                  {item?.name}
-                </div>
-                <div className="text-[20px] font-medium animatedReveal">
-                  {item?.designation}
-                </div>
-                {item?.socials && (
-                  <div className="flex font-medium animatedReveal">
-                    {item?.socials?.map((e) => (
-                      <Link
-                        to={e?.link}
-                        className="flex flex-col justify-center "
-                      >
-                        <AppSvgs name={e?.name} width={32} height={32} />
-                      </Link>
-                    ))}
-                  </div>
-                )}
+
+        <div className="flex flex-row flex-wrap md:justify-between w-full">
+          <div className="w-2/5 flex flex-col gap-4 justify-center items-start ">
+            <div
+              className={`flex flex-col justify-evenly items-center bg-gradient-to-b  from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
+            >
+              <div className="w-[80%] -translate-y-20 group-hover:-translate-y-24 rounded-xl transition duration-300">
+                <img
+                  src={foundersContent[0]?.imagePath}
+                  className="w-full rounded-xl"
+                />
               </div>
-            ))}
+              <div
+                className={`h-[50%] flex flex-col justify-between
+                gap-4 items-center`}
+              >
+                <div className="px-2 text-center font-bold text-[#F1F1F1] text-3xl">
+                  {foundersContent[0]?.name}
+                </div>
+
+                <div className="px-2 text-center font-bold text-[#F1F1F1] text-md">
+                  {foundersContent[0]?.designation}
+                </div>
+                <div className="flex font-medium animatedReveal">
+                  {foundersContent[0]?.socials?.map((e, idx) => (
+                    <Link
+                      key={`founder0${idx}`}
+                      to={e?.link}
+                      className="flex flex-col justify-center "
+                    >
+                      <AppSvgs name={e?.name} width={32} height={32} />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-3/5 flex flex-col gap-6 justify-center *:items-center">
+            {aboutUsContent && (
+              <p className="text-justified">{aboutUsContent}</p>
+            )}
+          </div>
+        </div>
+
+        <div className="flex flex-row flex-wrap md:justify-between w-full">
+          <div className="w-3/5 flex flex-col gap-6 justify-center *:items-center">
+            {aboutUsContent && (
+              <p className="text-justified">{aboutUsContent}</p>
+            )}
+          </div>
+
+          <div className="w-2/5 flex flex-col gap-4 justify-center items-end ">
+            <div
+              className={`flex flex-col justify-evenly items-center bg-gradient-to-b  from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
+            >
+              <div className="w-[80%] -translate-y-20 group-hover:-translate-y-24 rounded-xl transition duration-300">
+                <img
+                  src={foundersContent[1]?.imagePath}
+                  className="w-full rounded-xl"
+                />
+              </div>
+              <div
+                className={`h-[50%] flex flex-col justify-between
+                gap-4 items-center`}
+              >
+                <div className="px-2 text-center font-bold text-[#F1F1F1] text-3xl">
+                  {foundersContent[1]?.name}
+                </div>
+
+                <div className="px-2 text-center font-bold text-[#F1F1F1] text-md">
+                  {foundersContent[1]?.designation}
+                </div>
+                <div className="flex font-medium animatedReveal">
+                  {foundersContent[1]?.socials?.map((e, idx) => (
+                    <Link
+                      key={`founder0${idx}`}
+                      to={e?.link}
+                      className="flex flex-col justify-center "
+                    >
+                      <AppSvgs name={e?.name} width={32} height={32} />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <Link
