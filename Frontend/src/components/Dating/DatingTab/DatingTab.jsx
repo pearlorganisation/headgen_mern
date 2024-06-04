@@ -352,6 +352,7 @@ const DatingTab = () => {
                 fileErrorMsg={fileErrorMsg}
                 setFileErrorMsg={setFileErrorMsg}
                 errors={errors}
+                handlePayment={handlePayment}
                 type='Dating'
               />
             </div>
@@ -366,6 +367,7 @@ const DatingTab = () => {
               fileErrorMsg={fileErrorMsg}
               setFileErrorMsg={setFileErrorMsg}
               errors={errors}
+              type='Dating'
             />
           )}
         </div>

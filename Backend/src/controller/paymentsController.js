@@ -44,6 +44,7 @@ const stripeLinks = [
 
 export const checkout = async (req, res) => {
   // return
+  console.log(req.body, "req.body");
   try {
     const selectedPlan = JSON.parse(req.body.selectedPlan);
     const idx = stripeLinks.findIndex((e) => {
@@ -97,15 +98,15 @@ export const complete = async (req, res) => {
       );
       const result = deleteUser(req.query.sessionId);
       if (result) {
-        console.log(user)
+        console.log(user);
         const userBody = JSON.parse(user.user.body);
-        const selectedPlan = JSON.parse(userBody.selectedPlan)
+        const selectedPlan = JSON.parse(userBody.selectedPlan);
         res.render("payment-success", {
           email: userBody.email,
           gender: userBody.gender,
           amount: selectedPlan.price,
           packName: selectedPlan.packName,
-          FRONTEND_URL: process.env.FRONTEND_URL
+          FRONTEND_URL: process.env.FRONTEND_URL,
         });
 
         // res.redirect(`${process.env.FRONTEND_URL}/success`);
@@ -123,12 +124,15 @@ export const complete = async (req, res) => {
     }
   } else {
     const result = deleteUser(req.query.sessionId);
-    res.send({ status: false, message: "There's some error completing this process, kindly go back to main site" });
+    res.send({
+      status: false,
+      message:
+        "There's some error completing this process, kindly go back to main site",
+    });
   }
 };
 
 export const cancel = (req, res) => {
-  
   const result = deleteUser(req.query.sessionId);
   res.redirect(`${process.env.FRONTEND_URL}/cancel`);
 };

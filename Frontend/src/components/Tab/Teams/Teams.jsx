@@ -33,25 +33,25 @@ const Teams = (
             discount: 'Small Business',
             price: '35',
             totalPrice: '35',
-            users: 0
+            users: 1
         },
         {
             discount: '10% OFF',
             price: '32',
             totalPrice: '32',
-            users: 0,
+            users: 1,
         },
         {
             discount: '15% OFF',
             price: '30',
             totalPrice: '30',
-            users: 0,
+            users: 1,
         },
         {
             discount: '25% OFF',
             price: '26',
             totalPrice: '26',
-            users: 0,
+            users: 1,
         },
         {
             discount: 'Enterprise',
@@ -83,6 +83,7 @@ const Teams = (
             let tempData = { ...data, ...data1 }
             return tempData
         })
+        updateIndex(1)
     }
 
     const handleData = (e) => {
@@ -273,7 +274,7 @@ const Teams = (
                                     rules={{ required: true }}
                                 />
 
-                                {errors.useCase && (
+                                {errors.Role && (
                                     <span className="text-red-500">This field is required </span>
                                 )}
 
@@ -332,7 +333,7 @@ const Teams = (
                             <div className='space-y-3'>
                                 <div className="w-full">
                                     <div className="mb-2 ">Team or Company Name</div>
-                                    <div className='w-full  rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none '>
+                                    <div className='w-full border-b-2 pl-0  px-4 py-2 text-base leading-[140%]  outline-none '>
                                         {userData?.companyName}
                                     </div>
                                 </div>
@@ -341,8 +342,8 @@ const Teams = (
                                     <div className="w-full ">
                                         <div className="mb-2 text-white">Your Role</div>
 
-                                        <div className='w-full  rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none '>
-                                            {userData?.role?.value}
+                                        <div className='w-full    border-b-2 pl-0 px-4 py-2 text-base leading-[140%]  outline-none '>
+                                            {userData?.Role?.value}
                                         </div>
 
                                     </div>
@@ -351,27 +352,28 @@ const Teams = (
                                 <div className='flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3'>
                                     <div className="w-full">
                                         <div className="mb-2 ">First Name</div>
-                                        <div className='w-full  rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none '>
+                                        <div className='w-full    border-b-2 pl-0 px-4 py-2 text-base leading-[140%]  outline-none '>
                                             {userData?.firstName}
                                         </div>
                                     </div>
                                     <div className="w-full">
-                                        <div className="mb-2 ">{userData?.lastName}</div>
-                                        <div className='w-full  rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none '>
-                                            Bahuguna
+                                        <div className="mb-2 ">Last Name</div>
+                                        <div className='w-full    border-b-2 pl-0 px-4 py-2 text-base leading-[140%]  outline-none '>
+                                            {userData?.lastName}
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="w-full">
                                     <div className="mb-2 ">Contact Email</div>
-                                    <div className='w-full  rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none '>
-                                        {userData?.contactEmail}
+                                    <div className='w-full    border-b-2 pl-0 px-4 py-2 text-base leading-[140%]  outline-none '>
+                                        {userData?.email
+                                        }
                                     </div>
                                 </div>
                                 <div className="w-full">
                                     <div className="mb-2 ">Website (Optional)</div>
-                                    <div className='w-full  rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none '>
+                                    <div className='w-full   border-b-2 pl-0 px-4 py-2 text-base leading-[140%]  outline-none '>
                                         {userData?.website}
                                     </div>
                                 </div>
@@ -381,10 +383,10 @@ const Teams = (
                             </div>
 
                         </div >
-                        <div className="w-full overflow-auto  grid place-items-center mt-10">
-                            <div className="flex justify-center gap-2">
+                        <div className="w-full overflow-auto   grid place-items-center mt-10">
+                            <div className="flex justify-center gap-2 ">
                                 <div
-                                    className={`w-[300px] !bg-gradient-to-br !from-[#2963bede] to-[#073791de] rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center min-h-[400px] relative transition duration-300`}
+                                    className={`w-[300px] shadow-[0_0_0_2px_#ffffff] !bg-gradient-to-br !from-[#2963bede] to-[#073791de] rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center min-h-[400px] relative transition duration-300`}
                                 >
 
                                     <div className="text-[22px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold">Price</div>
@@ -410,14 +412,15 @@ const Teams = (
 
     const updateIndex = (val) => {
         let newIndex = Math.max(currentIndex + val, 0);
+        if (newIndex === 2 && formValid) {
+            return setCurrentIndex(newIndex)
+        }
         if (newIndex === 2) {
             formRef.current.click()
-        }
-        if (newIndex == 2 && !formValid) {
 
-            return formRef.current.click()
 
         }
+
         else {
             if (maxIndex === currentIndex && val > 0) {
                 return;
