@@ -106,19 +106,16 @@ const Footer = () => {
       <div className="flex flex-row flex-wrap lg:flex-nowrap gap-2">
 
         <div
-          style={{
-            background: "url(/man.jpg) no-repeat center",
-            backgroundSize: "cover",
-          }}
           className="min-w-[250px] rounded-2xl flex flex-col justify-end px-2 py-4"
         >
+          <img src="https://drive.google.com/thumbnail?id=18dNFZW3wy9xCml4GbGHxJhgPlv4mOM5i&sz=s600" alt="" srcset="" className="w-full h-full" />
           <div className="flex flex-col gap-1">
-            <Link to="/" className="flex justify-center">
+            {/* <Link to="/" className="flex justify-center">
               <img src="/logo.webp" alt="" className="max-w-[180px]" />
-            </Link>
-            <button className="w-full px-2 py-3 bg-gradient-to-b from-[#7559FF] to-[#5636F3] hover:from-[#3f26bd] hover:to-[#3822aa] rounded-xl text-[#f1f1f1] text-[15px] font-medium transition duration-400">
-              Get Started
-            </button>
+            </Link> */}
+            <div className="w-full px-2 py-3 bg-gradient-to-r from-[#59caff] to-[#5636F3] rounded-xl text-[#f1f1f1] text-[15px] font-medium transition duration-300">
+              <img src="/logo.webp" alt="" srcset="" />
+            </div>
           </div>
         </div>
 

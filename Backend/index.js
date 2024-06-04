@@ -25,6 +25,7 @@ app.use(
         "http://localhost:5173",
         "https://headgen-mern-2.vercel.app",
         "https://headgen-mern.vercel.app",
+        "https://headgen.ai",
       ],
       // credentials: true,
       methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
