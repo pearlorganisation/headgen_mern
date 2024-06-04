@@ -4,7 +4,7 @@ import InfinitySlider from "../../components/InfinitySlider/InfinitySlider";
 import FaqAccordian from "../../components/FaqAccordian/FaqAccordian";
 import Carousel from "../../components/Carousel/Carousel";
 import BlogCards from "../../components/BlogCards/BlogCards";
-import DatingHero from "../../components/Dating/DatingHero/DatingHero"
+import DatingHero from "../../components/Dating/DatingHero/DatingHero";
 import { FaLinkedin } from "react-icons/fa";
 import { MdGroups } from "react-icons/md";
 import { IoDocumentTextOutline, IoStarSharp } from "react-icons/io5";
@@ -83,22 +83,70 @@ const Home = () => {
   ];
 
   const reviewData1 = [
-    { name: "", path: "https://drive.google.com/thumbnail?id=1Bc1R-uk4ngRLdmXBBcJj677SGJgJXrtv&sz=s600" },
-    { name: "", path: "https://drive.google.com/thumbnail?id=1SmSsSqBrh5SxugsEaEqzK64Nhr-WICp4&sz=s600"},
-    { name: "", path: "https://drive.google.com/thumbnail?id=1IIg95YS_zreclTvm-DoQTgu319SawtdT&sz=s600"},
-    { name: "", path: "https://drive.google.com/thumbnail?id=1SA18wMKMO8InJ1sNowKNR4OhkOKFI4ij&sz=s600"},
-    { name: "", path: "https://drive.google.com/thumbnail?id=1vcEFlgTCJTEZBIDZ_xUQHfgsF62Mtkpr&sz=s600"},
-    { name: "", path: "https://drive.google.com/thumbnail?id=1RBKpgH0DMeZn0MxynmHT1A-CtCf81OTW&sz=s600"},
-    { name: "", path: "https://drive.google.com/thumbnail?id=1CgrkGc9WNHApjN3B1dlqsy-7d1KAuMQV&sz=s600"},
-    { name: "", path: "https://drive.google.com/thumbnail?id=1qaKuurwqnK394zdvKZFjzkQH3GgHLrXL&sz=s600"},
-    { name: "", path: "https://drive.google.com/thumbnail?id=1sWgO7cw4AXZs1r4kY-s3wWS4wv5x-2sV&sz=s600"},
-    { name: "", path: "https://drive.google.com/thumbnail?id=1SjLtvNlhN0V2zgwaMip2lyUJD4ROwjHh&sz=s600"},
-    { name: "", path: "https://drive.google.com/thumbnail?id=1sYeaHhoge_XwnWm0GKly9MJwARNSr-PY&sz=s600"},
-    { name: "", path: "https://drive.google.com/thumbnail?id=1SNydenR3lI4nzlRdK2MaC9rWB_fU98Hz&sz=s600"},
-    { name: "", path: "https://drive.google.com/thumbnail?id=1sYeaHhoge_XwnWm0GKly9MJwARNSr-PY&sz=s600"},
-    { name: "", path: "https://drive.google.com/thumbnail?id=1QjXV6VsVmaFcZYVERiHAOxKeENfz0i1C&sz=s600"},
-    { name: "", path: "https://drive.google.com/thumbnail?id=12pZQSymP0k_Y1jEQ_mF5OsC6AYhy87Hr&sz=s600"},
-    { name: "", path: "https://drive.google.com/thumbnail?id=1RBKpgH0DMeZn0MxynmHT1A-CtCf81OTW&sz=s600"},
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1Bc1R-uk4ngRLdmXBBcJj677SGJgJXrtv&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1SmSsSqBrh5SxugsEaEqzK64Nhr-WICp4&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1IIg95YS_zreclTvm-DoQTgu319SawtdT&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1SA18wMKMO8InJ1sNowKNR4OhkOKFI4ij&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1vcEFlgTCJTEZBIDZ_xUQHfgsF62Mtkpr&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1RBKpgH0DMeZn0MxynmHT1A-CtCf81OTW&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1CgrkGc9WNHApjN3B1dlqsy-7d1KAuMQV&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1qaKuurwqnK394zdvKZFjzkQH3GgHLrXL&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1sWgO7cw4AXZs1r4kY-s3wWS4wv5x-2sV&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1SjLtvNlhN0V2zgwaMip2lyUJD4ROwjHh&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1sYeaHhoge_XwnWm0GKly9MJwARNSr-PY&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1SNydenR3lI4nzlRdK2MaC9rWB_fU98Hz&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1sYeaHhoge_XwnWm0GKly9MJwARNSr-PY&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1QjXV6VsVmaFcZYVERiHAOxKeENfz0i1C&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=12pZQSymP0k_Y1jEQ_mF5OsC6AYhy87Hr&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1RBKpgH0DMeZn0MxynmHT1A-CtCf81OTW&sz=s600",
+    },
   ];
 
   const cardData = [
@@ -292,45 +340,53 @@ const Home = () => {
       {/* hero */}
 
       <div className="flex justify-center px-10  xl:px-[160px] 2xl:px-[250px]">
-        <div
-          className={`max-w-[834px] w-1/2 flex flex-col gap-0 pt-10`}
-        >
+        <div className={`max-w-[834px] w-1/2 flex flex-col gap-0 pt-10`}>
           <div className="flex flex-col leading-none mb-4">
             <div
-              className={`text-3xl font-bold pl-[1.55rem] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
-                }`}
+              className={`text-3xl font-bold pl-[1.55rem] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
+                isAnimated ? "animatedReveal" : "invisible"
+              }`}
             >
               AI HEADSHOT GENERATOR
             </div>
             <div
-              className={`text-white oswald text-[9rem] font-bold pb-4 ${isAnimated ? "animatedReveal" : "invisible"
-                }`}
+              className={`text-white oswald text-[9rem] font-bold pb-4 ${
+                isAnimated ? "animatedReveal" : "invisible"
+              }`}
             >
               AI TOOL
             </div>
             <div
-              className={`text-[28px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
-                }`}
+              className={`text-[28px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
+                isAnimated ? "animatedReveal" : "invisible"
+              }`}
             >
               FOR PROFESSIONAL HEADSHOTS
             </div>
           </div>
           <div
-            className={`flex flex-col gap-6 text-center ${isAnimated ? "animatedReveal" : "invisible"
-              }`}
+            className={`flex flex-col gap-6 text-center ${
+              isAnimated ? "animatedReveal" : "invisible"
+            }`}
           >
-            <Link to="/upload/Corporate%20Headshots"
-              className={`w-1/2 hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg px-2 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${isAnimated ? "animatedReveal" : "invisible"
-                }`}
+            <Link
+              to="/upload/Corporate%20Headshots"
+              className={`w-1/2 hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg px-2 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${
+                isAnimated ? "animatedReveal" : "invisible"
+              }`}
             >
               Get your photos for $29
             </Link>
           </div>
           <div
-            className={`flex flex-col justify-center items-start mt-2 ${isAnimated ? "animatedReveal" : "invisible"
-              }`}
+            className={`flex flex-col justify-center items-start mt-2 ${
+              isAnimated ? "animatedReveal" : "invisible"
+            }`}
           >
-            <img src="https://drive.google.com/thumbnail?id=16C5DFniIaPKuMMKI1DHrYT2P2_YGON-2&sz=s300" className="w-[250px] 2xl:w-[350px]" />
+            <img
+              src="https://drive.google.com/thumbnail?id=16C5DFniIaPKuMMKI1DHrYT2P2_YGON-2&sz=s300"
+              className="w-[250px] 2xl:w-[350px]"
+            />
           </div>
         </div>
         <div
@@ -410,14 +466,16 @@ const Home = () => {
 
       <div className="flex  justify-center gap-6">
         <div
-          className={`flex flex-col justify-center text-center font-bold text-[20px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
-            }`}
+          className={`flex flex-col justify-center text-center font-bold text-[20px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text ${
+            isAnimated ? "animatedReveal" : "invisible"
+          }`}
         >
           Trusted By
         </div>
         <div
-          className={`flex flex-row ${isAnimated ? "animatedReveal" : "invisible"
-            }`}
+          className={`flex flex-row ${
+            isAnimated ? "animatedReveal" : "invisible"
+          }`}
         >
           {logoData?.map((item, idx) => (
             <div
@@ -446,18 +504,19 @@ const Home = () => {
               <div className="text-[60px] 2xl:text-[72px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
                 works
               </div>
-              <Link to="/upload/Corporate%20Headshots" className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]">
+              <Link
+                to="/upload/Corporate%20Headshots"
+                className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]"
+              >
                 Get your photos for $29
               </Link>
             </div>
           </div>
           <div className="w-3/5 flex flex-col gap-6 items-center">
             <div className="w-full">
-              <img
-                src="/howitworks.png"
-                className="w-full rounded-2xl"
-                alt=""
-              />
+              <video
+                src="https://drive.google.com/uc?id=16UKFJcaT2Y3Kn9dsSakqJl6uVfYJITEb"
+              ></video>
             </div>
 
             <div className="text-[#F1F1F1] text-[10px]">
@@ -495,7 +554,6 @@ const Home = () => {
             ))}
         </div>
       </div>
-
 
       <div className=" xl:px-[160px] 2xl:px-[250px] pb-20">
         <InfinityTextSlider />
@@ -587,7 +645,10 @@ const Home = () => {
               setting
             </div>
             <div className="flex flex-col gap-4 w-1/2 items-center">
-              <Link to="/upload/Corporate%20Headshots" className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500">
+              <Link
+                to="/upload/Corporate%20Headshots"
+                className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+              >
                 Get your photos for $29
               </Link>
               <span className="flex flex-col text-center text-[19px] text-[#f1f1f1]">
@@ -650,7 +711,10 @@ const Home = () => {
               High Quality AI Image Generator for your Business Profiles
             </div>
             <div>
-              <Link to="/upload/Corporate%20Headshots" className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-2/3 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500">
+              <Link
+                to="/upload/Corporate%20Headshots"
+                className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-2/3 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+              >
                 Get your photos for $29
               </Link>
             </div>
@@ -693,7 +757,11 @@ const Home = () => {
           </span>{" "}
           Our Results
         </div>
-        <InfinitySlider imgData1={reviewData1} imgData2={reviewData1} height={'400px'}/>
+        <InfinitySlider
+          imgData1={reviewData1}
+          imgData2={reviewData1}
+          height={"400px"}
+        />
       </div>
 
       <div className="flex flex-col gap-10">
@@ -747,12 +815,10 @@ const Home = () => {
             <div className="w-1/3 flex flex-col gap-1">
               <img
                 src={`${imgData1[1].path}`}
-                
                 className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
               />
               <img
                 src={`${imgData1[2].path}`}
-                
                 className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
               />
             </div>
@@ -789,7 +855,10 @@ const Home = () => {
             <div className="text-[#F1F1F1] text-[14px]">
               Try Headgen.ai with confidence. Our results are Mind blowing.
             </div>
-            <Link to="/upload/Corporate%20Headshots" className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-2/3 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500">
+            <Link
+              to="/upload/Corporate%20Headshots"
+              className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-2/3 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+            >
               Get your photos for $29
             </Link>
           </div>
