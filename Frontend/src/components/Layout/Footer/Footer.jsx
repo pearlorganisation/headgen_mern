@@ -23,7 +23,6 @@ const Footer = () => {
           title: "Salesperson",
           link: "/upload/Sales%20Headshots",
         },
-       
       ],
     },
     {
@@ -54,10 +53,6 @@ const Footer = () => {
           title: "LinkedIn Headshots",
           link: "/upload/Corporate%20Headshots",
         },
-        // {
-        //   title: "Affiliate Program",
-        //   link: "/upload",
-        // },
         {
           title: "Blog",
           link: "/blogs",
@@ -94,32 +89,29 @@ const Footer = () => {
       list: [
         {
           title: "Support@headgen.ai",
-          link: "email:support@headgen.ai"
+          link: "email:support@headgen.ai",
         },
       ],
     },
   ];
 
   return (
-
     <div className="flex flex-col items-center gap-20 px-10 2xl:px-[250px] py-10">
       <div className="flex flex-row flex-wrap lg:flex-nowrap gap-2">
-
-        <div
-          className="min-w-[250px] rounded-2xl flex flex-col justify-end px-2 py-4"
-        >
-          <img src="https://drive.google.com/thumbnail?id=18dNFZW3wy9xCml4GbGHxJhgPlv4mOM5i&sz=s600" alt="" srcset="" className="w-full h-full" />
+        <div className="w-[250px] rounded-2xl flex flex-col justify-center items-center relative">
+          <img
+            src="https://drive.google.com/thumbnail?id=18dNFZW3wy9xCml4GbGHxJhgPlv4mOM5i&sz=s600"
+            alt=""
+            srcset=""
+            className="w-full h-full rounded-2xl shadow-[0_0_0_3px#59caff]"
+          />
           <div className="flex flex-col gap-1">
-            {/* <Link to="/" className="flex justify-center">
-              <img src="/logo.webp" alt="" className="max-w-[180px]" />
-            </Link> */}
-            <div className="w-full px-2 py-3 bg-gradient-to-r from-[#59caff] to-[#5636F3] rounded-xl text-[#f1f1f1] text-[15px] font-medium transition duration-300">
+            <div className="w-[90%] px-2 py-3 bg-gradient-to-r from-[#59caff] to-[#5636F3] rounded-xl text-[#f1f1f1] text-[15px] font-medium transition duration-300 absolute -bottom-4 left-1/2 -translate-x-1/2">
               <img src="/logo.webp" alt="" srcset="" />
             </div>
           </div>
         </div>
 
- 
         <div className="py-16 px-16 rounded-2xl bg-[#E6E0F4] flex flex-row gap-2 justify-center">
           {footerContent &&
             footerContent?.map((fc, idx) => (
@@ -130,13 +122,14 @@ const Footer = () => {
                 <div className="flex flex-col gap-1 ">
                   {fc?.list &&
                     fc?.list?.map((item, idx2) => (
-                      <Link to={item?.link} key={`fcl${idx2}`}>{item?.title}</Link>
+                      <Link to={item?.link} key={`fcl${idx2}`}>
+                        {item?.title}
+                      </Link>
                     ))}
                 </div>
               </div>
             ))}
         </div>
-
       </div>
       <div className="w-full flex flex-row justify-between">
         <div className="text-sm text-[#f1f1f1]">
@@ -155,7 +148,6 @@ const Footer = () => {
         </div>
       </div>
     </div>
-  
   );
 };
 

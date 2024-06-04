@@ -153,6 +153,11 @@ const Customize = ({
 
   useEffect(() => {
     if (localStorage.getItem("userData")) {
+      setUserData({
+        email: "",
+        gender: "",
+        files: "",
+      });
       localStorage.clear();
     }
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });

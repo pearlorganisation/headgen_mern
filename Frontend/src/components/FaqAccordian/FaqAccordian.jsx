@@ -35,31 +35,27 @@ const FaqAccordian = () => {
   const faqItems = [
     {
       question: 'What results can I expect?',
-      answer: "Our Engineers have crafted prompts for exceptional results. Based our testing, 90% of the Images generated are exceptional and will work wonderfully for you. The outcome depends on your input image quality. That’s why we ask you to carefully follow our instructions and upload just one selfie.Using generative AI for headshots is still a very new field, and we will continue updating the service to improve results."
+      answer: "For the best results, please upload a high-quality selfie following our instructions.Our engineers have crafted AI prompts for exceptional realistic results.As Generative AI evolves, we will continue improving our service."
     },
     {
-      question: 'What do you do with our data?',
-      answer: "Your uploaded photos are exclusively for generating your images and are deleted after 1 week. We don’t use your data to train AI. For early deletion, contact us at support@headgen.ai."
+      question: 'Can I have branded or custom style?',
+      answer: "For custom styles and packages email us at support@headgen.ai.Perfect for corporate events or anyone needing a Headshot to match brand guidelines."
     },
-    {
-      question: 'Can I have a branded or custom style?',
-      answer: "For custom styles and packages starting at €50, email us at support@headgen.in. Perfect for influencers, bumble profile pictures or anyone needing a headshot to match brand guidelines."
-    },
-
     {
       question: 'Who are we?',
-      answer: "Who are we? We are Ruark & Krasia"
+      answer: "We are serial entrepreneurs and AI enthusiasts, Ruark & Krasia Gordon. Ruark is a film director , photographer & Krasia is a full stack web developer."
     },
 
     {
       question: 'Can I get Free Headshots?',
-      answer: "Share your photos on LinkedIn, Twitter, Instagram, or TikTok and tag/mention us! We will generate extra Images for you for free! Write to us with screenshots of uploaded content tagging us at support@headgen.in."
+      answer: "Yes, we love collabs , write to us at support@headgen.ai with your ideas. Share your photos on LinkedIn, Twitter, Instagram, or TikTok and tag/mention us! We will generate extra Images for you for free!"
     },
 
-    {
-      question: 'Do you store our payment details?',
-      answer: "Payment handled by Stripe. We do not store your payment details"
-    }
+    // {
+    //   question: 'Do you store our payment details?',
+    //   answer: "Payment handled by Stripe. We do not store your payment details"
+    // }
+
   ];
 
   return (

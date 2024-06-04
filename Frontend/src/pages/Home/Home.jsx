@@ -740,17 +740,19 @@ const Home = () => {
           <div className="flex w-2/3  gap-1">
             <div className="w-2/3">
               <img
-                src="/slider1/1.jpg"
+                src={`${imgData1[0].path}`}
                 className="h-full rounded-xl hover:scale-[1.04] transition duration-400"
               />
             </div>
             <div className="w-1/3 flex flex-col gap-1">
               <img
-                src="/slider1/2.jpg"
+                src={`${imgData1[1].path}`}
+                
                 className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
               />
               <img
-                src="/slider1/3.jpg"
+                src={`${imgData1[2].path}`}
+                
                 className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
               />
             </div>
@@ -758,17 +760,17 @@ const Home = () => {
           <div className="flex w-2/3  gap-1">
             <div className="w-1/3 flex flex-col gap-1">
               <img
-                src="/slider1/2.jpg"
+                src={`${imgData1[3].path}`}
                 className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
               />
               <img
-                src="/slider1/3.jpg"
+                src={`${imgData1[4].path}`}
                 className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
               />
             </div>
             <div className="w-2/3">
               <img
-                src="/slider1/1.jpg"
+                src={`${imgData1[5].path}`}
                 className="h-full rounded-xl hover:scale-[1.04] transition duration-400"
               />
             </div>

@@ -18,7 +18,7 @@ const Prompt = ({
   tabContentRef,
   isLoading,
   handlePayment,
-  type
+  type,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -132,6 +132,11 @@ const Prompt = ({
 
   useEffect(() => {
     if (localStorage.getItem("userData")) {
+      setUserData({
+        email: "",
+        gender: "",
+        files: "",
+      });
       localStorage.clear();
     }
   }, []);
