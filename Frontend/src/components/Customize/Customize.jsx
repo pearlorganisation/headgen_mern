@@ -95,6 +95,7 @@ const Customize = ({
               data={customizePriceCardData}
               userData={userData}
               setUserData={setUserData}
+              type={type}
             />
           </div>
         </>
@@ -106,7 +107,7 @@ const Customize = ({
       ele: (
         <>
           <div>
-            <OrderDetails userData={userData} files={files} />
+            <OrderDetails userData={userData} files={files} type={type} />
           </div>
         </>
       ),

@@ -85,6 +85,7 @@ const Prompt = ({
               data={promptPriceCardData}
               userData={userData}
               setUserData={setUserData}
+              type={type}
             />
           </div>
         </>
