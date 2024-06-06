@@ -11,6 +11,11 @@ import { IoDocumentTextOutline, IoStarSharp } from "react-icons/io5";
 import AppSvgs from "../../components/AppSvgs/AppSvgs";
 import { Link } from "react-router-dom";
 import InfinityTextSlider from "../../components/InfinitySlider/InfinityTextSlider";
+import { IoIosStar } from "react-icons/io";
+
+
+
+
 
 const Home = () => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -81,6 +86,27 @@ const Home = () => {
       path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s600",
     },
   ];
+
+  const moneyBackPics = [
+    {
+      path: "https://drive.google.com/thumbnail?id=1-yuTxTqVk1MUJqLTTd7er18kr5P8OCTk&sz=s800"
+    },
+    {
+      path: "https://drive.google.com/thumbnail?id=1BTojmvVY0brBor-8ygk8Da0Pf5hg5Ehy&sz=s800"
+    },
+    {
+      path: "https://drive.google.com/thumbnail?id=1kwIsJERRXmxJkKSz2fiaOBH_snegH_Rw&sz=s800"
+    },
+    {
+      path: "https://drive.google.com/thumbnail?id=1JeU4mcxXSARi0numHMq50gKE77n58YoW&sz=s800"
+    },
+    {
+      path: "https://drive.google.com/thumbnail?id=1ozRhdPh0CxeqBqpvrlHRCBM1DGiT5yeS&sz=s800"
+    },
+    {
+      path: "https://drive.google.com/thumbnail?id=1vwncdW707s3uPh3R4qN-4NYzbMGMfICl&sz=s800"
+    }
+  ]
 
   const reviewData1 = [
     {
@@ -259,7 +285,7 @@ const Home = () => {
       title: "Team photo",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "https://drive.google.com/thumbnail?id=1g8wYwg9AJBt-XGjDLw1vFSgpS-e9R0Gr&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1gnE0uAxmhalTCEqiJdDa3bObYZZ5hCf3&sz=s600",
       svg: (
         <>
           <MdGroups size={22} className="text-blue-500" />
@@ -383,10 +409,35 @@ const Home = () => {
               isAnimated ? "animatedReveal" : "invisible"
             }`}
           >
-            <img
-              src="https://drive.google.com/thumbnail?id=16C5DFniIaPKuMMKI1DHrYT2P2_YGON-2&sz=s300"
-              className="w-[250px] 2xl:w-[350px]"
+            <div className="flex gap-1">
+              <span className="flex flex-col justify-center">
+              <img
+              src="https://drive.google.com/thumbnail?id=1CeH2wAEjMNSiQRdRtSl2B3PIRsLEwLHp&sz=s120"              
             />
+              </span>
+            
+            
+              <div className=" flex flex-col leading-tight">
+              <span className="flex gap-1 justify-start">
+                
+                  <IoIosStar className="text-yellow-400" size={21} />
+                  <IoIosStar className="text-yellow-400" size={21} />
+                  <IoIosStar className="text-yellow-400" size={21} />
+                  <IoIosStar className="text-yellow-400" size={21} />
+                  <IoIosStar className="text-yellow-400" size={21} />
+               
+              </span>
+                
+              <span className="text-[#f1f1f1] text-[13px] ">
+                Rated 4.9 Stars in over
+              </span>
+              <span className="text-[#f1f1f1] text-[13px] ">
+                30,000+ AI Headshots
+              </span>
+              </div>
+
+            </div>
+            
           </div>
         </div>
         <div
@@ -513,10 +564,8 @@ const Home = () => {
             </div>
           </div>
           <div className="w-3/5 flex flex-col gap-6 items-center">
-            <div className="w-full">
-              <video
-                src="https://drive.google.com/uc?id=16UKFJcaT2Y3Kn9dsSakqJl6uVfYJITEb"
-              ></video>
+            <div className="w-full flex justify-center">
+            <iframe src="https://drive.google.com/file/d/16UKFJcaT2Y3Kn9dsSakqJl6uVfYJITEb/preview" width="640" height="480" className="rounded-2xl"></iframe>
             </div>
 
             <div className="text-[#F1F1F1] text-[10px]">
@@ -720,7 +769,7 @@ const Home = () => {
             </div>
           </div>
           <div className=" w-[50%]">
-            <img src="/infoBanner.png" className="w-full h-full" />
+            <img src="https://drive.google.com/thumbnail?id=1Q-ep4Ux-9JwiXyH3vvD4UWIEBqOHq9JI&sz=s800" className="w-full h-full" />
           </div>
         </div>
 
@@ -808,17 +857,17 @@ const Home = () => {
           <div className="flex w-2/3  gap-1">
             <div className="w-2/3">
               <img
-                src={`${imgData1[0].path}`}
+                src={`${moneyBackPics[0].path}`}
                 className="h-full rounded-xl hover:scale-[1.04] transition duration-400"
               />
             </div>
             <div className="w-1/3 flex flex-col gap-1">
               <img
-                src={`${imgData1[1].path}`}
+                src={`${moneyBackPics[1].path}`}
                 className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
               />
               <img
-                src={`${imgData1[2].path}`}
+                src={`${moneyBackPics[2].path}`}
                 className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
               />
             </div>
@@ -826,17 +875,17 @@ const Home = () => {
           <div className="flex w-2/3  gap-1">
             <div className="w-1/3 flex flex-col gap-1">
               <img
-                src={`${imgData1[3].path}`}
+                src={`${moneyBackPics[3].path}`}
                 className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
               />
               <img
-                src={`${imgData1[4].path}`}
+                src={`${moneyBackPics[4].path}`}
                 className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
               />
             </div>
             <div className="w-2/3">
               <img
-                src={`${imgData1[5].path}`}
+                src={`${moneyBackPics[5].path}`}
                 className="h-full rounded-xl hover:scale-[1.04] transition duration-400"
               />
             </div>

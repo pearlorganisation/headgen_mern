@@ -7,15 +7,18 @@ const HowItWorks = () => {
   const cardData = [
     {
       title: "Upload a selfie",
-      imgPath: "https://drive.google.com/thumbnail?id=1Z2eHvjtVo6jYo9EGwSPYILub23hsMxBY&sz=s600",
+      imgPath:
+        "https://drive.google.com/thumbnail?id=1Z2eHvjtVo6jYo9EGwSPYILub23hsMxBY&sz=s600",
     },
     {
       title: "Make payment",
-      imgPath: "https://drive.google.com/thumbnail?id=1pndNiBuEgvuDl_RVGFTpw_W6vCCWvCn1&sz=s600",
+      imgPath:
+        "https://drive.google.com/thumbnail?id=1pndNiBuEgvuDl_RVGFTpw_W6vCCWvCn1&sz=s600",
     },
     {
       title: "Get Images",
-      imgPath: "https://drive.google.com/thumbnail?id=17smkegUhG8QWeR3v8xMhLqx8gGPG8l1a&sz=s600",
+      imgPath:
+        "https://drive.google.com/thumbnail?id=17smkegUhG8QWeR3v8xMhLqx8gGPG8l1a&sz=s600",
     },
   ];
 
@@ -83,12 +86,13 @@ const HowItWorks = () => {
             </div>
           </div>
           <div className="w-3/5 flex flex-col gap-6 items-center">
-            <div className="w-full">
-              <img
-                src="/howitworks.png"
-                className="w-full rounded-2xl"
-                alt=""
-              />
+            <div className="w-full flex justify-center">
+              <iframe
+                src="https://drive.google.com/file/d/16UKFJcaT2Y3Kn9dsSakqJl6uVfYJITEb/preview"
+                width="640"
+                height="480"
+                className="rounded-2xl"
+              ></iframe>
             </div>
 
             <div className="text-[#F1F1F1] text-[10px]">
@@ -180,7 +184,7 @@ const HowItWorks = () => {
           </span>
         </div>
 
-        <div className="container rounded-xl flex ">
+        <div className="container rounded-xl flex justify-center">
           <Link to={`/upload/customize`}>
             <img
               src={`/howItWorks/customizeSection.png`}
@@ -198,7 +202,7 @@ const HowItWorks = () => {
           </span>
         </div>
 
-        <div className="container rounded-xl flex ">
+        <div className="container rounded-xl flex justify-center">
           <Link to={`/upload/prompt`}>
             <img
               src={`/howItWorks/promptSection.png`}
