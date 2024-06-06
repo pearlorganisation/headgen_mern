@@ -4,7 +4,7 @@ import OrderDetails from "../OrderDetails/OrderDetails";
 import PriceCards from "../PriceCards/PriceCards";
 import { useStateManager } from "react-select";
 
-const CustomizeTabs = ({ setUserData, userData }) => {
+const CustomizeTabs = ({ setUserData, userData, type }) => {
   const temp = [
     {
       section: "Formal",
@@ -129,7 +129,7 @@ const CustomizeTabs = ({ setUserData, userData }) => {
   useEffect(() => {
     if (data?.section?.length > 0 && data?.subSection?.length > 0) {
       setUserData((prevData) => {
-        let tempData = { ...prevData }
+        let tempData = { generationTypes: 'datingCustomize', ...prevData }
         tempData.customizeData = data
         return tempData
       })
@@ -149,6 +149,8 @@ const CustomizeTabs = ({ setUserData, userData }) => {
                   type="radio"
                   value={item?.section}
                   id={`${item?.section}`}
+                  checked={userData?.customizeData
+                    ?.section === item?.section}
                 />
                 <label
                   onClick={() => {
@@ -160,7 +162,7 @@ const CustomizeTabs = ({ setUserData, userData }) => {
                       return data;
                     });
                   }}
-                  className="px-6 py-2  flex justify-center items-center gap-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300"
+                  className={`px-6 py-2  flex justify-center items-center gap-2 ${type === "Dating" ? 'hover:shadow-[0_3px#DE3769] hover:text-[#DE3769] peer-checked:shadow-[0_3px#DE3769]' : 'hover:shadow-[0_3px#0000FF] hover:text-blue-700 peer-checked:shadow-[0_3px#0000FF]'}   font-medium cursor-pointer border-4 border-transparent  ring-indigo-500/80 transition duration-300`}
                   htmlFor={item?.section}
                 >
                   <span>{item?.icon}</span>
@@ -180,6 +182,8 @@ const CustomizeTabs = ({ setUserData, userData }) => {
                   type="radio"
                   value={item?.title}
                   id={`${item?.title}`}
+                  checked={userData?.customizeData
+                    ?.subSection === item?.title}
                 />
                 <label
                   onClick={() => {
@@ -191,7 +195,7 @@ const CustomizeTabs = ({ setUserData, userData }) => {
                       return data;
                     });
                   }}
-                  className="px-6 py-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300"
+                  className={`px-6 py-2 ${type === "Dating" ? 'hover:shadow-[0_3px#DE3769] hover:text-[#DE3769] peer-checked:shadow-[0_3px#DE3769]' : 'hover:shadow-[0_3px#0000FF] hover:text-blue-700 peer-checked:shadow-[0_3px#0000FF]'}  font-medium cursor-pointer border-4 border-transparent  ring-indigo-500/80 transition duration-300`}
                   htmlFor={item?.title}
                 >
                   {item?.title}{" "}
