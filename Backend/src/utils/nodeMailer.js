@@ -142,12 +142,7 @@ export const sendMailToCustomer = async (userData, images) => {
                 border-width: 4px 0 0;
               }
             }
-            .gradientText {
-              background: -webkit-linear-gradient(#02afdc, #2563eb) !important;
-              background-clip: text;
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-            }
+            
           </style>
         </head>
         <body style="box-sizing: border-box; margin: 0; padding: 0; width: 100%; word-break: break-word; -webkit-font-smoothing: antialiased; background-color: #131a29;">
@@ -161,7 +156,7 @@ export const sendMailToCustomer = async (userData, images) => {
                       <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
                           <td width="80%">
-                            <h1 class="sm-text-lg all-font-roboto gradientText" style="font-weight: 700; line-height: 100%; margin: 0; margin-bottom: 4px; font-size: 24px;">Customer Receipt</h1>
+                            <h1 class="sm-text-lg all-font-roboto" style="font-weight: 700; line-height: 100%; margin: 0; margin-bottom: 4px; font-size: 24px;">Customer Receipt</h1>
                             <p class="sm-text-xs" style="margin: 0; color: #a0aec0; font-size: 14px;">Your Headshot generation has been confirmed</p>
                           </td>
                           
@@ -317,12 +312,7 @@ export const sendMailToCustomer = async (userData, images) => {
               }
             }
 
-            .gradientText {
-              background: -webkit-linear-gradient(#02afdc, #2563eb) !important;
-              background-clip: text;
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-            }
+            
           </style>
         </head>
         <body style="box-sizing: border-box; margin: 0; padding: 0; width: 100%; word-break: break-word; -webkit-font-smoothing: antialiased; background-color: #131a29;">
@@ -339,7 +329,7 @@ export const sendMailToCustomer = async (userData, images) => {
                           <div> 
                             HeadGen AI
                           <div>
-                            <h1 class="sm-text-lg all-font-roboto gradientText" style="font-weight: 700; line-height: 100%; margin: 0; margin-bottom: 4px; font-size: 24px;">Customer Receipt</h1>
+                            <h1 class="sm-text-lg all-font-roboto " style="font-weight: 700; line-height: 100%; margin: 0; margin-bottom: 4px; font-size: 24px;">Customer Receipt</h1>
                             <p class="sm-text-xs" style="margin: 0; color: #a0aec0; font-size: 14px;">Your Headshot generation has been confirmed</p>
                           </td>
                           
