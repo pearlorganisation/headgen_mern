@@ -13,10 +13,6 @@ import { Link } from "react-router-dom";
 import InfinityTextSlider from "../../components/InfinitySlider/InfinityTextSlider";
 import { IoIosStar } from "react-icons/io";
 
-
-
-
-
 const Home = () => {
   const [isAnimated, setIsAnimated] = useState(false);
 
@@ -55,7 +51,7 @@ const Home = () => {
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1IOdDiEkZd6_mDZcTHbwlxHTn_UvD3b8u&sz=s600",
     },
     {
       name: "",
@@ -79,7 +75,7 @@ const Home = () => {
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1IOdDiEkZd6_mDZcTHbwlxHTn_UvD3b8u&sz=s600",
     },
     {
       name: "",
@@ -87,26 +83,160 @@ const Home = () => {
     },
   ];
 
+  const imgData2 = [
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1iN6QJdC099z-sZwF4DulFANX4pzk0-ZV&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1M7RY1kEidRgYwuKHqdQD3EE4ceqllceP&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1pLhQ7362mUm1pigmHZn7W1yBCylPI0Si&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1cimvZE6m1QqRHudMrk5M7OSo1nsMyooL&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1pZkdZ8uiEm4-OMG8JWPsh2W3hcoL_aAG&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1Lrj_fsduOc09ZuoqYbCS1P0eDVW2rhtU&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1HQdlaoxc3sXkDj1sQ4b0HL4FLT7OfDpr&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1iN6QJdC099z-sZwF4DulFANX4pzk0-ZV&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1iN6QJdC099z-sZwF4DulFANX4pzk0-ZV&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1M7RY1kEidRgYwuKHqdQD3EE4ceqllceP&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1pLhQ7362mUm1pigmHZn7W1yBCylPI0Si&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1cimvZE6m1QqRHudMrk5M7OSo1nsMyooL&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1pZkdZ8uiEm4-OMG8JWPsh2W3hcoL_aAG&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1Lrj_fsduOc09ZuoqYbCS1P0eDVW2rhtU&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1HQdlaoxc3sXkDj1sQ4b0HL4FLT7OfDpr&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1iN6QJdC099z-sZwF4DulFANX4pzk0-ZV&sz=s600",
+    },
+  ];
+
+  const imgData3 = [
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=12nT1qU2jRkBLp7ATGKu032TKFo0ZAVc5&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=11u32sbG0qCLfVOKr-heDY3y8FExY4pVD&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1k1Qu3Ga_qccV88xP0JUFVUzQATkJUCoD&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1gsQ_4CsfKj6dhTTQRH56cOWYePqy7_c1&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=18PdL_2cETJ7YLaVZbb8_wk5R3TZTI7mr&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=12HsqR8SMa60o5d6m9JDAm8wdVY8Furox&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1Lq2DSJGiaOleHy_T3BJ-SmzQfYXQ493X&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=12nT1qU2jRkBLp7ATGKu032TKFo0ZAVc5&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=12nT1qU2jRkBLp7ATGKu032TKFo0ZAVc5&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=11u32sbG0qCLfVOKr-heDY3y8FExY4pVD&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1k1Qu3Ga_qccV88xP0JUFVUzQATkJUCoD&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1gsQ_4CsfKj6dhTTQRH56cOWYePqy7_c1&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=18PdL_2cETJ7YLaVZbb8_wk5R3TZTI7mr&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=12HsqR8SMa60o5d6m9JDAm8wdVY8Furox&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1Lq2DSJGiaOleHy_T3BJ-SmzQfYXQ493X&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=12nT1qU2jRkBLp7ATGKu032TKFo0ZAVc5&sz=s600",
+    },
+  ];
+
   const moneyBackPics = [
     {
-      path: "https://drive.google.com/thumbnail?id=1-yuTxTqVk1MUJqLTTd7er18kr5P8OCTk&sz=s800"
+      path: "https://drive.google.com/thumbnail?id=1-yuTxTqVk1MUJqLTTd7er18kr5P8OCTk&sz=s800",
     },
     {
-      path: "https://drive.google.com/thumbnail?id=1BTojmvVY0brBor-8ygk8Da0Pf5hg5Ehy&sz=s800"
+      path: "https://drive.google.com/thumbnail?id=1BTojmvVY0brBor-8ygk8Da0Pf5hg5Ehy&sz=s800",
     },
     {
-      path: "https://drive.google.com/thumbnail?id=1kwIsJERRXmxJkKSz2fiaOBH_snegH_Rw&sz=s800"
+      path: "https://drive.google.com/thumbnail?id=1kwIsJERRXmxJkKSz2fiaOBH_snegH_Rw&sz=s800",
     },
     {
-      path: "https://drive.google.com/thumbnail?id=1JeU4mcxXSARi0numHMq50gKE77n58YoW&sz=s800"
+      path: "https://drive.google.com/thumbnail?id=1JeU4mcxXSARi0numHMq50gKE77n58YoW&sz=s800",
     },
     {
-      path: "https://drive.google.com/thumbnail?id=1ozRhdPh0CxeqBqpvrlHRCBM1DGiT5yeS&sz=s800"
+      path: "https://drive.google.com/thumbnail?id=1ozRhdPh0CxeqBqpvrlHRCBM1DGiT5yeS&sz=s800",
     },
     {
-      path: "https://drive.google.com/thumbnail?id=1vwncdW707s3uPh3R4qN-4NYzbMGMfICl&sz=s800"
-    }
-  ]
+      path: "https://drive.google.com/thumbnail?id=1vwncdW707s3uPh3R4qN-4NYzbMGMfICl&sz=s800",
+    },
+  ];
 
   const reviewData1 = [
     {
@@ -230,31 +360,63 @@ const Home = () => {
   const carouselData = [
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1txAVFx9aLnrHFXleyagVbZDg_uiB0Su3&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1GQva64VK9RwqKKXLxwij_xjQPvokouBQ&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1kWVG7wtEcFcsGa_x07b8sP74DfYmanCN&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1EXfhkkgdOC9St1kPnQ07q9wUgdjlOZYr&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1jp6O0d6IJqmaOs1B2PNLdqaqN94bxUsx&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1SMQ2xrl7MRz5c82DI3jhKwOQNM1gogwI&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1_nfTW7h86j22xfgoRg5RDKlneakzWnVL&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1JAR2nnuV3lgcIHuNogFReo43cH4eLFX5&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1CG1yLmuwHl67AmB7mykNvyrxPv2AgeMt&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1nC0dEVMgMabdYRkXkzqTMAHRs14R_V_8&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1Dgd7TbeR1QnAxWNO1tqMO5j4E4ZntIJS&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1bN8gPqm_3s8A4fvMxL1bVA3W7DblM1va&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1Dl-f2UusYKhiOP0gGotp5sEkebnPKgkT&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1rdOKBj2gEskEmuZlSVKfSDe9W7DdpeAH&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1v4kjhXcrjVNONemtxzs749a6rd_ru6WV&sz=s600",
     },
   ];
 
@@ -297,12 +459,25 @@ const Home = () => {
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
       path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
+      svg: (
+        <>
+          <img
+            src="https://drive.google.com/thumbnail?id=1S87gz7PZrLzK90JmFJ2pbO1ybJHQUCIf&sz=s100"
+            className="w-[22px] h-[22px]"
+          />
+        </>
+      ),
     },
     {
       title: "Job Portal",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
       path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600",
+      svg: (
+        <>
+          <img src="/Indeed_logo.png" className="h-[16px]" />
+        </>
+      ),
     },
   ];
 
@@ -411,33 +586,26 @@ const Home = () => {
           >
             <div className="flex gap-1">
               <span className="flex flex-col justify-center">
-              <img
-              src="https://drive.google.com/thumbnail?id=1CeH2wAEjMNSiQRdRtSl2B3PIRsLEwLHp&sz=s120"              
-            />
+                <img src="https://drive.google.com/thumbnail?id=1CeH2wAEjMNSiQRdRtSl2B3PIRsLEwLHp&sz=s120" />
               </span>
-            
-            
-              <div className=" flex flex-col leading-tight">
-              <span className="flex gap-1 justify-start">
-                
-                  <IoIosStar className="text-yellow-400" size={21} />
-                  <IoIosStar className="text-yellow-400" size={21} />
-                  <IoIosStar className="text-yellow-400" size={21} />
-                  <IoIosStar className="text-yellow-400" size={21} />
-                  <IoIosStar className="text-yellow-400" size={21} />
-               
-              </span>
-                
-              <span className="text-[#f1f1f1] text-[13px] ">
-                Rated 4.9 Stars in over
-              </span>
-              <span className="text-[#f1f1f1] text-[13px] ">
-                30,000+ AI Headshots
-              </span>
-              </div>
 
+              <div className=" flex flex-col leading-tight">
+                <span className="flex gap-1 justify-start">
+                  <IoIosStar className="text-yellow-400" size={21} />
+                  <IoIosStar className="text-yellow-400" size={21} />
+                  <IoIosStar className="text-yellow-400" size={21} />
+                  <IoIosStar className="text-yellow-400" size={21} />
+                  <IoIosStar className="text-yellow-400" size={21} />
+                </span>
+
+                <span className="text-[#f1f1f1] text-[13px] ">
+                  Rated 4.9 Stars in over
+                </span>
+                <span className="text-[#f1f1f1] text-[13px] ">
+                  30,000+ AI Headshots
+                </span>
+              </div>
             </div>
-            
           </div>
         </div>
         <div
@@ -565,7 +733,12 @@ const Home = () => {
           </div>
           <div className="w-3/5 flex flex-col gap-6 items-center">
             <div className="w-full flex justify-center">
-            <iframe src="https://drive.google.com/file/d/16UKFJcaT2Y3Kn9dsSakqJl6uVfYJITEb/preview" width="640" height="480" className="rounded-2xl"></iframe>
+              <iframe
+                src="https://drive.google.com/file/d/16UKFJcaT2Y3Kn9dsSakqJl6uVfYJITEb/preview"
+                width="640"
+                height="480"
+                className="rounded-2xl"
+              ></iframe>
             </div>
 
             <div className="text-[#F1F1F1] text-[10px]">
@@ -716,7 +889,7 @@ const Home = () => {
         </div>
 
         <div className="py-16">
-          <InfinitySlider imgData1={imgData1} imgData2={imgData1} />
+          <InfinitySlider imgData1={imgData2} imgData2={imgData3} />
         </div>
 
         <div className="flex flex-col gap-10 items-center">
@@ -769,7 +942,10 @@ const Home = () => {
             </div>
           </div>
           <div className=" w-[50%]">
-            <img src="https://drive.google.com/thumbnail?id=1Q-ep4Ux-9JwiXyH3vvD4UWIEBqOHq9JI&sz=s800" className="w-full h-full" />
+            <img
+              src="https://drive.google.com/thumbnail?id=1Q-ep4Ux-9JwiXyH3vvD4UWIEBqOHq9JI&sz=s800"
+              className="w-full h-full"
+            />
           </div>
         </div>
 
