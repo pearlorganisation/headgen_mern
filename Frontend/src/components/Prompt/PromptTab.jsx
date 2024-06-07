@@ -6,9 +6,15 @@ const PromptTab = ({ userData, setUserData, errors, type }) => {
 
   useEffect(() => {
     setUserData((prevData) => {
-      let tempData = { generationTypes: 'datingPrompt', ...prevData };
-      tempData.promptData = promptData;
-      return tempData;
+      let tempData = { ...prevData };
+      if (type === 'Dating') {
+        tempData.promptData = promptData;
+        tempData.generationType = 'datingPrompt'
+      } else {
+
+        tempData.promptData = promptData;
+      }
+      return tempData
     });
   }, [promptData]);
 

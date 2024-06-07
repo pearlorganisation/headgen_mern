@@ -98,7 +98,7 @@ const Prompt = ({
       ele: (
         <>
           <div>
-            <OrderDetails userData={userData} files={files} />
+            <OrderDetails userData={userData} files={files} type='Dating' />
           </div>
         </>
       ),
@@ -175,7 +175,7 @@ const Prompt = ({
           )}
           {currentIndex >= 0 && currentIndex < maxIndex && (
             <button
-              className={`hover:squeezyBtn px-8 py-3 ${type === 'Dating' ? 'bg-[#DE3769]' : 'bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]'}    rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+              className={`hover:squeezyBtn px-8 py-3 ${type === 'Dating' ? ' bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57]' : 'bg-[#1f58ad] hover:bg-[#1f58ad94]'}  hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
               onClick={() => {
                 updateIndex(1);
               }}

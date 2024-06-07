@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
-const OrderDetails = ({ userData, files, type }) => { 
+const OrderDetails = ({ userData, files, type }) => {
 
   const validateUserData = (item1, item2) => {
     if (
@@ -47,10 +47,10 @@ const OrderDetails = ({ userData, files, type }) => {
         <div className="w-1/2 overflow-auto">
           <div className="flex justify-center py-2 gap-2">
             <div
-              className={`w-[300px] !bg-gradient-to-br ${type != 'Dating' ? 'from-[#0d2e756c] to-[#031b4e] shadow-[0_0_0_2px_#ffffff]' : 'from-[#8a0815] shadow-[0_0_0_2px_#ffffff]'} rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center min-h-[400px] relative transition duration-300`}
+              className={`w-[300px] !bg-gradient-to-br ${type === 'Dating' ? 'from-[#8a0815] shadow-[0_0_0_2px_#ffffff]' : 'from-[#0d2e756c] to-[#031b4e] shadow-[0_0_0_2px_#ffffff]'} rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center min-h-[400px] relative transition duration-300`}
             >
 
-              <div className={`text-[22px]  bg-gradient-to-r ${type != 'Dating' ? 'from-[#afc5f5] to-[#6495ff]' : 'from-[#e73e71] to-[#af1040] '}  inline-block text-transparent bg-clip-text font-bold`}>{userData?.selectedPlan?.title}</div>
+              <div className={`text-[22px]  bg-gradient-to-r ${type = 'Dating' ? 'from-[#e73e71] to-[#af1040]' : 'from-[#afc5f5] to-[#6495ff]'}  inline-block text-transparent bg-clip-text font-bold`}>{userData?.selectedPlan?.title}</div>
               <div className="text-[36px] line-through text-[#dad4d4]">
                 {userData?.selectedPlan?.originalPrice}
               </div>
@@ -63,7 +63,7 @@ const OrderDetails = ({ userData, files, type }) => {
                       className="flex justify-center gap-2  w-full"
                     >
                       <span className="flex flex-col w-auto justify-center">
-                        <FaCheckCircle size={18} className={` ${type != 'Dating' ? 'text-[#2563EB]' : ' text-[#af1040] '}`} />
+                        <FaCheckCircle size={18} className={` ${type === 'Dating' ? 'text-[#af1040]' : ' text-[#2563EB] '}`} />
                       </span>
                       <span className="text-lg text-wrap">{e}</span>
                     </div>

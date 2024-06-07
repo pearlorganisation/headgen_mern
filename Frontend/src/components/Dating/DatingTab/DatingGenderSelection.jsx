@@ -18,6 +18,7 @@ const DatingGenderSelection = ({
     setUserData,
     errors,
     headshots = null,
+    type
 }) => {
     const { headshot } = useParams();
     const decodedParam = decodeURIComponent(headshot);
@@ -28,6 +29,7 @@ const DatingGenderSelection = ({
             console.log(headshotType);
             const updatedUserData = { ...userData };
             updatedUserData.headshotType = headshotType;
+
             setUserData(updatedUserData);
         }
     }, [headshotType]);
@@ -49,6 +51,8 @@ const DatingGenderSelection = ({
         }
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     }, []);
+
+
 
     return (
         <div className="flex flex-col gap-4 justify-between relative h-full items-center space-y-10 ">
@@ -119,6 +123,7 @@ const DatingGenderSelection = ({
                     userData={userData}
                     setUserData={setUserData}
                     errors={errors}
+                    type={type}
                 />
             </div>
         </div>

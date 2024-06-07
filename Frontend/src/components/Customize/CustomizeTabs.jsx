@@ -128,9 +128,16 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
 
   useEffect(() => {
     if (data?.section?.length > 0 && data?.subSection?.length > 0) {
+
       setUserData((prevData) => {
-        let tempData = { generationTypes: 'datingCustomize', ...prevData }
-        tempData.customizeData = data
+        let tempData = { ...prevData }
+        if (type === 'Dating') {
+          tempData.customizeData = data
+          tempData.generationType = 'datingCustomize'
+        } else {
+          tempData.customizeData = data
+
+        }
         return tempData
       })
     }
@@ -147,10 +154,10 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                   name="sectionName"
                   className="peer hidden"
                   type="radio"
+
                   value={item?.section}
                   id={`${item?.section}`}
-                  checked={userData?.customizeData
-                    ?.section === item?.section}
+
                 />
                 <label
                   onClick={() => {
@@ -162,7 +169,9 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                       return data;
                     });
                   }}
-                  className={`px-6 py-2  flex justify-center items-center gap-2 ${type === "Dating" ? 'hover:shadow-[0_3px#DE3769] hover:text-[#DE3769] peer-checked:shadow-[0_3px#DE3769]' : 'hover:shadow-[0_3px#0000FF] hover:text-blue-700 peer-checked:shadow-[0_3px#0000FF]'}   font-medium cursor-pointer border-4 border-transparent  ring-indigo-500/80 transition duration-300`}
+                  className={`px-6 py-2  flex justify-center items-center gap-2
+                   ${type === 'Dating'
+                      ? ' hover:text-[#E23A6D] peer-checked:shadow-[0_3px#E23A6D] hover:shadow-[0_3px#E23A6D]' : 'hover:text-[#E23A6D] peer-checked:shadow-[0_3px#0000FF] hover:shadow-[0_3px#0000FF]'} font-medium cursor-pointer border-4 border-transparent ring-indigo-500/80 transition duration-300`}
                   htmlFor={item?.section}
                 >
                   <span>{item?.icon}</span>
@@ -180,10 +189,10 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                   name="subSectionTitle"
                   className="peer hidden"
                   type="radio"
+
                   value={item?.title}
                   id={`${item?.title}`}
-                  checked={userData?.customizeData
-                    ?.subSection === item?.title}
+
                 />
                 <label
                   onClick={() => {
@@ -195,7 +204,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                       return data;
                     });
                   }}
-                  className={`px-6 py-2 ${type === "Dating" ? 'hover:shadow-[0_3px#DE3769] hover:text-[#DE3769] peer-checked:shadow-[0_3px#DE3769]' : 'hover:shadow-[0_3px#0000FF] hover:text-blue-700 peer-checked:shadow-[0_3px#0000FF]'}  font-medium cursor-pointer border-4 border-transparent  ring-indigo-500/80 transition duration-300`}
+                  className={`px-6 py-2   font-medium cursor-pointer border-4 border-transparent ${type === 'Dating' ? ' hover:text-[#E23A6D] peer-checked:shadow-[0_3px#E23A6D] hover:shadow-[0_3px#E23A6D]' : 'hover:text-[#E23A6D] peer-checked:shadow-[0_3px#0000FF] hover:shadow-[0_3px#0000FF]'}  ring-indigo-500/80 transition duration-300`}
                   htmlFor={item?.title}
                 >
                   {item?.title}{" "}
