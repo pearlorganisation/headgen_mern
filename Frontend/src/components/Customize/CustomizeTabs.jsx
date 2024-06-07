@@ -132,11 +132,12 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
         let tempData = { ...prevData }
         if (type === 'Dating') {
           tempData.customizeDatingData = data
+          tempData.generationTypes = 'datingCustomize'
         } else {
           tempData.customizeData = data
 
         }
-        return tempData
+
       })
     }
   }, [data]);
@@ -152,11 +153,11 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                   name="sectionName"
                   className="peer hidden"
                   type="radio"
-                  checked={userData?.customizeDatingData
-                    ?.
-                    section === item?.section}
+
                   value={item?.section}
                   id={`${item?.section}`}
+                  checked={userData?.customizeData
+                    ?.section === item?.section}
                 />
                 <label
                   onClick={() => {
@@ -188,10 +189,11 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                   name="subSectionTitle"
                   className="peer hidden"
                   type="radio"
-                  checked={userData?.customizeDatingData
-                    ?.subSection === item?.title}
+
                   value={item?.title}
                   id={`${item?.title}`}
+                  checked={userData?.customizeData
+                    ?.subSection === item?.title}
                 />
                 <label
                   onClick={() => {

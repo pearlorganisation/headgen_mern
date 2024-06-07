@@ -86,25 +86,25 @@ const HeadshotSelection = ({
           >
             <SwiperSlide className="flex justify-center ">
               <img
-                src="/slider1/1.jpg"
+                src="https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s600"
                 className="!h-[320px] mx-auto"
               />
             </SwiperSlide>
             <SwiperSlide className="flex justify-center">
               <img
-                src="/slider1/1.jpg"
+                src="https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s600"
                 className="!h-[320px] mx-auto"
               />
             </SwiperSlide>
             <SwiperSlide className="flex justify-center">
               <img
-                src="/slider1/1.jpg"
+                src="https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s600"
                 className="!h-[320px]  mx-auto"
               />
             </SwiperSlide>
             <SwiperSlide className="flex justify-center">
               <img
-                src="/slider1/1.jpg"
+                src="https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600"
                 className="!h-[320px]  mx-auto"
               />
             </SwiperSlide>

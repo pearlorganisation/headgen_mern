@@ -1,10 +1,9 @@
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
+  host: "smtp.hostinger.com",
   port: 465,
   secure: true, // Use `true` for port 465, `false` for all other ports
-  service: "gmail",
   auth: {
     user: process.env.MAIL_ID,
     pass: process.env.MAIL_PWD,
@@ -143,9 +142,10 @@ export const sendMailToCustomer = async (userData, images) => {
                 border-width: 4px 0 0;
               }
             }
+            
           </style>
         </head>
-        <body style="box-sizing: border-box; margin: 0; padding: 0; width: 100%; word-break: break-word; -webkit-font-smoothing: antialiased; background-color: #f5dbce;">
+        <body style="box-sizing: border-box; margin: 0; padding: 0; width: 100%; word-break: break-word; -webkit-font-smoothing: antialiased; background-color: #131a29;">
           <div style="display: none; line-height: 0; font-size: 0;">Thanks for placing your Image generation request with HeadGen AI</div>
           <table class="wrapper all-font-sans" width="100%" height="100%" cellpadding="0" cellspacing="0" role="presentation">
             <tr>
@@ -311,9 +311,11 @@ export const sendMailToCustomer = async (userData, images) => {
                 border-width: 4px 0 0;
               }
             }
+
+            
           </style>
         </head>
-        <body style="box-sizing: border-box; margin: 0; padding: 0; width: 100%; word-break: break-word; -webkit-font-smoothing: antialiased; background-color: #f5dbce;">
+        <body style="box-sizing: border-box; margin: 0; padding: 0; width: 100%; word-break: break-word; -webkit-font-smoothing: antialiased; background-color: #131a29;">
           <div style="display: none; line-height: 0; font-size: 0;">Thanks for placing your Image generation request with HeadGen AI</div>
           <table class="wrapper all-font-sans" width="100%" height="100%" cellpadding="0" cellspacing="0" role="presentation">
             <tr>
@@ -324,7 +326,10 @@ export const sendMailToCustomer = async (userData, images) => {
                       <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
                           <td width="80%">
-                            <h1 class="sm-text-lg all-font-roboto" style="font-weight: 700; line-height: 100%; margin: 0; margin-bottom: 4px; font-size: 24px;">Customer Receipt</h1>
+                          <div> 
+                            HeadGen AI
+                          <div>
+                            <h1 class="sm-text-lg all-font-roboto " style="font-weight: 700; line-height: 100%; margin: 0; margin-bottom: 4px; font-size: 24px;">Customer Receipt</h1>
                             <p class="sm-text-xs" style="margin: 0; color: #a0aec0; font-size: 14px;">Your Headshot generation has been confirmed</p>
                           </td>
                           

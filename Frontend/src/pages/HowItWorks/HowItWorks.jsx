@@ -7,58 +7,61 @@ const HowItWorks = () => {
   const cardData = [
     {
       title: "Upload a selfie",
-      imgPath: "/aiBlog/1.png",
+      imgPath:
+        "https://drive.google.com/thumbnail?id=1Z2eHvjtVo6jYo9EGwSPYILub23hsMxBY&sz=s600",
     },
     {
       title: "Make payment",
-      imgPath: "/aiBlog/2.png",
+      imgPath:
+        "https://drive.google.com/thumbnail?id=1pndNiBuEgvuDl_RVGFTpw_W6vCCWvCn1&sz=s600",
     },
     {
       title: "Get Images",
-      imgPath: "/aiBlog/3.png",
+      imgPath:
+        "https://drive.google.com/thumbnail?id=17smkegUhG8QWeR3v8xMhLqx8gGPG8l1a&sz=s600",
     },
   ];
 
   const imgData1 = [
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1zltDX4qtRqhuof60XWaTdOwQXSCQhETw=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s600",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s600",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1HMLeKlSPY97lR-viypYIXazQF8uKjra5=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s600",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s600",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s600",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s600",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1zltDX4qtRqhuof60XWaTdOwQXSCQhETw=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600",
     },
     {
       name: "",
-      path: "https://lh3.googleusercontent.com/d/1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf=s800?authuser=0",
+      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s600",
     },
   ];
 
@@ -83,12 +86,13 @@ const HowItWorks = () => {
             </div>
           </div>
           <div className="w-3/5 flex flex-col gap-6 items-center">
-            <div className="w-full">
-              <img
-                src="/howitworks.png"
-                className="w-full rounded-2xl"
-                alt=""
-              />
+            <div className="w-full flex justify-center">
+              <iframe
+                src="https://drive.google.com/file/d/16UKFJcaT2Y3Kn9dsSakqJl6uVfYJITEb/preview"
+                width="640"
+                height="480"
+                className="rounded-2xl"
+              ></iframe>
             </div>
 
             <div className="text-[#F1F1F1] text-[10px]">
@@ -180,7 +184,7 @@ const HowItWorks = () => {
           </span>
         </div>
 
-        <div className="container rounded-xl flex ">
+        <div className="container rounded-xl flex justify-center">
           <Link to={`/upload/customize`}>
             <img
               src={`/howItWorks/customizeSection.png`}
@@ -198,7 +202,7 @@ const HowItWorks = () => {
           </span>
         </div>
 
-        <div className="container rounded-xl flex ">
+        <div className="container rounded-xl flex justify-center">
           <Link to={`/upload/prompt`}>
             <img
               src={`/howItWorks/promptSection.png`}

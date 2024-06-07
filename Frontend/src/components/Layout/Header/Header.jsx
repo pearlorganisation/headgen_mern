@@ -141,7 +141,7 @@ const Header = () => {
 
   return (
     <nav
-      className={`fixed w-full ${
+      className={`fixed w-screen ${
         toggleNav ? toggleCss : ""
       } px-10 2xl:px-[250px] h-fit border-[#737373] border-b-[2px] z-[99]  `}
     >
@@ -152,97 +152,90 @@ const Header = () => {
           </Link>
         </div>
 
-        {windowWidth <= 970 ? (
-          <>
-            <button
-              type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              onClick={() => setShowMobDropdown(!showMobDropdown)}
+        <div className="lg:hidden">
+          <div
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg"
+            onClick={() => setShowMobDropdown(!showMobDropdown)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <svg
+              className="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
             >
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="w-5 h-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 17 14"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M1 1h15M1 7h15M1 13h15"
-                />
-              </svg>
-            </button>
-            <div
-              className={`${
-                showMobDropdown ? "" : "hidden"
-              } absolute top-[102%] left-0 w-full bg-[#2f2f31] flex flex-col shadow-[0_2px_2px#121212]`}
-            >
-              {navData &&
-                navData.map((item, idx) => (
-                  <>
-                    {item.showDropdown ? (
-                      <SubDropdown
-                        key={`navData${idx}`}
-                        data={item}
-                        setShowMobDropdown={setShowMobDropdown}
-                      />
-                    ) : (
-                      <Link
-                        key={`navData${idx}`}
-                        href={item.path}
-                        className="w-full flex justify-center hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-lg py-2 hover:bg-blue-600 hover:text-white transition duration-300 "
-                        onClick={() => setShowMobDropdown(false)}
-                      >
-                        <span className="w-[120px] text-center">
-                          {item.name}
-                        </span>
-                      </Link>
-                    )}
-                  </>
-                ))}
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="flex flex-row gap-4">
-              {navData.map((item, idx) => (
-                <HeaderLink
-                  key={`header${idx}`}
-                  data={item}
-                  showDropdown={item?.showDropdown}
-                />
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </div>
+          <div
+            className={`${
+              showMobDropdown ? "" : "hidden"
+            } absolute top-[102%] left-0 w-full bg-[#2f2f31] flex flex-col shadow-[0_2px_2px#121212]`}
+          >
+            {navData &&
+              navData.map((item, idx) => (
+                <>
+                  {item.showDropdown ? (
+                    <SubDropdown
+                      key={`navData${idx}`}
+                      data={item}
+                      setShowMobDropdown={setShowMobDropdown}
+                    />
+                  ) : (
+                    <Link
+                      key={`navData${idx}`}
+                      href={item.path}
+                      className="w-full flex justify-center hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-lg py-2 hover:bg-blue-600 hover:text-white transition duration-300 "
+                      onClick={() => setShowMobDropdown(false)}
+                    >
+                      <span className="w-[120px] text-center">{item.name}</span>
+                    </Link>
+                  )}
+                </>
               ))}
+          </div>
+        </div>
 
-              {/* button */}
-              <div className="h-full flex flex-col justify-center py-3">
-                <Link
-                  to={`/upload/${
-                    isDatingPage ? "dating" : "Corporate%20Headshots"
-                  }`}
-                  className={`hover:squeezyBtn px-5 py-4 ${
-                    toggleNav
-                      ? `${
-                          isDatingPage
-                            ? "shadow-[0_1px_2px_0_#131313] bg-[#af2828d8] hover:bg-[#1d2838]"
-                            : "shadow-[0_1px_2px_0_#131313] bg-[#4f3bffd8] hover:bg-[#1d2838]"
-                        }`
-                      : `${
-                          isDatingPage
-                            ? "bg-[#1d2838] hover:bg-[#af2828d8]"
-                            : "bg-[#1d2838] hover:bg-[#1f58ad]"
-                        }`
-                  } hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#ffffff] text-[15px] font-medium transition duration-[0.6s]`}
-                >
-                  Get Started
-                </Link>
-              </div>
-            </div>
-          </>
-        )}
+        <div className="lg:flex flex-row gap-4 hidden ">
+          {navData.map((item, idx) => (
+            <HeaderLink
+              key={`header${idx}`}
+              data={item}
+              showDropdown={item?.showDropdown}
+            />
+          ))}
+
+          {/* button */}
+          <div className="h-full flex flex-col justify-center py-3">
+            <Link
+              to={`/upload/${
+                isDatingPage ? "dating" : "Corporate%20Headshots"
+              }`}
+              className={`hover:squeezyBtn px-5 py-4 ${
+                toggleNav
+                  ? `${
+                      isDatingPage
+                        ? "shadow-[0_1px_2px_0_#131313] bg-[#af2828d8] hover:bg-[#1d2838]"
+                        : "shadow-[0_1px_2px_0_#131313] bg-[#4f3bffd8] hover:bg-[#1d2838]"
+                    }`
+                  : `${
+                      isDatingPage
+                        ? "bg-[#1d2838] hover:bg-[#af2828d8]"
+                        : "bg-[#1d2838] hover:bg-[#1f58ad]"
+                    }`
+              } hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#ffffff] text-[15px] font-medium transition duration-[0.6s]`}
+            >
+              Get Started
+            </Link>
+          </div>
+        </div>
       </div>
     </nav>
   );
