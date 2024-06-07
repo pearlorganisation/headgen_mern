@@ -52,6 +52,7 @@ const Customize = ({
             userData={userData}
             setUserData={setUserData}
             errors={errors}
+            type={type}
           />
         </>
       ),
