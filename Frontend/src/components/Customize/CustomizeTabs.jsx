@@ -128,16 +128,17 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
 
   useEffect(() => {
     if (data?.section?.length > 0 && data?.subSection?.length > 0) {
+
       setUserData((prevData) => {
         let tempData = { ...prevData }
         if (type === 'Dating') {
-          tempData.customizeDatingData = data
-          tempData.generationTypes = 'datingCustomize'
+          tempData.customizeData = data
+          tempData.generationType = 'datingCustomize'
         } else {
           tempData.customizeData = data
 
         }
-
+        return tempData
       })
     }
   }, [data]);
@@ -156,8 +157,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
 
                   value={item?.section}
                   id={`${item?.section}`}
-                  checked={userData?.customizeData
-                    ?.section === item?.section}
+
                 />
                 <label
                   onClick={() => {
@@ -192,8 +192,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
 
                   value={item?.title}
                   id={`${item?.title}`}
-                  checked={userData?.customizeData
-                    ?.subSection === item?.title}
+
                 />
                 <label
                   onClick={() => {

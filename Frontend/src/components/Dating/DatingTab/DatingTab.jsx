@@ -9,6 +9,7 @@ import UserDetails from "../../UserDetails/UserDetails";
 import axios from 'axios'
 import Prompt from "../../Prompt/Prompt";
 import DatingGenderSelection from "./DatingGenderSelection";
+import { BeatLoader } from "react-spinners";
 
 
 const DatingTab = () => {
@@ -23,6 +24,7 @@ const DatingTab = () => {
   const [files, setFiles] = useState([]);
   const [tabSwitched, setTabSwitched] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const tabs = ["Individual", "Customize", "Prompts"];
   const [tabText, setTabText] = useState("Individual");
@@ -72,7 +74,7 @@ const DatingTab = () => {
             userData={userData}
             setUserData={setUserData}
             errors={errors}
-            dataType={'dating'}
+            type='Dating'
           />
         </>
       ),
@@ -220,7 +222,9 @@ const DatingTab = () => {
     });
   };
 
-  const handlePayment = async () => {
+  const handlePayment = async (type) => {
+
+    setIsLoading(true);
     let newFiles = await convertFiles();
     let formData = new FormData();
 
@@ -234,9 +238,21 @@ const DatingTab = () => {
     }
     // formData.append("file", newArr);
     formData.append("email", userData.email);
-    formData.append("gender", userData.gender);
-    formData.append("headshotType", userData.headshotType);
     formData.append("selectedPlan", JSON.stringify(userData.selectedPlan));
+    formData.append("gender", userData.gender);
+    formData.append("generationType", userData?.
+      generationType
+    )
+
+    if (type === 'individual') {
+      formData.append("headshotType", userData.headshotType);
+
+    }
+    if (type === "customize") {
+      formData.append("customizeData", JSON.stringify(userData?.customizeData));
+    } else if (type === "prompt") {
+      formData.append("promptData", JSON.stringify(userData?.promptData));
+    }
 
     axios
       .post(`${import.meta.env.VITE_API_URL}/payment/checkout`, formData, {
@@ -247,13 +263,15 @@ const DatingTab = () => {
       .then((res) => {
         if (res.data.sessionUrl) {
           window.location.href = res.data.sessionUrl;
+          setIsLoading(false);
         }
       })
       .catch((err) => {
+        setIsLoading(false);
+
         console.error(err);
       });
-
-  };
+  }
 
   return (
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px] gradientBgRed py-6">
@@ -334,10 +352,14 @@ const DatingTab = () => {
                   <button
                     className={`hover:squeezyBtn px-8 py-3 bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436] hover:shadow-[0_0_0_1px_#ffffff]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
                     onClick={() => {
-                      handlePayment();
+                      handlePayment('dating');
                     }}
                   >
-                    Proceed to Payment
+                    {isLoading ? (
+                      <BeatLoader color="#1f58ad94" />
+                    ) : (
+                      "Proceed to Payment"
+                    )}
                   </button>
                 )}
               </div>
@@ -369,6 +391,7 @@ const DatingTab = () => {
               fileErrorMsg={fileErrorMsg}
               setFileErrorMsg={setFileErrorMsg}
               errors={errors}
+              handlePayment={handlePayment}
               type='Dating'
             />
           )}

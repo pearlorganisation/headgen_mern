@@ -29,6 +29,19 @@ const UserDetails = ({ userData, setUserData, errors, type }) => {
     updatedUserData.gender = gender;
     setUserData(updatedUserData);
   }, [email, gender]);
+  useEffect(() => {
+    setUserData((prevData) => {
+      let tempData = { ...prevData };
+      if (type === 'Dating') {
+        tempData.generationType = 'individualDating'
+      } else {
+
+        // tempData.promptData = promptData;
+      }
+      return tempData
+    });
+  }, [email]);
+
 
   return (
     <>

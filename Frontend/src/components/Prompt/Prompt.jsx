@@ -98,7 +98,7 @@ const Prompt = ({
       ele: (
         <>
           <div>
-            <OrderDetails userData={userData} files={files} />
+            <OrderDetails userData={userData} files={files} type='Dating' />
           </div>
         </>
       ),

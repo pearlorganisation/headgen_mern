@@ -143,10 +143,16 @@ const Tab = () => {
     }
     // formData.append("file", newArr);
     formData.append("email", userData.email);
-    formData.append("gender", userData.gender);
-    formData.append("headshotType", userData.headshotType);
     formData.append("selectedPlan", JSON.stringify(userData.selectedPlan));
-    formData.append("generationType", type)
+    formData.append("gender", userData.gender);
+    formData.append("generationType", userData?.
+      generationType
+    )
+
+    if (type === 'individual') {
+      formData.append("headshotType", userData.headshotType);
+
+    }
     if (type === "customize") {
       formData.append("customizeData", JSON.stringify(userData?.customizeData));
     } else if (type === "prompt") {
