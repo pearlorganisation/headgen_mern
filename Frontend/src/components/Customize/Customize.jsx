@@ -155,10 +155,20 @@ const Customize = ({
 
   useEffect(() => {
     if (localStorage.getItem("userData")) {
-      setUserData({
-        email: "",
-        gender: "",
-        files: "",
+      setUserData(prev => {
+        if (type === 'Dating') {
+          return {
+            email: "",
+            gender: "",
+            files: "",
+            generationType: 'datingCustomize'
+          }
+        } return {
+          email: "",
+          gender: "",
+          files: "",
+        }
+
       });
       localStorage.clear();
     }

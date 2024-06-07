@@ -133,13 +133,24 @@ const Prompt = ({
 
   useEffect(() => {
     if (localStorage.getItem("userData")) {
-      setUserData({
-        email: "",
-        gender: "",
-        files: "",
+      setUserData(prev => {
+        if (type === 'Dating') {
+          return {
+            email: "",
+            gender: "",
+            files: "",
+            generationType: 'datingPrompt'
+          }
+        } return {
+          email: "",
+          gender: "",
+          files: "",
+        }
+
       });
       localStorage.clear();
     }
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
   useEffect(() => {
