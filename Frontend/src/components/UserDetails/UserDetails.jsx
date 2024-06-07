@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { IoManSharp, IoWoman } from "react-icons/io5"
 
-const UserDetails = ({ userData, setUserData, errors }) => {
+const UserDetails = ({ userData, setUserData, errors, type }) => {
   const [email, setEmail] = useState(userData?.email);
   const [gender, setGender] = useState(userData?.gender);
   const genderSelections = [

@@ -4,7 +4,7 @@ import OrderDetails from "../OrderDetails/OrderDetails";
 import PriceCards from "../PriceCards/PriceCards";
 import { useStateManager } from "react-select";
 
-const CustomizeTabs = ({ setUserData, userData }) => {
+const CustomizeTabs = ({ setUserData, userData, type }) => {
   const temp = [
     {
       section: "Formal",
@@ -130,7 +130,12 @@ const CustomizeTabs = ({ setUserData, userData }) => {
     if (data?.section?.length > 0 && data?.subSection?.length > 0) {
       setUserData((prevData) => {
         let tempData = { ...prevData }
-        tempData.customizeData = data
+        if (type === 'Dating') {
+          tempData.customizeDatingData = data
+        } else {
+          tempData.customizeData = data
+
+        }
         return tempData
       })
     }
@@ -147,6 +152,9 @@ const CustomizeTabs = ({ setUserData, userData }) => {
                   name="sectionName"
                   className="peer hidden"
                   type="radio"
+                  checked={userData?.customizeDatingData
+                    ?.
+                    section === item?.section}
                   value={item?.section}
                   id={`${item?.section}`}
                 />
@@ -160,7 +168,9 @@ const CustomizeTabs = ({ setUserData, userData }) => {
                       return data;
                     });
                   }}
-                  className="px-6 py-2  flex justify-center items-center gap-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300"
+                  className={`px-6 py-2  flex justify-center items-center gap-2
+                   ${type === 'Dating'
+                      ? ' hover:text-[#E23A6D] peer-checked:shadow-[0_3px#E23A6D] hover:shadow-[0_3px#E23A6D]' : 'hover:text-[#E23A6D] peer-checked:shadow-[0_3px#0000FF] hover:shadow-[0_3px#0000FF]'} font-medium cursor-pointer border-4 border-transparent ring-indigo-500/80 transition duration-300`}
                   htmlFor={item?.section}
                 >
                   <span>{item?.icon}</span>
@@ -178,6 +188,8 @@ const CustomizeTabs = ({ setUserData, userData }) => {
                   name="subSectionTitle"
                   className="peer hidden"
                   type="radio"
+                  checked={userData?.customizeDatingData
+                    ?.subSection === item?.title}
                   value={item?.title}
                   id={`${item?.title}`}
                 />
@@ -191,7 +203,7 @@ const CustomizeTabs = ({ setUserData, userData }) => {
                       return data;
                     });
                   }}
-                  className="px-6 py-2 hover:shadow-[0_3px#0000FF] hover:text-blue-700 font-medium cursor-pointer border-4 border-transparent peer-checked:shadow-[0_3px#0000FF] ring-indigo-500/80 transition duration-300"
+                  className={`px-6 py-2   font-medium cursor-pointer border-4 border-transparent ${type === 'Dating' ? ' hover:text-[#E23A6D] peer-checked:shadow-[0_3px#E23A6D] hover:shadow-[0_3px#E23A6D]' : 'hover:text-[#E23A6D] peer-checked:shadow-[0_3px#0000FF] hover:shadow-[0_3px#0000FF]'}  ring-indigo-500/80 transition duration-300`}
                   htmlFor={item?.title}
                 >
                   {item?.title}{" "}

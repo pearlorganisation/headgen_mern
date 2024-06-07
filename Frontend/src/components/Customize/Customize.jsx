@@ -52,6 +52,7 @@ const Customize = ({
             userData={userData}
             setUserData={setUserData}
             errors={errors}
+            type={type}
           />
         </>
       ),
@@ -65,6 +66,7 @@ const Customize = ({
             userData={userData}
             setUserData={setUserData}
             errors={errors}
+            type={type}
           />
         </>
       ),
@@ -120,7 +122,7 @@ const Customize = ({
     let newIndex = Math.max(currentIndex + val, 0);
 
     if (newIndex > 0 && val > 0) {
-      if (userData?.customizeData) {
+      if (userData?.customizeData || userData?.customizeDatingData) {
         setErrors({});
         if (maxIndex === currentIndex && val > 0) {
           return;
@@ -163,6 +165,14 @@ const Customize = ({
       localStorage.setItem("userImgs", files);
     }
   }, [files]);
+
+  useEffect(() => {
+
+
+    console.log(userData)
+
+  }, [userData])
+
 
   return (
     <>
