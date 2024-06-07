@@ -38,6 +38,17 @@ const DatingGenderSelection = ({
             setHeadshotType(decodedParam);
         }
     }, [decodedParam]);
+    useEffect(() => {
+        if (localStorage.getItem("userData")) {
+            setUserData({
+                email: "",
+                gender: "",
+                files: "",
+            });
+            localStorage.clear();
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }, []);
 
     return (
         <div className="flex flex-col gap-4 justify-between relative h-full items-center space-y-10 ">
