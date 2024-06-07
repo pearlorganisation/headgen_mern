@@ -10,7 +10,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-
 // solo customer mail
 
 export const sendMailToCustomer = async (userData, images) => {
@@ -27,6 +26,7 @@ export const sendMailToCustomer = async (userData, images) => {
   });
 
   let typeInfo = "";
+  let customizeData;
   switch (body.generationType) {
     case "individual":
       typeInfo = `<tr>
@@ -36,7 +36,7 @@ export const sendMailToCustomer = async (userData, images) => {
                   `;
       break;
     case "customize":
-      const customizeData = JSON.parse(body.customizeData);
+      customizeData = JSON.parse(body.customizeData);
       typeInfo = `<tr>
                       <td class="sm-w-1-4 sm-inline-block" style="color: #718096;" width="50%">Custom Section</td>
                       <td class="sm-w-3-4 sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${customizeData.section}</td>
@@ -53,6 +53,32 @@ export const sendMailToCustomer = async (userData, images) => {
                     <td class="sm-w-3-4 sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${body.promptData}</td>
                   </tr>
                   `;
+      break;
+    case "individualDating":
+      typeInfo = `<tr>
+                      <td class="sm-w-1-4 sm-inline-block" style="color: #718096;" width="50%">Headshot Type</td>
+                      <td class="sm-w-3-4 sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${body.headshotType}</td>
+                    </tr>
+                    `;
+      break;
+    case "datingCustomize":
+      customizeData = JSON.parse(body.customizeData);
+      typeInfo = `<tr>
+                        <td class="sm-w-1-4 sm-inline-block" style="color: #718096;" width="50%">Custom Section</td>
+                        <td class="sm-w-3-4 sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${customizeData.section}</td>
+                      </tr>
+                      <tr>
+                        <td class="sm-w-1-4 sm-inline-block" style="color: #718096;" width="50%">Custom Sub-Section</td>
+                        <td class="sm-w-3-4 sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${customizeData.subSection}</td>
+                      </tr>
+                      `;
+      break;
+    case "datingPrompt":
+      typeInfo = `<tr>
+                      <td class="sm-w-1-4 sm-inline-block" style="color: #718096;" width="50%">Prompt</td>
+                      <td class="sm-w-3-4 sm-inline-block" style="font-weight: 600; text-align: right;" width="50%" align="right">${body.promptData}</td>
+                    </tr>
+                    `;
       break;
   }
 
@@ -414,12 +440,10 @@ export const sendMailToCustomer = async (userData, images) => {
   });
 };
 
-
-
 // teams customer mail
 export const sendMailToTeamsCustomer = async (userData) => {
   const body = JSON.parse(userData.body);
-  const selectedPlan = JSON.parse(body.selectedPlan);  
+  const selectedPlan = JSON.parse(body.selectedPlan);
 
   const htmlContent = `    
         <html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">

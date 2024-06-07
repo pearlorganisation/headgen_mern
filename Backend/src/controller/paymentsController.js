@@ -52,19 +52,19 @@ const stripeLinks = [
   {
     price: "$29",
     packName: "Starter Pack",
-    generationType: "datingIndividual",
+    generationType: "individualDating",
     id: "price_1PKz3ECvLjbx73iC7xja49ep",
   },
   {
     price: "$45",
     packName: "Basic Pack",
-    generationType: "datingIndividual",
+    generationType: "individualDating",
     id: "price_1PKz2rCvLjbx73iCKkVyrJIO",
   },
   {
     price: "$79",
     packName: "Premium Pack",
-    generationType: "datingIndividual",
+    generationType: "individualDating",
     id: "price_1PJ8tNCvLjbx73iCtOaiKMDR",
   },
 
@@ -135,8 +135,9 @@ export const checkout = async (req, res) => {
 };
 
 export const complete = async (req, res) => {
-  const user = getUser(req.query.sessionId);
 
+  const user = getUser(req.query.sessionId);
+console.log(user)
   if (user.status) {
     // console.log(user?.user)
     const imgResult = await uploadFile(JSON.parse(user.user.files));
@@ -277,5 +278,5 @@ export const teamsCancel = (req, res) => {
     FRONTEND_URL: process.env.FRONTEND_URL,
   });
   // res.redirect(`${process.env.FRONTEND_URL}/teamscancel`);
-  
+
 };
