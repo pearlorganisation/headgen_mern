@@ -67,7 +67,6 @@ const Teams = (
         `Variety of outfits, backgrounds, and styles`,
         `High-resolution`,
         `Easy to use admin dashboard`,
-        `30 minute turnaround time`,
         `Priority Support`
     ]
 
