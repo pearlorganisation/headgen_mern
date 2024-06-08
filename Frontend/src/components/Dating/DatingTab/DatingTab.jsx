@@ -240,8 +240,7 @@ const DatingTab = () => {
     formData.append("email", userData.email);
     formData.append("selectedPlan", JSON.stringify(userData.selectedPlan));
     formData.append("gender", userData.gender);
-    formData.append("generationType", userData?.
-      generationType
+    formData.append("generationType", userData?.generationType
     )
 
     if (type === 'individual') {

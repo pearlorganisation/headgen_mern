@@ -133,20 +133,13 @@ const Tab = () => {
     let newFiles = await convertFiles();
     let formData = new FormData();
 
-    // console.log(newFiles)
-
-    // let newArr = []
-
     for (let i = 0; i < newFiles.length; i++) {
-      // newArr.push(newFiles[i])
       formData.append("images", newFiles[i]);
     }
-    // formData.append("file", newArr);
     formData.append("email", userData.email);
     formData.append("selectedPlan", JSON.stringify(userData.selectedPlan));
     formData.append("gender", userData.gender);
-    formData.append("generationType", userData?.
-      generationType
+    formData.append("generationType", userData?.generationType || type
     )
 
     if (type === 'individual') {

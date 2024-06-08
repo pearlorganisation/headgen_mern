@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const BlogCards = ({ data , datingPage}) => {
   return (
@@ -19,9 +20,9 @@ const BlogCards = ({ data , datingPage}) => {
             </div>
             {item?.btnLink && (
               <div className="w-2/3">
-                <button className="hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]">
+                <Link to='/blogs' className="flex justify-center items-center hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]">
                   Learn More
-                </button>
+                </Link>
               </div>
             )}
           </div>

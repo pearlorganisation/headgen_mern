@@ -117,6 +117,7 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
     reader.onload = function () {
       const base64 = reader.result;
       updateFile(selectedImage, base64);
+   
       // console.log(base64, "base64");
     };
     reader.readAsDataURL(blob);
