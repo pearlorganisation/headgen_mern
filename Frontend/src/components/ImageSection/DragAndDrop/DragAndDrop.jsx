@@ -74,7 +74,7 @@ const DragAndDrop = ({
           if (prevImages.length < 4) {
             return [...prevImages, fileURL];
           } else {
-            setFileErrorMsg(null)
+            setFileErrorMsg(null);
             return prevImages;
           }
         });
@@ -128,20 +128,28 @@ const DragAndDrop = ({
       <div className="w-full flex flex-wrap gap-2">
         {files &&
           files?.map((item, idx) => (
-            <div key={`previewImg${idx}`} className="w-[100px] h-[100px] rounded-lg shadow-[0_0_0_1px#ffffff] group relative">
-              <img src={item} className="w-full h-full rounded-lg" />
-              <div className="absolute flex justify-center w-full top-1/2 -translate-y-1/2  gap-4">
-                <div className="group-hover:block hidden transition duration-300 ">
+            <div
+              key={`previewImg${idx}`}
+              className="w-[120px] h-auto rounded-lg flex flex-col gap-1"
+            >
+              <div className="shadow-[0_0_0_1px#c9c9c9] rounded-lg h-2/3 max-h-[150px]">
+                <img
+                  src={item}
+                  className="w-full h-full rounded-lg object-contain"
+                />
+              </div>
+              <div className="flex justify-center w-full gap-4">
+                <div className="transition duration-300 ">
                   <FaCropSimple
-                    size={26}
-                    className="text-white cursor-pointer hover:text-blue-200"
+                    size={24}
+                    className="text-blue-500 cursor-pointer hover:text-blue-800"
                     onClick={() => setSelectedImage(item)}
                   />
                 </div>
-                <div className="group-hover:block hidden transition duration-300">
+                <div className="transition duration-300">
                   <MdDelete
-                    size={26}
-                    className="text-white cursor-pointer hover:text-blue-200"
+                    size={24}
+                    className="text-blue-500 cursor-pointer hover:text-blue-800"
                     onClick={() => deleteFile(item)}
                   />
                 </div>

@@ -116,10 +116,7 @@ const Home = () => {
       name: "",
       path: "https://drive.google.com/thumbnail?id=1iN6QJdC099z-sZwF4DulFANX4pzk0-ZV&sz=s600",
     },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1iN6QJdC099z-sZwF4DulFANX4pzk0-ZV&sz=s600",
-    },
+    
     {
       name: "",
       path: "https://drive.google.com/thumbnail?id=1M7RY1kEidRgYwuKHqdQD3EE4ceqllceP&sz=s600",
@@ -127,6 +124,10 @@ const Home = () => {
     {
       name: "",
       path: "https://drive.google.com/thumbnail?id=1pLhQ7362mUm1pigmHZn7W1yBCylPI0Si&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1iN6QJdC099z-sZwF4DulFANX4pzk0-ZV&sz=s600",
     },
     {
       name: "",

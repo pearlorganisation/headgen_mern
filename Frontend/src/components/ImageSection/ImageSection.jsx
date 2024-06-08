@@ -72,34 +72,39 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg }) => {
     },
   ];
 
-
   const deleteFile = (file) => {
-
     setFiles((currentSelection) => {
       const newSelection = currentSelection.slice();
       const fileIndex = currentSelection.indexOf(file);
       if (selectedImage === file) {
-        setSelectedImage(null)
+        setSelectedImage(null);
       }
-      newSelection.splice(fileIndex, 1)
+      newSelection.splice(fileIndex, 1);
       return newSelection;
-    })
-  }
+    });
+  };
 
   const updateFile = (oldFile, newFile) => {
     setFiles((currentSelection) => {
       const newSelection = currentSelection.slice();
       const fileIndex = currentSelection.indexOf(oldFile);
       newSelection[fileIndex] = newFile;
+      setSelectedImage(newFile);
       return newSelection;
-    })
-  }
-
-
+    });
+  };
 
   return (
     <div className="flex w-full h-full max-h-[700px] justify-center">
-      <DragAndDrop files={files} setFiles={setFiles} maxUploads={maxUploads} setSelectedImage={setSelectedImage} deleteFile={deleteFile} fileErrorMsg={fileErrorMsg} setFileErrorMsg={setFileErrorMsg} />
+      <DragAndDrop
+        files={files}
+        setFiles={setFiles}
+        maxUploads={maxUploads}
+        setSelectedImage={setSelectedImage}
+        deleteFile={deleteFile}
+        fileErrorMsg={fileErrorMsg}
+        setFileErrorMsg={setFileErrorMsg}
+      />
 
       <div className="w-[60%] relative max-h-full overflow-auto px-4 flex flex-col gap-2">
         {selectedImage && (
@@ -110,7 +115,6 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg }) => {
                   <ImgCropT
                     selectedImage={selectedImage}
                     updateFile={updateFile}
-
                   />
                 </div>
               )}

@@ -17,74 +17,74 @@ const stripeLinks = [
     price: "$29",
     packName: "Starter Pack",
     generationType: "individual",
-    id: "price_1PKz3ECvLjbx73iC7xja49ep",
+    id: "price_1PEOSUCvLjbx73iC6iPlOjjE",
   },
   {
     price: "$45",
     packName: "Basic Pack",
     generationType: "individual",
-    id: "price_1PKz2rCvLjbx73iCKkVyrJIO",
+    id: "price_1PEOVdCvLjbx73iCqI7dZ56u",
   },
   {
     price: "$79",
     packName: "Premium Pack",
     generationType: "individual",
-    id: "price_1PJ8tNCvLjbx73iCtOaiKMDR",
+    id: "price_1PFDaeCvLjbx73iCUrwyssrf",
   },
   {
     price: "$50",
     packName: "Basic Pack",
     generationType: "customize",
-    id: "price_1PKz3lCvLjbx73iChXgMZv2H",
+    id: "price_1PIPJUCvLjbx73iCp8SeZtqQ",
   },
   {
     price: "$100",
     packName: "Premium Pack",
     generationType: "customize",
-    id: "price_1PKz3lCvLjbx73iChXgMZv2H",
+    id: "price_1PIPPFCvLjbx73iCZVm1aneS",
   },
   {
     price: "$200",
     packName: "Prompts Pack",
     generationType: "prompt",
-    id: "price_1PKz48CvLjbx73iCaqqHpJ5a",
+    id: "price_1PIPRHCvLjbx73iCLKPZ6HFA",
   },
   {
     price: "$29",
     packName: "Starter Pack",
-    generationType: "datingIndividual",
-    id: "price_1PKz3ECvLjbx73iC7xja49ep",
+    generationType: "individualDating",
+    id: "price_1PIPTLCvLjbx73iCuL3vSK3C",
   },
   {
     price: "$45",
     packName: "Basic Pack",
-    generationType: "datingIndividual",
-    id: "price_1PKz2rCvLjbx73iCKkVyrJIO",
+    generationType: "individualDating",
+    id: "price_1PIPVtCvLjbx73iCk7hQ69Th",
   },
   {
     price: "$79",
     packName: "Premium Pack",
-    generationType: "datingIndividual",
-    id: "price_1PJ8tNCvLjbx73iCtOaiKMDR",
+    generationType: "individualDating",
+    id: "price_1PIPYECvLjbx73iCNVIghYST",
   },
 
   {
     price: "$50",
     packName: "Basic Pack",
     generationType: "datingCustomize",
-    id: "price_1PKz3lCvLjbx73iChXgMZv2H",
+    id: "price_1PIPbyCvLjbx73iCdKP949q4",
   },
   {
     price: "$100",
     packName: "Premium Pack",
     generationType: "datingCustomize",
-    id: "price_1PKz3lCvLjbx73iChXgMZv2H",
+    id: "price_1PIPdjCvLjbx73iCEY2BPlNi",
   },
   {
     price: "$200",
     packName: "Prompts Pack",
     generationType: "datingPrompt",
-    id: "price_1PKz48CvLjbx73iCaqqHpJ5a",
+    id: "price_1PIPfOCvLjbx73iCtTf8toI0",
   },
 ];
 
@@ -135,8 +135,9 @@ export const checkout = async (req, res) => {
 };
 
 export const complete = async (req, res) => {
-  const user = getUser(req.query.sessionId);
 
+  const user = getUser(req.query.sessionId);
+console.log(user)
   if (user.status) {
     // console.log(user?.user)
     const imgResult = await uploadFile(JSON.parse(user.user.files));
@@ -277,5 +278,5 @@ export const teamsCancel = (req, res) => {
     FRONTEND_URL: process.env.FRONTEND_URL,
   });
   // res.redirect(`${process.env.FRONTEND_URL}/teamscancel`);
-  
+
 };

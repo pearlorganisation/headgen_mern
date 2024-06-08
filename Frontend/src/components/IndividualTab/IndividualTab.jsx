@@ -18,7 +18,7 @@ const IndividualTab = ({
   headshots,
   tabContentRef,
   isLoading,
-  handlePayment
+  handlePayment,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -178,6 +178,11 @@ const IndividualTab = ({
   useEffect(() => {
     if (localStorage.getItem("userData")) {
       localStorage.clear();
+      setUserData({
+        email: "",
+        gender: "",
+        files: "",
+      });
     }
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
@@ -231,11 +236,7 @@ const IndividualTab = ({
               handlePayment("individual");
             }}
           >
-            {isLoading ? (
-              <BeatLoader color="#1f58ad94" />
-            ) : (
-              "Proceed to Payment"
-            )}
+            {isLoading ? <BeatLoader color="#ffffff" /> : "Proceed to Payment"}
           </button>
         )}
       </div>
