@@ -9,7 +9,7 @@ const PromptTab = ({ userData, setUserData, errors, type }) => {
       let tempData = { ...prevData };
       if (type === 'Dating') {
         tempData.promptData = promptData;
-        tempData.generationType = 'datingPrompt'
+
       } else {
 
         tempData.promptData = promptData;

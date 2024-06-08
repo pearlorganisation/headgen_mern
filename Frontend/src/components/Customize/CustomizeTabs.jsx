@@ -133,7 +133,6 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
         let tempData = { ...prevData }
         if (type === 'Dating') {
           tempData.customizeData = data
-          tempData.generationType = 'datingCustomize'
         } else {
           tempData.customizeData = data
 

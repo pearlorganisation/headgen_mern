@@ -42,10 +42,20 @@ const DatingGenderSelection = ({
     }, [decodedParam]);
     useEffect(() => {
         if (localStorage.getItem("userData")) {
-            setUserData({
-                email: "",
-                gender: "",
-                files: "",
+            setUserData(prev => {
+                if (type === 'Dating') {
+                    return {
+                        email: "",
+                        gender: "",
+                        files: "",
+                        generationType: 'individualDating'
+                    }
+                } return {
+                    email: "",
+                    gender: "",
+                    files: "",
+                }
+
             });
             localStorage.clear();
         }

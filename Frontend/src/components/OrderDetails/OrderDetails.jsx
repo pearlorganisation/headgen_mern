@@ -50,7 +50,7 @@ const OrderDetails = ({ userData, files, type }) => {
               className={`w-[300px] !bg-gradient-to-br ${type === 'Dating' ? 'from-[#8a0815] shadow-[0_0_0_2px_#ffffff]' : 'from-[#0d2e756c] to-[#031b4e] shadow-[0_0_0_2px_#ffffff]'} rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center min-h-[400px] relative transition duration-300`}
             >
 
-              <div className={`text-[22px]  bg-gradient-to-r ${type = 'Dating' ? 'from-[#e73e71] to-[#af1040]' : 'from-[#afc5f5] to-[#6495ff]'}  inline-block text-transparent bg-clip-text font-bold`}>{userData?.selectedPlan?.title}</div>
+              <div className={`text-[22px]  bg-gradient-to-r ${type === 'Dating' ? 'from-[#e73e71] to-[#af1040]' : 'from-[#afc5f5] to-[#6495ff]'}  inline-block text-transparent bg-clip-text font-bold`}>{userData?.selectedPlan?.title}</div>
               <div className="text-[36px] line-through text-[#dad4d4]">
                 {userData?.selectedPlan?.originalPrice}
               </div>
