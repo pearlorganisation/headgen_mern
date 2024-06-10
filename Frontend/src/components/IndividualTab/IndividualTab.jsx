@@ -50,6 +50,7 @@ const IndividualTab = ({
   ];
 
   const indivdualData = [
+    
     {
       idx: 0,
       ele: (

@@ -18,6 +18,7 @@ const DatingTab = () => {
     email: "",
     gender: "",
     files: "",
+    generationType: "individualDating"
   });
   const [errors, setErrors] = useState({});
   const [fileErrorMsg, setFileErrorMsg] = useState(null);
@@ -278,9 +279,9 @@ const DatingTab = () => {
         ref={fieldsRef}
         className="rounded-full   bg-gradient-to-br from-[#1d2838] to-[#1d283880] p-1 px-2 relative h-[50px] flex justify-between"
       >
-        {tabs?.map((item) => {
+        {tabs?.map((item, idx) => {
           return (
-            <div className="relative">
+            <div className="relative" key={`datingTabs${idx}`} >
               <div
                 className={` ${tabText === item ? "flex" : "hidden"
                   }  absolute text-white h-full `}
@@ -351,7 +352,7 @@ const DatingTab = () => {
                   <button
                     className={`hover:squeezyBtn px-8 py-3 bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436] hover:shadow-[0_0_0_1px_#ffffff]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
                     onClick={() => {
-                      handlePayment('dating');
+                      handlePayment('individualDating');
                     }}
                   >
                     {isLoading ? (

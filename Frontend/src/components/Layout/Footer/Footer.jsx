@@ -96,7 +96,9 @@ const Footer = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center gap-20 px-10 2xl:px-[250px] py-10">
+    <div id="footer" style={{
+      fontFamily: 'Oswald'
+    }} className="flex !oswald flex-col items-center gap-20 px-10 2xl:px-[250px] py-10">
       <div className="flex flex-row flex-wra lg:flex-nowrap gap-2 w-full">
         <div className="w-[250px] hidden rounded-2xl lg:flex flex-col justify-center items-center relative">
           <img
@@ -107,12 +109,12 @@ const Footer = () => {
           />
           <div className="flex flex-col gap-1">
             <div className="w-[90%] px-2 py-3 bg-gradient-to-r from-[#59caff] to-[#5636F3] rounded-xl text-[#f1f1f1] text-[15px] font-medium transition duration-300 absolute -bottom-4 left-1/2 -translate-x-1/2">
-              <img src="/logo.webp" alt="" srcset="" />
+              <img src="/logo.webp" />
             </div>
           </div>
         </div>
 
-        <div className="py-16 px-8 md:px-16  w-full rounded-2xl bg-[#E6E0F4] grid md:grid-cols-5 gap-2 md:justify-center">
+        <div className="py-16 px-8 oswald md:px-16  w-full rounded-2xl bg-[#E6E0F4] grid md:grid-cols-5 gap-2 md:justify-center">
           {footerContent &&
             footerContent?.map((fc, idx) => (
               <div className="flex flex-col gap-2  w-[90%] " key={`fc${idx}`}>

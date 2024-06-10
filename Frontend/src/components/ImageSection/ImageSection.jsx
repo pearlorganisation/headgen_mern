@@ -89,7 +89,8 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg }) => {
       const newSelection = currentSelection.slice();
       const fileIndex = currentSelection.indexOf(oldFile);
       newSelection[fileIndex] = newFile;
-      setSelectedImage(newFile);
+      // setSelectedImage(newFile);
+      setSelectedImage(null);
       return newSelection;
     });
   };

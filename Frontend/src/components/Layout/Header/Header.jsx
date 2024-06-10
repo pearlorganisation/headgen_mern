@@ -12,7 +12,7 @@ const Header = () => {
   const [showMobDropdown, setShowMobDropdown] = useState(false);
 
   useEffect(() => {
-    console.log(location);
+    // console.log(location);
     if (
       location.pathname === "/dating" ||
       location.pathname === "/upload/dating"
@@ -181,16 +181,14 @@ const Header = () => {
           >
             {navData &&
               navData.map((item, idx) => (
-                <>
+                <div key={`navData${idx}`}>
                   {item.showDropdown ? (
                     <SubDropdown
-                      key={`navData${idx}`}
                       data={item}
                       setShowMobDropdown={setShowMobDropdown}
                     />
                   ) : (
                     <Link
-                      key={`navData${idx}`}
                       href={item.path}
                       className="w-full flex justify-center hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-lg py-2 hover:bg-blue-600 hover:text-white transition duration-300 "
                       onClick={() => setShowMobDropdown(false)}
@@ -198,7 +196,7 @@ const Header = () => {
                       <span className="w-[120px] text-center">{item.name}</span>
                     </Link>
                   )}
-                </>
+                </div>
               ))}
           </div>
         </div>

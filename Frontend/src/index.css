@@ -35,10 +35,6 @@
   );
 }
 
-.oswald {
-  font-family: "Oswald", sans-serif;
-}
-
 html,
 body,
 #root {
@@ -164,6 +160,10 @@ body,
     );
     backdrop-filter: blur(7.5px);
     -webkit-backdrop-filter: blur(7.5px);
+  }
+
+  .oswald {
+    font-family: "Oswald", sans-serif;
   }
 }
 /* 

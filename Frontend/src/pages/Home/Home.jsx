@@ -776,7 +776,7 @@ const Home = () => {
       </div>
       {/* swipe section */}
 
-      <div className="px-10  xl:px-[160px] 2xl:px-[250px] grid xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
+      <div className="px-10  xl:px-[160px] 2xl:px-[250px] grid  lg:grid-cols-[auto_25rem] xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
         <div className="w-[50% w-full 2xl:w-[55% bg-gradient-to-br from-[#000000] via-[#000000] to-[#000000] rounded-2xl shadow-[0_0_0_1px_#ffffff] py-10 relative transition duration-500">
           <div className="flex flex-col justify-between gap-20 items-center h-full">
             <div className="flex flex-col items-center md:text-[26px] xl:text-[32px] 2xl:text-[40px] font-semibold text-[#F1F1F1]">
@@ -1069,7 +1069,7 @@ const Home = () => {
                 Money-Back
               </span>
               <br />
-              Gurantee
+              Guarantee
             </div>
             <div className="text-[#F1F1F1] text-[14px]">
               Try Headgen.ai with confidence. Our results are Mind blowing.

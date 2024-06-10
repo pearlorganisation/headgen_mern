@@ -114,7 +114,7 @@ const Tab = () => {
               let extension = blob.type.split("/");
 
               const file = new File([blob], `${idx}.${extension[1]}`);
-              console.log(file);
+              // console.log(file);
               newFiles.push(file);
             })
             .catch((error) => reject(error))
@@ -171,10 +171,10 @@ const Tab = () => {
       });
   };
 
-  useEffect(() => {
-    console.log(userData, "userData")
-    console.log(files, "files")
-  }, [userData, files])
+  // useEffect(() => {
+  //   // console.log(userData, "userData")
+  //   // console.log(files, "files")
+  // }, [userData, files])
 
 
   return (
@@ -183,9 +183,9 @@ const Tab = () => {
         ref={fieldsRef}
         className="rounded-full   bg-gradient-to-br from-[#1d2838] to-[#1d283880] p-1 px-2 relative h-[50px] flex justify-between"
       >
-        {tabs?.map((item) => {
+        {tabs?.map((item, idx) => {
           return (
-            <div className="relative">
+            <div className="relative" key={`tab${idx}`}>
               <div
                 className={` ${tabText === item ? "flex" : "hidden"
                   }  absolute text-white h-full `}
