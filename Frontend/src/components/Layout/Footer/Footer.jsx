@@ -96,9 +96,11 @@ const Footer = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center gap-20 px-10 2xl:px-[250px] py-10">
-      <div className="flex flex-row flex-wrap lg:flex-nowrap gap-2">
-        <div className="w-[250px] 2xl:w-[300px] rounded-2xl flex flex-col justify-center items-center relative">
+    <div id="footer" style={{
+      fontFamily: 'Oswald'
+    }} className="flex !oswald flex-col items-center gap-20 px-10 2xl:px-[250px] py-10">
+      <div className="flex flex-row flex-wra lg:flex-nowrap gap-2 w-full">
+        <div className="w-[250px] hidden rounded-2xl lg:flex flex-col justify-center items-center relative">
           <img
             src="https://drive.google.com/thumbnail?id=18dNFZW3wy9xCml4GbGHxJhgPlv4mOM5i&sz=s600"
             alt=""
@@ -112,10 +114,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="py-16 px-16 rounded-2xl bg-[#E6E0F4] flex flex-row gap-2 justify-center">
+        <div className="py-16 px-8 oswald md:px-16  w-full rounded-2xl bg-[#E6E0F4] grid md:grid-cols-5 gap-2 md:justify-center">
           {footerContent &&
             footerContent?.map((fc, idx) => (
-              <div className="flex flex-col gap-2 w-[18%]" key={`fc${idx}`}>
+              <div className="flex flex-col gap-2  w-[90%] " key={`fc${idx}`}>
                 <div className="text-base xl:text-lg font-medium h-[80px]">
                   {fc?.title}
                 </div>
