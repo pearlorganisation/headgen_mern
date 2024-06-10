@@ -98,7 +98,7 @@ const Footer = () => {
   return (
     <div className="flex flex-col items-center gap-20 px-10 2xl:px-[250px] py-10">
       <div className="flex flex-row flex-wrap lg:flex-nowrap gap-2">
-        <div className="w-[250px] rounded-2xl flex flex-col justify-center items-center relative">
+        <div className="w-[250px] 2xl:w-[300px] rounded-2xl flex flex-col justify-center items-center relative">
           <img
             src="https://drive.google.com/thumbnail?id=18dNFZW3wy9xCml4GbGHxJhgPlv4mOM5i&sz=s600"
             alt=""
@@ -107,7 +107,7 @@ const Footer = () => {
           />
           <div className="flex flex-col gap-1">
             <div className="w-[90%] px-2 py-3 bg-gradient-to-r from-[#59caff] to-[#5636F3] rounded-xl text-[#f1f1f1] text-[15px] font-medium transition duration-300 absolute -bottom-4 left-1/2 -translate-x-1/2">
-              <img src="/logo.webp" alt="" srcset="" />
+              <img src="/logo.webp" />
             </div>
           </div>
         </div>

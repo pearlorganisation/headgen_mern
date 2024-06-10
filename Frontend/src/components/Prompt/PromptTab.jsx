@@ -25,8 +25,8 @@ const PromptTab = ({ userData, setUserData, errors, type }) => {
       </div>
       <section className="py-14">
         <div className="max-w-screen-xl mx-auto md:px-8">
-          <div className="grid md:grid-cols-2 gap-x-12 sm:px-4 md:px-0 lg:flex">
-            <div className="w-full  w px-4 space-y-3 mt-6 sm:px-0 md:mt-0 ">
+          <div className="grid md:grid-cols-2 gap-x-12 sm:px-4 md:px-0 lg:flex ">
+            <div className="w-full  w px-4 py-4 space-y-3 mt-6 sm:px-0 md:mt-0 ">
               <textarea
                 onChange={(e) => setPromptData(e.target.value)}
                 placeholder="E.g. Portrait, smile, white shirt, outside, city, blurred background..."
@@ -51,10 +51,10 @@ const PromptTab = ({ userData, setUserData, errors, type }) => {
             </div>
             <div className="flex-1  lg:block  rounded-xl">
               <LazyLoadImage
-                className="md:max-w-lg sm:rounded-lg shadow-[0_0_5px_0px#97bcff]"
+                className="md:max-w-md"
                 effect="black-and-white"
-                placeholderSrc="https://www.aragon.ai/_next/image?url=%2Fimages%2Fheadshots%2Fexample-3-output.jpg&w=384&q=70"
-                src="https://www.aragon.ai/_next/image?url=%2Fimages%2Fheadshots%2Fexample-3-output.jpg&w=384&q=70" // use normal <img> attributes as props
+                placeholderSrc="https://drive.google.com/thumbnail?id=1f4MXXPgJ5NvYa8j3iW49XXpT0CX4FG1k&sz=s600"
+                src="https://drive.google.com/thumbnail?id=1f4MXXPgJ5NvYa8j3iW49XXpT0CX4FG1k&sz=s600" // use normal <img> attributes as props
               />
             </div>
           </div>
