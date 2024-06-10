@@ -116,7 +116,7 @@ const Home = () => {
       name: "",
       path: "https://drive.google.com/thumbnail?id=1iN6QJdC099z-sZwF4DulFANX4pzk0-ZV&sz=s600",
     },
-    
+
     {
       name: "",
       path: "https://drive.google.com/thumbnail?id=1M7RY1kEidRgYwuKHqdQD3EE4ceqllceP&sz=s600",
@@ -188,7 +188,7 @@ const Home = () => {
       name: "",
       path: "https://drive.google.com/thumbnail?id=11u32sbG0qCLfVOKr-heDY3y8FExY4pVD&sz=s600",
     },
-  
+
     {
       name: "",
       path: "https://drive.google.com/thumbnail?id=1k1Qu3Ga_qccV88xP0JUFVUzQATkJUCoD&sz=s600",
@@ -542,57 +542,51 @@ const Home = () => {
     <div className="w-full py-20 flex flex-col bg-[#161616] gap-10">
       {/* hero */}
 
-      <div className="flex justify-center px-10  xl:px-[160px] 2xl:px-[250px]">
-        <div className={`max-w-[834px] w-1/2 flex flex-col gap-0 pt-10`}>
-          <div className="flex flex-col leading-none mb-4">
+      <div className="grid md:grid-cols-2  md:px-10  xl:px-[160px] 2xl:px-[250px]">
+        <div className={`max-w-[834px] order-2  md:order-none w-full w-1/2 flex flex-col gap-0 pt-5 md:pt-10 text-center md:text-left`}>
+          <div className="flex flex-col leading-none mb-4 space-y-3 md:space-y-0">
             <div
-              className={`text-3xl font-bold pl-[1.55rem] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
-                isAnimated ? "animatedReveal" : "invisible"
-              }`}
+              className={`lg:text-3xl font-bold md:pl-[1.55rem] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
+                }`}
             >
               AI HEADSHOT GENERATOR
             </div>
             <div
-              className={`text-white oswald text-[9rem] font-bold pb-4 ${
-                isAnimated ? "animatedReveal" : "invisible"
-              }`}
+              className={`text-white oswald text-[4rem] lg:text-[6rem] xl:text-[9rem] font-bold pb-4 ${isAnimated ? "animatedReveal" : "invisible"
+                }`}
             >
               AI TOOL
             </div>
             <div
-              className={`text-[28px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
-                isAnimated ? "animatedReveal" : "invisible"
-              }`}
+              className={` text-[20px] md:text-[28px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
+                }`}
             >
               FOR PROFESSIONAL HEADSHOTS
             </div>
           </div>
           <div
-            className={`flex flex-col gap-6 text-center ${
-              isAnimated ? "animatedReveal" : "invisible"
-            }`}
+            className={`flex flex-col gap-6 mb-3 md:mb-0 text-center justify-center items-center md:items-start ${isAnimated ? "animatedReveal" : "invisible"
+              }`}
           >
             <Link
               to="/upload/Corporate%20Headshots"
-              className={`w-1/2 hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg px-2 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${
-                isAnimated ? "animatedReveal" : "invisible"
-              }`}
+              className={`w-1/2 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${isAnimated ? "animatedReveal" : "invisible"
+                }`}
             >
               Get your photos for $29
             </Link>
           </div>
           <div
-            className={`flex flex-col justify-center items-start mt-2 ${
-              isAnimated ? "animatedReveal" : "invisible"
-            }`}
+            className={`flex flex-col justify-center  items-center md:items-start mt-2 ${isAnimated ? "animatedReveal" : "invisible"
+              }`}
           >
-            <div className="flex gap-1">
-              <span className="flex flex-col justify-center">
+            <div className="flex flex-col md:flex-row gap-1">
+              <div className="flex flex-col justify-center">
                 <img src="https://drive.google.com/thumbnail?id=1CeH2wAEjMNSiQRdRtSl2B3PIRsLEwLHp&sz=s120" />
-              </span>
+              </div>
 
               <div className=" flex flex-col leading-tight">
-                <span className="flex gap-1 justify-start">
+                <span className="flex gap-1 justify-start items-center md:items-start">
                   <IoIosStar className="text-yellow-400" size={21} />
                   <IoIosStar className="text-yellow-400" size={21} />
                   <IoIosStar className="text-yellow-400" size={21} />
@@ -611,7 +605,7 @@ const Home = () => {
           </div>
         </div>
         <div
-          className={`max-w-[834px] w-1/2 flex flex-col gap-4 items-end pt-10`}
+          className={`max-w-[834px]  w-full w-1/2 flex flex-col gap-4 items-end pt-10`}
         >
           <img
             src={`https://drive.google.com/thumbnail?id=1UA7FyAGDxxNyOmQI2aEocXL8V1a70uJ-&sz=s600`}
@@ -685,18 +679,16 @@ const Home = () => {
 
       {/* trusted by */}
 
-      <div className="flex  justify-center gap-6">
+      <div className="flex flex-col md:flex-row justify-center gap-6">
         <div
-          className={`flex flex-col justify-center text-center font-bold text-[20px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text ${
-            isAnimated ? "animatedReveal" : "invisible"
-          }`}
+          className={`flex flex-col justify-center text-center font-bold text-[20px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
+            }`}
         >
           Trusted By
         </div>
         <div
-          className={`flex flex-row ${
-            isAnimated ? "animatedReveal" : "invisible"
-          }`}
+          className={`flex flex-row ${isAnimated ? "animatedReveal" : "invisible"
+            }`}
         >
           {logoData?.map((item, idx) => (
             <div
@@ -716,24 +708,24 @@ const Home = () => {
       {/* how it works */}
 
       <div className="flex justify-center px-10  xl:px-[160px] 2xl:px-[250px] py-14">
-        <div className="flex flex-row flex-wrap md:justify-between w-full">
-          <div className="w-1/5 flex flex-col gap-4 justify-center items-center ">
-            <div className="flex flex-col gap-1 w-fit">
-              <div className="text-[#F1F1F1] text-[60px] 2xl:text-[72px] font-medium leading-6">
+        <div className="grid gap-8 md:gap-0 md:grid-cols-2  md:justify-between w-full">
+          <div className=" flex flex-col w-full gap-4 justify-center items-center order-2 md:order-none ">
+            <div className="grid grid-cols-2 md:grid-cols-1 gap-4 w-fit">
+              <div className="text-[#F1F1F1] text-[45px] md:text-[60px] 2xl:text-[72px] font-medium md:leading-6">
                 How it
               </div>
-              <div className="text-[60px] 2xl:text-[72px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+              <div className="text-[45px] md:text-[60px] 2xl:text-[72px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
                 works
               </div>
               <Link
                 to="/upload/Corporate%20Headshots"
-                className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]"
+                className="hover:squeezyBtn col-span-2 md:col-auto flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]"
               >
                 Get your photos for $29
               </Link>
             </div>
           </div>
-          <div className="w-3/5 flex flex-col gap-6 items-center">
+          <div className=" flex flex-col w-full gap-6 items-center">
             <div className="w-full flex justify-center">
               <iframe
                 src="https://drive.google.com/file/d/16UKFJcaT2Y3Kn9dsSakqJl6uVfYJITEb/preview"
@@ -753,8 +745,8 @@ const Home = () => {
 
       {/* use flow card section */}
 
-      <div className=" xl:px-[160px] 2xl:px-[250px] pb-20">
-        <div className="flex flex-wrap flex-col gap-2 md:flex-row md:justify-between px-2 ">
+      <div className="px-20 xl:px-[160px] 2xl:px-[250px] pb-20">
+        <div className="flex flex-wrap flex-col pt-8 md:pt-0 gap-[8rem] md:gap-2 md:flex-row justify-center items-center md:items-start md:justify-between px-2 ">
           {cardData &&
             cardData?.map((item, idx) => (
               <div className="relative w-full max-w-[420px] h-[300px] md:w-[32%] rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
@@ -784,10 +776,10 @@ const Home = () => {
       </div>
       {/* swipe section */}
 
-      <div className="px-10  xl:px-[160px] 2xl:px-[250px] flex justify-between cursor-default">
-        <div className="w-[50%] 2xl:w-[55%] bg-gradient-to-br from-[#000000] via-[#000000] to-[#000000] rounded-2xl shadow-[0_0_0_1px_#ffffff] py-10 relative transition duration-500">
+      <div className="px-10  xl:px-[160px] 2xl:px-[250px] grid xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
+        <div className="w-[50% w-full 2xl:w-[55% bg-gradient-to-br from-[#000000] via-[#000000] to-[#000000] rounded-2xl shadow-[0_0_0_1px_#ffffff] py-10 relative transition duration-500">
           <div className="flex flex-col justify-between gap-20 items-center h-full">
-            <div className="flex flex-col items-center text-[48px] font-semibold text-[#F1F1F1]">
+            <div className="flex flex-col items-center md:text-[26px] xl:text-[32px] 2xl:text-[40px] font-semibold text-[#F1F1F1]">
               <div>The Most Realistic</div>
               <div>AI Image Generator</div>
             </div>
@@ -817,7 +809,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="w-[40%] 2xl:w-[35%] flex flex-col gap-10 ">
+        <div className="w-[40% w-full 2xl:w-[35% flex flex-col gap-10 ">
           <div className="w-full !glassMorphism !bg-gradient-to-br !from-[#10151dde] to-[#121720de] py-10 rounded-2xl relative px-8 shadow-[0_0_0_1px_#ffffff] h-2/3">
             <div className="absolute w-[200px] h-[200px] -top-10 -translate-y-10 right-2 shadow-[0_0_0_1px_#ffffff] rounded-2xl">
               <BeforeAfterSlider
