@@ -3,6 +3,7 @@ import AppSvgs from "../../components/AppSvgs/AppSvgs";
 import { Link } from "react-router-dom";
 import DatingHero from "../../components/Dating/DatingHero/DatingHero";
 import BlogCards from "../../components/BlogCards/BlogCards";
+import InfinitySlider from "../../components/InfinitySlider/InfinitySlider";
 
 const Dating = () => {
   const [counter, setCounter] = useState(0);
@@ -41,46 +42,112 @@ const Dating = () => {
     {
       title: "Upload your images",
       content: "Upload just 1-4 images of yourself. Selfies work great",
-      imgPath: "/dating/1.png",
+      imgPath: "https://drive.google.com/thumbnail?id=1p-TpTUH-PIyphAgtNItuTOj78DDvXXu-&sz=s600",
     },
     {
-      title: "Our AI gets to work",
+      title: "Make payment",
       content:
-        "HeadGen AI gets to work instantly & generates amazing Images of you!",
-      imgPath: "/dating/2.png",
+        "Payment handled by stripe, we do not store your payment details.",
+      imgPath: "https://drive.google.com/thumbnail?id=1mF7CmpcpFRAr7wOK6G45nMY9cVh0hhf_&sz=s600",
     },
     {
       title: "Get Amazing Dating Images",
       content:
         "Improve your dating game and stand out with Headgen AI",
-      imgPath: "/dating/3.png",
+      imgPath: "https://drive.google.com/thumbnail?id=1ClY9REKOEwtCav1DsHVL7hC0CKigiydC&sz=s600",
     },
   ];
+
+
+
+  const imgData1 = [
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1IOdDiEkZd6_mDZcTHbwlxHTn_UvD3b8u&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1IOdDiEkZd6_mDZcTHbwlxHTn_UvD3b8u&sz=s600",
+    },
+    {
+      name: "",
+      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s600",
+    },
+  ];
+
 
   return (
     <div className="w-full py-20 flex flex-col bg-[#161616] gap-10 px-[200px] gradientBgRed">
       <div>
         <DatingHero />
       </div>
-      <div className="text-white text-[48px] 2xl:text-[62px] font-bold flex items-center gap-6">
-        <div className="flex justify-center w-1/2 ">
-        <div className="flex flex-col">
-          <div className="flex gap-8 2xl:gap-24">
-            <span className="w-[190px] text-right">
-              {counter.toLocaleString("en-US")}
-            </span>
-            <span>AI</span> 
-          </div>
-          <div className="w-fit">Dating photos</div>
-          <div className="w-fit">Generated</div>
+        <InfinitySlider imgData1={imgData1} />
+      {/* <div className="w-full overflow-hidden px-10  xl:px-[160px] 2xl:px-[250px]">
+      </div> */}
+     
+
+
+      <div className="flex  justify-center gap-6">
+        <div
+          className={`flex flex-col justify-center text-center font-bold text-[20px] bg-gradient-to-r from-[#ffffff] to-[#ffffff] text-transparent bg-clip-text`}
+        >
+          As seen on
         </div>
-        </div>
-        <div className="w-1/2 p-10 text-justify text-[22px] 2xl:text-[26px] flex justify-center font-normal">
-          The #1 dating advice that any dating guru will tell you is get better
-          photos. Humans are visual creatures after all. We use cutting-edge AI
-          to make that process super affordable and as easy as 1-2-3.
-        </div>
+        <img src="https://drive.google.com/thumbnail?id=1YtuCvKh52uCx9LgvllSvapHl-p0Xzmmf&sz=s600" alt="" />
       </div>
+      
 
       <div className="py-20">
         <BlogCards data={datingCardData} datingPage={true} />
@@ -106,14 +173,14 @@ const Dating = () => {
               increase the quality of your matches.
             </div>
             <div className="flex justify-center">
-              <img src="/dating/4.png" className="w-[300px]" />
+              <img src="https://drive.google.com/thumbnail?id=1ewv1EGjapKk2Yh8pEoojQYGfGUTWL_vV&sz=s400" className="w-[300px]" />
             </div>
           </div>
         </div>
         <div className="w-[40%] 2xl:w-[35%] flex flex-col gap-10 ">
           <div className="w-full !glassMorphism !bg-gradient-to-br !from-[#10151dde] to-[#121720de] py-10 rounded-2xl relative px-8 shadow-[0_0_0_1px_#ffffff] h-2/3">
-            <div className="absolute w-[220px] h-[170px] -top-8 -translate-y-8 right-1">
-              <img src="/dating/phonePreview.png" className="h-full w-full" />
+            <div className="absolute w-[220px] h-[200px] -top-8 -translate-y-10 -right-5">
+              <img src="https://drive.google.com/thumbnail?id=188DHZNSMzN20Xbr_3mPIlpvDoqJBAIQr&sz=s600" className="h-full w-full" />
             </div>
 
             <div className="flex flex-col h-full justify-evenly gap-4 text-[#f1f1f1] ">
@@ -149,8 +216,19 @@ const Dating = () => {
         </div>
       </div>
 
-      <div className="absolute">
-
+      <div className="text-white text-[48px] 2xl:text-[62px] font-bold flex items-center gap-6">
+        <div className="flex justify-center w-1/2 ">
+        <div className="flex flex-col">
+          <div className="flex gap-8 2xl:gap-24">
+            <span className="w-[190px] text-right">
+              {counter.toLocaleString("en-US")}
+            </span>
+            <span>AI</span> 
+          </div>
+          <div className="w-fit">Dating photos</div>
+          <div className="w-fit">Generated</div>
+        </div>
+        </div>
       </div>
     </div>
   );
