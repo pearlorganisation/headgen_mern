@@ -1077,7 +1077,7 @@ const Home = () => {
                 Money-Back
               </span>
               <br />
-              Gurantee
+              Guarantee
             </div>
             <div className="text-[#F1F1F1] text-[14px]">
               Try Headgen.ai with confidence. Our results are Mind blowing.

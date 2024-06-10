@@ -10,8 +10,8 @@ const Dating = () => {
  
 
   useEffect(() => {
-    const maxCount = 1559655;
-    let incrementBy = 5001;
+    const maxCount = 30000;
+    let incrementBy = 15;
 
     const updateCounter = () => {
       setCounter((prevCounter) => {
@@ -40,19 +40,19 @@ const Dating = () => {
   const datingCardData = [
     {
       title: "Upload your images",
-      content: "Upload just 6-8 photos of yourself. Selfies work great!",
+      content: "Upload just 1-4 images of yourself. Selfies work great",
       imgPath: "/dating/1.png",
     },
     {
       title: "Our AI gets to work",
       content:
-        "Developed by Meta and Microsoft AI researchers, our cutting-edge technology generates photos that look just like you.",
+        "HeadGen AI gets to work instantly & generates amazing Images of you!",
       imgPath: "/dating/2.png",
     },
     {
-      title: "Select your AI Dating Photos",
+      title: "Get Amazing Dating Images",
       content:
-        "You’ll receive dozens of photos in a variety of outfits, poses, and backgrounds. Improve your dating game and stand out with headgen ai.",
+        "Improve your dating game and stand out with Headgen AI",
       imgPath: "/dating/3.png",
     },
   ];
