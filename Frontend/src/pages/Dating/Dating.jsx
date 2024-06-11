@@ -171,7 +171,8 @@ const Dating = () => {
             <div className="flex flex-col gap-2 text-[#f1f1f1] text-[16px] 2xl:text-[22px]">
               Not only will you get more matches, our AI dating photos will also
               increase the quality of your matches.
-            </div>
+            </div>.
+            
             <div className="flex justify-center">
               <img src="https://drive.google.com/thumbnail?id=1ewv1EGjapKk2Yh8pEoojQYGfGUTWL_vV&sz=s400" className="w-[300px]" />
             </div>
