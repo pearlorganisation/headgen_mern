@@ -90,7 +90,7 @@ const InfinityTextSlider = () => {
     <>
       <div className="w-full flex flex-col gap-4">
         <div class="infinityTextSlider">
-          <div class="text-slide-track-left border-2">
+          <div class="text-slide-track-left ">
             {data?.map((item) => (
               <div class="text-slide-left pt-2 md:pt-0">
                 <div className="flex gap-2 items-center">

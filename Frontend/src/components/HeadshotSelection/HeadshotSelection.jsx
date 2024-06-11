@@ -41,8 +41,8 @@ const HeadshotSelection = ({
   return (
     <div className="flex flex-col gap-4 justify-between relative h-full items-center space-y-10">
       <div>Pick from our custom headshot templates:</div>
-      <div className="flex w-full  ">
-        <div className="w-[80%] mt-2 flex flex-col justify-end rounded-xl">
+      <div className="grid md:grid-cols-[auto_20rem] gap-8 w-full  ">
+        <div className="w-full mt-2 flex flex-col  justify-end  rounded-xl">
           {headshots &&
             headshots
               ?.filter((item) => {
@@ -63,7 +63,7 @@ const HeadshotSelection = ({
               ))}
         </div>
 
-        <div className="flex flex-col justify-center items-center w-1/2 max-h-[400px]  overflow-auto">
+        <div className="flex flex-col justify-center  items-center w-full max-h-[400px]  overflow-auto">
           <div className="text-center text-xl py-2">What you'll get:</div>
           {headshots &&
             headshots
