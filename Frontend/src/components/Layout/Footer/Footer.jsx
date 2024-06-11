@@ -100,7 +100,7 @@ const Footer = () => {
       fontFamily: 'Oswald'
     }} className="flex !oswald flex-col items-center gap-20 px-10 2xl:px-[250px] py-10">
       <div className="flex flex-row flex-wra lg:flex-nowrap gap-2 w-full">
-        <div className="w-[250px] hidden rounded-2xl lg:flex flex-col justify-center items-center relative">
+        <div className="w-[350px] hidden rounded-2xl lg:flex flex-col justify-center items-center relative">
           <img
             src="https://drive.google.com/thumbnail?id=18dNFZW3wy9xCml4GbGHxJhgPlv4mOM5i&sz=s600"
             alt=""
