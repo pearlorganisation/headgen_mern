@@ -16,7 +16,7 @@ const DatingTab = () => {
 
   const [userData, setUserData] = useState({
     email: "",
-    gender: "",
+    gender: "Male",
     files: "",
     generationType: "individualDating"
   });

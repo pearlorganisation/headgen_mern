@@ -6,37 +6,14 @@ import BlogCards from "../../components/BlogCards/BlogCards";
 import InfinitySlider from "../../components/InfinitySlider/InfinitySlider";
 
 const Dating = () => {
-  const [counter, setCounter] = useState(0);
-
- 
-
-  useEffect(() => {
-    const maxCount = 30000;
-    let incrementBy = 15;
-
-    const updateCounter = () => {
-      setCounter((prevCounter) => {
-        const newCounter = prevCounter + incrementBy;
-        if (newCounter >= maxCount) {
-          clearInterval(counterInterval);
-          return maxCount; // Ensure the counter stops at maxCount
-        }
-        return newCounter;
-      });
-    };
-
-    const counterInterval = setInterval(updateCounter, 1); // Set interval to 1 second
-
-    return () => clearInterval(counterInterval); // Cleanup function to clear interval on component unmount
-  }, []);
 
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: 'smooth'
+  //   });
+  // }, []);
 
   const datingCardData = [
     {
@@ -133,10 +110,10 @@ const Dating = () => {
       <div>
         <DatingHero />
       </div>
-        <InfinitySlider imgData1={imgData1} />
+      <InfinitySlider imgData1={imgData1} />
       {/* <div className="w-full overflow-hidden px-10  xl:px-[160px] 2xl:px-[250px]">
       </div> */}
-     
+
 
 
       <div className="flex  justify-center gap-6">
@@ -147,34 +124,38 @@ const Dating = () => {
         </div>
         <img src="https://drive.google.com/thumbnail?id=1YtuCvKh52uCx9LgvllSvapHl-p0Xzmmf&sz=s600" alt="" />
       </div>
-      
+
 
       <div className="py-20">
         <BlogCards data={datingCardData} datingPage={true} />
       </div>
 
       <div className="flex justify-between cursor-default">
-        <div className="w-[50%] 2xl:w-[55%] bg-gradient-to-br from-[#c4325eab] to-[#e60045c2] rounded-2xl shadow-[0_0_0_1px_#ffffff] pt-10 px-6 relative transition duration-500">
+        <div className="relative w-[50%] 2xl:w-[55%] bg-gradient-to-br from-[#c4325eab] to-[#e60045c2] rounded-2xl shadow-[0_0_0_1px_#ffffff] pt-10 px-6 transition duration-500">
           <div className="absolute bg-white shadow-[0_0_0_1px_#ffffff] w-2/5 flex justify-center gap-2 top-0 right-0 p-2 rounded-[0_1rem_0_1rem] text-[20px] 2xl:text-[24px]">
-            
-              <span>It's a</span>{" "}
-              <span className="font-bold italic">Match!</span>
-            
+
+            <span>It's a</span>{" "}
+            <span className="font-bold italic">Match!</span>
+
           </div>
-          <div className="flex flex-col justify-between gap-10  h-full">
-            <div className="flex flex-col text-[40px] font-semibold text-[#F1F1F1]">
-              <div>
-                <div>Higher</div>
-                <div>Quality Conversations</div>
+          <div className="flex flex-col gap-10  h-full">
+            <div className="grid grid-cols-2 w-full h-1/2">
+
+
+              <div className="h-[400px] -translate-y-32 ">
+                <img src="https://drive.google.com/thumbnail?id=1ewv1EGjapKk2Yh8pEoojQYGfGUTWL_vV&sz=s400" className="w-auto h-full" />
+              </div>
+              <div className="flex flex-col text-6xl leading-tight items-end py-10 font-semibold text-[#F1F1F1]">
+                  <div>Higher</div>
+                  <div>Quality</div>
+                     <div>Conversations</div>
               </div>
             </div>
-            <div className="flex flex-col gap-2 text-[#f1f1f1] text-[16px] 2xl:text-[22px]">
+            <div className="flex flex-col gap-2 text-[#f1f1f1] text-2xl">
               Not only will you get more matches, our AI dating photos will also
               increase the quality of your matches.
             </div>
-            <div className="flex justify-center">
-              <img src="https://drive.google.com/thumbnail?id=1ewv1EGjapKk2Yh8pEoojQYGfGUTWL_vV&sz=s400" className="w-[300px]" />
-            </div>
+
           </div>
         </div>
         <div className="w-[40%] 2xl:w-[35%] flex flex-col gap-10 ">
@@ -216,20 +197,7 @@ const Dating = () => {
         </div>
       </div>
 
-      <div className="text-white text-[48px] 2xl:text-[62px] font-bold flex items-center gap-6">
-        <div className="flex justify-center w-1/2 ">
-        <div className="flex flex-col">
-          <div className="flex gap-8 2xl:gap-24">
-            <span className="w-[190px] text-right">
-              {counter.toLocaleString("en-US")}
-            </span>
-            <span>AI</span> 
-          </div>
-          <div className="w-fit">Dating photos</div>
-          <div className="w-fit">Generated</div>
-        </div>
-        </div>
-      </div>
+
     </div>
   );
 };

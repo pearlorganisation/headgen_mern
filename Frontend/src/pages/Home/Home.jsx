@@ -575,12 +575,8 @@ const Home = () => {
             >
               Get your photos for $29
             </Link>
-          </div>
-          <div
-            className={`flex flex-col justify-center  items-center md:items-start mt-2 ${isAnimated ? "animatedReveal" : "invisible"
-              }`}
-          >
-            <div className="flex flex-col md:flex-row gap-1">
+
+            <div className="flex flex-col md:flex-row gap-1 justify-between">
               <div className="flex flex-col justify-center">
                 <img src="https://drive.google.com/thumbnail?id=1CeH2wAEjMNSiQRdRtSl2B3PIRsLEwLHp&sz=s120" />
               </div>
@@ -603,6 +599,7 @@ const Home = () => {
               </div>
             </div>
           </div>
+         
         </div>
         <div
           className={`max-w-[834px]  w-full w-1/2 flex flex-col gap-4 items-end pt-10`}
@@ -888,22 +885,22 @@ const Home = () => {
         </div>
 
         <div className="flex flex-col gap-10 items-center">
-          <div className="text-[#F1F1F1] text-[30px] md:text-[35px] lg:text-[45px] xl:text-[55px] 2xl:text-[72px] font-medium">
+          <div className="text-[#F1F1F1] text-3xl text-center md:text-4xl 2xl:text-[72px]  font-medium">
             Use Cases of{" "}
-            <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold">
+            <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold py-10">
               AI Headshots
             </span>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4  justify-center items-center w-full gap-4 md:gap-2">
+          <div className="flex flex-wrap justify-center items-center w-full gap-4 md:gap-2">
             {useCaseData?.map((item) => (
-              <div className="w-auto max-w-[250px] h-[300px] 2xl:h-[350px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
+              <div className="w-auto max-w-[250px] 2xl:w-[200px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
                 <div className="w-full h-2/3">
                   <img
                     src={item?.path}
                     className="w-full h-full rounded-t-xl"
                   />
                 </div>
-                <div className="flex flex-col justify-center px-2 pt-2">
+                <div className="flex flex-col justify-center px-2 py-4">
                   <div className="text-medium text-sm font-bold flex justify-between">
                     <span>{item?.title}</span>
                     <span>{item?.svg}</span>
@@ -945,7 +942,7 @@ const Home = () => {
         </div>
 
         {/* dating hero section */}
-        <div className="flex justify-center">
+        <div className="flex justify-center py-20 ">
           <DatingHero />
         </div>
       </div>
