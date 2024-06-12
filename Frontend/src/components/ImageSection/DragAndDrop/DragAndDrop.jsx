@@ -3,6 +3,7 @@ import "./styles.css";
 import { GoPlus } from "react-icons/go";
 import { MdDelete } from "react-icons/md";
 import { FaCropSimple } from "react-icons/fa6";
+import heic2any from "heic2any";
 
 const DragAndDrop = ({
   files,
@@ -58,32 +59,39 @@ const DragAndDrop = ({
     });
   };
 
-  const displayFile = (selectedFile) => {
-    const validExtensions = [
-      "image/jpeg",
-      "image/jpg",
-      "image/png",
-      "image/heic",
-    ];
-
-    if (validExtensions.includes(selectedFile.type)) {
-      const fileReader = new FileReader();
-      fileReader.onload = () => {
-        const fileURL = fileReader.result;
-        setFiles((prevImages) => {
-          if (prevImages.length < 4) {
-            return [...prevImages, fileURL];
-          } else {
-            setFileErrorMsg(null);
-            return prevImages;
-          }
-        });
-      };
-      fileReader.readAsDataURL(selectedFile);
-    } else {
-      alert("This is not an Image File");
-      // setFiles([]);
+  const displayFile = async (selectedFile) => {
+    let imgData = selectedFile;
+    console.log(imgData)
+    let jpegData;
+    const fileNameArr = selectedFile.name.split(".");
+    if (fileNameArr[1] === "heic" || fileNameArr[1] === "HEIC") {
+      jpegData = await heic2any({ blob: selectedFile, toType: 'image/jpeg' });
+      console.log(jpegData)
+      imgData = new File(
+        [jpegData],
+        selectedFile.name.replace(".heic", ".jpg"),
+        {
+            type: "image/jpeg",
+            lastModified: selectedFile.lastModified,
+            lastModifiedDate: selectedFile.lastModifiedDate,
+        }
+    );
     }
+
+
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+      const fileURL = fileReader.result;
+      setFiles((prevImages) => {
+        if (prevImages.length < 4) {
+          return [...prevImages, fileURL];
+        } else {
+          setFileErrorMsg(null);
+          return prevImages;
+        }
+      });
+    };
+    fileReader.readAsDataURL(imgData);
   };
 
   return (
@@ -119,6 +127,7 @@ const DragAndDrop = ({
             maxLength={4}
             hidden
             onChange={handleFileChange}
+            accept=".heic, .jpg, .jpeg, .png"
           />
         </div>
       </div>

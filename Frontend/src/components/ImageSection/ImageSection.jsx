@@ -9,7 +9,7 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg }) => {
   const correctData = [
     {
       imgPath:
-        "https://dashboard.aragon.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flooking_at_camera.71f1f9f0.jpeg&w=384&q=75",
+        "https://drive.google.com/thumbnail?id=1nfrI2WDu8twZpC7aVabpjcc7AMIo-Nzd&sz=s600",
       content: (
         <>
           👁️ <strong>Eye Contact:</strong> You should be looking directly at the
@@ -19,7 +19,7 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg }) => {
     },
     {
       imgPath:
-        "https://dashboard.aragon.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftaken_recently.c5880900.jpeg&w=384&q=75",
+        "https://drive.google.com/thumbnail?id=1BJp8cEzqRdIMNWgBABGxbpetPnfQYRQD&sz=s600",
       content: (
         <>
           🆕 <strong> Recent:</strong> Photos taken recently, ideally within the
@@ -29,11 +29,10 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg }) => {
     },
     {
       imgPath:
-        "https://dashboard.aragon.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fclear.ad993087.jpeg&w=384&q=75",
+        "https://drive.google.com/thumbnail?id=1v1hAjOQNl8E4yFD5SYvldddUOGVRzLTm&sz=s600",
       content: (
         <>
-          ☀️ <strong> Clear:</strong> Good lighting and not too far or close to
-          the camera.
+          ☀️ <strong> Clear:</strong> Plain background, Very important Head Straight and no Head tilt, Good lighting , head to waist shot, standing against a plain white or grey background really helps!
         </>
       ),
     },
@@ -42,31 +41,28 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg }) => {
   const incorrectData = [
     {
       imgPath:
-        "https://dashboard.aragon.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Faccessories.4e9558eb.png&w=384&q=75",
+        "https://drive.google.com/thumbnail?id=1hAjK3Ppw-TRGkWUGtsBQ-iiSFgAD9FmE&sz=s600",
       content: (
         <>
-          🧢 <strong>No Accessories:</strong> (e.g. hats, backpacks,
-          headphones).
+          🧢 <strong>No Accessories:</strong> (e.g. Hats, backpacks, sunglasses, earrings, nose rings, headphones, excess makeup, scarfs, chains, necklaces, glasses etc. ).
         </>
       ),
     },
     {
       imgPath:
-        "https://dashboard.aragon.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Frevealing.d2f1ddf4.jpeg&w=384&q=75",
+        "https://drive.google.com/thumbnail?id=1G83HIuGLB0G4OB7pjqzPuozqDBAB4Oqx&sz=s600",
       content: (
         <>
-          👙 <strong>No Revealing Clothing:</strong> (e.g. tank tops, shirtless,
-          bikinis).
+          👙 <strong>No Group Photos or Revealing Clothes:</strong> (eg. Group Images with 2 or more, tank tops, shirtless, bikins. ).
         </>
       ),
     },
     {
       imgPath:
-        "https://dashboard.aragon.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsilly_expression.7fcdef6c.png&w=384&q=75",
+        "https://drive.google.com/thumbnail?id=1sotdvngPxuOmi29ibr5v7kswMzy-5sr5&sz=s600",
       content: (
         <>
-          🥴 <strong> No Goofy Faces:</strong> No unusual expressions (e.g. duck
-          faces, tongue out).
+          🥴 <strong> No Goofy Faces:</strong>No unusual expressions like closed eyes, duck faces, tongue out, peace sign, very important to keep head straight and no head tilt , no half faces .
         </>
       ),
     },

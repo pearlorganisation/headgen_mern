@@ -126,10 +126,7 @@ const AboutUs = () => {
 
       content: (
         <>
-          Krasia is a
-          computer engineer with a knack for visual design. Together we created
-          HeadGen AI.
-          Krasia's unique blend of technical prowess and creative flair has been instrumental in driving the innovation and excellence that define HeadGen AI. With a deep understanding of both the artistic and technical aspects of AI, she ensures that their digital tools and services are at the cutting edge of generative AI technology.
+          Krasia Gordon has a deep understanding and passion for generative AI and visual aesthetics. As a computer science graduate, she leveraged her technical knowledge to work alongside her brother, Ruark, in creating the most realistic AI headshot generator on the market. Krasia's strengths in computer science and visual design, combined with Ruark's vast experience as an entrepreneur and photographer, have created the perfect blend for HeadGen AI, resulting in a groundbreaking tool for generating high-quality AI images.
         </>
       )
     },
