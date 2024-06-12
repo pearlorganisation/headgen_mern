@@ -40,68 +40,80 @@ const Dating = () => {
   const imgData1 = [
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1S5bBKkp1GzLny1qdZALDneLU_R8K9cpi&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=13MDKldbcfp2RoCD69JT3Mla6tpESwtZ3&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1BK36kyvW0Y7Qi31JNisi9sBILEt9h253&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1JryqvbPr6uei55RLn8XwYkhBloHXWQLx&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1VqauRyzxQkTqSgcPc-HRKuVbpYdGxnXp&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1Xnoz9toClEftcNtI3ry6b70VYc3zGjnj&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1qXHce4s_ceLgKA2-h53CbmQNA8DRkEK1&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1Dqp3Xq_waIijv7u_0gZL3LyZHPM0ypdI&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1IOdDiEkZd6_mDZcTHbwlxHTn_UvD3b8u&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1mYNjhBxqyoVmDuWmNsSxYMcQ5hywrnNy&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1Y7WVp606_tCnO6XTrhMfmgyUdkf3GC9Q&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1r9yz5mD_3wmv2rrGxRoMyW3BclwUy-TG&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1Umqezt_nkshnPbJeg9oWU1F4zaOXuppc&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1D2APOwg12vupNKT6pePs3CauxDfwbMsy&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=148oLVfyQ_WuBOErIy1n4I870P7IUNF5R&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1IOdDiEkZd6_mDZcTHbwlxHTn_UvD3b8u&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1CRmngISsdvYsf7U8SCgP-mMuKjZAnaGH&sz=s600",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s600",
+      path: "https://drive.google.com/thumbnail?id=1erHyNACW-Wal1hP4NNehB78BheOODW5b&sz=s600",
     },
+    // {
+    //   name: "",
+    //   path: "https://drive.google.com/thumbnail?id=1jGcipyokjvGCqEtExRTnOfYvs_LYLMKB&sz=s600",
+    // },
+    // {
+    //   name: "",
+    //   path: "https://drive.google.com/thumbnail?id=1VdMX_SEiU6LmlO9Z_nkOWodKkgfjIj_X&sz=s600",
+    // },
+    // {
+    //   name: "",
+    //   path: "https://drive.google.com/thumbnail?id=1_gZ53nxozoj73SWK7_W60NEM_brI4Kpr&sz=s600",
+    // },
   ];
 
 
