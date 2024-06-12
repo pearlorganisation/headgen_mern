@@ -5,7 +5,7 @@ const DatingHero = () => {
   return (
     <div className="grid md:grid-cols-2 gap-6 py-8 md:py-0">
       <div className="flex flex-col items-center md:items-start justify-center gap-6 w-full">
-        <div className="text-4xl text-center md:text-left lg:text-6xl font-semibold 2xl:text-[80px] leading-tight text-[#F1F1F1] w-full">
+        <div className="text-4xl text-center md:text-left lg:text-[4.3rem] font-semibold  leading-tight text-[#F1F1F1] w-full">
           <div >
             <span className="font-semibold bg-gradient-to-r from-[#e73e71] to-[#af1040]  inline-block text-transparent bg-clip-text">
               Double
