@@ -38,29 +38,49 @@ const AboutUs = () => {
   ];
 
   const aboutUsContent = (
-    <div className="leading-relaxed">
-      <span>
-        Playcloud Technologies ( HeadGen AI) is founded by brother and sister
-        duo of Ruark Gordon and Krasia Gordon. Ruark is a Film Director,
-        Producer and Serial Entrepreneur with multiple ventures. Krasia is a
-        computer engineer with a knack for visual design. Together we created
-        HeadGen AI. With HeadGen AI we wanted to perfect creating the best
-        possible outcome of an AI generated image. HeadGen AI is our flagship
-        project, where we strive to perfect the art of AI-generated images.
+    <div className="leading-relaxed flex flex-col gap-1">
+      <span className="font-bold">
+        Our Mission:
       </span>
-      <br />
+
       <span>
-        Situated at the crossroads of design, programming, and art, we craft
-        exceptional digital tools and services that harness the transformative
-        power of generative AI to enhance your everyday life. Our mission is
-        simple: to democratize access to generative AI and make it accessible to
-        everyone. We value your input and welcome your thoughts, feedback, and
-        requests.
+        Harness the transformative power of generative AI to enhance everyday life.
+        Democratize access to generative AI, making it accessible to everyone.
+
       </span>
-      <br />
-      Reach out to us at support@headgen.ai and let’s shape the future together.
-      In case of collaborations or any urgent requests please whatsapp us on +39
-      3333304061.
+
+      <span className="font-bold">
+        About Us:
+      </span>
+
+      <span>
+        Playcloud Technologies Limited (HeadGen AI) is dedicated to perfecting AI-generated images.
+        Situated at the crossroads of design, programming, and art.
+        We craft exceptional digital tools and services leveraging generative AI.
+      </span>
+
+
+      <span className="font-bold">
+        Founders:
+      </span>
+
+      <span>
+        Ruark Gordon: Film Director, Producer, and Serial Entrepreneur.
+        <br />
+        Krasia Gordon: Computer Engineer with a knack for visual design.
+      </span>
+
+      <span className="font-bold">
+        Contact Us:
+
+      </span>
+
+      <span>
+        Email: support@headgen.ai <br />
+        WhatsApp: +91 9820442749 (for collaborations or urgent requests)<br />
+        We value your input and welcome your thoughts, feedback, and requests. Let's shape the future together!
+      </span>
+
     </div>
   );
 
@@ -79,6 +99,15 @@ const AboutUs = () => {
           link: "/",
         },
       ],
+      content: (
+        <>
+          Ruark Gordon is an experienced Film Director and Producer who has created over 700 ad films for 200 corporations over the past 11 years.
+          As a serial entrepreneur, he has founded companies such as Affy Studios, Playcloud Technologies Limited, and Medzzi.
+          With a deep passion for generative AI, Ruark has utilized his extensive experience as a photographer, during which he created print campaigns for numerous brands and corporations.
+          This background has equipped him with the skills to craft the best prompts for generating the most realistic and high-quality AI images, tailored specifically for corporate needs and dating applications.
+
+        </>
+      )
     },
     {
       name: "Krasia Gordon",
@@ -94,6 +123,15 @@ const AboutUs = () => {
           link: "/",
         },
       ],
+
+      content: (
+        <>
+          Krasia is a
+          computer engineer with a knack for visual design. Together we created
+          HeadGen AI.
+          Krasia's unique blend of technical prowess and creative flair has been instrumental in driving the innovation and excellence that define HeadGen AI. With a deep understanding of both the artistic and technical aspects of AI, she ensures that their digital tools and services are at the cutting edge of generative AI technology.
+        </>
+      )
     },
   ];
 
@@ -129,21 +167,7 @@ const AboutUs = () => {
     <div className="bg-[#161616]">
       <div className="relative w-full text-white py-10 xl:py-20 px-10 xl:px-[250px]  flex flex-col gap-8 xl:gap-[3.5rem] tracking-wider">
         <div className="mt-10">
-          <Swiper
-            modules={[Navigation, A11y, Autoplay]}
-            spaceBetween={20}
-            slidesPerView={3}
-            navigation
-            autoplay={{ delay: 2000 }}
-            className="w-full flex justify-center"
-          >
-            {imgData &&
-              imgData?.map((item) => (
-                <SwiperSlide className="flex justify-center ">
-                  <img src={item.path} className="!h-[320px] mx-auto" />
-                </SwiperSlide>
-              ))}
-          </Swiper>
+          <img src="https://drive.google.com/thumbnail?id=1KpGw_yfU-oOPsc9fkrJUWAcIkJOkp8_M&sz=s1000" className="w-full rounded-xl  shadow-[0_0_0_1px#d1d1d1]" />
         </div>
         <div className="flex justify-center my-10">
           <div className="flex flex-row flex-wrap md:justify-between w-full">
@@ -191,12 +215,12 @@ const AboutUs = () => {
       </div>
 
       <div className="relative w-full text-white px-10 xl:px-[250px] py-20 bg-[#161616] flex flex-col gap-8 xl:gap-[6rem] tracking-wider">
-      <div className="text-[#F1F1F1] text-center text-5xl font-medium">
-            Meet the AI Founders of{" "}
-            <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold py-5">
-              Headgen
-            </span>
-          </div>
+        <div className="text-[#F1F1F1] text-center text-5xl font-medium">
+          Meet the AI Founders of{" "}
+          <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold py-5">
+            Headgen
+          </span>
+        </div>
 
         <div className="flex flex-row flex-wrap md:justify-between w-full">
           <div className="w-2/5 flex flex-col gap-4 justify-center items-start ">
@@ -235,16 +259,16 @@ const AboutUs = () => {
             </div>
           </div>
           <div className="w-3/5 flex flex-col gap-6 justify-center *:items-center">
-            {aboutUsContent && (
-              <p className="text-justified">{aboutUsContent}</p>
+            {foundersContent[0]?.content && (
+              <p className="text-justified">{foundersContent[0]?.content}</p>
             )}
           </div>
         </div>
 
         <div className="flex flex-row flex-wrap md:justify-between w-full">
           <div className="w-3/5 flex flex-col gap-6 justify-center *:items-center">
-            {aboutUsContent && (
-              <p className="text-justified">{aboutUsContent}</p>
+            {foundersContent[1]?.content && (
+              <p className="text-justified">{foundersContent[1]?.content}</p>
             )}
           </div>
 

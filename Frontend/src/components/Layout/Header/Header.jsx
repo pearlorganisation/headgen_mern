@@ -12,7 +12,7 @@ const Header = () => {
   const [showMobDropdown, setShowMobDropdown] = useState(false);
 
   useEffect(() => {
-  
+    // console.log(location);
     if (
       location.pathname === "/dating" ||
       location.pathname === "/upload/dating"

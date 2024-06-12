@@ -543,7 +543,7 @@ const Home = () => {
       {/* hero */}
 
       <div className="grid md:grid-cols-2  md:px-10  xl:px-[160px] 2xl:px-[250px]">
-        <div className={`max-w-[834px] order-2  md:order-none w-full w-1/2 flex flex-col gap-0 pt-5 md:pt-10 text-center md:text-left`}>
+        <div className={`max-w-[834px]  w-full w-1/2 flex flex-col gap-0 pt-5 md:pt-10 text-center md:text-left`}>
           <div className="flex flex-col leading-none mb-4 space-y-3 md:space-y-0">
             <div
               className={`lg:text-3xl font-bold md:pl-[1.55rem] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
@@ -575,12 +575,8 @@ const Home = () => {
             >
               Get your photos for $29
             </Link>
-          </div>
-          <div
-            className={`flex flex-col justify-center  items-center md:items-start mt-2 ${isAnimated ? "animatedReveal" : "invisible"
-              }`}
-          >
-            <div className="flex flex-col md:flex-row gap-1">
+
+            <div className="flex flex-col md:flex-row gap-1 justify-between">
               <div className="flex flex-col justify-center">
                 <img src="https://drive.google.com/thumbnail?id=1CeH2wAEjMNSiQRdRtSl2B3PIRsLEwLHp&sz=s120" />
               </div>
@@ -603,6 +599,7 @@ const Home = () => {
               </div>
             </div>
           </div>
+         
         </div>
         <div
           className={`max-w-[834px]  w-full w-1/2 flex flex-col gap-4 items-end pt-10`}
@@ -709,7 +706,7 @@ const Home = () => {
 
       <div className="flex justify-center px-10  xl:px-[160px] 2xl:px-[250px] py-14">
         <div className="grid gap-8 md:gap-0 md:grid-cols-2  md:justify-between w-full">
-          <div className=" flex flex-col w-full gap-4 justify-center items-center order-2 md:order-none ">
+          <div className=" flex flex-col w-full gap-4 justify-center items-center  ">
             <div className="grid grid-cols-2 md:grid-cols-1 gap-4 w-fit">
               <div className="text-[#F1F1F1] text-[45px] md:text-[60px] 2xl:text-[72px] font-medium md:leading-6">
                 How it
@@ -727,11 +724,12 @@ const Home = () => {
           </div>
           <div className=" flex flex-col w-full gap-6 items-center">
             <div className="w-full flex justify-center">
+
               <iframe
                 src="https://drive.google.com/file/d/16UKFJcaT2Y3Kn9dsSakqJl6uVfYJITEb/preview"
-                width="640"
-                height="480"
-                className="rounded-2xl"
+                width="100%"
+                height="100%"
+                className="rounded-2xl h-[300px] md:h-[480px] md:w-[640px]"
               ></iframe>
             </div>
 
@@ -853,7 +851,7 @@ const Home = () => {
 
       <div className="gradientBackground px-10  xl:px-[160px] 2xl:px-[250px]">
         <div className="flex flex-col items-center gap-6 pt-14">
-          <div className="text-white text-[64px]">High Quality Images</div>
+          <div className="text-white text-[30px] sm:text-[35px] md:text-[45px] lg:text-[64px]">High Quality Images</div>
           <div className="max-w-[90%] flex flex-col gap-6 items-center">
             <div className="text-center text-white text-[16px]">
               We take our Quality very seriously Our Engineers ensure that
@@ -863,7 +861,7 @@ const Home = () => {
             <div className="flex flex-col gap-4 w-1/2 items-center">
               <Link
                 to="/upload/Corporate%20Headshots"
-                className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+                className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[45px] md:h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
               >
                 Get your photos for $29
               </Link>
@@ -887,22 +885,22 @@ const Home = () => {
         </div>
 
         <div className="flex flex-col gap-10 items-center">
-          <div className="text-[#F1F1F1] text-[55px] 2xl:text-[72px] font-medium">
+          <div className="text-[#F1F1F1] text-3xl text-center md:text-4xl 2xl:text-[72px]  font-medium">
             Use Cases of{" "}
-            <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold">
+            <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold py-10">
               AI Headshots
             </span>
           </div>
-          <div className="flex flex-row justify-around w-full gap-2">
+          <div className="flex flex-wrap justify-center items-center w-full gap-4 md:gap-2">
             {useCaseData?.map((item) => (
-              <div className="w-auto max-w-[250px] h-[300px] 2xl:h-[350px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
+              <div className="w-auto max-w-[250px] 2xl:w-[200px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
                 <div className="w-full h-2/3">
                   <img
                     src={item?.path}
                     className="w-full h-full rounded-t-xl"
                   />
                 </div>
-                <div className="flex flex-col justify-center px-2 pt-2">
+                <div className="flex flex-col justify-center px-2 py-4">
                   <div className="text-medium text-sm font-bold flex justify-between">
                     <span>{item?.title}</span>
                     <span>{item?.svg}</span>
@@ -915,63 +913,63 @@ const Home = () => {
         </div>
 
         {/* turn your selfie info card */}
-        <div className="w-full bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-10 rounded-xl shadow-[0_0_1px_1px#f1f1f1] flex ">
-          <div className="flex flex-col justify-evenly gap-4 w-[50%] px-10">
-            <div className="text-[32px] xl:text-[48px] 2xl:text-5xl text-[#F1F1F1]">
+        <div className="w-full grid md:grid-cols-2 gap-4 bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-10 rounded-xl shadow-[0_0_1px_1px#f1f1f1] ">
+          <div className="flex w-full flex-col  items-center md:items-start justify-evenly gap-4 px-10">
+            <div className="text-[32px] xl:text-[48px] 2xl:text-4xl text-[#F1F1F1]">
               Turn your selfie into
             </div>
-            <div className="text-[32px] xl:text-[48px] 2xl:text-5xl  bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+            <div className=" text-center w-full md:text-left text-6xl  bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
               Professional Headshots
             </div>
-            <div className="text-[16px] 2xl:text-[24px] text-[#F1F1F1]">
-              High Quality AI Image Generator for your Business Profiles
+            <div className="text-[16px] text-center md:text-left 2xl:text-[24px] text-[#F1F1F1]">
+              AI Headshots
             </div>
             <div>
               <Link
                 to="/upload/Corporate%20Headshots"
-                className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-2/3 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+                className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full px-6  h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
               >
                 Get your photos for $29
               </Link>
             </div>
           </div>
-          <div className=" w-[50%]">
+          <div className=" w-full">
             <img
-              src="https://drive.google.com/thumbnail?id=1Q-ep4Ux-9JwiXyH3vvD4UWIEBqOHq9JI&sz=s800"
+              src="https://drive.google.com/thumbnail?id=1Zxk-5ZhT_jVlmVEjZAt_ABgcwtBUQViG&sz=s800"
               className="w-full h-full"
             />
           </div>
         </div>
 
         {/* dating hero section */}
-        <div className="flex justify-center">
+        <div className="flex justify-center py-20 ">
           <DatingHero />
         </div>
       </div>
 
-      <div className="flex flex-row px-10 xl:px-[160px] 2xl:px-[250px]">
-        <div className="w-1/2 relative">
-          <div className="flex flex-col justify-center gap-6 top-0">
-            <div className=" text-[#F1F1F1] text-[52px] 2xl:text-[60px] font-medium">
-              Frequently
-              <br />
-              Asked
-              <br />
-              Questions
+      <div className="grid md:grid-cols-2 gap-8 px-10 xl:px-[160px] 2xl:px-[250px]">
+        <div className="w-full relative">
+          <div className="flex flex-col items-center md:items-start justify-center gap-2 md:gap-6 top-0">
+            <div className=" text-[#F1F1F1] md:grid space-x-3 md:space-x-0  w-full text-center md:text-left text-[25px] md:text-[35px] lg:text-[52px] 2xl:text-[60px] font-medium">
+              <span>Frequently</span>
+
+              <span>Asked</span>
+
+              <span>Questions</span>
             </div>
             <div className="text-[#F1F1F1] text-[14px]">
               E-mail is at support@headgen.ai we are available round the clock.
             </div>
           </div>
         </div>
-        <div className="w-1/2">
+        <div className="w-full">
           <FaqAccordian />
         </div>
       </div>
 
       <div className="flex flex-col px-10 xl:px-[160px] 2xl:px-[250px]">
-        <div className="text-center text-[60px] text-[#F1F1F1]">
-          <span className="text-[55px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+        <div className="text-center text-[35px] lg:text-[45px] xl:text-[55px] text-[#F1F1F1]">
+          <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
             Our Clients love
           </span>{" "}
           Our Results
@@ -983,17 +981,17 @@ const Home = () => {
         />
       </div>
 
-      <div className="flex flex-col gap-10">
-        <div className="text-center text-[60px] text-[#F1F1F1]">
-          <span className="text-[55px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+      <div className="flex flex-col gap-5 md:gap-10">
+        <div className="text-center text-[35px] lg:text-[45px] xl:text-[55px] text-[#F1F1F1]">
+          <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
             Privacy First
           </span>{" "}
           to Protect Your Data
         </div>
-        <div className="flex justify-center gap-4 px-10  xl:px-[160px] 2xl:px-[250px] ">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 px-10  xl:px-[160px] 2xl:px-[250px] ">
           {privacyFirstData &&
             privacyFirstData?.map((item) => (
-              <div className="w-[250px] h-[200px] 2xl:w-[350px] 2xl:h-[300px] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
+              <div className=" h-[200px] 2xl:w-[350px] 2xl:h-[300px] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
                 <div className="w-1/3">
                   <img src={item?.imgPath} className="w-full" />
                 </div>
@@ -1007,8 +1005,8 @@ const Home = () => {
       </div>
 
       <div className="flex flex-col gap-8">
-        <div className="text-center text-[60px] text-[#F1F1F1]">
-          <span className="text-[55px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+        <div className="text-center text-[35px] lg:text-[45px] xl:text-[55px] text-[#F1F1F1]">
+          <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
             Premium Professional
           </span>{" "}
           Image Generator
@@ -1022,8 +1020,8 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex flex-row px-10 xl:px-[160px] 2xl:px-[250px] py-10">
-        <div className="w-1/2 flex flex-col items-center gap-1">
+      <div className="grid md:grid-cols-2 gap-8 px-10 xl:px-[160px] 2xl:px-[250px] py-10">
+        <div className="w-full order-2 md:order-none flex flex-col items-center gap-1">
           <div className="flex w-2/3  gap-1">
             <div className="w-2/3">
               <img
@@ -1062,21 +1060,21 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="w-1/2 flex justify-center">
-          <div className="flex flex-col items-center justify-center gap-6 top-0">
-            <div className="text-center text-[#F1F1F1] text-[52px] 2xl:text-[60px] font-medium">
+        <div className="w-full flex justify-center">
+          <div className="flex flex-col items-center justify-center gap-4 md:gap-6 top-0">
+            <div className="text-center space-x-3 md:space-x-0 md:grid text-[#F1F1F1] text-[32px] md:text-[42px] lg:text-[52px] 2xl:text-[60px] font-medium">
               <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
                 Money-Back
               </span>
-              <br />
-              Guarantee
+
+              <span>Guarantee</span>
             </div>
             <div className="text-[#F1F1F1] text-[14px]">
               Try Headgen.ai with confidence. Our results are Mind blowing.
             </div>
             <Link
               to="/upload/Corporate%20Headshots"
-              className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-2/3 h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+              className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-2/3 h-[40px] md:h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
             >
               Get your photos for $29
             </Link>
@@ -1085,8 +1083,8 @@ const Home = () => {
       </div>
 
       <div className="flex flex-col gap-24 px-10  xl:px-[160px] 2xl:px-[250px]">
-        <div className="text-center text-[60px] text-[#F1F1F1]">
-          <span className="text-[55px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+        <div className="text-center text-[35px] lg:text-[45px] xl:text-[55px] text-[#F1F1F1]">
+          <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
             HeadGen
           </span>{" "}
           AI Blog
