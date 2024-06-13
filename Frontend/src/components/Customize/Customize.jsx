@@ -42,7 +42,7 @@ const Customize = ({
       tag: "",
     },
   ];
-
+  console.log("type::", type)
   const customizeData = [
     {
       idx: 0,
