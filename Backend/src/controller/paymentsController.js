@@ -194,6 +194,7 @@ export const cancel = (req, res) => {
 
 export const teamsCheckout = async (req, res) => {
   try {
+    console.log(req.body)
     const teamsData = JSON.parse(req.body.teamsData);
     let price = Number(teamsData.price) * Number(teamsData.users);
 

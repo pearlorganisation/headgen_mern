@@ -189,7 +189,7 @@ const Header = () => {
                     />
                   ) : (
                     <Link
-                      href={item.path}
+                      to={item.path}
                       className="w-full flex justify-center hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-lg py-2 hover:bg-blue-600 hover:text-white transition duration-300 "
                       onClick={() => setShowMobDropdown(false)}
                     >

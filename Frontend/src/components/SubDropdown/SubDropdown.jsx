@@ -18,18 +18,18 @@ const SubDropdown = ({ data, setShowMobDropdown }) => {
         </span>
       </div>
 
-      {data?.paths?.map((item, idx) => (
-        <Link
-          key={`subDropdownMenu${idx}`}
-          href={item.path}
-          className={`${
-            showDropdown ? "" : "hidden"
-          } w-full text-center py-2 bg-[#1a1a1b] hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-lg transition duration-300 cursor-pointer relative`}
-          onClick={() => setShowMobDropdown(false)}
-        >
-          {item.name}
-        </Link>
-      ))}
+      <div className={`${showDropdown ? "" : "hidden"} w-full bg-[#2f2f31] flex flex-col`}>
+        {data?.paths?.map((item, idx) => (
+          <Link
+            key={`subDropdownMenu${idx}`}
+            to={item.path}
+            className={` w-full text-center py-2 bg-[#1a1a1b] hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-lg transition duration-300 cursor-pointer relative`}
+            onClick={() => setShowMobDropdown(false)}
+          >
+            {item.name}
+          </Link>
+        ))}
+      </div>
     </>
   );
 };

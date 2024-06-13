@@ -918,10 +918,10 @@ const Home = () => {
             <div className="text-[32px] xl:text-[48px] 2xl:text-4xl text-[#F1F1F1]">
               Turn your selfie into
             </div>
-            <div className=" text-center w-full md:text-left text-6xl  bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+            <div className=" text-center w-full md:text-left text-6xl 2xl:text-8xl  bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
               Professional Headshots
             </div>
-            <div className="text-[16px] text-center md:text-left 2xl:text-[24px] text-[#F1F1F1]">
+            <div className="text-3xl text-center md:text-left text-[#F1F1F1]">
               AI Headshots
             </div>
             <div>
