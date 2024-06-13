@@ -988,10 +988,10 @@ const Home = () => {
           </span>{" "}
           to Protect Your Data
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 px-10  xl:px-[160px] 2xl:px-[250px] ">
+        <div className="flex flex-wrap justify-center gap-4 px-10  xl:px-[160px] 2xl:px-[250px] ">
           {privacyFirstData &&
             privacyFirstData?.map((item) => (
-              <div className=" h-[200px] 2xl:w-[350px] 2xl:h-[300px] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
+              <div className=" w-[70%] md:w-[33%] xl:w-[22%] 2xl:h-[300px] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
                 <div className="w-1/3">
                   <img src={item?.imgPath} className="w-full" />
                 </div>
