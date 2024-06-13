@@ -543,7 +543,7 @@ const Home = () => {
       {/* hero */}
 
       <div className="grid md:grid-cols-2  md:px-10  xl:px-[160px] 2xl:px-[250px]">
-        <div className={`max-w-[834px]  w-full w-1/2 flex flex-col gap-0 pt-5 md:pt-10 text-center md:text-left`}>
+        <div className={`max-w-[834px]  w-full flex flex-col gap-0 pt-5 md:pt-10 text-center md:text-left`}>
           <div className="flex flex-col leading-none mb-4 space-y-3 md:space-y-0">
             <div
               className={`lg:text-3xl font-bold md:pl-[1.55rem] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
@@ -918,7 +918,7 @@ const Home = () => {
             <div className="text-[32px] xl:text-[48px] 2xl:text-4xl text-[#F1F1F1]">
               Turn your selfie into
             </div>
-            <div className=" text-center w-full md:text-left text-6xl 2xl:text-8xl  bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+            <div className=" text-center w-full md:text-left text-6xl 2xl:text-7xl  bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
               Professional Headshots
             </div>
             <div className="text-3xl text-center md:text-left text-[#F1F1F1]">

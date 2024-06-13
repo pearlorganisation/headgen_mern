@@ -5,65 +5,68 @@ import AppSvgs from "../../AppSvgs/AppSvgs";
 const Footer = () => {
   const footerContent = [
     {
-      title: "Corporate headshot",
-      list: [
-        {
-          title: "Dating Photos",
-          link: "/upload/dating",
-        },
-        {
-          title: "Doctor Headshots",
-          link: "/upload/Doctor%20Headshots",
-        },
-        {
-          title: "Lawyer Headshots",
-          link: "/upload/Lawyer%20Headshots",
-        },
-        {
-          title: "Salesperson",
-          link: "/upload/Sales%20Headshots",
-        },
+      title: "AI Headshots",
+      multiList: [
+        [
+          {
+            title: "Corporate",
+            link: "/upload/Corporate%20Headshots",
+          },
+          {
+            title: "Doctor",
+            link: "/upload/Doctor%20Headshots",
+          },
+          {
+            title: "Lawyer",
+            link: "/upload/Lawyer%20Headshots",
+          },
+          {
+            title: "Sales",
+            link: "/upload/Sales%20Headshots",
+          },
+          {
+            title: "Student",
+            link: "/upload/Student%20Headshots",
+          },
+          {
+            title: "Teacher",
+            link: "/upload/Teacher%20Headshots",
+          },
+        ],
+        [
+          {
+            title: "Dating",
+            link: "/upload/dating",
+          },
+          {
+            title: "Custom",
+            link: "/upload/custom",
+          },
+          {
+            title: "Prompts",
+            link: "/upload/prompts",
+          },
+          {
+            title: "Teams",
+            link: "/upload/Teams",
+          },
+          {
+            title: "Blogs",
+            link: "/blogs",
+          },
+          {
+            title: "Sitemap",
+            link: "/",
+          },
+        ],
       ],
     },
-    {
-      title: "Corporate headshot",
-      list: [
-        {
-          title: "Corporate Headshots",
-          link: "/upload/Corporate%20Headshots",
-        },
-        {
-          title: "Student Headshots",
-          link: "/upload/Student%20Headshots",
-        },
-        {
-          title: "Teacher Headshots",
-          link: "/upload/Teacher%20Headshots",
-        },
-      ],
-    },
+
     {
       title: "Company",
       list: [
         {
-          title: "AI Portrait Generator",
-          link: "/upload",
-        },
-        {
-          title: "LinkedIn Headshots",
-          link: "/upload/Corporate%20Headshots",
-        },
-        {
-          title: "Blog",
-          link: "/blogs",
-        },
-      ],
-    },
-    {
-      title: "Trust & Legal",
-      list: [
-        {
-          title: "About us",
+          title: "About Us",
           link: "/aboutus",
         },
         {
@@ -75,12 +78,8 @@ const Footer = () => {
           link: "/termsandconditions",
         },
         {
-          title: "Cancellation & Refund",
-          link: "cancellation",
-        },
-        {
-          title: "Contact",
-          link: "/contactus",
+          title: "Refund & Cancellations",
+          link: "/",
         },
       ],
     },
@@ -88,24 +87,44 @@ const Footer = () => {
       title: "Support",
       list: [
         {
+          title: "Contact Us",
+          link: "/contactus",
+        },
+        {
+          title: "Payment Gateway",
+          link: "/",
+        },
+        {
+          title: "Affiliate Program",
+          link: "/",
+        },
+        {
           title: "Support@headgen.ai",
-          link: "email:support@headgen.ai",
+          link: "mailto:support@headgen.ai",
+        },
+        {
+          title: "+91 9820442749",
+          link: "tel:+919820442749",
         },
       ],
     },
   ];
 
   return (
-    <div id="footer" style={{
-      fontFamily: 'Oswald'
-    }} className="flex !oswald flex-col items-center gap-20 px-10 2xl:px-[250px] py-10">
-      <div className="flex flex-row flex-wra lg:flex-nowrap gap-2 w-full">
-        <div className="w-[350px] hidden rounded-2xl lg:flex flex-col justify-center items-center relative">
+    <div
+      id="footer"
+      style={{
+        fontFamily: "Oswald",
+      }}
+      className="flex !oswald flex-col items-center gap-20 px-10 2xl:px-[250px] py-10"
+    >
+      <div className="flex flex-row flex-wra lg:flex-nowrap gap-4 w-full">
+        <div className="w-[300px] xl:w-[380px] hidden rounded-2xl lg:flex flex-col justify-start items-center relative">
           <img
             src="https://drive.google.com/thumbnail?id=18dNFZW3wy9xCml4GbGHxJhgPlv4mOM5i&sz=s600"
             alt=""
             srcset=""
-            className="w-full h-full rounded-2xl shadow-[0_0_0_3px#59caff]"
+            className="w-full h-[90%] rounded-2xl shadow-[0_0_0_5px#5636F3]"
           />
           <div className="flex flex-col gap-1">
             <div className="w-[90%] px-2 py-3 bg-gradient-to-r from-[#59caff] to-[#5636F3] rounded-xl text-[#f1f1f1] text-[15px] font-medium transition duration-300 absolute -bottom-4 left-1/2 -translate-x-1/2">
@@ -114,21 +133,44 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="py-16 px-8 oswald md:px-16  w-full rounded-2xl bg-[#E6E0F4] grid md:grid-cols-5 gap-2 md:justify-center">
+        <div className="py-16 px-8 oswald md:px-16  w-full rounded-2xl bg-[#000000] grid md:grid-cols-4 gap-2 md:justify-center shadow-[0_0_0_5px#000000]">
           {footerContent &&
             footerContent?.map((fc, idx) => (
-              <div className="flex flex-col gap-2  w-[90%] " key={`fc${idx}`}>
-                <div className="text-base xl:text-lg font-medium h-[80px]">
+              <div className={`flex flex-col gap-1 ${fc?.multiList && 'col-span-2'}`} key={`fc${idx}`}>
+                <div className={`text-2xl xl:text-[2.4rem] h-[80px] oswald text-blue-600`}>
                   {fc?.title}
                 </div>
-                <div className="flex flex-col gap-1 ">
-                  {fc?.list &&
-                    fc?.list?.map((item, idx2) => (
-                      <Link to={item?.link} key={`fcl${idx2}`}>
-                        {item?.title}
-                      </Link>
+                {fc?.multiList ? (
+                  <div className="grid grid-cols-2 text-[#f1f1f1] text-xl xl:text-[1.7rem] leading-[1.3] ">
+                    {fc?.multiList?.map((item) => (
+                      <div className="flex flex-col gap-1">
+                        {item &&
+                          item?.map((item) => (
+                            <Link
+                              to={item?.link}
+                              key={`fcl${item?.title}`}
+                              className="oswald hover:text-blue-600 transition duration-300"
+                            >
+                              {item?.title}
+                            </Link>
+                          ))}
+                      </div>
                     ))}
-                </div>
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-1 text-[#f1f1f1] text-xl xl:text-[1.7rem] leading-[1.3]  ">
+                    {fc?.list &&
+                      fc?.list?.map((item, idx2) => (
+                        <Link
+                          to={item?.link}
+                          key={`fcl${idx2}`}
+                          className="oswald hover:text-blue-600 transition duration-300"
+                        >
+                          {item?.title}
+                        </Link>
+                      ))}
+                  </div>
+                )}
               </div>
             ))}
         </div>
