@@ -113,12 +113,9 @@ const Footer = () => {
   return (
     <div
       id="footer"
-      style={{
-        fontFamily: "Oswald",
-      }}
-      className="flex !oswald flex-col items-center gap-20 px-10 2xl:px-[250px] py-10"
+      className="flex flex-col items-center gap-20 px-10 2xl:px-[250px] py-10"
     >
-      <div className="flex flex-row flex-wra lg:flex-nowrap gap-4 w-full">
+      <div className="flex flex-row flex-wrap lg:flex-nowrap gap-4 w-full">
         <div className="w-[300px] xl:w-[380px] hidden rounded-2xl lg:flex flex-col justify-start items-center relative">
           <img
             src="https://drive.google.com/thumbnail?id=18dNFZW3wy9xCml4GbGHxJhgPlv4mOM5i&sz=s600"
@@ -133,7 +130,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="py-16 px-8 oswald md:px-16  w-full rounded-2xl bg-[#000000] grid md:grid-cols-4 gap-2 md:justify-center shadow-[0_0_0_5px#000000]">
+        <div className="py-16 px-8 oswald md:px-16  w-full rounded-2xl bg-[#000000] grid grid-cols-1 md:grid-cols-4 gap-2 md:justify-center shadow-[0_0_0_5px#000000]">
           {footerContent &&
             footerContent?.map((fc, idx) => (
               <div className={`flex flex-col gap-1 ${fc?.multiList && 'col-span-2'}`} key={`fc${idx}`}>
@@ -175,9 +172,9 @@ const Footer = () => {
             ))}
         </div>
       </div>
-      <div className="w-full flex flex-row justify-between">
-        <div className="text-sm text-[#f1f1f1]">
-          Copyright ©2024 Playcloud Technologies Private Limited.
+      <div className="w-full flex flex-row flex-wrap gap-2 sm:gap-0 justify-between">
+        <div className="text-[11px] sm:text-sm text-[#f1f1f1]">
+          Copyright 2024 Playcloud Technologies Private Limited.
         </div>
         <div className="flex flex-row gap-4">
           <Link to="/">
