@@ -955,10 +955,10 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className=" w-full border">
+          <div className=" w-full ">
             <img
               src="https://drive.google.com/thumbnail?id=1Zxk-5ZhT_jVlmVEjZAt_ABgcwtBUQViG&sz=s800"
-              className="w-full h-full"
+              className="w-full h-full md:pr-0 pr-6"
             />
           </div>
         </div>
