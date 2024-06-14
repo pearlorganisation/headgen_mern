@@ -543,7 +543,7 @@ const Home = () => {
       {/* hero */}
 
       <div className="grid md:grid-cols-2  md:px-10  xl:px-[160px] 2xl:px-[250px]">
-        <div className={`max-w-[834px]  w-full w-1/2 flex flex-col gap-0 pt-5 md:pt-10 text-center md:text-left`}>
+        <div className={`max-w-[834px]  w-full flex flex-col gap-0 pt-5 md:pt-10 text-center md:text-left`}>
           <div className="flex flex-col leading-none mb-4 space-y-3 md:space-y-0">
             <div
               className={`lg:text-3xl font-bold md:pl-[1.55rem] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
@@ -602,7 +602,7 @@ const Home = () => {
 
         </div>
         <div
-          className={`max-w-[834px]  w-full w-1/2 flex flex-col gap-4 items-end pt-10`}
+          className={`max-w-[834px] w-full flex flex-col gap-4 items-end pt-10`}
         >
           <img
             src={`https://drive.google.com/thumbnail?id=1UA7FyAGDxxNyOmQI2aEocXL8V1a70uJ-&sz=s600`}
@@ -940,7 +940,7 @@ const Home = () => {
             <div className="text-[32px] xl:text-[48px] 2xl:text-4xl text-[#F1F1F1]">
               Turn your selfie into
             </div>
-            <div className=" text-center w-full md:text-left text-6xl 2xl:text-8xl  bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+            <div className=" text-center w-full md:text-left text-6xl 2xl:text-7xl  bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
               Professional Headshots
             </div>
             <div className="text-3xl text-center md:text-left text-[#F1F1F1]">
@@ -1010,10 +1010,10 @@ const Home = () => {
           </span>{" "}
           to Protect Your Data
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 px-10  xl:px-[160px] 2xl:px-[250px] ">
+        <div className="flex flex-wrap justify-center gap-4 px-10  xl:px-[160px] 2xl:px-[250px] ">
           {privacyFirstData &&
             privacyFirstData?.map((item) => (
-              <div className=" h-[200px] 2xl:w-[350px] 2xl:h-[300px] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
+              <div className=" w-[70%] md:w-[33%] xl:w-[22%] 2xl:h-[300px] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
                 <div className="w-1/3">
                   <img src={item?.imgPath} className="w-full" />
                 </div>

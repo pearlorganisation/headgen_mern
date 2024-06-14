@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import InfinityTextSlider from "../../components/InfinitySlider/InfinityTextSlider";
 
@@ -156,23 +156,13 @@ const HowItWorks = () => {
           </span>
         </div>
 
-        <div className="container mx-auto bg-white py-10 rounded-xl flex ">
-          <div className="grid grid-cols-6 gap-3 px-8">
-            <div className="col-span-2 text-black text-6xl font-sans font-bold">
-              AI Generated Team Gallery
-            </div>
-            {imgData1.map((item) => {
-              return (
-                <div className="text-black border rounded-lg overflow-hidden">
-                  <img src={item?.path} alt="" />
-                  <div className="flex flex-col px-2 py-1">
-                    <span className="font-medium">John Doe</span>
-                    <span className="font-normal">Software Developer</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+        <div className="container rounded-xl flex justify-center">
+       
+            <img
+              src={`https://drive.google.com/thumbnail?id=1Qo4iW3x0ZEqeWhEz19Jyrv-ZzpTmJcFw&sz=s1200`}
+              className="w-[100%] rounded-xl"
+            />
+        
         </div>
       </div>
 
@@ -185,12 +175,12 @@ const HowItWorks = () => {
         </div>
 
         <div className="container rounded-xl flex justify-center">
-          <Link to={`/upload/customize`}>
+          
             <img
-              src={`/howItWorks/customizeSection.png`}
+              src={`https://drive.google.com/thumbnail?id=1fLckbykRqcA7xFycHiQ0PSwN3S3pgTLj&sz=s1200`}
               className="w-full rounded-xl"
             />
-          </Link>
+         
         </div>
       </div>
 
@@ -203,12 +193,12 @@ const HowItWorks = () => {
         </div>
 
         <div className="container rounded-xl flex justify-center">
-          <Link to={`/upload/prompt`}>
+          
             <img
               src={`/howItWorks/promptSection.png`}
               className="w-full rounded-xl"
             />
-          </Link>
+         
         </div>
       </div>
     </div>

@@ -151,13 +151,13 @@ const Dating = () => {
 
           </div>
           <div className="flex flex-col gap-10  h-full">
-            <div className="grid grid-cols-2 w-full h-1/2">
+            <div className="grid grid-cols-3 w-full h-1/2">
 
 
-              <div className="h-[400px] -translate-y-32 ">
+              <div className="h-[380px] w-full -translate-y-28 ">
                 <img src="https://drive.google.com/thumbnail?id=1ewv1EGjapKk2Yh8pEoojQYGfGUTWL_vV&sz=s400" className="w-auto h-full" />
               </div>
-              <div className="flex flex-col text-6xl leading-tight items-end py-10 font-semibold text-[#F1F1F1]">
+              <div className="flex flex-col text-2xl lg:text-5xl 2xl:text-6xl leading-tight items-start py-10 font-semibold text-[#F1F1F1] col-span-2">
                   <div>Higher</div>
                   <div>Quality</div>
                      <div>Conversations</div>
