@@ -602,7 +602,7 @@ const Home = () => {
          
         </div>
         <div
-          className={`max-w-[834px]  w-full w-1/2 flex flex-col gap-4 items-end pt-10`}
+          className={`max-w-[834px] w-full flex flex-col gap-4 items-end pt-10`}
         >
           <img
             src={`https://drive.google.com/thumbnail?id=1UA7FyAGDxxNyOmQI2aEocXL8V1a70uJ-&sz=s600`}
