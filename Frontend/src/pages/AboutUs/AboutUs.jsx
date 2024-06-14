@@ -92,11 +92,11 @@ const AboutUs = () => {
       socials: [
         {
           name: "linkedIn",
-          link: "/",
+          link: "https://www.linkedin.com/in/ruarkgordon/",
         },
         {
           name: "instagram",
-          link: "/",
+          link: "https://www.instagram.com/ruarkn/",
         },
       ],
       content: (
@@ -116,14 +116,15 @@ const AboutUs = () => {
       socials: [
         {
           name: "linkedIn",
-          link: "/",
+          link: "https://www.linkedin.com/in/krasia-noronha-76759721a/",
         },
         {
           name: "instagram",
-          link: "/",
+          link: "https://www.instagram.com/_dr_kiki__/",
         },
       ],
 
+   
       content: (
         <>
           Krasia Gordon has a deep understanding and passion for generative AI and visual aesthetics. As a computer science graduate, she leveraged her technical knowledge to work alongside her brother, Ruark, in creating the most realistic AI headshot generator on the market. Krasia's strengths in computer science and visual design, combined with Ruark's vast experience as an entrepreneur and photographer, have created the perfect blend for HeadGen AI, resulting in a groundbreaking tool for generating high-quality AI images.
@@ -180,7 +181,7 @@ const AboutUs = () => {
             </div>
             <div className="w-3/5 flex flex-col gap-6 items-center">
               {aboutUsContent && (
-                <p className="text-justified">{aboutUsContent}</p>
+                <p className="text-justified xl:text-xl">{aboutUsContent}</p>
               )}
             </div>
           </div>
@@ -257,7 +258,7 @@ const AboutUs = () => {
           </div>
           <div className="w-3/5 flex flex-col gap-6 justify-center *:items-center">
             {foundersContent[0]?.content && (
-              <p className="text-justified">{foundersContent[0]?.content}</p>
+              <p className="text-justified xl:text-xl">{foundersContent[0]?.content}</p>
             )}
           </div>
         </div>
@@ -265,7 +266,7 @@ const AboutUs = () => {
         <div className="flex flex-row flex-wrap md:justify-between w-full">
           <div className="w-3/5 flex flex-col gap-6 justify-center *:items-center">
             {foundersContent[1]?.content && (
-              <p className="text-justified">{foundersContent[1]?.content}</p>
+              <p className="text-justified xl:text-xl">{foundersContent[1]?.content}</p>
             )}
           </div>
 
