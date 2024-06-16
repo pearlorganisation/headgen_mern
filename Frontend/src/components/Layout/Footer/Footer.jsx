@@ -133,12 +133,12 @@ const Footer = () => {
         <div className="py-16 px-8 oswald md:px-16  w-full rounded-2xl bg-[#000000] grid grid-cols-1 md:grid-cols-4 gap-2 md:justify-center shadow-[0_0_0_5px#000000]">
           {footerContent &&
             footerContent?.map((fc, idx) => (
-              <div className={`flex flex-col gap-1 ${fc?.multiList && 'col-span-2'}`} key={`fc${idx}`}>
-                <div className={`text-2xl xl:text-[2.4rem] h-[80px] oswald text-blue-600`}>
+              <div className={`flex flex-col  gap-3 md:gap-1 ${fc?.multiList && 'md:col-span-2'}`} key={`fc${idx}`}>
+                <div className={`text-2xl xl:text-[2.4rem] md:h-[80px] oswald text-blue-600`}>
                   {fc?.title}
                 </div>
                 {fc?.multiList ? (
-                  <div className="grid grid-cols-2 text-[#f1f1f1] text-xl xl:text-[1.7rem] leading-[1.3] ">
+                  <div className="grid md:grid-cols-2 text-[#f1f1f1] text-xl xl:text-[1.7rem] leading-[1.3] ">
                     {fc?.multiList?.map((item) => (
                       <div className="flex flex-col gap-1">
                         {item &&

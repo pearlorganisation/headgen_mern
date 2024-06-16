@@ -39,9 +39,9 @@ const HeadshotSelection = ({
   }, [decodedParam]);
 
   return (
-    <div className="flex flex-col gap-4 justify-between relative h-full items-center space-y-10">
-      <div>Pick from our custom headshot templates:</div>
-      <div className="grid md:grid-cols-[auto_20rem] gap-8 w-full  ">
+    <div className="flex flex-col gap-4 justify-between relative h-full  w-full items-center space-y-10">
+      <div className="text-center md:text-left text-2xl md:text-3xl">Pick from our custom headshot templates:</div>
+      <div className="grid lg:grid-cols-[auto_20rem] gap-8 w-full  ">
         <div className="w-full mt-2 flex flex-col  justify-end  rounded-xl">
           {headshots &&
             headshots
@@ -82,9 +82,9 @@ const HeadshotSelection = ({
         </div>
       </div>
 
-      <div className="px-1 flex flex-col gap-4 justify-center">
+      <div className="px-1 flex flex-col gap-4 justify-center  w-full">
         <div className="text-2xl text-center">Headshot Type:</div>
-        <div className="flex flex-row justify-center flex-wrap gap-1">
+        <div className="flex flex-col  !w-full md:flex-row justify-center flex-wrap gap-1">
           {headshots &&
             headshots?.map((item, idx) => (
               <div
@@ -92,7 +92,7 @@ const HeadshotSelection = ({
                 className={`bg-[#f1f1f1]  text-[#131313] ${userData?.headshotType === item?.name
                   ? "!bg-[#355cc9] text-[#f1f1f1]"
                   : "bg-[#f1f1f1] "
-                  } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-1/4 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
+                  } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-full md:w-1/4 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
                 onClick={() => {
                   setHeadshotType(item?.name);
                 }}

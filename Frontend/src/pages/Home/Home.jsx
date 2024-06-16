@@ -599,7 +599,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-         
+
         </div>
         <div
           className={`max-w-[834px] w-full flex flex-col gap-4 items-end pt-10`}
@@ -774,33 +774,55 @@ const Home = () => {
       </div>
       {/* swipe section */}
 
-      <div className="px-10  xl:px-[160px] 2xl:px-[250px] grid  lg:grid-cols-[auto_25rem] xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
+      <div className="px-10  xl:px-[160px] 2xl:px-[250px] grid   lg:grid-cols-[auto_20rem] xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
         <div className="w-[50% w-full 2xl:w-[55% bg-gradient-to-br from-[#000000] via-[#000000] to-[#000000] rounded-2xl shadow-[0_0_0_1px_#ffffff] py-10 relative transition duration-500">
-          <div className="flex flex-col justify-between gap-20 items-center h-full">
-            <div className="flex flex-col items-center md:text-[26px] xl:text-[32px] 2xl:text-[40px] font-semibold text-[#F1F1F1]">
+          <div className="flex flex-col justify-between gap-8 md:gap-20 items-center h-full">
+            <div className="flex flex-col  items-center text-[20px] sm:text-[26px] xl:text-[32px] 2xl:text-[40px] font-extrabold md:font-semibold text-[#F1F1F1]">
               <div>The Most Realistic</div>
               <div>AI Image Generator</div>
             </div>
-            <div className="text-[#f1f1f1] text-[80px] italic">VS</div>
-            <div className="flex flex-col gap-2 text-[#f1f1f1] text-[22px]">
+
+            {/* for mobile screen */}
+            <div className="text-white block md:hidden"><div className="text-[24px] font-bold text-center">
+              Professional Photoshoot
+            </div>
+              <div className="flex flex-col justify-center items-center gap-2 text-[18px]">
+                <div>Upto $2500</div>
+                <div>Multiple Days</div>
+                <div>Tedious Process</div>
+              </div></div>
+            <div className="text-[#f1f1f1] text-[40px] md:text-[55px] lg:text-[70px] xl:text-[80px] italic">VS</div>
+            <div className="text-white block md:hidden">
+              <div className="text-[24px] font-bold text-center">HeadGen AI</div>
+              <div className="flex flex-col justify-center items-center gap-2 text-[18px]">
+                <div>$29</div>
+                <div>Within 2 hours</div>
+                <div>Very easy process</div>
+              </div>
+            </div>
+            <div className="hidden md:flex flex-col gap-2 text-[#f1f1f1] text-[22px]">
               <div>Why waste hours on expensive Photoshoots?</div>
               <div>Boost your careed with amazing AI Generated</div>
               <div>Images that are quick, easy, cheap & convenient!</div>
             </div>
           </div>
-          <div className="w-[200px] h-[200px] 2xl:w-[270px] 2xl:h-[220px] flex flex-col justify-evenly items-center bg-gradient-to-br from-[#053499] to-[#2563EB] p-4 absolute top-1/2 -translate-y-1/2 -left-14 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff]">
-            <div className="text-[24px] font-bold text-center">
+
+          {/* above md: screens */}
+          <div className="w-[200px] hidden  h-[200px] lg:w-[220px] lg:h-[170px] 2xl:w-[270px] 2xl:h-[220px] md:flex flex-col justify-evenly items-center bg-gradient-to-br from-[#053499] to-[#2563EB] p-4 absolute top-1/2 -translate-y-1/2 -left-8 lg:-left-14 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff]">
+            <div className="text-[18px] 2xl:text-[24px] font-bold text-center">
               Professional Photoshoot
             </div>
-            <div className="flex flex-col gap-2 text-[18px]">
+            <div className="flex flex-col gap-1 md:gap-2 text-[18px]">
               <div>Upto $2500</div>
               <div>Multiple Days</div>
               <div>Tedious Process</div>
             </div>
           </div>
-          <div className="w-[200px] h-[200px] 2xl:w-[270px] 2xl:h-[220px] flex flex-col justify-evenly items-center bg-gradient-to-br from-[#053499] to-[#2563EB]  p-4 absolute top-1/2 -translate-y-1/2 -right-14 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff] ">
-            <div className="text-[24px] font-bold text-center">HeadGen AI</div>
-            <div className="flex flex-col gap-2 text-[18px]">
+
+          {/* above md: screens */}
+          <div className="w-[200px] h-[200px] 2xl:w-[270px] 2xl:h-[220px] hidden md:flex flex-col justify-evenly items-center bg-gradient-to-br from-[#053499] to-[#2563EB]  p-4 absolute top-1/2 -translate-y-1/2 lg:-right-14 -right-8 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff] ">
+            <div className="text-[18px] 2xl:text-[24px] font-bold text-center">HeadGen AI</div>
+            <div className="flex flex-col gap-1 md:gap-2 text-[18px]">
               <div>$29</div>
               <div>Within 2 hours</div>
               <div>Very easy process</div>
@@ -851,7 +873,7 @@ const Home = () => {
 
       <div className="gradientBackground px-10  xl:px-[160px] 2xl:px-[250px]">
         <div className="flex flex-col items-center gap-6 pt-14">
-          <div className="text-white text-[30px] sm:text-[35px] md:text-[45px] lg:text-[64px]">High Quality Images</div>
+          <div className="text-white text-[35px] md:text-[45px] font-semibold lg:font-normal lg:text-[64px]">High Quality Images</div>
           <div className="max-w-[90%] flex flex-col gap-6 items-center">
             <div className="text-center text-white text-[16px]">
               We take our Quality very seriously Our Engineers ensure that
@@ -933,10 +955,10 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className=" w-full">
+          <div className=" w-full ">
             <img
               src="https://drive.google.com/thumbnail?id=1Zxk-5ZhT_jVlmVEjZAt_ABgcwtBUQViG&sz=s800"
-              className="w-full h-full"
+              className="w-full h-full md:pr-0 pr-6"
             />
           </div>
         </div>
