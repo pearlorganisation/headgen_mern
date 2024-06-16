@@ -4,6 +4,7 @@ import { IoManSharp, IoWoman } from "react-icons/io5"
 const UserDetails = ({ userData, setUserData, errors, type }) => {
   const [email, setEmail] = useState(userData?.email);
   const [gender, setGender] = useState(userData?.gender);
+  console.log(type, "type")
   const genderSelections = [
     {
       name: "Male",
@@ -66,9 +67,9 @@ const UserDetails = ({ userData, setUserData, errors, type }) => {
                   }}
                   key={`gender${idx}`}
                   className={`bg-[#f1f1f1]  text-[#131313] ${userData?.gender === item?.name
-                    ? "!bg-[#355cc9] text-[#f1f1f1]"
+                    ? `${type === 'Dating' ? '!bg-[#E23A6D] text-[#f1f1f1]' : '!bg-[#355cc9] text-[#f1f1f1]'} `
                     : "bg-[#f1f1f1]"
-                    } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-1/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2`}
+                    }  ${type === 'Dating' ? 'hover:bg-[#E23A6D] hover:text-[#f1f1f1]' : 'hover:bg-[#355cc9] hover:text-[#f1f1f1]'}  rounded-lg w-1/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2`}
                 >
                   <span className="flex flex-col justify-center">
                     {item?.svg}

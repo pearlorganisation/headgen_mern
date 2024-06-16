@@ -171,7 +171,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                   }}
                   className={`px-6 py-2  flex justify-center items-center gap-2
                    ${type === 'Dating'
-                      ? ' hover:text-[#E23A6D] peer-checked:shadow-[0_3px#E23A6D] hover:shadow-[0_3px#E23A6D]' : 'hover:text-[#E23A6D] peer-checked:shadow-[0_3px#0000FF] hover:shadow-[0_3px#0000FF]'} font-medium cursor-pointer border-4 border-transparent ring-indigo-500/80 transition duration-300`}
+                      ? ' hover:text-[#E23A6D] peer-checked:shadow-[0_3px#E23A6D] hover:shadow-[0_3px#E23A6D]' : 'hover:text-[#0000FF] peer-checked:shadow-[0_3px#0000FF] hover:shadow-[0_3px#0000FF]'} font-medium cursor-pointer border-4 border-transparent ring-indigo-500/80 transition duration-300`}
                   htmlFor={item?.section}
                 >
                   <span>{item?.icon}</span>
@@ -205,7 +205,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                       return data;
                     });
                   }}
-                  className={`px-6 py-2   font-medium cursor-pointer border-4 border-transparent ${type === 'Dating' ? ' hover:text-[#E23A6D] peer-checked:shadow-[0_3px#E23A6D] hover:shadow-[0_3px#E23A6D]' : 'hover:text-[#E23A6D] peer-checked:shadow-[0_3px#0000FF] hover:shadow-[0_3px#0000FF]'}  ring-indigo-500/80 transition duration-300`}
+                  className={`px-6 py-2   font-medium cursor-pointer border-4 border-transparent ${type === 'Dating' ? ' hover:text-[#E23A6D] peer-checked:shadow-[0_3px#E23A6D] hover:shadow-[0_3px#E23A6D]' : 'hover:text-[#0000FF] peer-checked:shadow-[0_3px#0000FF] hover:shadow-[0_3px#0000FF]'}  ring-indigo-500/80 transition duration-300`}
                   htmlFor={item?.title}
                 >
                   {item?.title}{" "}
