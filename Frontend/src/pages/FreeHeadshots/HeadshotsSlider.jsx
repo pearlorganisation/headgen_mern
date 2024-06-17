@@ -7,11 +7,10 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-// import './styles.css';
+
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
 const HeadshotsSlider = () => {
     const headshots = [
         {
@@ -60,18 +59,38 @@ const HeadshotsSlider = () => {
     return (
         <div className=' max-w-7xl mx-auto'>
 
-            {
-                headshots?.map(item => {
-                    return <div className='h-[30rem] flex justify-between gap-8 '>
-                        <div className=' grid place-items-center  w-full '>
-                            <img src={`${item?.headshotInfo?.imgPath}`} className='w-full h-[25rem] rounded-lg' alt="" />
-                        </div>
-                        <div className=' grid place-items-center'>
-                            <img className='rounded-lg' src={item?.imgPreview} alt="" />
-                        </div>
-                    </div>
-                })
-            }
+            <>
+                <Swiper
+                    spaceBetween={0}
+
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    navigation={true}
+                    modules={[Autoplay, Pagination, Navigation]}
+                    className="mySwiper"
+                >
+
+                    {
+                        headshots?.map(item => {
+                            return <SwiperSlide className='!w-full'>
+                                <div className='h-[30rem] flex justify-between gap-8 border'>
+
+                                    <img src={`${item?.headshotInfo?.imgPath}`} className='w-full ' alt="" />
+
+
+                                    <img className='rounded-lg' src={item?.imgPreview} alt="" />
+
+                                </div>
+                            </SwiperSlide>
+                        })
+                    }
+                </Swiper>
+            </>
 
         </div>
     )
