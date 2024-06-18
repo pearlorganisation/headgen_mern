@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaCheck } from "react-icons/fa";
 import HeadshotsSlider from './HeadshotsSlider';
 import DatingHero from '../../components/Dating/DatingHero/DatingHero';
+import { Link } from 'react-router-dom';
 
 const FreeHeadshots = () => {
     const [isAnimated, setIsAnimated] = useState(false);
@@ -47,8 +48,8 @@ const FreeHeadshots = () => {
         return () => clearTimeout(timeout);
     }, []);
     return (
-        <div className='min-h-screen container mx-auto space-y-5 text-white py-36'>
-            <div className='grid md:grid-cols-2 gap-12 md:gap-0 place-items-center p-3 min-h-[85vh] '>
+        <div className=' space-y-4 text-white py-36 md:px-10  xl:px-[160px] 2xl:px-[250px]'>
+            <div className='grid md:grid-cols-2 gap-12 md:gap-0 place-items-center space-y-4 '>
                 <div className=' space-y-6'>
                     <p className='text-4xl md:text-4xl lg:text-5xl  2xl:text-7xl text-center md:text-left font-semibold'>FREE AI HEADSHOT
                         GENERATOR</p>
@@ -59,7 +60,7 @@ const FreeHeadshots = () => {
                             })
                         }
                     </div>
-                    <button type='button' className='px-16 py-4 rounded-lg bg-[#204DC7] text-xl'>Upload Photos</button>
+                    <Link to="/freeheadshotupload" className='w-1/2 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500'>Upload Photos</Link>
                 </div>
                 <div className=' w-full grid place-items-end  '>
                     <div className='grid grid-cols-2  w-fit gap-4'>
@@ -112,8 +113,8 @@ const FreeHeadshots = () => {
             {/* coupon code */}
 
             <div class="flex w-full items-center justify-between rounded-lg border-2 border-blue-600 bg-black py-8 px-12 font-bold text-white">
-                <span class="mr-4 text-4xl">COUPON: HDGEN10 FOR 10% OFF</span>
-                <button type='button' className='px-16 py-4 rounded-lg bg-[#204DC7] text-xl'>Get Headshots</button>
+                <span class="mr-4 text-3xl 2xl:text-4xl">COUPON: HDGEN10 FOR 10% OFF</span>
+                <Link to="/freeheadshotupload" className='w-1/3 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500'>Get Headshots</Link>
             </div>
 
             {/* Free AI Headshots */}
