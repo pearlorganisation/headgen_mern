@@ -78,9 +78,9 @@ const HeadshotsSlider = () => {
                             return <SwiperSlide className='!w-full'>
                                 <div className='flex justify-center gap-2'>
 
-                                    <img src={`${item?.headshotInfo?.imgPath}`} className='w-[60%] rounded-lg' alt="" />
+                                    <img src={`${item?.headshotInfo?.imgPath}`} className='w-full md:w-[60%] rounded-lg' alt="" />
 
-                                    <div className='flex flex-col justify-center'>
+                                    <div className='hidden md:flex flex-col justify-center'>
                                         <span className='w-full text-center text-2xl'>What you'll get</span>
                                     <img className='rounded-lg w-[300px] h-[300px] ' src={item?.imgPreview} alt="" />
                                     </div>
