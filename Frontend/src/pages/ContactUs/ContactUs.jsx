@@ -7,25 +7,45 @@ const ContactUs = () => {
       heading: "Playcloud Technologies Private Limited",
       content: (
         <>
-          <span className="font-bold">Address:</span>
+          <span className="font-bold">UK Address:</span>
           <br />
-          10th floor, RMZ Latitude Commercial Building, Bellary Rd,
-          Vinayakanagar, Byatarayanapura, Bengaluru, Karnataka 560024
+          PLAYCLOUD TECHNOLOGIES LIMITED 15665808
           <br />
-          Date: 10-01-2024
+          61 Bridge Street,Kington,Hr5 3dj, Kington, United Kingdom HR5 3DJ.
+          <br />
+          Email:{" "}
+          <a
+            href="mailto:support@headgen.ai"
+            className="text-[#e6e4e4] underline hover:text-[#ffffff]"
+          >
+            support@headgen.ai
+          </a>
         </>
       ),
     },
     {
-      title: "Contact:",
+      title: "Address:",
       heading: "",
       content: (
         <>
-          Playcloud Technologies Private Limited
+          10th floor, RMZ Latitude Commercial Building, Bellary Rd,
+          Vinayakanagar, Byatarayanapura, Bengaluru, Karnataka 560024
           <br />
-          Email: <a href="mailto:support@headgen.ai" className="text-[#e6e4e4] underline hover:text-[#ffffff]">support@headgen.ai</a>
+          Email:{" "}
+          <a
+            href="mailto:support@headgen.ai"
+            className="text-[#e6e4e4] underline hover:text-[#ffffff]"
+          >
+            support@headgen.ai
+          </a>
           <br />
-          Customer Care: <a href="tel:+919987357345" className="text-[#e6e4e4] underline hover:text-[#ffffff]">+91 9987357345</a>
+          Customer Care:{" "}
+          <a
+            href="tel:+919820442749"
+            className="text-[#e6e4e4] underline hover:text-[#ffffff]"
+          >
+            +91 9820442749
+          </a>
         </>
       ),
     },
@@ -40,7 +60,7 @@ const ContactUs = () => {
       <div className="flex gap-10 font-regular text-[#f1f1f1]">
         {contactContent &&
           contactContent?.map((item) => (
-            <div className="w-[48%] shadow-[0_0_0_1px_#F1F1F1] rounded-xl p-6 flex flex-col gap-2  text-[16px] md:text-[18px]  xl:text-[22px] bg-gradient-to-r from-[#295ac4] to-[#0a3797] cursor-default hover:-translate-y-2 transition duration-1000">
+            <div className="w-[48%] shadow-[0_0_0_1px_#F1F1F1] rounded-xl p-6 flex flex-col gap-2  text-md bg-gradient-to-r from-[#295ac4] to-[#0a3797] cursor-default hover:-translate-y-2 transition duration-1000">
               <div className="flex font-semibold gap-2">
                 <div className="font-bold">{item?.title}</div>
                 {item?.heading}

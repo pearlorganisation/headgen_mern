@@ -24,7 +24,6 @@ app.use(
       origin: [
         "http://localhost:5173",
         "http://localhost:5174",
-
         "https://headgen-mern-2.vercel.app",
         "https://headgen-mern.vercel.app",
         "https://headgen.ai",

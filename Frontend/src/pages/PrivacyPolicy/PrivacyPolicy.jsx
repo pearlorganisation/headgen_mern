@@ -135,7 +135,7 @@ const PrivacyPolicy = () => {
       content:(
         <>
         Playcloud Technologies Private Limited<br/>10th floor, RMZ Latitude Commercial Building,Bellary Rd Vinayakanagar, Byatarayanapura, Bengaluru, Karnataka, 560024<br />support@headgen.ai<br/>
-        Customer Care: +91 9987357345
+        Customer Care: +91 9820442749
         </>
       )
     },

@@ -539,7 +539,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="w-full py-20 flex flex-col bg-[#161616] gap-10">
+    <div className="w-full py-20  flex flex-col bg-[#161616] gap-10">
       {/* hero */}
 
       <div className="grid md:grid-cols-2  md:px-10  xl:px-[160px] 2xl:px-[250px]">
