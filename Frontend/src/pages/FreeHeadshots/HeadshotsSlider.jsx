@@ -78,7 +78,7 @@ const HeadshotsSlider = () => {
                     {
                         headshots?.map(item => {
                             return <SwiperSlide className='!w-full'>
-                                <div className='h-[30rem] flex justify-between gap-8 border'>
+                                <div className='h-[30rem] flex justify-between gap-8 '>
 
                                     <img src={`${item?.headshotInfo?.imgPath}`} className='w-full ' alt="" />
 
