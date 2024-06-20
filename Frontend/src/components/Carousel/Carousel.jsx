@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css'
+import style from './styles.module.css'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -14,10 +14,10 @@ import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 
 
-function Carousel({carouselData}) {
+function Carousel({ carouselData }) {
   return (
 
-    <div className="carousel-container">
+    <div className={style.carousel_container}>
       <Swiper
         effect={'coverflow'}
         grabCursor={true}
@@ -41,14 +41,14 @@ function Carousel({carouselData}) {
       >
 
         {carouselData && carouselData?.map((item) => (
-        <SwiperSlide className='!w-fit'>
-          <img src={item?.path} className=''/>
-        </SwiperSlide>
+          <SwiperSlide className='!w-fit'>
+            <img src={item?.path} className='' />
+          </SwiperSlide>
         ))}
 
-    
+
       </Swiper>
-        {/* <div className="slider-controler flex justify-center z-[99]">
+      {/* <div className="slider-controler flex justify-center z-[99]">
           <div id="swiper-button-prev" className="swiper-button-prev slider-arrow">
           <IoIosArrowBack />
           </div>
@@ -57,7 +57,7 @@ function Carousel({carouselData}) {
           <IoIosArrowForward />
           </div>
         </div> */}
-      </div>
+    </div>
   );
 }
 

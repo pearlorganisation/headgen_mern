@@ -9,7 +9,7 @@ const transporter = nodemailer.createTransport({
     pass: process.env.MAIL_PWD,
   },
 });
-
+ 
 // solo customer mail
 
 export const sendMailToCustomer = async (userData, images) => {

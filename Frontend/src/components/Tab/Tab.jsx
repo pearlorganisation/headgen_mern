@@ -181,7 +181,6 @@ const Tab = () => {
               >
                 <span
                   className={` rounded-full h-full w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
-                  onClick={() => { }}
                 >
                   {item}
                 </span>

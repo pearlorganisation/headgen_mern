@@ -118,7 +118,7 @@ const Dating = () => {
 
 
   return (
-    <div className="w-full py-20 flex flex-col bg-[#161616] gap-10 px-[200px] gradientBgRed">
+    <div className="w-full py-20 px-10  xl:px-[160px] 2xl:px-[250px] flex flex-col bg-[#161616] gap-10 gradientBgRed">
       <div>
         <DatingHero />
       </div>
@@ -128,7 +128,7 @@ const Dating = () => {
 
 
 
-      <div className="flex  justify-center gap-6">
+      <div className="flex flex-wrap  justify-center gap-6">
         <div
           className={`flex flex-col justify-center text-center font-bold text-[20px] bg-gradient-to-r from-[#ffffff] to-[#ffffff] text-transparent bg-clip-text`}
         >
@@ -142,67 +142,67 @@ const Dating = () => {
         <BlogCards data={datingCardData} datingPage={true} />
       </div>
 
-      <div className="flex justify-between cursor-default">
-        <div className="relative w-[50%] 2xl:w-[55%] bg-gradient-to-br from-[#c4325eab] to-[#e60045c2] rounded-2xl shadow-[0_0_0_1px_#ffffff] pt-10 px-6 transition duration-500">
-          <div className="absolute bg-white shadow-[0_0_0_1px_#ffffff] w-2/5 flex justify-center gap-2 top-0 right-0 p-2 rounded-[0_1rem_0_1rem] text-[20px] 2xl:text-[24px]">
+      <div className="flex flex-wrap gap-20 lg:gap-0 justify-between cursor-default">
+        <div className="grid lg:grid-cols-[auto_25rem] gap-10">
+          <div className="relative  w-full bg-gradient-to-br from-[#c4325eab] to-[#e60045c2] rounded-2xl shadow-[0_0_0_1px_#ffffff] pt-10 px-4 md:px-6 transition duration-500">
+            <div className="absolute bg-white shadow-[0_0_0_1px_#ffffff] w-2/5 flex justify-center gap-2 top-0 right-0 p-2 rounded-[0_1rem_0_1rem] text-sm md:text-lg 2xl:text-[24px]">
 
-            <span>It's a</span>{" "}
-            <span className="font-bold italic">Match!</span>
+              <span>It's a</span>{" "}
+              <span className="font-bold italic">Match!</span>
 
-          </div>
-          <div className="flex flex-col gap-10  h-full">
-            <div className="grid grid-cols-3 w-full h-1/2">
-
-
-              <div className="h-[380px] w-full -translate-y-28 ">
-                <img src="https://drive.google.com/thumbnail?id=1ewv1EGjapKk2Yh8pEoojQYGfGUTWL_vV&sz=s400" className="w-auto h-full" />
-              </div>
-              <div className="flex flex-col text-2xl lg:text-5xl 2xl:text-6xl leading-tight items-start py-10 font-semibold text-[#F1F1F1] col-span-2">
+            </div>
+            <div className="flex flex-col gap-10  h-full">
+              <div className="flex flex-col md:flex-row justify-start gap-10 items-center w-full ">
+                <div className="w-fit  md:-translate-y-28">
+                  <img src="https://drive.google.com/thumbnail?id=1ewv1EGjapKk2Yh8pEoojQYGfGUTWL_vV&sz=s400" className="w-auto h-full" />
+                </div>
+                <div className="flex w-full flex-col justify-normal sm:justify-center !text-responsive  leading-tight items-center md:items-start font-semibold text-[#F1F1F1] col-span-2 lg:col-span-2 px-2 sm:px-0">
                   <div>Higher</div>
                   <div>Quality</div>
-                     <div>Conversations</div>
-              </div>
-            </div>
-            <div className="flex flex-col gap-2 text-[#f1f1f1] text-2xl">
-              Not only will you get more matches, our AI dating photos will also
-              increase the quality of your matches.
-            </div>
-
-          </div>
-        </div>
-        <div className="w-[40%] 2xl:w-[35%] flex flex-col gap-10 ">
-          <div className="w-full !glassMorphism !bg-gradient-to-br !from-[#10151dde] to-[#121720de] py-10 rounded-2xl relative px-8 shadow-[0_0_0_1px_#ffffff] h-2/3">
-            <div className="absolute w-[220px] h-[200px] -top-8 -translate-y-10 -right-5">
-              <img src="https://drive.google.com/thumbnail?id=188DHZNSMzN20Xbr_3mPIlpvDoqJBAIQr&sz=s600" className="h-full w-full" />
-            </div>
-
-            <div className="flex flex-col h-full justify-evenly gap-4 text-[#f1f1f1] ">
-              <div className="flex flex-col gap-0 ">
-                <div className="text-[44px] font-bold">10X</div>
-                <div className="text-[28px] font-bold w-[200px] leading-tight">
-                  Your match game
+                  <div>Conversations</div>
                 </div>
               </div>
-              <div className="text-[20px] ">
-                Whether you’re looking for AI Tinder photos or AI Hinge photos,
-                we’ve got you covered.
+              <div className="hidden md:flex flex-col gap-2 text-[#f1f1f1] text-base md:text-2xl">
+                Not only will you get more matches, our AI dating photos will also
+                increase the quality of your matches.
               </div>
+
             </div>
           </div>
-          <div className="w-full !glassMorphism !bg-gradient-to-br !from-[#10151dde] to-[#121720de] py-10 rounded-2xl relative px-8 shadow-[0_0_0_1px_#ffffff]">
-            <div className="flex flex-col justify-evenly gap-4 text-[#f1f1f1]">
-              <div className="flex flex-col gap-0">
-                <div className="text-[28px]  font-bold w-full flex justify-between">
-                  <div className="bg-gradient-to-r from-[#ff437b] to-[#ff1158]  inline-block text-transparent bg-clip-text">
-                    Find the one.
+          <div className="w-full flex flex-col gap-10 ">
+            <div className="w-full !glassMorphism !bg-gradient-to-br !from-[#10151dde] to-[#121720de] py-10 rounded-2xl relative px-8 shadow-[0_0_0_1px_#ffffff] h-2/3">
+              <div className="absolute w-[220px] h-[200px] -top-8 -translate-y-10 -right-5">
+                <img src="https://drive.google.com/thumbnail?id=188DHZNSMzN20Xbr_3mPIlpvDoqJBAIQr&sz=s600" className="h-full w-full" />
+              </div>
+
+              <div className="flex flex-col h-full justify-evenly gap-4 text-[#f1f1f1] ">
+                <div className="flex flex-col gap-0 ">
+                  <div className="text-[44px] font-bold">10X</div>
+                  <div className="text-[28px] font-bold w-[200px] leading-tight">
+                    Your match game
                   </div>
-                  <AppSvgs name="heartPhone" height={44} width={44} />
+                </div>
+                <div className="text-[20px] ">
+                  Whether you’re looking for AI Tinder photos or AI Hinge photos,
+                  we’ve got you covered.
                 </div>
               </div>
-              <div className="text-[16px] 2xl:text-[20px]">
-                Looking for a loving partner? Our AI dating photos are
-                guaranteed to help increase your odds of helping you find a
-                long-term partner or find a hookup.
+            </div>
+            <div className="w-full !glassMorphism !bg-gradient-to-br !from-[#10151dde] to-[#121720de] py-10 rounded-2xl relative px-8 shadow-[0_0_0_1px_#ffffff]">
+              <div className="flex flex-col justify-evenly gap-4 text-[#f1f1f1]">
+                <div className="flex flex-col gap-0">
+                  <div className="text-[28px]  font-bold w-full flex justify-between">
+                    <div className="bg-gradient-to-r from-[#ff437b] to-[#ff1158]  inline-block text-transparent bg-clip-text">
+                      Find the one.
+                    </div>
+                    <AppSvgs name="heartPhone" height={44} width={44} />
+                  </div>
+                </div>
+                <div className="text-[16px] 2xl:text-[20px]">
+                  Looking for a loving partner? Our AI dating photos are
+                  guaranteed to help increase your odds of helping you find a
+                  long-term partner or find a hookup.
+                </div>
               </div>
             </div>
           </div>

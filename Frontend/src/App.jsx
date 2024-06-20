@@ -20,6 +20,7 @@ import Checkout from "./pages/Checkout/Checkout";
 import HowItWorks from "./pages/HowItWorks/HowItWorks";
 import Blog from "./pages/Blog/Blog";
 import BlogDetails from "./pages/Blog/BlogDetails";
+import FreeHeadshots from "./pages/FreeHeadshots/FreeHeadshots";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/cancel" element={<PaymentCancel />} />
         <Route path="/blogs" element={<Blog />} />
         <Route path="/blog/:blogId" element={<BlogDetails />} />
+        <Route path="/freeHeadshots" element={<FreeHeadshots />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
