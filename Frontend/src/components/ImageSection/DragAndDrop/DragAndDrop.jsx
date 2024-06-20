@@ -4,6 +4,7 @@ import { GoPlus } from "react-icons/go";
 import { MdDelete } from "react-icons/md";
 import { FaCropSimple } from "react-icons/fa6";
 import heic2any from "heic2any";
+import ImgCropT from "../CropTool/ImgCropT";
 
 const DragAndDrop = ({
   files,
@@ -12,12 +13,15 @@ const DragAndDrop = ({
   deleteFile,
   fileErrorMsg,
   setFileErrorMsg,
+  maxUploads,
+  imgCropRef,
+  type = "Regular"
 }) => {
   const [isDragActive, setIsDragActive] = useState(false);
 
   const handleFileChange = (event) => {
     const selectedFiles = Object.fromEntries(
-      Object.entries(event.target.files).slice(0, 4)
+      Object.entries(event.target.files).slice(0, maxUploads)
     );
     const filesArray = Object.keys(selectedFiles).map(
       (key) => selectedFiles[key]
@@ -44,7 +48,7 @@ const DragAndDrop = ({
   const handleDrop = (event) => {
     event.preventDefault();
     const selectedFiles = Object.fromEntries(
-      Object.entries(event.dataTransfer.files).slice(0, 4)
+      Object.entries(event.dataTransfer.files).slice(0, maxUploads)
     );
     const filesArray = Object.keys(selectedFiles).map(
       (key) => selectedFiles[key]
@@ -124,7 +128,7 @@ const DragAndDrop = ({
             id="fileInput"
             type="file"
             multiple
-            maxLength={4}
+            maxLength={maxUploads}
             hidden
             onChange={handleFileChange}
             accept=".heic, .jpg, .jpeg, .png"
@@ -152,7 +156,10 @@ const DragAndDrop = ({
                   <FaCropSimple
                     size={24}
                     className="text-blue-500 cursor-pointer hover:text-blue-800"
-                    onClick={() => setSelectedImage(item)}
+                    onClick={() => {
+                      setSelectedImage(item)
+                      imgCropRef.current.scrollTo({top:0, left:0, behavior: 'smooth'})
+                    }}
                   />
                 </div>
                 <div className="transition duration-300">
@@ -171,7 +178,7 @@ const DragAndDrop = ({
           Upload requirements:
         </h2>
         <ul className="max-w-md space-y-1 text-gray-700 list-disc list-inside">
-          <li>Please upload 1-4 images.</li>
+          <li>{type === "freeHeadshot" ? 'Please upload 1 image.' : 'Please upload 1-4 images.'}</li>
           <li>Accepted format .jpeg, .jpg or .heic</li>
           <li>Please ensure that your image is less than 2mb</li>
           <li>Please make sure only 1 person is in the image.</li>

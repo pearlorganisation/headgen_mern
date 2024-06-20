@@ -9,7 +9,6 @@ import Dating from "./pages/Dating/Dating";
 import NotFound from './pages/NotFound/NotFound';
 import Header from "./components/Layout/Header/Header";
 import Footer from "./components/Layout/Footer/Footer"
-import BeforeAfterSlider from "./components/BeforeAfterSlider/BeforeAfterSlider";
 import CancellationAndRefunds from "./pages/CancellationAndRefunds/CancellationAndRefunds";
 import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import ContactUs from "./pages/ContactUs/ContactUs";
@@ -21,6 +20,8 @@ import HowItWorks from "./pages/HowItWorks/HowItWorks";
 import Blog from "./pages/Blog/Blog";
 import BlogDetails from "./pages/Blog/BlogDetails";
 import FreeHeadshots from "./pages/FreeHeadshots/FreeHeadshots";
+import FreeHeadshotsTab from "./pages/FreeHeadshots/FreeHeadshotsTab";
+
 
 function App() {
   return (
@@ -42,7 +43,7 @@ function App() {
         <Route path="/blogs" element={<Blog />} />
         <Route path="/blog/:blogId" element={<BlogDetails />} />
         <Route path="/freeHeadshots" element={<FreeHeadshots />} />
-
+        <Route path="/freeheadshotupload" element={<FreeHeadshotsTab />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
