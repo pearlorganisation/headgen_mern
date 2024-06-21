@@ -1,23 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
 const OrderDetails = ({ userData, files, type }) => {
-  const moreInfo = useState(null);
-
-  useEffect(() => {
-
-    moreInfo();
-
-    if (userData?.promptData.length > 0) {
-      moreInfo(
-        <div className="flex flex-col pt-3">
-          <div className="mb-1 text-gray-400 md:text-lg ">Headshot Type</div>
-          <dd className="text-lg font-semibold">{userData?.headshotType}</dd>
-        </div>
-      );
-    }
-  }, []);
-
+ 
   return (
     <div className="flex flex-col gap-4">
       <div className="flex justify-between items-center">
@@ -33,7 +18,27 @@ const OrderDetails = ({ userData, files, type }) => {
                 <div className="text-lg font-semibold">{userData?.gender}</div>
               </div>
 
-              {moreInfo}
+              {userData?.promptData ? (
+                 <div className="flex flex-col pt-3">
+                 <div className="mb-1 text-gray-400 md:text-lg ">Prompt</div>
+                 <dd className="text-lg font-semibold">{userData?.promptData}</dd>
+               </div>
+              ): userData?.customizeData ? (
+                <div className="flex flex-col pt-3">
+                <div className="mb-1 text-gray-400 md:text-lg ">Customize</div>
+                <dd className="text-lg font-semibold">{userData?.customizeData?.section} - {userData?.customizeData?.subSection}</dd>
+              </div>
+              ) : type === 'freeHeadshot' ? (
+                <div className="flex flex-col pt-3">
+                <div className="mb-1 text-gray-400 md:text-lg ">Headshot Type</div>
+                <dd className="text-lg font-semibold">Free Headshot</dd>
+              </div>
+              ) : (
+                <div className="flex flex-col pt-3">
+                <div className="mb-1 text-gray-400 md:text-lg ">Headshot Type</div>
+                <dd className="text-lg font-semibold">{userData?.headshotType}</dd>
+              </div>
+              )}
             </dl>
           </div>
         </div>
@@ -98,6 +103,6 @@ const OrderDetails = ({ userData, files, type }) => {
       </div>
     </div>
   );
-};
+}
 
-export default OrderDetails;
+export default OrderDetails
