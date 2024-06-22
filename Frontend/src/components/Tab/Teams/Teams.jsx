@@ -550,7 +550,7 @@ const Teams = ({ userData, setUserData }) => {
             }}
           >
             {isLoading ? (
-              <BeatLoader color="#1f58ad94" />
+              <BeatLoader color="#ffffff" />
             ) : (
               "Proceed to Payment"
             )}

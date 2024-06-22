@@ -203,7 +203,7 @@ const Prompt = ({
               }}
             >
               {isLoading ? (
-                <BeatLoader color="#1f58ad94" />
+                <BeatLoader color="#ffffff" />
               ) : (
                 "Proceed to Payment"
               )}

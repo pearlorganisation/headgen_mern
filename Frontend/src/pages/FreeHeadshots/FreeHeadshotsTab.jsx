@@ -166,7 +166,9 @@ const FreeHeadshotsTab = () => {
     let newFiles = await convertFiles();
     let formData = new FormData();
 
-    formData.append("images", newFiles[1]);
+    for (let i = 0; i < newFiles.length; i++) {
+      formData.append("images", newFiles[i]);
+    }
     formData.append("email", userData.email);
     formData.append("gender", userData.gender);
 
@@ -239,7 +241,7 @@ const FreeHeadshotsTab = () => {
                   }}
                 >
                   {isLoading ? (
-                    <BeatLoader color="#1f58ad94" />
+                    <BeatLoader color="#ffffff" />
                   ) : (
                     "Proceed to Payment"
                   )}

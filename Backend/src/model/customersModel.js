@@ -36,7 +36,7 @@ const customersSchema = new mongoose.Schema(
     },
     packDetails: {
       type: Object,
-      required: [true, 'pack details are required']
+      default: null
     }
   },
   { timestamps: true }
