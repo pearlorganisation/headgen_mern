@@ -45,10 +45,10 @@ const FreeHeadshots = () => {
     return () => clearTimeout(timeout);
   }, []);
   return (
-    <div className=" space-y-4 text-white py-36 md:px-10  xl:px-[160px] 2xl:px-[250px]">
+    <div className=" space-y-4 text-white pt-20 md:px-10  xl:px-[160px] 2xl:px-[250px]">
       <div className="flex flex-wrap gap-12 md:gap-0 place-items-center space-y-4 ">
         <div className="space-y-6 w-full lg:w-1/2 lg:justify-normal justify-center ">
-          <p className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-center lg:text-left font-semibold">
+          <p className="text-5xl  md:text-6xl lg:text-5xl 2xl:text-6xl text-center lg:text-left font-semibold">
             FREE AI HEADSHOT GENERATOR
           </p>
           <div className="space-y-2 ">
@@ -73,12 +73,12 @@ const FreeHeadshots = () => {
             })}
           </div>
           <div className="flex justify-center lg:justify-start">
-          <Link
-            to="/freeheadshotupload"
-            className="w-1/2 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
-          >
-            Upload Photos
-          </Link>
+            <Link
+              to="/freeheadshotupload"
+              className="w-1/2 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+            >
+              Upload Photos
+            </Link>
           </div>
         </div>
         <div className="w-full justify-center lg:justify-normal lg:w-1/2 grid place-items-end  ">
@@ -101,25 +101,24 @@ const FreeHeadshots = () => {
             })}
           </div>
         </div>
+
         {/* trusted by */}
 
-        <div className="flex col-span-2 flex-col md:flex-row justify-center gap-6 ">
+        <div className="flex flex-col lg:flex-row justify-center   w-full">
           <div
-            className={`flex flex-col justify-center text-center font-bold text-[20px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text ${
-              isAnimated ? "animatedReveal" : "invisible"
-            }`}
+            className={`flex flex-col justify-center text-center font-bold text-[20px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
+              }`}
           >
             Trusted By
           </div>
           <div
-            className={`flex flex-row ${
-              isAnimated ? "animatedReveal" : "invisible"
-            }`}
+            className={`flex flex-row ${isAnimated ? "animatedReveal" : "invisible"
+              }`}
           >
             {logoData?.map((item, idx) => (
               <div
                 key={`logo${idx}`}
-                className="w-[150px] flex flex-col justify-center"
+                className="lg:w-[150px] flex flex-col justify-center"
               >
                 <img
                   src={item?.imgPath}
@@ -134,9 +133,9 @@ const FreeHeadshots = () => {
 
       {/* coupon code */}
 
-      <div class="flex flex-col gap-4 md:flex-row w-full items-center justify-between rounded-lg border-2 border-blue-600 bg-black py-8 px-12 font-bold text-white">
+      <div class="flex flex-col gap-4 md:flex-row w-full items-center justify-between rounded-lg border-2 border-blue-600 bg-black py-8 px-12 font-medium md:font-bold text-white">
         <span class="mr-4 text-xl text-center lg:text-start lg:text-2xl 2xl:text-4xl">
-          COUPON: HDGEN10 FOR 10% OFF
+          COUPON : HDGEN10 FOR 10% OFF
         </span>
         <Link
           to="/upload/Corporate%20Headshots"
@@ -148,21 +147,21 @@ const FreeHeadshots = () => {
 
       {/* Free AI Headshots */}
 
-      <div className="flex justify-center md:justify-md:flex-row flex-col items-center  text-white p-6 rounded-lg shadow-lg">
+      <div className="flex justify-center gap-3 md:gap-0  md:flex-row flex-col items-center  text-white p-6 rounded-lg shadow-lg">
         <img
           src="https://drive.google.com/thumbnail?id=1sSZgnSOQBeWxqDVg0ClcFwKYDiSBXL-R&sz=s300"
           alt="Headshot"
           class=" rounded-lg  mr-6"
         />
-        <div>
-          <h1 className="text-5xl font-bold mb-2">Free AI Headshots</h1>
-          <p className="text-xl">
-            Try our free AI headshot generator!
-            <br />
-            Upload a selfie, and we'll email you a low-quality Free AI headshot!
-            <br />
-            For high-quality AI headshots, use our corporate and dating AI
-            headshot generator.
+        <div className="text-center md:text-left">
+          <h1 className="text-3xl md:text-5xl font-bold mb-2">Free AI Headshots</h1>
+          <p className="text-xl flex flex-col gap-2 md:gap-1">
+            <span>  Try our free AI headshot generator!</span>
+
+            <span> Upload a selfie, and we'll email you a low-quality Free AI headshot!</span>
+
+            <span>    For high-quality AI headshots, use our corporate and dating AI
+              headshot generator.</span>
           </p>
         </div>
       </div>

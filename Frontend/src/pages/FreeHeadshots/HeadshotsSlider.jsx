@@ -82,7 +82,7 @@ const HeadshotsSlider = () => {
 
                                     <div className='hidden md:flex flex-col justify-center'>
                                         <span className='w-full text-center text-2xl'>What you'll get</span>
-                                    <img className='rounded-lg w-[300px] h-[300px] ' src={item?.imgPreview} alt="" />
+                                        <img className='rounded-lg w-[300px] h-[300px] ' src={item?.imgPreview} alt="" />
                                     </div>
 
                                 </div>
