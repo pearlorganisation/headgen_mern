@@ -1,4 +1,5 @@
 import { customersModel } from "../model/customersModel.js";
+import { teamsModel } from "../model/teamsModel.js";
 
 export const addCustomer = async (userData, images) => {
   try {
@@ -11,7 +12,7 @@ export const addCustomer = async (userData, images) => {
       email: data.email,
       gender: data.gender,
       images: filteredImgUrls,
-      packDetails: JSON.parse(data.selectedPlan),
+      packDetails: data?.selectedPlan ? JSON.parse(data?.selectedPlan) : null ,
       generationType: data.generationType,
     };
 
@@ -37,6 +38,34 @@ export const addCustomer = async (userData, images) => {
     }
 
     const customer = new customersModel(customerData);
+    const result = await customer.save();
+    if (result) {
+      return { status: true, result: result };
+    }
+  } catch (error) {
+    console.error(error);
+    return { status: false, message: error.message };
+  }
+};
+
+export const addTeamsCustomer = async (userData) => {
+  try {
+    const data = JSON.parse(userData.body);
+
+    let customerData = {
+      teamName: data?.companyName,
+      firstName: data?.firstName,
+      lastName: data?.lastName,
+      email: data?.email,
+      phone: data?.whatsappNumber,
+      role: data?.Role.value,
+      teamCount: data?.users,
+      totalPrice: Number(data?.price) * Number(data?.users),
+      price: Number(data?.price),
+      website: data?.website || "",
+    };
+
+    const customer = new teamsModel(customerData);
     const result = await customer.save();
     if (result) {
       return { status: true, result: result };

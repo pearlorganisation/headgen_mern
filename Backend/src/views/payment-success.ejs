@@ -95,8 +95,16 @@
           Order Details
         </div>
         <p><strong>E-Mail:</strong> <span><%= email %></span></p>
-        <p><strong>Gender:</strong> <span> <%= gender %> </span></p>
-        <p><strong>Amount Paid:</strong> <span> <%= amount %> </span></p>
+        <% if (typeof gender !== 'undefined' && gender) { %>
+          <p><strong>Gender:</strong> <span><%= gender %></span></p>
+        <% } else { %>
+          <p><strong>First Name:</strong> <span><%= firstName %></span></p>
+          <p><strong>Last Name:</strong> <span><%= lastName %></span></p>
+          <p><strong>Team Name:</strong> <span><%= teamName %></span></p>
+          <p><strong>Team Members:</strong> <span><%= teamCount %></span></p>
+          <p><strong>Price:</strong> <span><%= price %></span></p>
+        <% } %>
+        <p><strong>Amount Paid:</strong> <span> <%= Number(amount).toLocaleString() %> </span></p>
         <p><strong>Pack Name:</strong> <span></span> <%= packName %></p>
       </div>
       <a href="<%= FRONTEND_URL %>" class="button">Go to Homepage</a>

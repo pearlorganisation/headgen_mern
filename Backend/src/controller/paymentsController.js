@@ -6,7 +6,7 @@ import {
 } from "../utils/nodeMailer.js";
 import { uploadFile } from "../utils/cloudinary.js";
 import { addUser, deleteUser, getUser } from "../utils/users.js";
-import { addCustomer } from "./customersController.js";
+import { addCustomer, addTeamsCustomer } from "./customersController.js";
 
 dotenv.config();
 
@@ -90,7 +90,7 @@ const stripeLinks = [
 
 export const checkout = async (req, res) => {
   // return
-  console.log(req.body, "req.body");
+  console.log("req.body", req.body);
   try {
     const selectedPlan = JSON.parse(req.body.selectedPlan);
     const generationType = req.body.generationType;
@@ -135,9 +135,8 @@ export const checkout = async (req, res) => {
 };
 
 export const complete = async (req, res) => {
-
   const user = getUser(req.query.sessionId);
-console.log(user)
+
   if (user.status) {
     // console.log(user?.user)
     const imgResult = await uploadFile(JSON.parse(user.user.files));
@@ -194,14 +193,19 @@ export const cancel = (req, res) => {
 
 export const teamsCheckout = async (req, res) => {
   try {
-    console.log(req.body)
-    const teamsData = JSON.parse(req.body.teamsData);
+    const teamsData = { ...req.body };
     let price = Number(teamsData.price) * Number(teamsData.users);
-
+    console.log(teamsData)
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {
-          price: `${price}`,
+          price_data: {
+            currency: "usd",
+            product_data: {
+              name: "Teams plan",
+            },
+            unit_amount: price * 100,
+          },
           quantity: 1,
         },
       ],
@@ -213,7 +217,7 @@ export const teamsCheckout = async (req, res) => {
     });
 
     const data = {
-      body: JSON.stringify(req.body),
+      body: JSON.stringify(teamsData),
       sessionId: session.id,
     };
 
@@ -230,35 +234,24 @@ export const teamsCheckout = async (req, res) => {
 
 export const teamsComplete = async (req, res) => {
   const user = getUser(req.query.sessionId);
-
   if (user.status) {
-    await addCustomer(user?.user);
-    if (imgResult) {
-      await sendMailToTeamsCustomer(user.user).catch(console.error);
-      const result = deleteUser(req.query.sessionId);
-      if (result) {
-        // console.log(user);
-        const userBody = JSON.parse(user.user.body);
-        const selectedPlan = JSON.parse(userBody.selectedPlan);
-        res.render("payment-success", {
-          type: "teams",
-          email: userBody.email,
-          gender: userBody.gender,
-          amount: selectedPlan.price,
-          packName: selectedPlan.packName,
-          FRONTEND_URL: process.env.FRONTEND_URL,
-        });
-
-        // res.redirect(`${process.env.FRONTEND_URL}/success`);
-      }
-    } else {
-      // const result = deleteUser(req.query.sessionId);
+    await addTeamsCustomer(user?.user);
+    await sendMailToTeamsCustomer(user.user).catch(console.error);
+    const result = deleteUser(req.query.sessionId);
+    if (result) {
+      const userBody = JSON.parse(user.user.body);
 
       res.render("payment-success", {
         type: "teams",
-        userName: userName,
-        amount: amount,
-        transactionId: transactionId,
+        email: userBody.email,
+        teamName: userBody.companyName,
+        teamCount: userBody.users,
+        price: userBody.price,
+        amount: Number(userBody.price) * Number(userBody.users),
+        firstName: userBody.firstName,
+        lastName: userBody.lastName,
+        packName: `Teams Pack`,
+        FRONTEND_URL: process.env.FRONTEND_URL,
       });
 
       // res.redirect(`${process.env.FRONTEND_URL}/success`);
@@ -279,5 +272,4 @@ export const teamsCancel = (req, res) => {
     FRONTEND_URL: process.env.FRONTEND_URL,
   });
   // res.redirect(`${process.env.FRONTEND_URL}/teamscancel`);
-
 };
