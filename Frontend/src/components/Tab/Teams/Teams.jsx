@@ -485,15 +485,10 @@ const Teams = ({ userData, setUserData }) => {
   }, []);
 
   const handlePayment = () => {
-    const formData = new FormData();
-    formData.append("teamsData", JSON.stringify(userData));
+    const data = {...userData};
     setIsLoading(true);
     axios
-      .post(`${import.meta.env.VITE_API_URL}/payment/teamscheckout`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
+      .post(`${import.meta.env.VITE_API_URL}/payment/teamscheckout`, data)
       .then((res) => {
         if (res.data.sessionUrl) {
           window.location.href = res.data.sessionUrl;
@@ -550,7 +545,7 @@ const Teams = ({ userData, setUserData }) => {
             }}
           >
             {isLoading ? (
-              <BeatLoader color="#1f58ad94" />
+              <BeatLoader color="#ffffff" />
             ) : (
               "Proceed to Payment"
             )}

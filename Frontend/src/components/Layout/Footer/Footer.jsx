@@ -172,7 +172,7 @@ const Footer = () => {
             ))}
         </div>
       </div>
-      <div className="w-full flex flex-row flex-wrap gap-2 sm:gap-0 justify-between">
+      <div className="w-full flex flex-row flex-wrap gap-2 sm:gap-0 justify-center sm:justify-between">
         <div className="text-[11px] sm:text-sm text-[#f1f1f1]">
           Copyright 2024 Playcloud Technologies Private Limited.
         </div>

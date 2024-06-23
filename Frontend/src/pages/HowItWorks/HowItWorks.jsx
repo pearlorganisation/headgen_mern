@@ -68,8 +68,8 @@ const HowItWorks = () => {
   return (
     <div className="w-full py-20 flex flex-col bg-[#161616] gap-10">
       <div className="flex justify-center px-10  xl:px-[160px] 2xl:px-[250px] py-14">
-        <div className="flex flex-row flex-wrap md:justify-between w-full">
-          <div className="w-1/5 flex flex-col gap-4 justify-center items-center ">
+        <div className="flex flex-row flex-wrap gap-6 lg:gap-0 md:justify-between w-full">
+          <div className="w-full lg:w-1/5 flex flex-col gap-4 justify-center items-center ">
             <div className="flex flex-col gap-1 w-fit">
               <div className="text-[#F1F1F1] text-[60px] 2xl:text-[72px] font-medium leading-6">
                 How it
@@ -85,13 +85,13 @@ const HowItWorks = () => {
               </Link>
             </div>
           </div>
-          <div className="w-3/5 flex flex-col gap-6 items-center">
+          <div className="w-full lg:w-3/5 flex flex-col gap-6 items-center">
             <div className="w-full flex justify-center">
               <iframe
                 src="https://drive.google.com/file/d/16UKFJcaT2Y3Kn9dsSakqJl6uVfYJITEb/preview"
                 width="640"
                 height="480"
-                className="rounded-2xl"
+                className="rounded-2xl h-[200px] w-[350px] md:w-[640px] md:h-[480px]"
               ></iframe>
             </div>
 
@@ -111,11 +111,11 @@ const HowItWorks = () => {
           AI Blog
         </div> */}
         <div>
-          <div className="flex flex-row justify-between">
+          <div className="flex flex-row flex-wrap gap-10 md:gap-0 justify-center md:justify-between">
             {cardData?.map((item, idx) => (
               <div
                 key={`blogCard${idx}`}
-                className={`flex flex-col justify-evenly items-center w-[32%] bg-gradient-to-b from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
+                className={`flex flex-col justify-evenly items-center w-[80%] md:w-[32%] bg-gradient-to-b from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
               >
                 <div className="w-[80%] -translate-y-20 group-hover:-translate-y-24 rounded-xl transition duration-300">
                   <img src={item?.imgPath} className="w-full rounded-xl" />

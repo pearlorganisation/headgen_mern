@@ -32,15 +32,15 @@ const teamsSchema = new mongoose.Schema(
       required: [true, 'role is required']
     },
     teamCount: {
-      type: Integer,
+      type: Number,
       required: [true, 'team count is required']
     },
     totalPrice: {
-      type: Integer,
+      type: Number,
       required: [true, 'total price is required']
     },
     price: {
-      type: Integer,
+      type: Number,
       required: [true, 'price per member is required']
     },
     website: {

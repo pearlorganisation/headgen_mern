@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import DragAndDrop from "./DragAndDrop/DragAndDrop";
 import ImgCropT from "./CropTool/ImgCropT";
 
-const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg }) => {
-  const maxUploads = 4;
+const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploads = 4 }) => {
+ 
   const [selectedImage, setSelectedImage] = useState(null);
-
+  const imgCropRef = useRef(null)
   const correctData = [
     {
       imgPath:
@@ -90,6 +90,7 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg }) => {
       return newSelection;
     });
   };
+  
 
   return (
     <div className="flex w-full h-full max-h-[700px] justify-center">
@@ -101,15 +102,18 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg }) => {
         deleteFile={deleteFile}
         fileErrorMsg={fileErrorMsg}
         setFileErrorMsg={setFileErrorMsg}
+        imgCropRef={imgCropRef}
+        type="freeHeadshot"
       />
 
-      <div className="w-[60%] relative max-h-full overflow-auto px-4 flex flex-col gap-2">
+      <div className="w-[60%] relative max-h-full overflow-auto px-4 flex flex-col gap-2"  ref={imgCropRef}>
         {selectedImage && (
           <>
             <div>
               {selectedImage && (
                 <div className="relative w-full">
                   <ImgCropT
+                 
                     selectedImage={selectedImage}
                     updateFile={updateFile}
                   />

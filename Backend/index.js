@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import paymentsRouter from './src/routes/paymentsRoute.js';
 import path from 'path'
 import { fileURLToPath } from 'url';
+import freeHeadshotRouter from './src/routes/freeHeadshotRoute.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -38,7 +39,7 @@ app.use(
 // routes
 
 app.use('/api/v1/payment', paymentsRouter)
-
+app.use('/api/v1/freeHeadshot', freeHeadshotRouter)
 
 
 app.listen(PORT, () => {
