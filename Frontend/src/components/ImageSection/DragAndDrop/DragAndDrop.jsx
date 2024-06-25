@@ -87,7 +87,7 @@ const DragAndDrop = ({
     fileReader.onload = () => {
       const fileURL = fileReader.result;
       setFiles((prevImages) => {
-        if (prevImages.length < 4) {
+        if (prevImages.length < maxUploads) {
           return [...prevImages, fileURL];
         } else {
           setFileErrorMsg(null);

@@ -243,7 +243,7 @@ const FreeHeadshotsTab = () => {
                   {isLoading ? (
                     <BeatLoader color="#ffffff" />
                   ) : (
-                    "Proceed to Payment"
+                    "Submit request"
                   )}
                 </button>
               )}
