@@ -2,11 +2,11 @@ import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
 const OrderDetails = ({ userData, files, type }) => {
- 
+
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex justify-between items-center">
-        <div className="w-1/2">
+      <div className="flex gap-5 md:gap-0 justify-between flex-wrap items-center">
+        <div className="w-full md:w-1/2">
           <div className="flex justify-center">
             <dl className="w-full text-white divide-y divide-gray-200">
               <div className="flex flex-col pb-3">
@@ -19,45 +19,43 @@ const OrderDetails = ({ userData, files, type }) => {
               </div>
 
               {userData?.promptData ? (
-                 <div className="flex flex-col pt-3">
-                 <div className="mb-1 text-gray-400 md:text-lg ">Prompt</div>
-                 <dd className="text-lg font-semibold">{userData?.promptData}</dd>
-               </div>
-              ): userData?.customizeData ? (
                 <div className="flex flex-col pt-3">
-                <div className="mb-1 text-gray-400 md:text-lg ">Customize</div>
-                <dd className="text-lg font-semibold">{userData?.customizeData?.section} - {userData?.customizeData?.subSection}</dd>
-              </div>
+                  <div className="mb-1 text-gray-400 md:text-lg ">Prompt</div>
+                  <dd className="text-lg font-semibold">{userData?.promptData}</dd>
+                </div>
+              ) : userData?.customizeData ? (
+                <div className="flex flex-col pt-3">
+                  <div className="mb-1 text-gray-400 md:text-lg ">Customize</div>
+                  <dd className="text-lg font-semibold">{userData?.customizeData?.section} - {userData?.customizeData?.subSection}</dd>
+                </div>
               ) : type === 'freeHeadshot' ? (
                 <div className="flex flex-col pt-3">
-                <div className="mb-1 text-gray-400 md:text-lg ">Headshot Type</div>
-                <dd className="text-lg font-semibold">Free Headshot</dd>
-              </div>
+                  <div className="mb-1 text-gray-400 md:text-lg ">Headshot Type</div>
+                  <dd className="text-lg font-semibold">Free Headshot</dd>
+                </div>
               ) : (
                 <div className="flex flex-col pt-3">
-                <div className="mb-1 text-gray-400 md:text-lg ">Headshot Type</div>
-                <dd className="text-lg font-semibold">{userData?.headshotType}</dd>
-              </div>
+                  <div className="mb-1 text-gray-400 md:text-lg ">Headshot Type</div>
+                  <dd className="text-lg font-semibold">{userData?.headshotType}</dd>
+                </div>
               )}
             </dl>
           </div>
         </div>
         {type !== "freeHeadshot" && (
-          <div className="w-1/2 overflow-auto">
+          <div className="w-full md:w-1/2 overflow-auto">
             <div className="flex justify-center py-2 gap-2">
               <div
-                className={`w-[300px] !bg-gradient-to-br ${
-                  type === "Dating"
-                    ? "from-[#8a0815] shadow-[0_0_0_2px_#ffffff]"
-                    : "from-[#0d2e756c] to-[#031b4e] shadow-[0_0_0_2px_#ffffff]"
-                } rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center min-h-[400px] relative transition duration-300`}
+                className={`w-[300px] !bg-gradient-to-br ${type === "Dating"
+                  ? "from-[#8a0815] shadow-[0_0_0_2px_#ffffff]"
+                  : "from-[#0d2e756c] to-[#031b4e] shadow-[0_0_0_2px_#ffffff]"
+                  } rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center min-h-[400px] relative transition duration-300`}
               >
                 <div
-                  className={`text-[22px]  bg-gradient-to-r ${
-                    type === "Dating"
-                      ? "from-[#e73e71] to-[#af1040]"
-                      : "from-[#afc5f5] to-[#6495ff]"
-                  }  inline-block text-transparent bg-clip-text font-bold`}
+                  className={`text-[22px]  bg-gradient-to-r ${type === "Dating"
+                    ? "from-[#e73e71] to-[#af1040]"
+                    : "from-[#afc5f5] to-[#6495ff]"
+                    }  inline-block text-transparent bg-clip-text font-bold`}
                 >
                   {userData?.selectedPlan?.title}
                 </div>
@@ -77,11 +75,10 @@ const OrderDetails = ({ userData, files, type }) => {
                         <span className="flex flex-col w-auto justify-center">
                           <FaCheckCircle
                             size={18}
-                            className={` ${
-                              type === "Dating"
-                                ? "text-[#af1040]"
-                                : " text-[#2563EB] "
-                            }`}
+                            className={` ${type === "Dating"
+                              ? "text-[#af1040]"
+                              : " text-[#2563EB] "
+                              }`}
                           />
                         </span>
                         <span className="text-lg text-wrap">{e}</span>
