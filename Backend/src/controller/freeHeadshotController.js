@@ -17,13 +17,11 @@ export const freeHeadshotCheckout = async (req, res) => {
     await addCustomer(userData, imgResult?.result);
     if (imgResult) {
       await sendMailToFreeCustomer(userData, imgResult.result);
-      res.render("payment-success", {
-        type: "solo",
+      res.status(200).json({
         email: req.body.email,
         gender: req.body.gender,
         amount: "0",
         packName: "Free Headshot",
-        FRONTEND_URL: process.env.FRONTEND_URL,
       });
     } else {
       res.send({
