@@ -3,7 +3,7 @@ import DragAndDrop from "./DragAndDrop/DragAndDrop";
 import ImgCropT from "./CropTool/ImgCropT";
 
 const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploads = 4 }) => {
- 
+
   const [selectedImage, setSelectedImage] = useState(null);
   const imgCropRef = useRef(null)
   const correctData = [
@@ -90,10 +90,10 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
       return newSelection;
     });
   };
-  
+
 
   return (
-    <div className="flex w-full h-full max-h-[700px] justify-center">
+    <div className="grid gap-y-5 md:grid-cols-2 w-full h-full min-h-[700px] justify-center">
       <DragAndDrop
         files={files}
         setFiles={setFiles}
@@ -106,14 +106,14 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
         type="freeHeadshot"
       />
 
-      <div className="w-[60%] relative max-h-full overflow-auto px-4 flex flex-col gap-2"  ref={imgCropRef}>
+      <div className="w-full relative  max-h-[700px] overflow-auto md:px-4 flex flex-col gap-2" ref={imgCropRef}>
         {selectedImage && (
           <>
             <div>
               {selectedImage && (
                 <div className="relative w-full">
                   <ImgCropT
-                 
+
                     selectedImage={selectedImage}
                     updateFile={updateFile}
                   />
@@ -124,11 +124,11 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
         )}
 
         <div className="w-full h-fit bg-[#ecfff1] text-black rounded-md flex flex-col gap-2 p-4">
-          <div className="text-[18px]">✅ PHOTO REQUIREMENTS</div>
-          <div className="w-full flex gap-2 p-4">
+          <div className="text-[18px] text-center md:text-left">✅ PHOTO REQUIREMENTS</div>
+          <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 gap-2 p-4">
             {correctData &&
               correctData?.map((item, idx) => (
-                <div className="flex flex-col  rounded-2xl w-[32%]  max-w-[200px]">
+                <div className="flex flex-col  rounded-2xl w-full max-w-[200px] mx-auto ">
                   <img
                     src={item?.imgPath}
                     className="w-full h-[180px] rounded-2xl"
@@ -142,11 +142,11 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
         </div>
 
         <div className="w-full h-fit bg-[#ffecec] text-black rounded-md flex flex-col gap-2 p-4">
-          <div className="text-[18px]">❌ PHOTO RESTRICTIONS</div>
-          <div className="w-full flex gap-2 p-4">
+          <div className="text-[18px] text-center md:text-left">❌ PHOTO RESTRICTIONS</div>
+          <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 gap-2 p-4">
             {incorrectData &&
               incorrectData?.map((item, idx) => (
-                <div className="flex flex-col  rounded-2xl w-[32%]  max-w-[200px]">
+                <div className="flex flex-col  rounded-2xl w-full mx-auto  max-w-[200px]">
                   <img
                     src={item?.imgPath}
                     className="w-full h-[180px] rounded-2xl"

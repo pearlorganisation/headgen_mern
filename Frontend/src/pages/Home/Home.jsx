@@ -747,12 +747,12 @@ const Home = () => {
         <div className="flex flex-wrap flex-col pt-8 md:pt-0 gap-[8rem] md:gap-2 md:flex-row justify-center items-center md:items-start md:justify-between px-2 ">
           {cardData &&
             cardData?.map((item, idx) => (
-              <div className="relative w-full max-w-[420px] h-[300px] md:w-[32%] rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
-                <div className="w-[150px] h-[150px] absolute -top-20 right-2">
+              <div className="relative w-full max-w-[320px] h-[300px] md:w-[32%] rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
+                <div className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] absolute -top-14 md:-top-20 right-2">
                   <img src={item?.imgPath} className="w-full h-full" />
                 </div>
                 <div className="flex flex-col gap-2 px-6 h-[200px]">
-                  <div className="text-7xl text-[#0055D4] font-medium">
+                  <div className="text-2xl  md:text-5xl lg:text-7xl text-[#0055D4] font-medium">
                     {`0${idx + 1}`}
                   </div>
                   <div className="flex flex-col gap-8">
@@ -955,10 +955,10 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className=" w-full ">
+          <div className=" w-full border-2 ">
             <img
               src="https://drive.google.com/thumbnail?id=1Zxk-5ZhT_jVlmVEjZAt_ABgcwtBUQViG&sz=s800"
-              className="w-full h-full md:pr-0 pr-6"
+              className="w-full h-full  border-2 md:pr-0 pr-6"
             />
           </div>
         </div>
