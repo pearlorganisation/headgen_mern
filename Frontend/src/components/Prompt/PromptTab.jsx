@@ -25,16 +25,18 @@ const PromptTab = ({ userData, setUserData, errors, type }) => {
       </div>
       <section className="py-14">
         <div className="max-w-screen-xl mx-auto md:px-8">
-          <div className="grid md:grid-cols-2 gap-x-12 sm:px-4 md:px-0 lg:flex ">
+          <div className="grid lg:grid-cols-2 gap-x-12 sm:px-4 md:px-0 lg:flex ">
             <div className="w-full  w px-4 py-4 space-y-3 mt-6 sm:px-0 md:mt-0 ">
+
               <textarea
+                cols="30" rows="10"
                 onChange={(e) => setPromptData(e.target.value)}
                 placeholder="E.g. Portrait, smile, white shirt, outside, city, blurred background..."
-                className="w-full text-lg !h-[50%] bg-black/30 outline-none focus:ring-4 ring-white/10 rounded-md px-3 py-1 shadow-[0_0_0_1px#ffffff]"
+                className="w-full text-lg  bg-black/30 outline-none focus:ring-4 ring-white/10 rounded-md px-3 py-1 shadow-[0_0_0_1px#ffffff]"
                 name=""
                 id=""
               ></textarea>
-              <div className="flex justify-end">
+              <div className="lg:flex hidden justify-end">
                 <svg
                   width="175"
                   height="188"
@@ -49,13 +51,17 @@ const PromptTab = ({ userData, setUserData, errors, type }) => {
                 </svg>
               </div>
             </div>
-            <div className="flex-1  lg:block  rounded-xl">
-              <LazyLoadImage
-                className="md:max-w-md"
+            <div className="  rounded-xl">
+              <img
+                className="mx-auto md:max-w-md"
+                src="https://drive.google.com/thumbnail?id=1f4MXXPgJ5NvYa8j3iW49XXpT0CX4FG1k&sz=s600"
+                alt="" />
+              {/* <LazyLoadImage
+                className=" md:max-w-md"
                 effect="black-and-white"
                 placeholderSrc="https://drive.google.com/thumbnail?id=1f4MXXPgJ5NvYa8j3iW49XXpT0CX4FG1k&sz=s600"
                 src="https://drive.google.com/thumbnail?id=1f4MXXPgJ5NvYa8j3iW49XXpT0CX4FG1k&sz=s600" // use normal <img> attributes as props
-              />
+              /> */}
             </div>
           </div>
         </div>

@@ -12,7 +12,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
       section: "Formal",
       icon: (
         <>
-          <FaUserTie size={24} />
+          <FaUserTie className="text-lg md:text-xl lg:text-3xl" />
         </>
       ),
       subSection: [
@@ -127,7 +127,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
       section: "Casual",
       icon: (
         <>
-          <IoShirtSharp size={24} />
+          <IoShirtSharp className="text-lg md:text-xl lg:text-3xl" />
         </>
       ),
       subSection: [
@@ -264,11 +264,11 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
 
   return (
     <>
-      <div className="text-[#121212] text-3xl h-fit space-y-8 bg-[#f1f1f1] p-10 rounded-2xl">
-        <div className="w-full flex justify-center flex-wrap gap-3">
+      <div className="text-[#121212]  h-fit space-y-5 md:space-y-8 bg-[#f1f1f1] px-2 py-3 md:p-10 rounded-2xl">
+        <div className="w-full md:w-1/2 mx-auto grid grid-cols-2 place-items-center ">
           {temp?.map((item) => {
             return (
-              <div className=" w-1/4">
+              <div className="  w-full ">
                 <input
                   name="sectionName"
                   className="peer hidden"
@@ -285,20 +285,19 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                         section: item?.section,
                         subSection: prev?.subSection,
                       };
-                      
+
                       const subSection = item?.subSection?.find((e) => e.title === prev?.subSection)
-                      if(subSection) {
+                      if (subSection) {
                         setSubSectionImages(subSection?.images)
                       }
                       return data;
                     });
                   }}
-                  className={`px-6 py-2  flex justify-center items-center gap-2
-                   ${
-                     type === "Dating"
-                       ? " hover:text-[#E23A6D] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#e73e71]  peer-checked:to-[#af1040] hover:shadow-[0_3px#E23A6D]"
-                       : "hover:text-[#0000FF] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#3183ff] peer-checked:to-[#0c4cac] hover:shadow-[0_3px#0000FF] "
-                   } peer-checked:rounded-full font-normal cursor-pointer transition duration-300`}
+                  className={`px-6 py-2 text-lg md:text-xl lg:text-3xl  flex justify-center items-center gap-2
+                   ${type === "Dating"
+                      ? " hover:text-[#E23A6D] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#e73e71]  peer-checked:to-[#af1040] hover:shadow-[0_3px#E23A6D]"
+                      : "hover:text-[#0000FF] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#3183ff] peer-checked:to-[#0c4cac] hover:shadow-[0_3px#0000FF] "
+                    } peer-checked:rounded-full font-normal cursor-pointer transition duration-300`}
                   htmlFor={item?.section}
                 >
                   <span>{item?.icon}</span>
@@ -308,7 +307,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
             );
           })}
         </div>
-        <section className="flex justify-around items-center flex-wrap p-2 text-lg gap-3">
+        <section className="flex flex-wrap justify-center items-center p-2 text-lg gap-3">
           {subSectionData?.map((item) => {
             return (
               <div className="relative ">
@@ -331,11 +330,10 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                     });
                   }}
                   className={`px-6 py-2  flex justify-center items-center gap-2
-                   ${
-                     type === "Dating"
-                       ? " hover:text-[#E23A6D] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#e73e71]  peer-checked:to-[#af1040] hover:shadow-[0_3px#E23A6D]"
-                       : "hover:text-[#0000FF] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#3183ff] peer-checked:to-[#0c4cac] hover:shadow-[0_3px#0000FF] "
-                   } peer-checked:rounded-full font-normal cursor-pointer transition duration-300`}
+                   ${type === "Dating"
+                      ? " hover:text-[#E23A6D] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#e73e71]  peer-checked:to-[#af1040] hover:shadow-[0_3px#E23A6D]"
+                      : "hover:text-[#0000FF] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#3183ff] peer-checked:to-[#0c4cac] hover:shadow-[0_3px#0000FF] "
+                    } peer-checked:rounded-full font-normal cursor-pointer transition duration-300`}
                   htmlFor={item?.title}
                 >
                   {item?.title}{" "}
