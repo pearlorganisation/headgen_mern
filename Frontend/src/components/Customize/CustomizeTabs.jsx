@@ -12,7 +12,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
       section: "Formal",
       icon: (
         <>
-          <FaUserTie size={24} />
+          <FaUserTie className="text-lg md:text-xl lg:text-3xl" />
         </>
       ),
       subSection: [
@@ -127,7 +127,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
       section: "Casual",
       icon: (
         <>
-          <IoShirtSharp size={24} />
+          <IoShirtSharp className="text-lg md:text-xl lg:text-3xl" />
         </>
       ),
       subSection: [
@@ -293,7 +293,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                       return data;
                     });
                   }}
-                  className={`px-6 py-2 text-xl md:text-3xl  flex justify-center items-center gap-2
+                  className={`px-6 py-2 text-lg md:text-xl lg:text-3xl  flex justify-center items-center gap-2
                    ${type === "Dating"
                       ? " hover:text-[#E23A6D] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#e73e71]  peer-checked:to-[#af1040] hover:shadow-[0_3px#E23A6D]"
                       : "hover:text-[#0000FF] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#3183ff] peer-checked:to-[#0c4cac] hover:shadow-[0_3px#0000FF] "
