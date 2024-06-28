@@ -147,7 +147,7 @@ const Header = () => {
   return (
     <nav
       className={`fixed w-screen ${toggleNav ? toggleCss : ""
-        } px-10 2xl:px-[250px] h-fit border-[#737373] border-b-[2px] z-[99]  `}
+        } py-2 px-8 2xl:px-[180px] h-fit border-[#737373] border-b-[2px] z-[99]  `}
     >
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex flex-col justify-center">
@@ -156,7 +156,7 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className="lg:hidden">
+        <div className="xl:hidden">
           <div
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg"
             onClick={() => setShowMobDropdown(!showMobDropdown)}
@@ -204,7 +204,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="lg:flex flex-row gap-4 hidden ">
+        <div className="xl:flex flex-row gap-4 hidden ">
           {navData.map((item, idx) => (
             <HeaderLink
               key={`header${idx}`}

@@ -56,7 +56,7 @@ const Footer = () => {
           },
           {
             title: "Sitemap",
-            link: "/",
+            link: "/sitemap.xml",
           },
         ],
       ],
