@@ -35,8 +35,8 @@ const UserDetails = ({ userData, setUserData, errors, type }) => {
 
   return (
     <>
-      <div className="flex w-full">
-        <div className="flex flex-col items-center gap-4 w-1/2 relative">
+      <div className="grid md:grid-cols-2  w-full">
+        <div className="flex flex-col items-center gap-4 w-full relative">
           <label htmlFor="email" className="text-center text-2xl text-white ">
             Enter your Email:
           </label>
@@ -46,7 +46,7 @@ const UserDetails = ({ userData, setUserData, errors, type }) => {
             value={email}
             type="text"
             placeholder="Enter your email"
-            className="w-2/3 text-center bg-[#f1f1f1]  text-[#131313] text-[18px] px-2 rounded-lg  shadow-[0_0_0_1px_#5d5b68] focus:shadow-[0_0_0_1px_#1d2838]"
+            className="w-full md:w-2/3 text-center bg-[#f1f1f1]  text-[#131313] text-[18px] px-2 rounded-lg  shadow-[0_0_0_1px_#5d5b68] focus:shadow-[0_0_0_1px_#1d2838]"
           />
 
           <div className="text-[#ff1717] text-[16px] leading-3">
@@ -54,7 +54,7 @@ const UserDetails = ({ userData, setUserData, errors, type }) => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 w-1/2">
+        <div className="flex flex-col gap-4 w-full">
           <label htmlFor="gender" className="text-center text-2xl text-white">
             What's your gender?
           </label>
@@ -69,7 +69,7 @@ const UserDetails = ({ userData, setUserData, errors, type }) => {
                   className={`bg-[#f1f1f1]  text-[#131313] ${userData?.gender === item?.name
                     ? `${type === 'Dating' ? '!bg-[#E23A6D] text-[#f1f1f1]' : '!bg-[#355cc9] text-[#f1f1f1]'} `
                     : "bg-[#f1f1f1]"
-                    }  ${type === 'Dating' ? 'hover:bg-[#E23A6D] hover:text-[#f1f1f1]' : 'hover:bg-[#355cc9] hover:text-[#f1f1f1]'}  rounded-lg w-1/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2`}
+                    }  ${type === 'Dating' ? 'hover:bg-[#E23A6D] hover:text-[#f1f1f1]' : 'hover:bg-[#355cc9] hover:text-[#f1f1f1]'}  rounded-lg w-full md:w-1/3 transition duration-500 text-[18px] font-semibold cursor-pointer flex justify-center gap-2`}
                 >
                   <span className="flex flex-col justify-center">
                     {item?.svg}

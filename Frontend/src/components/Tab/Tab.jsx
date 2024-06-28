@@ -170,24 +170,24 @@ const Tab = () => {
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px]">
       <div
         ref={fieldsRef}
-        className="rounded-full   bg-gradient-to-br from-[#1d2838] to-[#1d283880] p-1 px-2 relative h-[50px] flex justify-between"
+        className="rounded-full  w-fit  bg-gradient-to-br from-[#1d2838] to-[#1d283880] p-1 px-2 relative h-[50px] flex justify-between"
       >
         {tabs?.map((item, idx) => {
           return (
-            <div className="relative" key={`tab${idx}`}>
+            <div className="relative text-sm md:text-base" key={`tab${idx}`}>
               <div
                 className={` ${tabText === item ? "flex" : "hidden"
-                  }  absolute text-white h-full `}
+                  }  absolute text-white h-full  `}
               >
                 <span
-                  className={` rounded-full h-full w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
+                  className={` rounded-full h-full w-[5rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
                 >
                   {item}
                 </span>
               </div>
 
               <span
-                className={` rounded-full h-full w-[10rem] cursor-pointer  flex flex-col justify-center text-center text-white  z-[10] transition duration-300`}
+                className={` rounded-full h-full w-[5rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center text-white  z-[10] transition duration-300`}
                 onClick={() => {
                   setTabSwitched(true);
                   setTabText(item);
@@ -200,7 +200,7 @@ const Tab = () => {
         })}
       </div>
       <div className="shadow-[0_0_0_1px_#babcbf80] rounded-xl px-6 md:px-20 2xl:px-24 py-12 w-full 2xl:w-[1200px] min-h-[700px] bg-gradient-to-br from-[#1d2838] to-[#1d283880]">
-        <div className="text-white text-3xl h-full ">
+        <div className="text-white text-3xl h-auto ">
           {tabText === "Individual" && (
             <IndividualTab
               userData={userData}
