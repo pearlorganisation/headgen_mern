@@ -147,7 +147,7 @@ const Header = () => {
   return (
     <nav
       className={`fixed w-screen ${toggleNav ? toggleCss : ""
-        } py-2 px-8 2xl:px-[180px] h-fit border-[#737373] border-b-[2px] z-[99]  `}
+        } py-2 px-1 sm:px-8 2xl:px-[180px] h-fit border-[#737373] border-b-[2px] z-[99]  `}
     >
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex flex-col justify-center">
@@ -219,14 +219,14 @@ const Header = () => {
               to={`/upload/${isDatingPage ? "dating" : "Corporate%20Headshots"
                 }`}
               className={`hover:squeezyBtn px-5 py-4 ${toggleNav
-                  ? `${isDatingPage
-                    ? "shadow-[0_1px_2px_0_#131313] bg-[#af2828d8] hover:bg-[#1d2838]"
-                    : "shadow-[0_1px_2px_0_#131313] bg-[#4f3bffd8] hover:bg-[#1d2838]"
-                  }`
-                  : `${isDatingPage
-                    ? "bg-[#1d2838] hover:bg-[#af2828d8]"
-                    : "bg-[#1d2838] hover:bg-[#1f58ad]"
-                  }`
+                ? `${isDatingPage
+                  ? "shadow-[0_1px_2px_0_#131313] bg-[#af2828d8] hover:bg-[#1d2838]"
+                  : "shadow-[0_1px_2px_0_#131313] bg-[#4f3bffd8] hover:bg-[#1d2838]"
+                }`
+                : `${isDatingPage
+                  ? "bg-[#1d2838] hover:bg-[#af2828d8]"
+                  : "bg-[#1d2838] hover:bg-[#1f58ad]"
+                }`
                 } hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#ffffff] text-[15px] font-medium transition duration-[0.6s]`}
             >
               Get Started

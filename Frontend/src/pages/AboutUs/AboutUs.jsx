@@ -124,7 +124,7 @@ const AboutUs = () => {
         },
       ],
 
-   
+
       content: (
         <>
           Krasia Gordon has a deep understanding and passion for generative AI and visual aesthetics. As a computer science graduate, she leveraged her technical knowledge to work alongside her brother, Ruark, in creating the most realistic AI headshot generator on the market. Krasia's strengths in computer science and visual design, combined with Ruark's vast experience as an entrepreneur and photographer, have created the perfect blend for HeadGen AI, resulting in a groundbreaking tool for generating high-quality AI images.
@@ -168,18 +168,18 @@ const AboutUs = () => {
           <img src="https://drive.google.com/thumbnail?id=1KpGw_yfU-oOPsc9fkrJUWAcIkJOkp8_M&sz=s1000" className="w-full rounded-xl  shadow-[0_0_0_1px#d1d1d1]" />
         </div>
         <div className="flex justify-center my-10">
-          <div className="flex flex-row flex-wrap md:justify-between w-full">
-            <div className="w-1/5 flex flex-col gap-4 justify-center items-center ">
-              <div className="flex flex-col gap-1 w-fit">
-                <div className="text-[#F1F1F1] text-[60px] 2xl:text-[72px] font-medium leading-6">
+          <div className="flex flex-col md:flex-row flex-wrap md:justify-between w-full">
+            <div className="w-full md:w-1/5 flex flex-col gap-4 justify-center items-center ">
+              <div className="flex flow-row md:flex-col gap-1 w-fit text-5xl leading-[3.5rem] py-3 md:py-0 ">
+                <div className="text-[#F1F1F1]  font-medium">
                   Our
                 </div>
-                <div className="text-[60px] 2xl:text-[72px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+                <div className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
                   story
                 </div>
               </div>
             </div>
-            <div className="w-3/5 flex flex-col gap-6 items-center">
+            <div className="w-full md:w-3/5 flex flex-col gap-6 items-center">
               {aboutUsContent && (
                 <p className="text-justified xl:text-xl">{aboutUsContent}</p>
               )}
@@ -192,7 +192,7 @@ const AboutUs = () => {
 
       <div className="flex  justify-center gap-6">
         <div
-          className={`flex flex-col justify-center text-center font-bold text-[20px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text `}
+          className={`flex flex-col justify-center text-center font-bold text-sm px-2 bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text `}
         >
           Trusted By
         </div>
@@ -200,7 +200,7 @@ const AboutUs = () => {
           {logoData?.map((item, idx) => (
             <div
               key={`logo${idx}`}
-              className="w-[150px] flex flex-col justify-center"
+              className="md:w-[150px] flex flex-col justify-center"
             >
               <img
                 src={item?.imgPath}
@@ -212,18 +212,18 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className="relative w-full text-white px-10 xl:px-[250px] py-20 bg-[#161616] flex flex-col gap-8 xl:gap-[6rem] tracking-wider">
-        <div className="text-[#F1F1F1] text-center text-5xl font-medium">
+      <div className="relative w-full text-white px-10 xl:px-[250px] py-20 bg-[#161616] flex flex-col gap-14 md:gap-8 xl:gap-[6rem] tracking-wider">
+        <div className="text-[#F1F1F1] text-center text-3xl md:text-5xl font-medium">
           Meet the AI Founders of{" "}
           <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold py-5">
             Headgen
           </span>
         </div>
 
-        <div className="flex flex-row flex-wrap md:justify-between w-full">
-          <div className="w-2/5 flex flex-col gap-4 justify-center items-start ">
+        <div className="flex flex-col gap-6 md:gap-0 md:flex-row flex-wrap md:justify-between w-full ">
+          <div className="w-full md:w-2/5 flex flex-col gap-4 justify-center items-start ">
             <div
-              className={`flex flex-col justify-evenly items-center bg-gradient-to-b  from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
+              className={`flex flex-col mx-auto md:mx-0 justify-evenly items-center bg-gradient-to-b  from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
             >
               <div className="w-[80%] -translate-y-20 group-hover:-translate-y-24 rounded-xl transition duration-300">
                 <img
@@ -256,23 +256,23 @@ const AboutUs = () => {
               </div>
             </div>
           </div>
-          <div className="w-3/5 flex flex-col gap-6 justify-center *:items-center">
+          <div className="w-full md:w-3/5 flex flex-col gap-6 justify-center *:items-center">
             {foundersContent[0]?.content && (
               <p className="text-justified xl:text-xl">{foundersContent[0]?.content}</p>
             )}
           </div>
         </div>
 
-        <div className="flex flex-row flex-wrap md:justify-between w-full">
-          <div className="w-3/5 flex flex-col gap-6 justify-center *:items-center">
+        <div className="flex flex-row gap-6 md:gap-0 flex-wrap md:justify-between w-full">
+          <div className="w-full order-2 md:order-none md:w-3/5 flex flex-col gap-6 justify-center *:items-center">
             {foundersContent[1]?.content && (
               <p className="text-justified xl:text-xl">{foundersContent[1]?.content}</p>
             )}
           </div>
 
-          <div className="w-2/5 flex flex-col gap-4 justify-center items-end ">
+          <div className="w-full md:w-2/5 flex flex-col gap-4 justify-center items-end ">
             <div
-              className={`flex flex-col justify-evenly items-center bg-gradient-to-b  from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
+              className={`flex flex-col  mx-auto md:mx-0 justify-evenly items-center bg-gradient-to-b  from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
             >
               <div className="w-[80%] -translate-y-20 group-hover:-translate-y-24 rounded-xl transition duration-300">
                 <img
@@ -309,7 +309,7 @@ const AboutUs = () => {
 
         <Link
           to="/upload/Corporate%20Headshots"
-          className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]"
+          className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full py-3 md:py-5 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]"
         >
           Get your photos for $29
         </Link>
