@@ -7,6 +7,7 @@ import axios from "axios";
 import { BeatLoader } from "react-spinners";
 
 const FreeHeadshotsTab = () => {
+  const [successMsg, setSuccessMsg] = useState(null);
   const [userData, setUserData] = useState({
     email: "",
     gender: "Male",
@@ -16,7 +17,6 @@ const FreeHeadshotsTab = () => {
   const [files, setFiles] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-
 
   const tabContentRef = useRef(null);
 
@@ -57,13 +57,15 @@ const FreeHeadshotsTab = () => {
       ele: (
         <>
           <div>
-            <OrderDetails userData={userData} files={files} type="freeHeadshot" />
+            <OrderDetails
+              userData={userData}
+              files={files}
+              type="freeHeadshot"
+            />
           </div>
         </>
       ),
     },
-
-
   ];
 
   let maxIndex = 3 - 1;
@@ -179,8 +181,8 @@ const FreeHeadshotsTab = () => {
         },
       })
       .then((res) => {
-        if (res.data.successUrl) {
-          window.location.href = res.data.successUrl;
+        if (res.data) {
+          setSuccessMsg("Free Headshot request successfully submitted");
           setIsLoading(false);
         }
       })
@@ -192,7 +194,6 @@ const FreeHeadshotsTab = () => {
 
   return (
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px] gradientBg py-20 lg:py-36">
-
       <div className="shadow-[0_0_0_1px_#babcbf80] rounded-xl px-20 2xl:px-24 py-12 w-full 2xl:w-[1200px] min-h-[600px] bg-gradient-to-br from-[#1d2838] to-[#1d283880]">
         <div className="text-white text-3xl h-full ">
           <div
@@ -213,6 +214,8 @@ const FreeHeadshotsTab = () => {
                 }
               })}
 
+            {successMsg && <div className="w-full text-center text-green-500 text-xl ">{successMsg}</div>}
+           {!successMsg && (
             <div className="flex justify-center gap-2">
               {currentIndex > 0 && (
                 <button
@@ -248,6 +251,7 @@ const FreeHeadshotsTab = () => {
                 </button>
               )}
             </div>
+           )}
           </div>
         </div>
       </div>

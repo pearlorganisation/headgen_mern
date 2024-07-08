@@ -1,0 +1,8 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://www.headgen.ai/sitemap.xml
+
+Disallow: /test
+Disallow: /cancel
+Disallow: /404
