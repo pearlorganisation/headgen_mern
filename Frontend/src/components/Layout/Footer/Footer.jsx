@@ -40,24 +40,24 @@ const Footer = () => {
           },
           {
             title: "Custom",
-            link: "/upload/custom",
+            link: "/upload",
           },
           {
             title: "Prompts",
-            link: "/upload/prompts",
+            link: "/upload",
           },
           {
             title: "Teams",
-            link: "/upload/Teams",
+            link: "/upload",
           },
           {
             title: "Blogs",
             link: "/blogs",
           },
-          {
-            title: "Sitemap",
-            link: "/sitemap.xml",
-          },
+          // {
+          //   title: "Sitemap",
+          //   link: "/sitemap.xml",
+          // },
         ],
       ],
     },
@@ -78,8 +78,8 @@ const Footer = () => {
           link: "/termsandconditions",
         },
         {
-          title: "Refund & Cancellations",
-          link: "/",
+          title: "Refunds & Cancellations",
+          link: "/refundsandcancellations",
         },
       ],
     },
@@ -90,14 +90,14 @@ const Footer = () => {
           title: "Contact Us",
           link: "/contactus",
         },
-        {
-          title: "Payment Gateway",
-          link: "/",
-        },
-        {
-          title: "Affiliate Program",
-          link: "/",
-        },
+        // {
+        //   title: "Payment Gateway",
+        //   link: "/",
+        // },
+        // {
+        //   title: "Affiliate Program",
+        //   link: "/",
+        // },
         {
           title: "Support@headgen.ai",
           link: "mailto:support@headgen.ai",

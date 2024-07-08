@@ -32,7 +32,7 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-        <Route path="/cancellationandrefunds" element={<CancellationAndRefunds />} />
+        <Route path="/refundsandcancellations" element={<CancellationAndRefunds />} />
         <Route path="/termsandconditions" element={<TermsAndConditions />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/dating" element={<Dating />} />

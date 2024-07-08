@@ -163,7 +163,7 @@ const AboutUs = () => {
 
   return (
     <div className="bg-[#161616]">
-      <div className="relative w-full text-white py-10 xl:py-20 px-10 xl:px-[250px]  flex flex-col gap-8 xl:gap-[3.5rem] tracking-wider">
+      <div className="relative w-full text-white py-14 xl:py-24 px-10 xl:px-[250px]  flex flex-col gap-8 xl:gap-[3.5rem] tracking-wider">
         <div className="mt-10">
           <img src="https://drive.google.com/thumbnail?id=1KpGw_yfU-oOPsc9fkrJUWAcIkJOkp8_M&sz=s1000" className="w-full rounded-xl  shadow-[0_0_0_1px#d1d1d1]" />
         </div>

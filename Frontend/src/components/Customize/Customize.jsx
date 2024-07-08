@@ -206,10 +206,10 @@ const Customize = ({
             }
           })}
 
-        <div className="flex justify-center gap-2">
+        <div className="flex flex-wrap justify-center gap-2">
           {currentIndex > 0 && (
             <button
-              className={`hover:squeezyBtn px-8 py-3  shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+              className={`w-full sm:w-auto hover:squeezyBtn px-8 py-3  shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
               onClick={() => updateIndex(-1)}
             >
               Back
@@ -217,7 +217,7 @@ const Customize = ({
           )}
           {currentIndex >= 0 && currentIndex < maxIndex && (
             <button
-              className={`hover:squeezyBtn px-8 py-3  ${type != 'Dating' ? 'bg-[#1f58ad]' : 'bg-[#b41f58] hover:bg-[#b41f58a8] '}  hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+              className={`w-full sm:w-auto hover:squeezyBtn px-8 py-3  ${type != 'Dating' ? 'bg-[#1f58ad]' : 'bg-[#b41f58] hover:bg-[#b41f58a8] '}  hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
               onClick={() => {
                 updateIndex(1);
               }}
@@ -228,7 +228,7 @@ const Customize = ({
 
           {currentIndex === maxIndex && (
             <button
-              className={`hover:squeezyBtn flex justify-center items-center px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+              className={`w-full sm:w-auto hover:squeezyBtn flex justify-center items-center px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
               onClick={() => {
                 handlePayment("customize");
               }}

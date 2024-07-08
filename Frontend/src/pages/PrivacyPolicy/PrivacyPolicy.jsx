@@ -142,7 +142,7 @@ const PrivacyPolicy = () => {
   ];
 
   return (
-    <div className="w-full text-white py-10 xl:py-20 px-10 xl:px-[100px] bg-[#161616] flex flex-col gap-6 xl:gap-[3.5rem] tracking-wider">
+    <div className="w-full text-white py-14 xl:py-24 px-10 xl:px-[100px] bg-[#161616] flex flex-col gap-6 xl:gap-[3.5rem] tracking-wider">
       <div className="w-full text-center font-medium text-[44px] md:text-[52px] xl:text-[60px]">
         Privacy Policy
       </div>

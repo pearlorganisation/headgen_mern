@@ -328,10 +328,10 @@ const DatingTab = () => {
                   }
                 })}
 
-              <div className="flex justify-center gap-2">
+              <div className="flex flex-wrap justify-center gap-2">
                 {currentIndex > 0 && (
                   <button
-                    className={`hover:squeezyBtn px-8 py-3   shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                    className={`w-full sm:w-auto hover:squeezyBtn px-8 py-3   shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
                     onClick={() => updateIndex(-1)}
                   >
                     Back
@@ -339,7 +339,7 @@ const DatingTab = () => {
                 )}
                 {currentIndex >= 0 && currentIndex < maxIndex && (
                   <button
-                    className={`hover:squeezyBtn px-8 py-3 bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436] hover:shadow-[0_0_0_1px_#ffffff]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                    className={`w-full sm:w-auto hover:squeezyBtn px-8 py-3 bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436] hover:shadow-[0_0_0_1px_#ffffff]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
                     onClick={() => {
                       updateIndex(1);
                     }}
@@ -350,7 +350,7 @@ const DatingTab = () => {
 
                 {currentIndex === maxIndex && (
                   <button
-                    className={`hover:squeezyBtn px-8 py-3 bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436] hover:shadow-[0_0_0_1px_#ffffff]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                    className={`w-full sm:w-auto hover:squeezyBtn px-8 py-3 bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436] hover:shadow-[0_0_0_1px_#ffffff]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
                     onClick={() => {
                       handlePayment('individualDating');
                     }}
