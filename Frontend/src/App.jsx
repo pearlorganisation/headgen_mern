@@ -1,7 +1,7 @@
 // import react, { useEffect, useState } from "react";
 
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import AboutUs from "./pages/AboutUs/AboutUs";
@@ -21,9 +21,18 @@ import Blog from "./pages/Blog/Blog";
 import BlogDetails from "./pages/Blog/BlogDetails";
 import FreeHeadshots from "./pages/FreeHeadshots/FreeHeadshots";
 import FreeHeadshotsTab from "./pages/FreeHeadshots/FreeHeadshotsTab";
+import { useEffect } from "react";
 
 
 function App() {
+
+  const location = useLocation()  
+
+  useEffect(() => {
+    window.scrollTo({top:0, left:0, behavior: 'smooth'})
+  }, [location])
+  
+
   return (
     <>
       <Header />
@@ -32,7 +41,7 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-        <Route path="/refundsandcancellations" element={<CancellationAndRefunds />} />
+        <Route path="/cancellationandrefunds" element={<CancellationAndRefunds />} />
         <Route path="/termsandconditions" element={<TermsAndConditions />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/dating" element={<Dating />} />
