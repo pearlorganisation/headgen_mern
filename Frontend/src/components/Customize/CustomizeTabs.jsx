@@ -246,7 +246,8 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
   const [subSectionImages, setSubSectionImages] = useState(
     temp[0]?.subSection[0]?.images || []
   );
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({ section: temp[0].section,
+    subSection: undefined});
 
   useEffect(() => {
     if (data?.section?.length > 0 && data?.subSection?.length > 0) {
@@ -266,15 +267,16 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
     <>
       <div className="text-[#121212]  h-fit space-y-5 md:space-y-8 bg-[#f1f1f1] px-2 py-3 md:p-10 rounded-2xl">
         <div className="w-full md:w-1/2 mx-auto grid grid-cols-2 place-items-center ">
-          {temp?.map((item) => {
+          {temp?.map((item, idx) => {
             return (
-              <div className="  w-full ">
+              <div className="  w-full " key={`category${idx}`}>
                 <input
                   name="sectionName"
                   className="peer hidden"
                   type="radio"
                   value={item?.section}
                   id={`${item?.section}`}
+                  defaultChecked={idx === 0}
                 />
                 <label
                   onClick={() => {
@@ -308,9 +310,9 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
           })}
         </div>
         <section className="flex flex-wrap justify-center items-center p-2 text-lg gap-3">
-          {subSectionData?.map((item) => {
+          {subSectionData?.map((item, idx) => {
             return (
-              <div className="relative ">
+              <div className="relative " key={`subCategory${idx}`}>
                 <input
                   name="subSectionTitle"
                   className="peer hidden"

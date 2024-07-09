@@ -481,7 +481,7 @@ const Teams = ({ userData, setUserData }) => {
     if (localStorage.getItem("userData")) {
       localStorage.clear();
     }
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+
   }, []);
 
   const handlePayment = () => {

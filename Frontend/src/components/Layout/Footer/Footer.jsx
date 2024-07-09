@@ -40,24 +40,24 @@ const Footer = () => {
           },
           {
             title: "Custom",
-            link: "/upload/custom",
+            link: "/upload",
           },
           {
             title: "Prompts",
-            link: "/upload/prompts",
+            link: "/upload",
           },
           {
             title: "Teams",
-            link: "/upload/Teams",
+            link: "/upload",
           },
           {
             title: "Blogs",
             link: "/blogs",
           },
-          {
-            title: "Sitemap",
-            link: "/sitemap.xml",
-          },
+          // {
+          //   title: "Sitemap",
+          //   link: "/sitemap.xml",
+          // },
         ],
       ],
     },
@@ -78,8 +78,8 @@ const Footer = () => {
           link: "/termsandconditions",
         },
         {
-          title: "Refund & Cancellations",
-          link: "/",
+          title: "Cancellation & Refunds",
+          link: "/cancellationandrefunds",
         },
       ],
     },
@@ -90,14 +90,14 @@ const Footer = () => {
           title: "Contact Us",
           link: "/contactus",
         },
-        {
-          title: "Payment Gateway",
-          link: "/",
-        },
-        {
-          title: "Affiliate Program",
-          link: "/",
-        },
+        // {
+        //   title: "Payment Gateway",
+        //   link: "/",
+        // },
+        // {
+        //   title: "Affiliate Program",
+        //   link: "/",
+        // },
         {
           title: "Support@headgen.ai",
           link: "mailto:support@headgen.ai",
@@ -106,6 +106,11 @@ const Footer = () => {
           title: "+91 9820442749",
           link: "tel:+919820442749",
         },
+        {
+          link:'/',
+          alt:'product hunt',
+          imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1720504906/Untitled_design_71_yhk24p.jpg"
+        }
       ],
     },
   ];
@@ -158,12 +163,15 @@ const Footer = () => {
                   <div className="flex flex-col gap-1 text-[#f1f1f1] text-xl xl:text-[1.7rem] leading-[1.3]  ">
                     {fc?.list &&
                       fc?.list?.map((item, idx2) => (
+                        
                         <Link
                           to={item?.link}
                           key={`fcl${idx2}`}
                           className="oswald hover:text-blue-600 transition duration-300"
                         >
-                          {item?.title}
+                          {item?.title ? item?.title : (
+                            <img src={`${item?.imgPath}`} alt={item?.alt} className="w-full rounded-lg shadow-[0_0_0_1px#ffffff] mt-1" />
+                          )}
                         </Link>
                       ))}
                   </div>

@@ -7,14 +7,6 @@ import InfinitySlider from "../../components/InfinitySlider/InfinitySlider";
 
 const Dating = () => {
 
-
-  // useEffect(() => {
-  //   window.scrollTo({
-  //     top: 0,
-  //     behavior: 'smooth'
-  //   });
-  // }, []);
-
   const datingCardData = [
     {
       title: "Upload your images",

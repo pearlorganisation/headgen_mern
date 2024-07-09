@@ -45,7 +45,7 @@ const FreeHeadshots = () => {
     return () => clearTimeout(timeout);
   }, []);
   return (
-    <div className=" space-y-4 text-white pt-20 md:px-10  xl:px-[160px] 2xl:px-[250px]">
+    <div className=" space-y-4 text-white pt-28 md:px-10  xl:px-[160px] 2xl:px-[250px]">
       <div className="flex flex-wrap gap-12 md:gap-0 place-items-center space-y-4 ">
         <div className="space-y-6 w-full lg:w-1/2 lg:justify-normal justify-center ">
           <p className="text-5xl  md:text-6xl lg:text-5xl 2xl:text-6xl text-center lg:text-left font-semibold">
@@ -139,9 +139,9 @@ const FreeHeadshots = () => {
         </span>
         <Link
           to="/upload/Corporate%20Headshots"
-          className="w-full md:w-1/3 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+          className="w-full md:w-1/3 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] text-sm rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
         >
-          Get Headshots
+          Get Standard Headshots
         </Link>
       </div>
 

@@ -147,12 +147,12 @@ const Header = () => {
   return (
     <nav
       className={`fixed w-screen ${toggleNav ? toggleCss : ""
-        } py-2 px-1 sm:px-8 2xl:px-[180px] h-fit border-[#737373] border-b-[2px] z-[99]  `}
+        } py-3 px-5 sm:px-8 sm:py-1 2xl:px-[180px] h-fit border-[#737373] border-b-[2px] z-[99]  `}
     >
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex flex-col justify-center">
           <Link to="/">
-            <img src="/logo.webp" alt="" className="max-w-[180px]" />
+            <img src="/logo.webp" alt="" className="w-[140px] sm:w-[180px] max-w-[180px]" />
           </Link>
         </div>
 

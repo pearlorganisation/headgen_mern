@@ -543,35 +543,42 @@ const Home = () => {
       {/* hero */}
 
       <div className="grid md:grid-cols-2  md:px-10  xl:px-[160px] 2xl:px-[250px]">
-        <div className={`max-w-[834px]  w-full flex flex-col gap-0 pt-5 md:pt-10 text-center md:text-left`}>
+        <div
+          className={`max-w-[834px]  w-full flex flex-col gap-0 pt-5 md:pt-10 text-center md:text-left`}
+        >
           <div className="flex flex-col leading-none mb-4 space-y-3 md:space-y-0">
             <div
-              className={`lg:text-3xl font-bold md:pl-[1.55rem] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
-                }`}
+              className={`lg:text-3xl font-bold md:pl-[1.55rem] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
+                isAnimated ? "animatedReveal" : "invisible"
+              }`}
             >
               AI HEADSHOT GENERATOR
             </div>
             <div
-              className={`text-white oswald text-[4rem] lg:text-[6rem] xl:text-[9rem] font-bold pb-4 ${isAnimated ? "animatedReveal" : "invisible"
-                }`}
+              className={`text-white oswald text-[4rem] lg:text-[6rem] xl:text-[9rem] font-bold pb-4 ${
+                isAnimated ? "animatedReveal" : "invisible"
+              }`}
             >
               AI TOOL
             </div>
             <div
-              className={` text-[20px] md:text-[28px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
-                }`}
+              className={` text-[20px] md:text-[28px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
+                isAnimated ? "animatedReveal" : "invisible"
+              }`}
             >
               FOR PROFESSIONAL HEADSHOTS
             </div>
           </div>
           <div
-            className={`flex flex-col gap-6 mb-3 md:mb-0 text-center justify-center items-center md:items-start ${isAnimated ? "animatedReveal" : "invisible"
-              }`}
+            className={`flex flex-col gap-6 mb-3 md:mb-0 text-center justify-center items-center md:items-start ${
+              isAnimated ? "animatedReveal" : "invisible"
+            }`}
           >
             <Link
               to="/upload/Corporate%20Headshots"
-              className={`w-1/2 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${isAnimated ? "animatedReveal" : "invisible"
-                }`}
+              className={`w-1/2 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${
+                isAnimated ? "animatedReveal" : "invisible"
+              }`}
             >
               Get your photos for $29
             </Link>
@@ -599,7 +606,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-
         </div>
         <div
           className={`max-w-[834px] w-full flex flex-col gap-4 items-end pt-10`}
@@ -676,30 +682,21 @@ const Home = () => {
 
       {/* trusted by */}
 
-      <div className="flex flex-col md:flex-row justify-center gap-6">
+      <div className="flex flex-wrap justify-center">
         <div
-          className={`flex flex-col justify-center text-center font-bold text-[20px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
-            }`}
+          className={`w-full sm:w-1/5 flex flex-col justify-center text-center font-bold text-lg md:text-2xl bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text ${
+            isAnimated ? "animatedReveal" : "invisible"
+          }`}
         >
-          Trusted By
+          As seen on
         </div>
-        <div
-          className={`flex flex-row ${isAnimated ? "animatedReveal" : "invisible"
-            }`}
-        >
-          {logoData?.map((item, idx) => (
-            <div
-              key={`logo${idx}`}
-              className="w-[150px] flex flex-col justify-center"
-            >
-              <img
-                src={item?.imgPath}
-                alt={item?.name}
-                className="w-auto h-full"
-              />
-            </div>
-          ))}
-        </div>
+
+        <img
+          src={`https://res.cloudinary.com/dj2fvzfmm/image/upload/v1720502114/headgen/Home/As%20seen%20on/vgozfhzblspkran3nbai.png`}
+          className={`w-full sm:w-2/3 ${
+            isAnimated ? "animatedReveal" : "invisible"
+          }`}
+        />
       </div>
 
       {/* how it works */}
@@ -724,7 +721,6 @@ const Home = () => {
           </div>
           <div className=" flex flex-col w-full gap-6 items-center">
             <div className="w-full flex justify-center">
-
               <iframe
                 src="https://drive.google.com/file/d/16UKFJcaT2Y3Kn9dsSakqJl6uVfYJITEb/preview"
                 width="100%"
@@ -783,17 +779,23 @@ const Home = () => {
             </div>
 
             {/* for mobile screen */}
-            <div className="text-white block md:hidden"><div className="text-[24px] font-bold text-center">
-              Professional Photoshoot
-            </div>
+            <div className="text-white block md:hidden">
+              <div className="text-[24px] font-bold text-center">
+                Professional Photoshoot
+              </div>
               <div className="flex flex-col justify-center items-center gap-2 text-[18px]">
                 <div>Upto $2500</div>
                 <div>Multiple Days</div>
                 <div>Tedious Process</div>
-              </div></div>
-            <div className="text-[#f1f1f1] text-[40px] md:text-[55px] lg:text-[70px] xl:text-[80px] italic">VS</div>
+              </div>
+            </div>
+            <div className="text-[#f1f1f1] text-[40px] md:text-[55px] lg:text-[70px] xl:text-[80px] italic">
+              VS
+            </div>
             <div className="text-white block md:hidden">
-              <div className="text-[24px] font-bold text-center">HeadGen AI</div>
+              <div className="text-[24px] font-bold text-center">
+                HeadGen AI
+              </div>
               <div className="flex flex-col justify-center items-center gap-2 text-[18px]">
                 <div>$29</div>
                 <div>Within 2 hours</div>
@@ -821,7 +823,9 @@ const Home = () => {
 
           {/* above md: screens */}
           <div className="w-[200px] h-[200px] 2xl:w-[270px] 2xl:h-[220px] hidden md:flex flex-col justify-evenly items-center bg-gradient-to-br from-[#053499] to-[#2563EB]  p-4 absolute top-1/2 -translate-y-1/2 lg:-right-14 -right-8 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff] ">
-            <div className="text-[18px] 2xl:text-[24px] font-bold text-center">HeadGen AI</div>
+            <div className="text-[18px] 2xl:text-[24px] font-bold text-center">
+              HeadGen AI
+            </div>
             <div className="flex flex-col gap-1 md:gap-2 text-[18px]">
               <div>$29</div>
               <div>Within 2 hours</div>
@@ -840,7 +844,9 @@ const Home = () => {
 
             <div className="flex flex-col h-full justify-evenly gap-4 text-[#f1f1f1] ">
               <div className="flex flex-col gap-0 ">
-                <div className="text-[30px] md:*:text-[44px] font-bold">Swipe</div>
+                <div className="text-[30px] md:*:text-[44px] font-bold">
+                  Swipe
+                </div>
                 <div className="text-[15px] md:text-[28px] font-bold w-[200px] leading-tight">
                   to see the results
                 </div>
@@ -873,7 +879,9 @@ const Home = () => {
 
       <div className="gradientBackground   xl:px-[160px] 2xl:px-[250px]">
         <div className="flex flex-col items-center gap-6 pt-14">
-          <div className="text-white text-2xl text-center md:text-[45px] font-semibold lg:font-normal lg:text-[64px]">High Quality Images</div>
+          <div className="text-white text-2xl text-center md:text-[45px] font-semibold lg:font-normal lg:text-[64px]">
+            High Quality Images
+          </div>
           <div className="w-full max-w-[90%] flex flex-col gap-6 items-center">
             <div className="text-center text-white text-[16px]">
               We take our Quality very seriously Our Engineers ensure that
