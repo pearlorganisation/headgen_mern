@@ -6,6 +6,7 @@ import paymentsRouter from './src/routes/paymentsRoute.js';
 import path from 'path'
 import { fileURLToPath } from 'url';
 import freeHeadshotRouter from './src/routes/freeHeadshotRoute.js';
+import authRouter from './src/routes/authRoute.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,6 +24,7 @@ app.set('views', path.join(__dirname, '/src/views'));
 app.use(
     cors({
       origin: [
+        "http://localhost:3000",
         "http://localhost:5173",
         "http://localhost:5174",
         "https://headgen-mern-2.vercel.app",
@@ -37,7 +39,7 @@ app.use(
   );
 
 // routes
-
+app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/payment', paymentsRouter)
 app.use('/api/v1/freeHeadshot', freeHeadshotRouter)
 
