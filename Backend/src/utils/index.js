@@ -11,8 +11,7 @@ const httpOnlyCookieValidity = () => {
 
 // saveAccessTokenToCookie - this method saved the access token to the http only cookie
 export const saveAccessTokenToCookie = (res, token) => {
-  console.log(process.env.NODE_ENV)
-  return res.cookie("TFI_ACCESS_TOKEN", token, {
+  return res.cookie("HEADKAYHEADDEGI_ACCESS_TOKEN", token, {
     httpOnly: true,
     expires: httpOnlyCookieValidity(),
     sameSite: process.env.NODE_ENV === "production" ? "none" : "Lax",

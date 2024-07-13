@@ -1,9 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
-import CategoryIcon from '@mui/icons-material/Category';
+import { Link, useNavigate } from "react-router-dom";
+import CategoryIcon from "@mui/icons-material/Category";
+import { instance } from "../../../services/axiosInterceptor";
 
 const Sidebar = () => {
+  const navigate = useNavigate()
+
+  const logout = async () => {
+    await instance.patch(`/auth/logout`);
+    navigate("/login");
+  };
+
   return (
     <aside
       id="logo-sidebar"
@@ -21,20 +28,18 @@ const Sidebar = () => {
               <span className="ms-3">Dashboard</span>
             </Link>
           </li> */}
-         
-        
+
           <li>
             <Link
               to="/blogs"
               className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
             >
-            <CategoryIcon />
+              <CategoryIcon />
               <span className="flex-1 ms-3 whitespace-nowrap">Blogs</span>
             </Link>
           </li>
 
-
-{/*           
+          {/*           
           <li>
             <Link
               to="/perfumenotes"
@@ -44,10 +49,10 @@ const Sidebar = () => {
               <span className="flex-1 ms-3 whitespace-nowrap">Perfume Notes</span>
             </Link>
           </li> */}
-       
+
           <li>
-            <Link
-              to="/login"
+            <div
+              onClick={() => logout()}
               className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
             >
               <svg
@@ -66,7 +71,7 @@ const Sidebar = () => {
                 />
               </svg>
               <span className="flex-1 ms-3 whitespace-nowrap">Sign Out</span>
-            </Link>
+            </div>
           </li>
         </ul>
       </div>

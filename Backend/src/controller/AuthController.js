@@ -1,4 +1,4 @@
-// ----------------------------------------Imports---------------------------------------------------
+// ----------------------------------------Imports-----------------------------------------------
 
 import { authModel } from "../model/authModel.js";
 import bcrypt from "bcrypt";
@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 import { saveAccessTokenToCookie } from "../utils/index.js";
 import { accessTokenValidity, refreshTokenValidity } from "../utils/index.js";
 
-// ---------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
 // @desc - to fetch the users data
 // @route - GET /auth/login
 // @access - PUBLIC
@@ -42,7 +42,7 @@ export const login = async (req, res) => {
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: accessTokenValidity }
     );
-
+    
     // Saving accessToken to the httpOnly Cookie
     saveAccessTokenToCookie(res, accessToken);
     
@@ -67,22 +67,21 @@ export const login = async (req, res) => {
 
 export const refreshToken = async (req, res) => {
   try {
-    const { email } = req.body;
+    const { userName } = req.body;
 
-    if (!email) {
+    if (!userName) {
       return res.status(400).json({
         success: false,
-        message: "Email ID is required to generate Refresh Token",
+        message: "userName is required to generate Refresh Token",
       });
     }
 
-    const user = await authModel.findOne({ email });
-    const ownerUser = await shopOwner.findOne({ email });
-
-    if (!user && !ownerUser) {
+    const user = await authModel.findOne({ userName });
+    
+    if (!user) {
       return res
         .status(400)
-        .json({ success: false, message: "Email Does Not Exists" });
+        .json({ success: false, message: "User Does Not Exists" });
     }
 
     // clearing the existing cookie
@@ -93,7 +92,7 @@ export const refreshToken = async (req, res) => {
       {
         id: user._id,
       },
-      process.env.ACCESS_TOKEN_SECRET,
+      process.env.REFRESH_TOKEN_SECRET,
       { expiresIn: refreshTokenValidity }
     );
 
@@ -112,23 +111,6 @@ export const refreshToken = async (req, res) => {
   }
 };
 
-// @desc - to fetch the users data
-// @route - POST /auth/logout
-// @access - PUBLIC
-export const logout = async (req, res) => {
-  try {
-    res.clearCookie("TFI_ACCESS_TOKEN");
-    res.status(200).json({
-      success: true,
-      message: "Logged Out Successfully",
-    });
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      message: `Internal Server Error! ${error.message}`,
-    });
-  }
-};
 
 // @desc - to update the users password
 // @route - PUT /auth/resetPassword
@@ -214,31 +196,21 @@ export const signup = async (req, res) => {
   }
 };
 
-// @desc - to verify user email and update email verify key
-// @route - PATCH /auth/emailVerify
-// export const verifyEmail = async (req, res) => {
-//   try {
-//     const { token, id } = req?.params;
 
-//     const isValidToken = await jwt.verify(
-//       token,
-//       process.env.VERIFY_EMAIL_SECRET
-//     );
-
-//     const isValidUserId = await authModel.findById(id);
-
-//     if (!isValidToken || !isValidUserId) {
-//       return res.status(400).json({
-//         status: "FAILURE",
-//         message: "Email not verified/Invalid token",
-//       });
-//     }
-//     await authModel.findByIdAndUpdate(id, { emailVerified: true });
-//     res.status(200).json({ status: "SUCCESS", message: "EMAIL VERIFIED" });
-//   } catch (e) {
-//     res.status(400).json({
-//       status: "SUCCESS",
-//       message: `${e?.message} -Invalid Email!!`,
-//     });
-//   }
-// };
+// @desc - to fetch the users data
+// @route - POST /auth/logout
+// @access - PUBLIC
+export const logout = async (req, res) => {
+  try {
+    res.clearCookie("HEADKAYHEADDEGI_ACCESS_TOKEN");
+    res.status(200).json({
+      success: true,
+      message: "Logged Out Successfully",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: `Internal Server Error! ${error.message}`,
+    });
+  }
+};

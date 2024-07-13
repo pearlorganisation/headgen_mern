@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "sonner";
+import {instance} from '../../../services/axiosInterceptor.js'
 
 function Login() {
   const navigate = useNavigate()
@@ -19,7 +19,7 @@ function Login() {
   }, []);
 
   const onSubmit = (data) => {
-    axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, data).then((res) => {
+    instance.post(`${import.meta.env.VITE_API_URL}/auth/login`, data).then((res) => {
     
         toast.success(res.data.message, {
           style: {

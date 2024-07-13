@@ -2,10 +2,14 @@
 import jwt from "jsonwebtoken";
 //***************************************************************************************************
 
-exports.verifyTokenMiddleware = async (req, res, next) => {
+export const verifyTokenMiddleware = async (req, res, next) => {
   try {
+
     const cookies = req?.cookies;
-    const access_token = cookies?.TFI_ACCESS_TOKEN;
+    const access_token = cookies?.HEADKAYHEADDEGI_ACCESS_TOKEN;
+
+    console.log('cookies',cookies)
+
 
     if (!access_token) {
       return res.status(403).json({
@@ -20,7 +24,7 @@ exports.verifyTokenMiddleware = async (req, res, next) => {
         if (error) {
           return res.status(403).json({
             success: false,
-            message: "Unauthorized! Please Check Your Login Credentials",
+            message: "Unauthorized token! Please Check Your Login Credentials",
           });
         }
         next();

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import TextEditor from "../../components/TextEditor/TextEditor";
+import { instance } from "../../services/axiosInterceptor";
+import {Toaster, toast} from 'sonner'
 
 const CreateBlog = () => {
   const [blogData, setBlogData] = useState(null);
@@ -33,6 +35,26 @@ const CreateBlog = () => {
     formData.append("content", data.content);
     formData.append("title", data.title);
     // api call here
+    instance
+      .post(`${import.meta.env.VITE_API_URL}/blogs`, formData, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        toast.success(res.data.message, {
+          style: {
+            background: "green",
+            color: "white",
+          },
+        });
+      })
+      .catch((err) =>
+        toast.error(err, {
+          style: {
+            background: "red",
+            color: "white",
+          },
+        })
+      );
   };
 
   const temp = watch("banner");
@@ -43,6 +65,7 @@ const CreateBlog = () => {
 
   return (
     <div className="p-10">
+      <Toaster />
       <div className=" flex justify-center">
         <h3 className="text-gray-600 text-2xl font-semibold sm:text-3xl">
           Add a blog

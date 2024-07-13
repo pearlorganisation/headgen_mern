@@ -7,6 +7,9 @@ import path from 'path'
 import { fileURLToPath } from 'url';
 import freeHeadshotRouter from './src/routes/freeHeadshotRoute.js';
 import authRouter from './src/routes/authRoute.js';
+import blogsRouter from './src/routes/blogsRoute.js';
+import chalk from 'chalk';
+import cookieParser from 'cookie-parser'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,6 +20,7 @@ const PORT = process.env.PORT || 8000
 const app = express()
 
 app.use(express.json());
+app.use(cookieParser());
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/src/views'));
@@ -31,7 +35,7 @@ app.use(
         "https://headgen-mern.vercel.app",
         "https://headgen.ai",
       ],
-      // credentials: true,
+      credentials: true,
       methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
       exposedHeaders: ["*", "Authorization"],
@@ -42,10 +46,12 @@ app.use(
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/payment', paymentsRouter)
 app.use('/api/v1/freeHeadshot', freeHeadshotRouter)
+app.use('/api/v1/blogs', blogsRouter)
+
 
 
 app.listen(PORT, () => {
-    console.log(`Connected to port ${process.env.PORT}`)
+    console.log(chalk.blue(`Connected to port ${process.env.PORT}`))
     mongoConnect();
 } )
 
