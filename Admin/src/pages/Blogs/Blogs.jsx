@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 
 const Blogs = () => {
-  const [perfumeData, setPerfumeData] = useState(null);
+  const [blogsData, setBlogsData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/perfume`)
+      .get(`${import.meta.env.VITE_API_URL}/blogs`)
       .then((res) => {
         console.log(res)
-        setPerfumeData(res?.data?.data);
+        setBlogsData(res?.data?.data);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -23,10 +23,10 @@ const Blogs = () => {
   }, []);
 
   const deleteItem = (item) => {
-    if(window.confirm(`Are you sure you want to delete perfume:- ${item.perfume}`)){
-      axios.delete(`${import.meta.env.VITE_API_URL}/perfume/${item._id}`).then((res) => {
+    if(window.confirm(`Are you sure you want to delete blog`)){
+      axios.delete(`${import.meta.env.VITE_API_URL}/blog/${item._id}`).then((res) => {
 
-        setPerfumeData(res.data.perfumeData)
+        setBlogsData(res.data.blogsData)
         toast.success(res.data.message, {
           style: {
             background: "green",
@@ -53,7 +53,7 @@ const Blogs = () => {
       <div class="p-10 ">
         <div class="flex items-center justify-end flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-8 bg-white ">
           <Link
-            to="/perfume/add"
+            to="/blogs/add"
             className="bg-blue-600 rounded-md text-white px-3 py-1 font-semibold "
           >
             Add
@@ -68,15 +68,15 @@ const Blogs = () => {
            <Skeleton animation="wave" height={50} />
          </>
           )}
-          {perfumeData && (
+          {blogsData && (
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50  ">
                 <tr>
                   <th scope="col" className="px-6 py-3">
-                    Img
+                    S.No
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Name
+                    Title
                   </th>
                   <th scope="col" className="col-span-2 px-6 py-3">
                     Actions
@@ -84,24 +84,24 @@ const Blogs = () => {
                 </tr>
               </thead>
               <tbody>
-                {perfumeData.map((item, idx) => (
+                {blogsData.map((item, idx) => (
                   <tr className="bg-white border-b   hover:bg-gray-50 ">
                     <th
                       scope="row"
                       className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap "
                     >
                       <div className="ps-3">
-                        <img src={item.banner} width={"100px"} />
+                       {idx + 1}
                       </div>
                     </th>
-                    <td className="px-6 py-4">{item.perfume}</td>
+                    <td className="px-6 py-4">{item.title}</td>
 
                     <td className="px-6 py-4">
                       <Link
-                        to={`/perfume/update/${item?._id}`}
+                        to={`/blogs/update/${item?._id}`}
                         className="font-medium text-blue-600  hover:underline"
                       >
-                        View/edit
+                        <E></E>dit
                       </Link>
                     </td>
                     <td className="px-6 py-4">

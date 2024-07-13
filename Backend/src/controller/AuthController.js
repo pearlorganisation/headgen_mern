@@ -25,14 +25,14 @@ export const login = async (req, res) => {
     if (!user) {
       return res
         .status(404)
-        .json({ success: false, message: "user does not exists" });
+        .json({ success: false, message: "Incorrect UserName/Password" });
     }
 
     //matching password using bcrypt
     const matchPassword = await bcrypt.compare(password, user.password);
 
     if (!matchPassword)
-      return res.status(401).json({ success: false, message: "Unauthorized" });
+      return res.status(401).json({ success: false, message: "Incorrect UserName/Password" });
 
     // accessToken - Generating Access Token
     const accessToken = jwt.sign(
@@ -45,6 +45,7 @@ export const login = async (req, res) => {
 
     // Saving accessToken to the httpOnly Cookie
     saveAccessTokenToCookie(res, accessToken);
+    
     return res.status(200).json({
       success: true,
       message: "Logged in Successfully",

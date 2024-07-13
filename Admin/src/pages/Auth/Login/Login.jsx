@@ -20,16 +20,26 @@ function Login() {
 
   const onSubmit = (data) => {
     axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, data).then((res) => {
-      toast.success(res.data.message, {
-        style: {
-          background: "green",
-          color: "white",
-        },
-      });
-      localStorage.setItem('isusrlgd', true)
-      window.location.href = '/'
-    }).catch((err) => {
-      toast.error(res.message, {
+    
+        toast.success(res.data.message, {
+          style: {
+            background: "green",
+            color: "white",
+          },
+        });
+        localStorage.setItem('isusrlgd', true)
+        window.location.href = '/'
+      }).catch((err) => {
+      if([401,404].includes(err.response.status)) {
+        toast.error(err.response.data.message, {
+          style: {
+            background: "red",
+            color: "white",
+          },
+        });
+        return    
+      }
+      toast.error("Server Error, Please try again later", {
         style: {
           background: "red",
           color: "white",
