@@ -10,33 +10,7 @@ import "swiper/css/scrollbar";
 import { A11y, Autoplay, Navigation } from "swiper/modules";
 
 const AboutUs = () => {
-  const imgData = [
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s800",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s800",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s800",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s800",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s800",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s800",
-    },
-  ];
-
+ 
   const aboutUsContent = (
     <div className="leading-relaxed flex flex-col gap-1">
       <span className="font-bold">
@@ -165,7 +139,7 @@ const AboutUs = () => {
     <div className="bg-[#161616]">
       <div className="relative w-full text-white py-14 xl:py-24 px-10 xl:px-[250px]  flex flex-col gap-8 xl:gap-[3.5rem] tracking-wider">
         <div className="mt-10">
-          <img src="https://drive.google.com/thumbnail?id=1KpGw_yfU-oOPsc9fkrJUWAcIkJOkp8_M&sz=s1000" className="w-full rounded-xl  shadow-[0_0_0_1px#d1d1d1]" />
+          <img src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721024048/about_us_page_tzdcu9_nqiswz.webp" className="w-full rounded-xl  shadow-[0_0_0_1px#d1d1d1]" />
         </div>
         <div className="flex justify-center my-10">
           <div className="flex flex-col md:flex-row flex-wrap md:justify-between w-full">

@@ -8,11 +8,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
-
-import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
-
+import { EffectCoverflow, Pagination } from 'swiper/modules';
 
 function Carousel({ carouselData }) {
   return (
@@ -31,32 +27,19 @@ function Carousel({ carouselData }) {
           modifier: 2.5,
         }}
         pagination={{ el: '.swiper-pagination', clickable: true }}
-        navigation={{
-          nextEl: '#swiper-button-next',
-          prevEl: '#swiper-button-prev',
-          clickable: true,
-        }}
-        modules={[EffectCoverflow, Pagination, Navigation]}
+        modules={[EffectCoverflow, Pagination]}
         className="swiper_container"
       >
 
         {carouselData && carouselData?.map((item) => (
-          <SwiperSlide className='!w-fit'>
-            <img src={item?.path} className='' />
+          <SwiperSlide className='!w-fit py-1'>
+            <img src={item?.path} className='h-[300px] rounded-md hover:shadow-[0_0_0_1px#d1d1d1] tranisiton duration-300' />
           </SwiperSlide>
         ))}
 
 
       </Swiper>
-      {/* <div className="slider-controler flex justify-center z-[99]">
-          <div id="swiper-button-prev" className="swiper-button-prev slider-arrow">
-          <IoIosArrowBack />
-          </div>
-          <div className="swiper-pagination"></div>
-          <div id="swiper-button-next" className="swiper-button-next slider-arrow">
-          <IoIosArrowForward />
-          </div>
-        </div> */}
+     
     </div>
   );
 }

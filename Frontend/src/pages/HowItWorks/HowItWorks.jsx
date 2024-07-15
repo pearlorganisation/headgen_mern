@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import InfinityTextSlider from "../../components/InfinitySlider/InfinityTextSlider";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const HowItWorks = () => {
   //   const [isAnimated, setIsAnimated] = useState(false);
@@ -87,11 +88,11 @@ const HowItWorks = () => {
           </div>
           <div className="w-full lg:w-3/5 flex flex-col gap-6 items-center">
             <div className="w-full flex justify-center">
-              <iframe
-                src="https://drive.google.com/file/d/16UKFJcaT2Y3Kn9dsSakqJl6uVfYJITEb/preview"
-                width="640"
-                height="480"
-                className="rounded-2xl h-[200px] w-[350px] md:w-[640px] md:h-[480px]"
+            <iframe
+                src="https://res.cloudinary.com/dj2fvzfmm/video/upload/v1721022181/headgen/How%20it%20works%20video/ej1ci1htv6momh1v0vov.mp4"
+                width="100%"
+                height="100%"
+                className="rounded-2xl h-[200px] sm:w-[500px] sm:h-[300px] md:h-[300px] md:w-[640px] 2xl:h-[400px] 2xl:w-[700px]"
               ></iframe>
             </div>
 
@@ -118,7 +119,7 @@ const HowItWorks = () => {
                 className={`flex flex-col justify-evenly items-center w-[80%] md:w-[32%] bg-gradient-to-b from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
               >
                 <div className="w-[80%] -translate-y-20 group-hover:-translate-y-24 rounded-xl transition duration-300">
-                  <img src={item?.imgPath} className="w-full rounded-xl" />
+                  <LazyLoadImage src={item?.imgPath} className="w-full rounded-xl" />
                 </div>
                 <div
                   className={`h-[100px] flex flex-col ${
@@ -158,8 +159,8 @@ const HowItWorks = () => {
 
         <div className="container rounded-xl flex justify-center">
        
-            <img
-              src={`https://drive.google.com/thumbnail?id=1Qo4iW3x0ZEqeWhEz19Jyrv-ZzpTmJcFw&sz=s1200`}
+            <LazyLoadImage
+              src={`https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021539/headgen/yxyt5l4vqtgi18njndcr.webp`}
               className="w-[100%] rounded-xl"
             />
         
@@ -176,8 +177,8 @@ const HowItWorks = () => {
 
         <div className="container rounded-xl flex justify-center">
           
-            <img
-              src={`https://drive.google.com/thumbnail?id=1fLckbykRqcA7xFycHiQ0PSwN3S3pgTLj&sz=s1200`}
+            <LazyLoadImage
+              src={`https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021539/headgen/ko9jishea8ovmtycv4zi.webp`}
               className="w-full rounded-xl"
             />
          
@@ -194,7 +195,7 @@ const HowItWorks = () => {
 
         <div className="container rounded-xl flex justify-center">
           
-            <img
+            <LazyLoadImage
               src={`/howItWorks/promptSection.png`}
               className="w-full rounded-xl"
             />

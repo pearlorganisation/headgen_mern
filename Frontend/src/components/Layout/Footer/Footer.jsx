@@ -123,7 +123,7 @@ const Footer = () => {
       <div className="flex flex-row flex-wrap lg:flex-nowrap gap-4 w-full">
         <div className="w-[300px] xl:w-[380px] hidden rounded-2xl lg:flex flex-col justify-start items-center relative">
           <img
-            src="https://drive.google.com/thumbnail?id=18dNFZW3wy9xCml4GbGHxJhgPlv4mOM5i&sz=s600"
+            src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022117/headgen/Home/Footer/om5r1nxxq4cbjmcqmdet.webp"
             alt=""
             srcset=""
             className="w-full h-[90%] rounded-2xl shadow-[0_0_0_5px#5636F3]"
