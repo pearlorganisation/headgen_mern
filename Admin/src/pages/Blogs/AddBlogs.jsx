@@ -29,6 +29,7 @@ const CreateBlog = () => {
   });
 
   const onSubmit = (data) => {
+    
     const formData = new FormData();
     const { banner } = data;
     formData.append("banner", banner[0]);
@@ -36,7 +37,7 @@ const CreateBlog = () => {
     formData.append("title", data.title);
     // api call here
     instance
-      .post(`${import.meta.env.VITE_API_URL}/blogs`, formData, {
+      .post(`/blogs`, formData, {
         withCredentials: true,
       })
       .then((res) => {
@@ -137,9 +138,9 @@ const CreateBlog = () => {
           </div>
 
           <div>
-            <label className="font-medium">Description</label>
+            <label className="font-medium">Content</label>
             <Controller
-              name={`description`}
+              name={`content`}
               control={control}
               render={({ field: { onChange, value, ref } }) => (
                 <TextEditor onChange={(data) => onChange(data)} />

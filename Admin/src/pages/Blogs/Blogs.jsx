@@ -3,17 +3,17 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Toaster, toast } from "sonner";
+import { instance } from "../../services/axiosInterceptor";
 
 const Blogs = () => {
   const [blogsData, setBlogsData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/blogs`)
+    instance
+      .get(`/blogs`)
       .then((res) => {
-        console.log(res)
-        setBlogsData(res?.data?.data);
+        setBlogsData(res?.data?.blogsData);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -101,7 +101,7 @@ const Blogs = () => {
                         to={`/blogs/update/${item?._id}`}
                         className="font-medium text-blue-600  hover:underline"
                       >
-                        <E></E>dit
+                        Edit
                       </Link>
                     </td>
                     <td className="px-6 py-4">

@@ -23,8 +23,18 @@ export const getBlogs = async (req, res)  => {
 
 export const addBlog = async (req, res) => {
     try {
-        console.log('file', req.files)
-        // const bannerImg  = await uploadFile([req?.files])
+        const bannerImg  = await uploadFile(req?.files)
+        console.log(bannerImg)
+
+        const payload = {
+            title: req.body.title,
+            content: req.body.content,
+            banner: bannerImg.result[0].url
+        }
+
+        await blogsModel.create(payload)
+        res.status(200).json({status: true, message: 'Blog saved successfully'})
+
     } catch (error) {
         console.log(chalk.red(error));
         res.status(500).json({status: false, message: 'Internal Server Error'})

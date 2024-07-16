@@ -5,6 +5,6 @@ import { upload } from "../utils/multer.js";
 
 const blogsRouter = express.Router()
 
-blogsRouter.route('/').get(getBlogs).post(verifyTokenMiddleware, upload.single('banner'), addBlog)
+blogsRouter.route('/').get(getBlogs).post(verifyTokenMiddleware, upload.array('banner'), addBlog)
 
 export default blogsRouter
