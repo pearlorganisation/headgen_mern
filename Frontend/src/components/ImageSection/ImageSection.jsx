@@ -9,7 +9,7 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
   const correctData = [
     {
       imgPath:
-        "https://drive.google.com/thumbnail?id=1nfrI2WDu8twZpC7aVabpjcc7AMIo-Nzd&sz=s600",
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022323/headgen/Headshots/photo%20reqirements%20and%20restrictions/v7lowyibwkdiowyhvgeh.webp",
       content: (
         <>
           👁️ <strong>Eye Contact:</strong> You should be looking directly at the
@@ -19,7 +19,7 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
     },
     {
       imgPath:
-        "https://drive.google.com/thumbnail?id=1BJp8cEzqRdIMNWgBABGxbpetPnfQYRQD&sz=s600",
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022322/headgen/Headshots/photo%20reqirements%20and%20restrictions/c7hyyeisgymbxzbu84ht.webp",
       content: (
         <>
           🆕 <strong> Recent:</strong> Photos taken recently, ideally within the
@@ -29,7 +29,7 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
     },
     {
       imgPath:
-        "https://drive.google.com/thumbnail?id=1v1hAjOQNl8E4yFD5SYvldddUOGVRzLTm&sz=s600",
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022322/headgen/Headshots/photo%20reqirements%20and%20restrictions/tmwy8e4pofkcuv2ksow9.webp",
       content: (
         <>
           ☀️ <strong> Clear:</strong> Plain background, Very important Head Straight and no Head tilt, Good lighting , head to waist shot, standing against a plain white or grey background really helps!
@@ -41,7 +41,7 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
   const incorrectData = [
     {
       imgPath:
-        "https://drive.google.com/thumbnail?id=1hAjK3Ppw-TRGkWUGtsBQ-iiSFgAD9FmE&sz=s600",
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022319/headgen/Headshots/photo%20reqirements%20and%20restrictions/loodqytoupcgksyyfb5j.webp",
       content: (
         <>
           🧢 <strong>No Accessories:</strong> (e.g. Hats, backpacks, sunglasses, earrings, nose rings, headphones, excess makeup, scarfs, chains, necklaces, glasses etc. ).
@@ -50,7 +50,7 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
     },
     {
       imgPath:
-        "https://drive.google.com/thumbnail?id=1G83HIuGLB0G4OB7pjqzPuozqDBAB4Oqx&sz=s600",
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022320/headgen/Headshots/photo%20reqirements%20and%20restrictions/i2fhsscfx1ubzknfiauk.webp",
       content: (
         <>
           👙 <strong>No Group Photos or Revealing Clothes:</strong> (eg. Group Images with 2 or more, tank tops, shirtless, bikins. ).
@@ -59,7 +59,7 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
     },
     {
       imgPath:
-        "https://drive.google.com/thumbnail?id=1sotdvngPxuOmi29ibr5v7kswMzy-5sr5&sz=s600",
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022321/headgen/Headshots/photo%20reqirements%20and%20restrictions/hlpqhewthmj7owwogetf.webp",
       content: (
         <>
           🥴 <strong> No Goofy Faces:</strong>No unusual expressions like closed eyes, duck faces, tongue out, peace sign, very important to keep head straight and no head tilt , no half faces .
@@ -131,7 +131,7 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
                 <div className="flex flex-col  rounded-2xl w-full max-w-[200px] mx-auto ">
                   <img
                     src={item?.imgPath}
-                    className="w-full h-[180px] rounded-2xl"
+                    className="w-full sm:h-[180px] rounded-2xl"
                   />
                   <span className="text-justified text-[14px] text-[#131313] leading-relaxed p-1">
                     {item?.content}

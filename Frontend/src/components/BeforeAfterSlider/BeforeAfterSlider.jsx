@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./styles.css"; // Import your CSS file
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import {LazyLoadImage} from 'react-lazy-load-image-component'
 
 const BeforeAfterSlider = ({ img1, img2 }) => {
   const [position, setPosition] = useState(50);
@@ -16,15 +17,20 @@ const BeforeAfterSlider = ({ img1, img2 }) => {
         style={{ "--position": `${position}%` }}
       >
         <div className="image-container">
-          <img
+          <LazyLoadImage
             className="image-before slider-image"
             src={img1}
             alt="color photo"
+            width={300}
+            height={300}
           />
-          <img
+          <LazyLoadImage
             className="image-after slider-image"
             src={img2}
             alt="black and white"
+            width={300}
+            height={300}
+
           />
         </div>
         <input
