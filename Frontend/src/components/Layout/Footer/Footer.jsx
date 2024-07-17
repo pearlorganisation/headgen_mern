@@ -107,7 +107,7 @@ const Footer = () => {
           link: "tel:+919820442749",
         },
         {
-          link:'/',
+          link:'https://www.producthunt.com/products/headgen-ai',
           alt:'product hunt',
           imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1720504906/Untitled_design_71_yhk24p.jpg"
         }

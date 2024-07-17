@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { blogsModel } from "../model/blogsModel.js";
 import { uploadFile } from "../utils/cloudinary.js";
 
@@ -18,6 +19,18 @@ export const getBlogs = async (req, res)  => {
     } catch (error) {
         console.log(chalk.red(error));
         res.status(500).json({status: false, message: 'Internal Server Error'})
+    }
+}
+
+export const getBlogData = async (req, res) => {
+    try {
+        const {blogId} = req.params
+        const result = await blogsModel.findById(blogId)
+
+        res.status(200).json({status: true, blogData: result})
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({status: false, message: "Error finding this blog"})
     }
 }
 

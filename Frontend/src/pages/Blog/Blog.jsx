@@ -5,6 +5,7 @@ import Pagination from "@mui/material/Pagination";
 import { makeStyles } from "@mui/styles";
 import DOMPurify from "dompurify";
 import Skeleton from "@mui/material/Skeleton";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const useStyles = makeStyles({
   ul: {
@@ -37,7 +38,7 @@ const Blog = () => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/blogs?page=${page}`)
       .then((res) => {
-        setIsLoading(true);
+        setIsLoading(false);
         sanitizeData(res.data.blogsData);
         setTotalPages(res?.data?.totalPages);
       })
@@ -66,23 +67,59 @@ const Blog = () => {
             </p>
           </div>
           {isLoading ? (
-             <div className="flex justify-center md:justify-start items-center w-full text-center gap-12">
-                <div className="flex flex-col gap-2">
-                 <Skeleton variant="rectangular" width={350} height={250} className="bg-gray-200 rounded-t-2xl"  />
-                 <Skeleton variant="rectangular" width={350} height={30} className="bg-gray-200 rounded-b-2xl"  />
-                </div>
-                <div className="flex flex-col gap-2">
-                 <Skeleton variant="rectangular" width={350} height={250} className="bg-gray-200 rounded-t-2xl"  />
-                 <Skeleton variant="rectangular" width={350} height={30} className="bg-gray-200 rounded-b-2xl"  />
-                </div>
-                <div className="flex flex-col gap-2">
-                 <Skeleton variant="rectangular" width={350} height={250} className="bg-gray-200 rounded-t-2xl"  />
-                 <Skeleton variant="rectangular" width={350} height={30} className="bg-gray-200 rounded-b-2xl"  />
-                </div>
-             </div>
+            <div className="flex flex-wrap justify-center items-center w-full text-center gap-12 px-2 md:px-0">
+              <div className="flex flex-col gap-2">
+                <Skeleton
+                  animation="wave"
+                  variant="rectangular"
+                  width={350}
+                  height={250}
+                  className="rounded-t-2xl !bg-neutral-800 after:!bg-gradient-to-r after:!from-neutral-800 after:!via-neutral-700 after:!to-neutral-800 !w-[250px] !h-[150px] sm:!w-[350px] sm:!h-[250px]"
+                />
+                <Skeleton
+                  animation="wave"
+                  variant="rectangular"
+                  width={350}
+                  height={30}
+                  className="rounded-b-2xl !bg-neutral-800 after:!bg-gradient-to-r after:!from-neutral-800 after:!via-neutral-700 after:!to-neutral-800 !w-[250px] !h-[20px] sm:!w-[350px] sm:!h-[30px]"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Skeleton
+                  animation="wave"
+                  variant="rectangular"
+                  width={350}
+                  height={250}
+                  className="rounded-t-2xl !bg-neutral-800 after:!bg-gradient-to-r after:!from-neutral-800 after:!via-neutral-700 after:!to-neutral-800 !w-[250px] !h-[150px] sm:!w-[350px] sm:!h-[250px]"
+                />
+                <Skeleton
+                  animation="wave"
+                  variant="rectangular"
+                  width={350}
+                  height={30}
+                  className="rounded-b-2xl !bg-neutral-800 after:!bg-gradient-to-r after:!from-neutral-800 after:!via-neutral-700 after:!to-neutral-800 !w-[250px] !h-[20px] sm:!w-[350px] sm:!h-[30px]"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Skeleton
+                  animation="wave"
+                  variant="rectangular"
+                  width={350}
+                  height={250}
+                  className="rounded-t-2xl !bg-neutral-800 after:!bg-gradient-to-r after:!from-neutral-800 after:!via-neutral-700 after:!to-neutral-800 !w-[250px] !h-[150px] sm:!w-[350px] sm:!h-[250px]"
+                />
+                <Skeleton
+                  animation="wave"
+                  variant="rectangular"
+                  width={350}
+                  height={30}
+                  className="rounded-b-2xl !bg-neutral-800 after:!bg-gradient-to-r after:!from-neutral-800 after:!via-neutral-700 after:!to-neutral-800 !w-[250px] !h-[20px] sm:!w-[350px] sm:!h-[30px]"
+                />
+              </div>
+            </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
-              {blogData &&
+              {blogData ? (
                 blogData.map((item) => {
                   return (
                     <Link
@@ -90,13 +127,13 @@ const Blog = () => {
                       state={{ item: item }}
                       className="rounded-lg group overflow-hidden shadow-lg cursor-pointer transition duration-300"
                     >
-                      <img
+                      <LazyLoadImage
                         alt="Blog Post 1"
                         className="w-full h-56 object-cover"
                         height={400}
                         src={item?.banner}
                         style={{
-                          aspectRatio: "600/400",
+                          aspectRatio: "1920/1080",
                           objectFit: "cover",
                         }}
                         width={600}
@@ -108,19 +145,26 @@ const Blog = () => {
                       </div>
                     </Link>
                   );
-                })}
+                })
+              ) : (
+                <div className="col-span-1 sm:col-span-2 lg:col-span-3 w-full text-center text-2xl">
+                  No Blogs Found.
+                </div>
+              )}
             </div>
           )}
         </div>
-        <div className="flex flex-row justify-center w-full">
-          <Pagination
-            count={totalPages}
-            page={Number(page)}
-            color="primary"
-            classes={{ ul: classes.ul }}
-            onChange={handlePagination}
-          />
-        </div>
+        {!isLoading && blogData && (
+          <div className="flex flex-row justify-center w-full">
+            <Pagination
+              count={totalPages}
+              page={Number(page)}
+              color="primary"
+              classes={{ ul: classes.ul }}
+              onChange={handlePagination}
+            />
+          </div>
+        )}
       </section>
     </div>
   );
