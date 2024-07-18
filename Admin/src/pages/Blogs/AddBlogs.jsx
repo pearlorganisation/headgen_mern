@@ -3,7 +3,8 @@ import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import TextEditor from "../../components/TextEditor/TextEditor";
 import { instance } from "../../services/axiosInterceptor";
-import {Toaster, toast} from 'sonner'
+import { Toaster, toast } from "sonner";
+import { ClipLoader } from "react-spinners";
 
 const CreateBlog = () => {
   const [blogData, setBlogData] = useState(null);
@@ -24,12 +25,14 @@ const CreateBlog = () => {
     formState: { errors },
     control,
     watch,
+    reset,
   } = useForm({
     defaultValues: {},
   });
 
   const onSubmit = (data) => {
-    
+    if (isLoading) return;
+    setIsLoading(true);
     const formData = new FormData();
     const { banner } = data;
     formData.append("banner", banner[0]);
@@ -41,21 +44,27 @@ const CreateBlog = () => {
         withCredentials: true,
       })
       .then((res) => {
+        reset();
+        setIsLoading(false);
         toast.success(res.data.message, {
           style: {
             background: "green",
             color: "white",
           },
         });
+        window.location.href = '/blogs'
       })
-      .catch((err) =>
+      .catch((err) => {
+        reset();
+
+        setIsLoading(false);
         toast.error(err, {
           style: {
             background: "red",
             color: "white",
           },
-        })
-      );
+        });
+      });
   };
 
   const temp = watch("banner");
@@ -142,15 +151,18 @@ const CreateBlog = () => {
             <Controller
               name={`content`}
               control={control}
-              render={({ field: { onChange, value, ref } }) => (
-                <TextEditor onChange={(data) => onChange(data)} />
+              render={({ field }) => (
+                <TextEditor
+                  onChange={(data) => field.onChange(data)} // Pass onChange handler from field
+                  value={field.value} // Pass value from field to TextEditor
+                />
               )}
               rules={{ required: true }}
             />
 
             {errors?.description && (
               <span className="fw-normal fs-6 text-danger">
-                Description is required
+                Content is required
               </span>
             )}
           </div>

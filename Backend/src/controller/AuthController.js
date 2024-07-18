@@ -1,116 +1,104 @@
 // ----------------------------------------Imports-----------------------------------------------
-
+import { asyncHandler } from "../utils/errorHandler/asyncHandler.js";
 import { authModel } from "../model/authModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { saveAccessTokenToCookie } from "../utils/index.js";
 import { accessTokenValidity, refreshTokenValidity } from "../utils/index.js";
 
-// ---------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
 // @desc - to fetch the users data
 // @route - GET /auth/login
 // @access - PUBLIC
-export const login = async (req, res) => {
-  try {
-    const { userName, password } = req.body;
+export const login = asyncHandler(async (req, res) => {
+  const { userName, password } = req.body;
 
-    if (!userName || !password) {
-      return res
-        .status(400)
-        .json({ success: false, message: "All fields are required" });
-    }
-
-    const user = await authModel.findOne({userName });
-
-    if (!user) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Incorrect UserName/Password" });
-    }
-
-    //matching password using bcrypt
-    const matchPassword = await bcrypt.compare(password, user.password);
-
-    if (!matchPassword)
-      return res.status(401).json({ success: false, message: "Incorrect UserName/Password" });
-
-    // accessToken - Generating Access Token
-    const accessToken = jwt.sign(
-      {
-        id: user._id,
-      },
-      process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: accessTokenValidity }
-    );
-    
-    // Saving accessToken to the httpOnly Cookie
-    saveAccessTokenToCookie(res, accessToken);
-    
-    return res.status(200).json({
-      success: true,
-      message: "Logged in Successfully",
-      user: {
-        userName: user?.userName
-      },
-    });
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      message: `Internal Server Error ! ${error.message}`,
-    });
+  if (!userName && !password) {
+    return res
+      .status(400)
+      .json({ success: false, message: "All fields are required" });
   }
-};
+
+  const user = await authModel.findOne({ userName });
+
+  if (!user) {
+    return res
+      .status(404)
+      .json({ success: false, message: "Incorrect UserName/Password" });
+  }
+
+  //matching password using bcrypt
+  const matchPassword = await bcrypt.compare(password, user.password);
+
+  if (!matchPassword) {
+    return res
+      .status(401)
+      .json({ success: false, message: "Incorrect UserName/Password" });
+  }
+
+  // accessToken - Generating Access Token
+  const accessToken = jwt.sign(
+    {
+      id: user._id,
+    },
+    process.env.ACCESS_TOKEN_SECRET,
+    { expiresIn: accessTokenValidity }
+  );
+
+  // Saving accessToken to the httpOnly Cookie
+  saveAccessTokenToCookie(res, accessToken);
+
+  return res.status(200).json({
+    success: true,
+    message: "Logged in Successfully",
+    user: {
+      userName: user?.userName,
+    },
+  });
+});
 
 // @desc - to generate a new refresh token
 // @route - POST /auth/refresh
 // @access - PUBLIC
 
-export const refreshToken = async (req, res) => {
-  try {
-    const { userName } = req.body;
+export const refreshToken = asyncHandler(async (req, res) => {
+  const { userName } = req.body;
 
-    if (!userName) {
-      return res.status(400).json({
-        success: false,
-        message: "userName is required to generate Refresh Token",
-      });
-    }
-
-    const user = await authModel.findOne({ userName });
-    
-    if (!user) {
-      return res
-        .status(400)
-        .json({ success: false, message: "User Does Not Exists" });
-    }
-
-    // clearing the existing cookie
-    res.clearCookie("ACCESS_TOKEN");
-
-    // refreshToken - generating a new refresh token with extended time
-    const refreshToken = jwt.sign(
-      {
-        id: user._id,
-      },
-      process.env.REFRESH_TOKEN_SECRET,
-      { expiresIn: refreshTokenValidity }
-    );
-
-    // Saving refreshToken to the httpOnly Cookie
-    saveAccessTokenToCookie(res, refreshToken);
-
-    return res.status(200).json({
-      success: true,
-      message: "Refresh Token Generated",
-    });
-  } catch (error) {
-    return res.status(500).json({
+  if (!userName) {
+    return res.status(400).json({
       success: false,
-      message: "Internal Server Error",
+      message: "userName is required to generate Refresh Token",
     });
   }
-};
 
+  const user = await authModel.findOne({ userName });
+
+  if (!user) {
+    return res
+      .status(400)
+      .json({ success: false, message: "User Does Not Exists" });
+  }
+
+  // clearing the existing cookie
+  res.clearCookie("ACCESS_TOKEN");
+
+  // refreshToken - generating a new refresh token with extended time
+  const refreshToken = jwt.sign(
+    {
+      id: user._id,
+    },
+    process.env.REFRESH_TOKEN_SECRET,
+    { expiresIn: refreshTokenValidity }
+  );
+
+  // Saving refreshToken to the httpOnly Cookie
+  saveAccessTokenToCookie(res, refreshToken);
+
+  return res.status(200).json({
+    success: true,
+    message: "Refresh Token Generated",
+  });
+});
 
 // @desc - to update the users password
 // @route - PUT /auth/resetPassword
@@ -168,49 +156,34 @@ export const refreshToken = async (req, res) => {
 
 // @desc -signup for client panel
 // @route - POST /auth/signup
-export const signup = async (req, res) => {
-  try {
-    const { password, userName } = req?.body;
+export const signup = asyncHandler(async (req, res) => {
+  const { password, userName } = req?.body;
 
-    const isUserExists = await authModel.findOne({ userName });
-    if (isUserExists)
-      res.status(404).json({ status: false, message: "User already Exists" });
+  const isUserExists = await authModel.findOne({ userName });
+  if (isUserExists)
+    res.status(404).json({ status: false, message: "User already Exists" });
 
-    const hashPassword = await bcrypt.hash(password, 10);
+  const hashPassword = await bcrypt.hash(password, 10);
 
-    const savedUser = await authModel.create({
-      userName: userName,
-      password: hashPassword,
-    });
+  const savedUser = await authModel.create({
+    userName: userName,
+    password: hashPassword,
+  });
 
-    res.status(200).json({
-      status: "SUCCESS",
-      message: "User created successfully",
-      data: savedUser,
-    });
-  } catch (e) {
-    res.status(400).json({
-      status: "FAILURE",
-      message: e?.message || "Internal server error!!",
-    });
-  }
-};
-
+  res.status(200).json({
+    status: "SUCCESS",
+    message: "User created successfully",
+    data: savedUser,
+  });
+});
 
 // @desc - to fetch the users data
 // @route - POST /auth/logout
 // @access - PUBLIC
-export const logout = async (req, res) => {
-  try {
-    res.clearCookie("HEADKAYHEADDEGI_ACCESS_TOKEN");
-    res.status(200).json({
-      success: true,
-      message: "Logged Out Successfully",
-    });
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      message: `Internal Server Error! ${error.message}`,
-    });
-  }
-};
+export const logout = asyncHandler(async (req, res) => {
+  res.clearCookie("HEADKAYHEADDEGI_ACCESS_TOKEN");
+  res.status(200).json({
+    success: true,
+    message: "Logged Out Successfully",
+  });
+});

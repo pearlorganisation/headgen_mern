@@ -10,6 +10,7 @@ import authRouter from './src/routes/authRoute.js';
 import blogsRouter from './src/routes/blogsRoute.js';
 import chalk from 'chalk';
 import cookieParser from 'cookie-parser'
+import { error } from './src/middleware/error.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -41,6 +42,8 @@ app.use(
       exposedHeaders: ["*", "Authorization"],
     })
   );
+
+app.use(error)
 
 // routes
 app.use('/api/v1/auth', authRouter)

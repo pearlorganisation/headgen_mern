@@ -18,10 +18,9 @@ import Perfumes from "./pages/Blogs/Blogs";
 import AddPerfume from "./pages/Blogs/AddBlogs";
 import UpdatePerfume from "./pages/Blogs/UpdateBlogs";
 
-const isUserLoggedIn = localStorage.getItem('isusrlgd')
+const isUserLoggedIn = localStorage.getItem("isusrlgd");
 
 const App = () => {
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -33,7 +32,6 @@ const App = () => {
           element: <Dashboard />,
         },
 
-      
         {
           path: "/*",
           element: <NotFound />,
@@ -41,7 +39,7 @@ const App = () => {
         {
           path: "/blogs",
           element: <Perfumes />,
-        }, 
+        },
         {
           path: "/blogs/add",
           element: <AddPerfume />,
@@ -50,7 +48,6 @@ const App = () => {
           path: "/blogs/update/:id",
           element: <UpdatePerfume />,
         },
-
       ],
     },
     {
@@ -65,11 +62,11 @@ const App = () => {
   ]);
 
   return (
-  <div className=''><Toaster richColors
-  containerClassName="overflow-auto"/>
-  <RouterProvider router={router} />;
-  </div>
-  )
+    <>
+      <Toaster richColors containerClassName="overflow-auto" />
+      <RouterProvider router={router} />;
+    </>
+  );
 };
 
 export default App;

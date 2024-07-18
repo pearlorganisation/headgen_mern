@@ -10,7 +10,6 @@ export const verifyTokenMiddleware = async (req, res, next) => {
 
     console.log('cookies',cookies)
 
-
     if (!access_token) {
       return res.status(403).json({
         success: false,

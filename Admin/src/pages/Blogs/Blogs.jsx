@@ -1,5 +1,4 @@
 import { Skeleton } from "@mui/material";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Toaster, toast } from "sonner";
@@ -7,9 +6,10 @@ import { instance } from "../../services/axiosInterceptor";
 
 const Blogs = () => {
   const [blogsData, setBlogsData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   
-  useEffect(() => {
+  const getBlogs = () => {
+    setIsLoading(true)
     instance
       .get(`/blogs`)
       .then((res) => {
@@ -20,21 +20,25 @@ const Blogs = () => {
         console.log(err);
         setIsLoading(false);
       });
+  }
+
+  useEffect(() => {
+    getBlogs()
   }, []);
 
   const deleteItem = (item) => {
     if(window.confirm(`Are you sure you want to delete blog`)){
-      axios.delete(`${import.meta.env.VITE_API_URL}/blog/${item._id}`).then((res) => {
-
-        setBlogsData(res.data.blogsData)
+      instance.delete(`${import.meta.env.VITE_API_URL}/blogs/${item._id}`).then((res) => {
         toast.success(res.data.message, {
           style: {
             background: "green",
             color: "white",
           },
         });
+        getBlogs()
       }).catch(err => {
-        toast.error("There was some issue deleting the perfume", {
+        console.log(err)
+        toast.error("There was some issue deleting the blog", {
           style: {
             background: "red",
             color: "white",
