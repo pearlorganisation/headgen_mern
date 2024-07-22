@@ -517,7 +517,7 @@ const Home = () => {
     <div className="w-full py-20  flex flex-col bg-[#161616] gap-10">
       {/* hero */}
 
-      <div className="flex justify-center md:px-10  xl:px-[160px] 2xl:px-[250px]">
+      <div className="flex justify-center px-10 md:px-16 2xl:px-[200px]">
         <div
           className={`w-full md:w-1/2 flex flex-col items-center gap-0 pt-5 md:pt-10 text-center`}
         >
@@ -593,7 +593,7 @@ const Home = () => {
       </div>
 
       {/* infinity slider */}
-      <div className="w-full overflow-hidden px-10  xl:px-[160px] 2xl:px-[250px]">
+      <div className="w-full overflow-hidden px-10 md:px-16 2xl:px-[200px]">
         <InfinitySlider imgData1={imgData1} />
       </div>
 
@@ -661,7 +661,7 @@ const Home = () => {
 
       {/* how it works */}
 
-      <div className="flex justify-center px-10  xl:px-[160px] 2xl:px-[250px] py-14">
+      <div className="flex justify-center px-10 md:px-16 2xl:px-[200px] py-14">
         <div className="grid gap-8 md:gap-0 md:grid-cols-2  md:justify-between w-full">
           <div className=" flex flex-col w-full gap-4 justify-center items-center  ">
             <div className="grid grid-cols-2 md:grid-cols-1 gap-4 w-fit">
@@ -699,7 +699,7 @@ const Home = () => {
 
       {/* use flow card section */}
 
-      <div className="px-10 md:px-20 xl:px-[160px] 2xl:px-[250px] pb-20">
+      <div className="px-10 md:px-16 2xl:px-[200px] pb-20">
         <div className="flex flex-wrap flex-col pt-8 md:pt-0 gap-[8rem] md:gap-2 md:flex-row justify-center items-center md:items-start md:justify-between px-2 ">
           {cardData &&
             cardData?.map((item, idx) => (
@@ -725,12 +725,12 @@ const Home = () => {
         </div>
       </div>
 
-      <div className=" xl:px-[160px] 2xl:px-[250px] pb-20">
+      <div className="px-10 md:px-16 2xl:px-[200px] pb-20">
         <InfinityTextSlider />
       </div>
       {/* swipe section */}
 
-      <div className="px-10  xl:px-[160px] 2xl:px-[250px] grid   lg:grid-cols-[auto_20rem] xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
+      <div className="px-10 md:px-16 2xl:px-[200px] grid   lg:grid-cols-[auto_20rem] xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
         <div className="w-[50% w-full 2xl:w-[55% bg-gradient-to-br from-[#000000] via-[#000000] to-[#000000] rounded-2xl shadow-[0_0_0_1px_#ffffff] py-10 relative transition duration-500">
           <div className="flex flex-col justify-between gap-8 md:gap-20 items-center h-full">
             <div className="flex flex-col  items-center text-[20px] sm:text-[26px] xl:text-[32px] 2xl:text-[40px] font-extrabold md:font-semibold text-[#F1F1F1]">
@@ -837,7 +837,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="gradientBackground   xl:px-[160px] 2xl:px-[250px]">
+      <div className="gradientBackground px-10 md:px-16 2xl:px-[200px]">
         <div className="flex flex-col items-center gap-6 pt-14">
           <div className="text-white text-2xl text-center md:text-[45px] font-semibold lg:font-normal lg:text-[64px]">
             High Quality Images
@@ -883,7 +883,7 @@ const Home = () => {
           </div>
           <div className="flex flex-wrap justify-center items-center w-full gap-4 md:gap-2">
             {useCaseData?.map((item) => (
-              <div className="w-auto max-w-[250px] 2xl:w-[200px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
+              <div className="w-auto max-w-[230px] 2xl:w-[200px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
                 <div className="w-full h-2/3">
                   <LazyLoadImage
                     src={item?.path}
@@ -937,7 +937,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8 px-10 xl:px-[160px] 2xl:px-[250px]">
+      <div className="grid md:grid-cols-2 gap-8 px-10 md:px-16 2xl:px-[200px]">
         <div className="w-full relative">
           <div className="flex flex-col items-center md:items-start justify-center gap-2 md:gap-6 top-0">
             <div className=" text-[#F1F1F1] md:grid space-x-3 md:space-x-0  w-full text-center md:text-left text-xl sm:text-2xl md:text-4xl xl:text-6xl font-medium">
@@ -957,7 +957,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex space-y-4 flex-col px-10 xl:px-[160px] 2xl:px-[250px]">
+      <div className="flex space-y-4 flex-col px-10 md:px-16 2xl:px-[200px]">
         <div className="text-center text-xl sm:text-2xl md:text-4xl xl:text-6xl  text-[#F1F1F1]">
           <span className=" bg-gradient-to-r md:leading-[5rem] from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
             Our Clients love
@@ -978,10 +978,10 @@ const Home = () => {
           </span>{" "}
           to Protect Your Data
         </div>
-        <div className="flex flex-wrap justify-center gap-4   xl:px-[160px] 2xl:px-[250px] ">
+        <div className="flex flex-wrap justify-center gap-4  px-10 md:px-16 2xl:px-[200px] ">
           {privacyFirstData &&
             privacyFirstData?.map((item) => (
-              <div className=" w-[70%] md:w-[33%] xl:w-[22%] 2xl:h-[300px] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
+              <div className=" w-[70%] md:w-[33%] xl:w-[22%] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
                 <div className="w-1/3">
                   <LazyLoadImage src={item?.imgPath} className="w-full" />
                 </div>
@@ -1010,41 +1010,53 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8 px-10 xl:px-[160px] 2xl:px-[250px] py-10">
+      <div className="grid md:grid-cols-2 gap-8 px-10 md:px-16 2xl:px-[200px] py-10">
         <div className="w-full flex flex-col items-center gap-1">
           <div className="flex w-2/3  gap-1">
-            <div className="w-2/3">
+            <div className="w-2/3 max-w-[300px]">
               <LazyLoadImage
                 src={`${moneyBackPics[0].path}`}
-                className="h-full rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-full max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
+                height={300}
+                width={300}
               />
             </div>
-            <div className="w-1/3 flex flex-col gap-1">
+            <div className="w-1/3 max-w-[150px] flex flex-col gap-1">
               <LazyLoadImage
                 src={`${moneyBackPics[1].path}`}
-                className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-1/2 max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                height={150}
+                width={150}
               />
               <LazyLoadImage
                 src={`${moneyBackPics[2].path}`}
-                className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-1/2 max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                height={150}
+                width={150}
               />
             </div>
           </div>
-          <div className="flex w-2/3  gap-1">
-            <div className="w-1/3 flex flex-col gap-1">
+          <div className="flex w-2/3   gap-1">
+            <div className="w-1/3 max-w-[150px] flex flex-col gap-1">
               <LazyLoadImage
                 src={`${moneyBackPics[3].path}`}
-                className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-1/2 max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                height={150}
+                width={150}
               />
               <LazyLoadImage
                 src={`${moneyBackPics[4].path}`}
-                className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-1/2 max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                height={150}
+                width={150}
               />
             </div>
-            <div className="w-2/3">
+            <div className="w-2/3 max-w-[300px]">
               <LazyLoadImage
                 src={`${moneyBackPics[5].path}`}
-                className="h-full rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-full max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
+                height={300}
+                width={300}
               />
             </div>
           </div>
@@ -1072,7 +1084,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-24 px-10  xl:px-[160px] 2xl:px-[250px]">
+      <div className="flex flex-col gap-24 px-10 md:px-16 2xl:px-[200px]">
         <div className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
           <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
             HeadGen

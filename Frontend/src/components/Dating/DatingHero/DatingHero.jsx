@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
 const DatingHero = () => {
@@ -34,10 +35,11 @@ const DatingHero = () => {
         </div>
       </div>
       <div className="w-full flex flex-col justify-center items-end">
-        <img
+        <LazyLoadImage
           src="https://lh3.googleusercontent.com/d/11mgX3mlp1kIqIc9ehghQ8DRzD1GVBwvv=s800?authuser=0"
-          className="h-full"
+          className="h-full max-h-[700px]"
           alt=""
+          height={700}
         />
       </div>
     </div>
