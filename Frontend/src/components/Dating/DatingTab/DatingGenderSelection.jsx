@@ -40,13 +40,13 @@ const DatingGenderSelection = ({
   const selectionData = [
     {
       name: "Male",
-      bannerImg: "https://drive.google.com/thumbnail?id=1Le7sNfry_GtYt4c80YNlqF3ie_nAyIIb&sz=s800",
-      imgPreview: 'https://drive.google.com/thumbnail?id=1gmamUE-6HTTCgEa3LO9ZBTf-ObzzuRdF&sz=s400'
+      bannerImg: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023820/8_g2bxtb.webp",
+      imgPreview: 'https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023826/Screenshot_2024-06-11_at_5.02.09_PM_gh46xe.webp'
     },
     {
       name: "Female",
-      bannerImg: "https://drive.google.com/thumbnail?id=159GoHgA0aUlaBvT4Y47sVN6MtbX9eFP1&sz=s800",
-      imgPreview: 'https://drive.google.com/thumbnail?id=1ldGP02xs-W7coX7omosobZO6_x6iGdUF&sz=s400'
+      bannerImg: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023822/9_nmatyz.webp",
+      imgPreview: 'https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023818/Indoor_Office_Casual_AI_Headshots_8_hb5oll.webp'
     },
 
   ];
@@ -70,6 +70,7 @@ const DatingGenderSelection = ({
                   <img
                     src={`${filteredItem?.bannerImg}`}
                     className="w-full h-full rounded-xl"
+                    width={'600px'}
                   />
 
                 </div>
@@ -88,6 +89,7 @@ const DatingGenderSelection = ({
                   <img
                     src={filteredItem?.imgPreview}
                     className="!h-[320px] mx-auto rounded-xl"
+                    width={'400px'}
                   />
                 </div>
               ))}

@@ -138,7 +138,6 @@ export const complete = async (req, res) => {
   const user = getUser(req.query.sessionId);
 
   if (user.status) {
-    // console.log(user?.user)
     const imgResult = await uploadFile(JSON.parse(user.user.files));
     await addCustomer(user?.user, imgResult?.result);
     if (imgResult) {
@@ -195,7 +194,7 @@ export const teamsCheckout = async (req, res) => {
   try {
     const teamsData = { ...req.body };
     let price = Number(teamsData.price) * Number(teamsData.users);
-    console.log(teamsData)
+    console.log(teamsData);
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {

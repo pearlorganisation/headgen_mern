@@ -8,10 +8,11 @@ import DatingHero from "../../components/Dating/DatingHero/DatingHero";
 import { FaLinkedin } from "react-icons/fa";
 import { MdGroups } from "react-icons/md";
 import { IoDocumentTextOutline, IoStarSharp } from "react-icons/io5";
-import AppSvgs from "../../components/AppSvgs/AppSvgs";
 import { Link } from "react-router-dom";
 import InfinityTextSlider from "../../components/InfinitySlider/InfinityTextSlider";
 import { IoIosStar } from "react-icons/io";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import AsSeenOn from "../../components/AsSeenOn/AsSeenOn";
 
 const Home = () => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -86,224 +87,224 @@ const Home = () => {
   const imgData2 = [
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1iN6QJdC099z-sZwF4DulFANX4pzk0-ZV&sz=s600",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1M7RY1kEidRgYwuKHqdQD3EE4ceqllceP&sz=s600",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1pLhQ7362mUm1pigmHZn7W1yBCylPI0Si&sz=s600",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1cimvZE6m1QqRHudMrk5M7OSo1nsMyooL&sz=s600",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1pZkdZ8uiEm4-OMG8JWPsh2W3hcoL_aAG&sz=s600",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1Lrj_fsduOc09ZuoqYbCS1P0eDVW2rhtU&sz=s600",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1HQdlaoxc3sXkDj1sQ4b0HL4FLT7OfDpr&sz=s600",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1iN6QJdC099z-sZwF4DulFANX4pzk0-ZV&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/kajqgzz1tplnrbw2i1x6.webp",
     },
 
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1M7RY1kEidRgYwuKHqdQD3EE4ceqllceP&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/fywiulkockfh5o04cpgk.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1pLhQ7362mUm1pigmHZn7W1yBCylPI0Si&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/n6nex9zoacko8ya07hbf.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1iN6QJdC099z-sZwF4DulFANX4pzk0-ZV&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/fzoqqrrvyydpyfvslpsx.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1cimvZE6m1QqRHudMrk5M7OSo1nsMyooL&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/g5rrtqqnjfjvqfjdrucm.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1pZkdZ8uiEm4-OMG8JWPsh2W3hcoL_aAG&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/snqcx5gvbg2bp1jrwxju.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1Lrj_fsduOc09ZuoqYbCS1P0eDVW2rhtU&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021853/headgen/Home/Slideshow/top%20line/fis4kgi3ior0ytuqnm67.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1HQdlaoxc3sXkDj1sQ4b0HL4FLT7OfDpr&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/kajqgzz1tplnrbw2i1x6.webp",
+    },
+
+    {
+      name: "",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/fywiulkockfh5o04cpgk.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1iN6QJdC099z-sZwF4DulFANX4pzk0-ZV&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/n6nex9zoacko8ya07hbf.webp",
+    },
+    {
+      name: "",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/fzoqqrrvyydpyfvslpsx.webp",
+    },
+    {
+      name: "",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/g5rrtqqnjfjvqfjdrucm.webp",
+    },
+    {
+      name: "",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/snqcx5gvbg2bp1jrwxju.webp",
+    },
+    {
+      name: "",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021853/headgen/Home/Slideshow/top%20line/fis4kgi3ior0ytuqnm67.webp",
+    },
+    {
+      name: "",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/n6nex9zoacko8ya07hbf.webp",
+    },
+    {
+      name: "",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/fzoqqrrvyydpyfvslpsx.webp",
     },
   ];
 
   const imgData3 = [
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=12nT1qU2jRkBLp7ATGKu032TKFo0ZAVc5&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021885/headgen/Home/Slideshow/bottom%20line/tpirpoyitgrl4vfv68hl.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=11u32sbG0qCLfVOKr-heDY3y8FExY4pVD&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021884/headgen/Home/Slideshow/bottom%20line/bc3scfh9dumbjsdfadzt.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1k1Qu3Ga_qccV88xP0JUFVUzQATkJUCoD&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021884/headgen/Home/Slideshow/bottom%20line/tww7sdgdqvmuek36vd1w.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1gsQ_4CsfKj6dhTTQRH56cOWYePqy7_c1&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021884/headgen/Home/Slideshow/bottom%20line/w5wyqi4uo7gwbwnsatn1.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=18PdL_2cETJ7YLaVZbb8_wk5R3TZTI7mr&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021884/headgen/Home/Slideshow/bottom%20line/iehygz7sggohrm5rm96n.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=12HsqR8SMa60o5d6m9JDAm8wdVY8Furox&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021884/headgen/Home/Slideshow/bottom%20line/sbg4pzoyg7b4g3hblp4x.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1Lq2DSJGiaOleHy_T3BJ-SmzQfYXQ493X&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021883/headgen/Home/Slideshow/bottom%20line/rfguoodg3tliid18hl8d.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=12nT1qU2jRkBLp7ATGKu032TKFo0ZAVc5&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021885/headgen/Home/Slideshow/bottom%20line/tpirpoyitgrl4vfv68hl.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=11u32sbG0qCLfVOKr-heDY3y8FExY4pVD&sz=s600",
-    },
-
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1k1Qu3Ga_qccV88xP0JUFVUzQATkJUCoD&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021884/headgen/Home/Slideshow/bottom%20line/bc3scfh9dumbjsdfadzt.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1gsQ_4CsfKj6dhTTQRH56cOWYePqy7_c1&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021884/headgen/Home/Slideshow/bottom%20line/tww7sdgdqvmuek36vd1w.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=18PdL_2cETJ7YLaVZbb8_wk5R3TZTI7mr&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021884/headgen/Home/Slideshow/bottom%20line/w5wyqi4uo7gwbwnsatn1.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=12nT1qU2jRkBLp7ATGKu032TKFo0ZAVc5&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021884/headgen/Home/Slideshow/bottom%20line/iehygz7sggohrm5rm96n.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=12HsqR8SMa60o5d6m9JDAm8wdVY8Furox&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021884/headgen/Home/Slideshow/bottom%20line/sbg4pzoyg7b4g3hblp4x.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1Lq2DSJGiaOleHy_T3BJ-SmzQfYXQ493X&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021883/headgen/Home/Slideshow/bottom%20line/rfguoodg3tliid18hl8d.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=12nT1qU2jRkBLp7ATGKu032TKFo0ZAVc5&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021884/headgen/Home/Slideshow/bottom%20line/tww7sdgdqvmuek36vd1w.webp",
+    },
+    {
+      name: "",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021884/headgen/Home/Slideshow/bottom%20line/w5wyqi4uo7gwbwnsatn1.webp",
     },
   ];
 
   const moneyBackPics = [
     {
-      path: "https://drive.google.com/thumbnail?id=1-yuTxTqVk1MUJqLTTd7er18kr5P8OCTk&sz=s800",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022097/headgen/Home/Money%20back%20gurantee/mh4pbzrezfbb0c6h2fki.webp",
     },
     {
-      path: "https://drive.google.com/thumbnail?id=1BTojmvVY0brBor-8ygk8Da0Pf5hg5Ehy&sz=s800",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022096/headgen/Home/Money%20back%20gurantee/pakwoghifmonib07cipj.webp",
     },
     {
-      path: "https://drive.google.com/thumbnail?id=1kwIsJERRXmxJkKSz2fiaOBH_snegH_Rw&sz=s800",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022096/headgen/Home/Money%20back%20gurantee/ivcwzdxztugzg5fshux0.webp",
     },
     {
-      path: "https://drive.google.com/thumbnail?id=1JeU4mcxXSARi0numHMq50gKE77n58YoW&sz=s800",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022095/headgen/Home/Money%20back%20gurantee/zanf4vzveklxcbugmrmn.webp",
     },
     {
-      path: "https://drive.google.com/thumbnail?id=1ozRhdPh0CxeqBqpvrlHRCBM1DGiT5yeS&sz=s800",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022095/headgen/Home/Money%20back%20gurantee/rb9auh0w4d9j7xnjnvqo.webp",
     },
     {
-      path: "https://drive.google.com/thumbnail?id=1vwncdW707s3uPh3R4qN-4NYzbMGMfICl&sz=s800",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022097/headgen/Home/Money%20back%20gurantee/uvmpoflavstne9sorqu2.webp",
     },
   ];
 
   const reviewData1 = [
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1Bc1R-uk4ngRLdmXBBcJj677SGJgJXrtv&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022022/headgen/Home/Our%20clients%20love%20the%20results/vwbntgy7jljdhbtrkp7c.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1SmSsSqBrh5SxugsEaEqzK64Nhr-WICp4&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022022/headgen/Home/Our%20clients%20love%20the%20results/ywyfovbxccxsvgc3agjw.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1IIg95YS_zreclTvm-DoQTgu319SawtdT&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022021/headgen/Home/Our%20clients%20love%20the%20results/b91fnysczhfba8levtv1.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1SA18wMKMO8InJ1sNowKNR4OhkOKFI4ij&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022021/headgen/Home/Our%20clients%20love%20the%20results/sqfclgos56luoi1ovxfc.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1vcEFlgTCJTEZBIDZ_xUQHfgsF62Mtkpr&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022021/headgen/Home/Our%20clients%20love%20the%20results/jb2hxeaie6hb4g57yjbd.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1RBKpgH0DMeZn0MxynmHT1A-CtCf81OTW&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022020/headgen/Home/Our%20clients%20love%20the%20results/zwdiqyh7ksawl9ax4esc.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1CgrkGc9WNHApjN3B1dlqsy-7d1KAuMQV&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022020/headgen/Home/Our%20clients%20love%20the%20results/jfak2rpzwygegm0rjah4.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1qaKuurwqnK394zdvKZFjzkQH3GgHLrXL&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022020/headgen/Home/Our%20clients%20love%20the%20results/wvguod1hcf57rti8m4ks.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1sWgO7cw4AXZs1r4kY-s3wWS4wv5x-2sV&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022019/headgen/Home/Our%20clients%20love%20the%20results/jyjefhfjfv4vdjwf3vrj.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1SjLtvNlhN0V2zgwaMip2lyUJD4ROwjHh&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022019/headgen/Home/Our%20clients%20love%20the%20results/xuff5bngwkzvsdpstc0p.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1sYeaHhoge_XwnWm0GKly9MJwARNSr-PY&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022019/headgen/Home/Our%20clients%20love%20the%20results/uozy5ccz1nqsj1gpbsf6.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1SNydenR3lI4nzlRdK2MaC9rWB_fU98Hz&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022018/headgen/Home/Our%20clients%20love%20the%20results/mi6wb89csg7mnkscix09.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1sYeaHhoge_XwnWm0GKly9MJwARNSr-PY&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022018/headgen/Home/Our%20clients%20love%20the%20results/jicl9xctg1ziwgbnxpqv.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1QjXV6VsVmaFcZYVERiHAOxKeENfz0i1C&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022018/headgen/Home/Our%20clients%20love%20the%20results/wkrbcto2sdsyptrcwnhu.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=12pZQSymP0k_Y1jEQ_mF5OsC6AYhy87Hr&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022022/headgen/Home/Our%20clients%20love%20the%20results/vwbntgy7jljdhbtrkp7c.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1RBKpgH0DMeZn0MxynmHT1A-CtCf81OTW&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022022/headgen/Home/Our%20clients%20love%20the%20results/ywyfovbxccxsvgc3agjw.webp",
     },
   ];
 
@@ -331,94 +332,66 @@ const Home = () => {
     },
   ];
 
-  const logoData = [
-    {
-      name: "walmart logo",
-      imgPath:
-        "https://drive.google.com/thumbnail?id=1up3Y8G7BYQt4vFDeXYicUUbrnMDNz0QK&sz=s600",
-    },
-    {
-      name: "microsoft logo",
-      imgPath:
-        "https://drive.google.com/thumbnail?id=10vAAtNBCVa35oLUmY6NZKDwrq2kl8w6V&sz=s600",
-    },
-    {
-      name: "google logo",
-      imgPath:
-        "https://drive.google.com/thumbnail?id=1T5_P_dHHDNxPdlN_oCp8lxcxAM7BXYEp&sz=s600",
-    },
-    {
-      name: "airbnb logo",
-      imgPath:
-        "https://drive.google.com/thumbnail?id=1m45hPUM6sDgtDdC1hG89FKgd7MAmAwsi&sz=s600",
-    },
-    {
-      name: "amazon logo",
-      imgPath:
-        "https://drive.google.com/thumbnail?id=1bupr8brSqprqrt5xDygIUbcTkxkc-uX0&sz=s600",
-    },
-  ];
-
   const carouselData = [
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1txAVFx9aLnrHFXleyagVbZDg_uiB0Su3&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022036/headgen/Home/Premium%20Professional%20headshots%20generator/g7fykguwuqjjxprepn0x.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1GQva64VK9RwqKKXLxwij_xjQPvokouBQ&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022035/headgen/Home/Premium%20Professional%20headshots%20generator/cnmto5awa2jiqbxtvw2x.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1kWVG7wtEcFcsGa_x07b8sP74DfYmanCN&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022035/headgen/Home/Premium%20Professional%20headshots%20generator/xsly9xjgpfktdh8iqumf.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1EXfhkkgdOC9St1kPnQ07q9wUgdjlOZYr&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022034/headgen/Home/Premium%20Professional%20headshots%20generator/vsrc9d7otttfvjwecr9v.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1jp6O0d6IJqmaOs1B2PNLdqaqN94bxUsx&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022034/headgen/Home/Premium%20Professional%20headshots%20generator/fmevs4u03kmavhsbgvp6.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1SMQ2xrl7MRz5c82DI3jhKwOQNM1gogwI&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022034/headgen/Home/Premium%20Professional%20headshots%20generator/fubziz4smd7vus5jvfju.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1_nfTW7h86j22xfgoRg5RDKlneakzWnVL&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022034/headgen/Home/Premium%20Professional%20headshots%20generator/wbkcqoubmcby8vtm1p4g.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1JAR2nnuV3lgcIHuNogFReo43cH4eLFX5&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022033/headgen/Home/Premium%20Professional%20headshots%20generator/wgkmix0qjzhch1a1if22.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1CG1yLmuwHl67AmB7mykNvyrxPv2AgeMt&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022033/headgen/Home/Premium%20Professional%20headshots%20generator/h1lzh4bbavbbn4ku8ui8.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1nC0dEVMgMabdYRkXkzqTMAHRs14R_V_8&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022032/headgen/Home/Premium%20Professional%20headshots%20generator/rqjm2uom2pfpocnisj8y.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1Dgd7TbeR1QnAxWNO1tqMO5j4E4ZntIJS&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022032/headgen/Home/Premium%20Professional%20headshots%20generator/syycc7szgushtu0ya2zk.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1bN8gPqm_3s8A4fvMxL1bVA3W7DblM1va&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022032/headgen/Home/Premium%20Professional%20headshots%20generator/ddxaqslt8tqfj14jrnpl.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1Dl-f2UusYKhiOP0gGotp5sEkebnPKgkT&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022031/headgen/Home/Premium%20Professional%20headshots%20generator/n6nsrl9jjadmjh4esfx7.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1rdOKBj2gEskEmuZlSVKfSDe9W7DdpeAH&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022031/headgen/Home/Premium%20Professional%20headshots%20generator/rszo33twyvwjqiinifxu.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1v4kjhXcrjVNONemtxzs749a6rd_ru6WV&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022031/headgen/Home/Premium%20Professional%20headshots%20generator/hicuaotiab66d7tdqksg.webp",
     },
   ];
 
@@ -449,7 +422,7 @@ const Home = () => {
       title: "Team photo",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "https://drive.google.com/thumbnail?id=1gnE0uAxmhalTCEqiJdDa3bObYZZ5hCf3&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021927/headgen/Home/use%20cases/tdpnwk5o2ursaeocr453.webp",
       svg: (
         <>
           <MdGroups size={22} className="text-blue-500" />
@@ -463,8 +436,8 @@ const Home = () => {
       path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
       svg: (
         <>
-          <img
-            src="https://drive.google.com/thumbnail?id=1S87gz7PZrLzK90JmFJ2pbO1ybJHQUCIf&sz=s100"
+          <LazyLoadImage
+            src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021927/headgen/Home/use%20cases/tyyoog6ul8umehqzkb3m.webp"
             className="w-[22px] h-[22px]"
           />
         </>
@@ -477,7 +450,7 @@ const Home = () => {
       path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600",
       svg: (
         <>
-          <img src="/Indeed_logo.png" className="h-[16px]" />
+          <LazyLoadImage src="/Indeed_logo.png" className="h-[16px]" />
         </>
       ),
     },
@@ -542,27 +515,27 @@ const Home = () => {
     <div className="w-full py-20  flex flex-col bg-[#161616] gap-10">
       {/* hero */}
 
-      <div className="grid md:grid-cols-2  md:px-10  xl:px-[160px] 2xl:px-[250px]">
+      <div className="flex justify-center px-10 md:px-16 2xl:px-[200px]">
         <div
-          className={`max-w-[834px]  w-full flex flex-col gap-0 pt-5 md:pt-10 text-center md:text-left`}
+          className={`w-full md:w-1/2 flex flex-col items-center gap-0 pt-5 md:pt-10 text-center`}
         >
-          <div className="flex flex-col leading-none mb-4 space-y-3 md:space-y-0">
+          <div className="flex flex-col leading-none mb-4 space-y-0">
             <div
-              className={`lg:text-3xl font-bold md:pl-[1.55rem] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
+              className={`text-xl lg:text-3xl font-bold bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
                 isAnimated ? "animatedReveal" : "invisible"
               }`}
             >
               AI HEADSHOT GENERATOR
             </div>
             <div
-              className={`text-white oswald text-[4rem] lg:text-[6rem] xl:text-[9rem] font-bold pb-4 ${
+              className={`text-white oswald text-[6rem] lg:text-[9rem] font-bold pb-4 ${
                 isAnimated ? "animatedReveal" : "invisible"
               }`}
             >
               AI TOOL
             </div>
             <div
-              className={` text-[20px] md:text-[28px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
+              className={` text-[20px] lg:text-[28px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
                 isAnimated ? "animatedReveal" : "invisible"
               }`}
             >
@@ -576,7 +549,7 @@ const Home = () => {
           >
             <Link
               to="/upload/Corporate%20Headshots"
-              className={`w-1/2 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${
+              className={`w-full px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${
                 isAnimated ? "animatedReveal" : "invisible"
               }`}
             >
@@ -585,7 +558,10 @@ const Home = () => {
 
             <div className="flex flex-col md:flex-row gap-1 justify-between">
               <div className="flex flex-col justify-center">
-                <img src="https://drive.google.com/thumbnail?id=1CeH2wAEjMNSiQRdRtSl2B3PIRsLEwLHp&sz=s120" />
+                <LazyLoadImage
+                  src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022126/headgen/Home/eqiraehtzcsqsugxkcsp.webp"
+                  width={"120px"}
+                />
               </div>
 
               <div className=" flex flex-col leading-tight">
@@ -607,18 +583,18 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div
+        {/* <div
           className={`max-w-[834px] w-full flex flex-col gap-4 items-end pt-10`}
         >
-          <img
+          <LazyLoadImage
             src={`https://drive.google.com/thumbnail?id=1UA7FyAGDxxNyOmQI2aEocXL8V1a70uJ-&sz=s600`}
             className="h-full w-full"
           />
-        </div>
+        </div> */}
       </div>
 
       {/* infinity slider */}
-      <div className="w-full overflow-hidden px-10  xl:px-[160px] 2xl:px-[250px]">
+      <div className="w-full overflow-hidden px-10 md:px-16 2xl:px-[200px]">
         <InfinitySlider imgData1={imgData1} />
       </div>
 
@@ -682,26 +658,11 @@ const Home = () => {
 
       {/* trusted by */}
 
-      <div className="flex flex-wrap justify-center">
-        <div
-          className={`w-full sm:w-1/5 flex flex-col justify-center text-center font-bold text-lg md:text-2xl bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text ${
-            isAnimated ? "animatedReveal" : "invisible"
-          }`}
-        >
-          As seen on
-        </div>
-
-        <img
-          src={`https://res.cloudinary.com/dj2fvzfmm/image/upload/v1720502114/headgen/Home/As%20seen%20on/vgozfhzblspkran3nbai.png`}
-          className={`w-full sm:w-2/3 ${
-            isAnimated ? "animatedReveal" : "invisible"
-          }`}
-        />
-      </div>
+      <AsSeenOn isAnimated={isAnimated} />
 
       {/* how it works */}
 
-      <div className="flex justify-center px-10  xl:px-[160px] 2xl:px-[250px] py-14">
+      <div className="flex justify-center px-10 md:px-16 2xl:px-[200px] py-14">
         <div className="grid gap-8 md:gap-0 md:grid-cols-2  md:justify-between w-full">
           <div className=" flex flex-col w-full gap-4 justify-center items-center  ">
             <div className="grid grid-cols-2 md:grid-cols-1 gap-4 w-fit">
@@ -722,10 +683,10 @@ const Home = () => {
           <div className=" flex flex-col w-full gap-6 items-center">
             <div className="w-full flex justify-center">
               <iframe
-                src="https://drive.google.com/file/d/16UKFJcaT2Y3Kn9dsSakqJl6uVfYJITEb/preview"
+                src="https://res.cloudinary.com/dj2fvzfmm/video/upload/v1721022181/headgen/How%20it%20works%20video/ej1ci1htv6momh1v0vov.mp4"
                 width="100%"
                 height="100%"
-                className="rounded-2xl h-[300px] md:h-[480px] md:w-[640px]"
+                className="rounded-2xl h-[200px] sm:w-[500px] sm:h-[300px] md:h-[300px] md:w-[640px] 2xl:h-[400px] 2xl:w-[700px]"
               ></iframe>
             </div>
 
@@ -739,13 +700,16 @@ const Home = () => {
 
       {/* use flow card section */}
 
-      <div className="px-10 md:px-20 xl:px-[160px] 2xl:px-[250px] pb-20">
+      <div className="px-10 md:px-16 2xl:px-[200px] pb-20">
         <div className="flex flex-wrap flex-col pt-8 md:pt-0 gap-[8rem] md:gap-2 md:flex-row justify-center items-center md:items-start md:justify-between px-2 ">
           {cardData &&
             cardData?.map((item, idx) => (
               <div className="relative w-full max-w-[320px] h-[300px] md:w-[32%] rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
                 <div className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] absolute -top-14 md:-top-20 right-2">
-                  <img src={item?.imgPath} className="w-full h-full" />
+                  <LazyLoadImage
+                    src={item?.imgPath}
+                    className="w-full h-full"
+                  />
                 </div>
                 <div className="flex flex-col gap-2 px-6 h-[200px]">
                   <div className="text-2xl  md:text-5xl lg:text-7xl text-[#0055D4] font-medium">
@@ -765,12 +729,12 @@ const Home = () => {
         </div>
       </div>
 
-      <div className=" xl:px-[160px] 2xl:px-[250px] pb-20">
+      <div className="px-10 md:px-16 2xl:px-[200px] pb-20">
         <InfinityTextSlider />
       </div>
       {/* swipe section */}
 
-      <div className="px-10  xl:px-[160px] 2xl:px-[250px] grid   lg:grid-cols-[auto_20rem] xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
+      <div className="px-10 md:px-16 2xl:px-[200px] grid   lg:grid-cols-[auto_20rem] xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
         <div className="w-[50% w-full 2xl:w-[55% bg-gradient-to-br from-[#000000] via-[#000000] to-[#000000] rounded-2xl shadow-[0_0_0_1px_#ffffff] py-10 relative transition duration-500">
           <div className="flex flex-col justify-between gap-8 md:gap-20 items-center h-full">
             <div className="flex flex-col  items-center text-[20px] sm:text-[26px] xl:text-[32px] 2xl:text-[40px] font-extrabold md:font-semibold text-[#F1F1F1]">
@@ -877,7 +841,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="gradientBackground   xl:px-[160px] 2xl:px-[250px]">
+      <div className="gradientBackground px-10 md:px-16 2xl:px-[200px]">
         <div className="flex flex-col items-center gap-6 pt-14">
           <div className="text-white text-2xl text-center md:text-[45px] font-semibold lg:font-normal lg:text-[64px]">
             High Quality Images
@@ -923,9 +887,9 @@ const Home = () => {
           </div>
           <div className="flex flex-wrap justify-center items-center w-full gap-4 md:gap-2">
             {useCaseData?.map((item) => (
-              <div className="w-auto max-w-[250px] 2xl:w-[200px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
+              <div className="w-auto max-w-[230px] 2xl:w-[200px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
                 <div className="w-full h-2/3">
-                  <img
+                  <LazyLoadImage
                     src={item?.path}
                     className="w-full h-full rounded-t-xl"
                   />
@@ -943,9 +907,9 @@ const Home = () => {
         </div>
 
         {/* turn your selfie info card */}
-        <div className="w-full grid md:grid-cols-2 gap-4 bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-10 rounded-xl shadow-[0_0_1px_1px#f1f1f1] ">
+        <div className="w-full grid md:grid-cols-2 gap-4 bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-5 lg:py-10 rounded-xl shadow-[0_0_1px_1px#f1f1f1] ">
           <div className="flex w-full flex-col  items-center md:items-start justify-evenly gap-2 md:gap-4 px-10">
-            <div className="text-xl md:text-[32px] xl:text-[48px] 2xl:text-4xl text-[#F1F1F1]">
+            <div className="text-xl md:text-[22px] lg:text-[32px] xl:text-[48px] 2xl:text-4xl text-[#F1F1F1]">
               Turn your selfie into
             </div>
             <div className=" text-center w-full md:text-left text-2xl md:text-4xl lg:text-6xl 2xl:text-7xl  bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
@@ -963,10 +927,16 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className=" w-full ">
-            <img
-              src="https://drive.google.com/thumbnail?id=1Zxk-5ZhT_jVlmVEjZAt_ABgcwtBUQViG&sz=s800"
-              className="w-full h-full   "
+          <div className="w-full ">
+            <LazyLoadImage
+              src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021956/headgen/Home/Turn%20your%20selfie%20into%20professional%20headshots/nrg3dczzklbafdfbc2lp.webp"
+              className="w-full h-full"
+              height={250}
+              width={430}
+              style={{
+                aspectRatio: "1920/1080",
+                objectFit: "contain",
+              }}
             />
           </div>
         </div>
@@ -977,7 +947,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8 px-10 xl:px-[160px] 2xl:px-[250px]">
+      <div className="grid md:grid-cols-2 gap-8 px-10 md:px-16 2xl:px-[200px]">
         <div className="w-full relative">
           <div className="flex flex-col items-center md:items-start justify-center gap-2 md:gap-6 top-0">
             <div className=" text-[#F1F1F1] md:grid space-x-3 md:space-x-0  w-full text-center md:text-left text-xl sm:text-2xl md:text-4xl xl:text-6xl font-medium">
@@ -997,7 +967,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex space-y-4 flex-col px-10 xl:px-[160px] 2xl:px-[250px]">
+      <div className="flex space-y-4 flex-col px-10 md:px-16 2xl:px-[200px]">
         <div className="text-center text-xl sm:text-2xl md:text-4xl xl:text-6xl  text-[#F1F1F1]">
           <span className=" bg-gradient-to-r md:leading-[5rem] from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
             Our Clients love
@@ -1018,12 +988,12 @@ const Home = () => {
           </span>{" "}
           to Protect Your Data
         </div>
-        <div className="flex flex-wrap justify-center gap-4   xl:px-[160px] 2xl:px-[250px] ">
+        <div className="flex flex-wrap justify-center gap-4  px-10 md:px-16 2xl:px-[200px] ">
           {privacyFirstData &&
             privacyFirstData?.map((item) => (
-              <div className=" w-[70%] md:w-[33%] xl:w-[22%] 2xl:h-[300px] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
+              <div className=" w-[70%] md:w-[33%] xl:w-[22%] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
                 <div className="w-1/3">
-                  <img src={item?.imgPath} className="w-full" />
+                  <LazyLoadImage src={item?.imgPath} className="w-full" />
                 </div>
                 <div className="2xl:text-lg">{item?.title}</div>
                 <div className="text-xs 2xl:text-base text-center">
@@ -1050,41 +1020,53 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8 px-10 xl:px-[160px] 2xl:px-[250px] py-10">
-        <div className="w-full order-2 md:order-none flex flex-col items-center gap-1">
+      <div className="grid md:grid-cols-2 gap-8 px-10 md:px-16 2xl:px-[200px] py-10">
+        <div className="w-full flex flex-col items-center gap-1">
           <div className="flex w-2/3  gap-1">
-            <div className="w-2/3">
-              <img
+            <div className="w-2/3 max-w-[300px]">
+              <LazyLoadImage
                 src={`${moneyBackPics[0].path}`}
-                className="h-full rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-full !max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
+                height={300}
+                width={300}
               />
             </div>
-            <div className="w-1/3 flex flex-col gap-1">
-              <img
+            <div className="w-1/3 max-w-[150px] flex flex-col gap-1">
+              <LazyLoadImage
                 src={`${moneyBackPics[1].path}`}
-                className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                height={150}
+                width={150}
               />
-              <img
+              <LazyLoadImage
                 src={`${moneyBackPics[2].path}`}
-                className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                height={150}
+                width={150}
               />
             </div>
           </div>
-          <div className="flex w-2/3  gap-1">
-            <div className="w-1/3 flex flex-col gap-1">
-              <img
+          <div className="flex w-2/3   gap-1">
+            <div className="w-1/3 max-w-[150px] flex flex-col gap-1">
+              <LazyLoadImage
                 src={`${moneyBackPics[3].path}`}
-                className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                height={150}
+                width={150}
               />
-              <img
+              <LazyLoadImage
                 src={`${moneyBackPics[4].path}`}
-                className="h-1/2 rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                height={150}
+                width={150}
               />
             </div>
-            <div className="w-2/3">
-              <img
+            <div className="w-2/3 max-w-[300px]">
+              <LazyLoadImage
                 src={`${moneyBackPics[5].path}`}
-                className="h-full rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-full !max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
+                height={300}
+                width={300}
               />
             </div>
           </div>
@@ -1112,7 +1094,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-24 px-10  xl:px-[160px] 2xl:px-[250px]">
+      <div className="flex flex-col gap-24 px-10 md:px-16 2xl:px-[200px]">
         <div className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
           <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
             HeadGen

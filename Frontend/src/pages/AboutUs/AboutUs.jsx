@@ -1,68 +1,30 @@
 import React from "react";
 import AppSvgs from "../../components/AppSvgs/AppSvgs";
 import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import { A11y, Autoplay, Navigation } from "swiper/modules";
+import AsSeenOn from "../../components/AsSeenOn/AsSeenOn";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const AboutUs = () => {
-  const imgData = [
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s800",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s800",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s800",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s800",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s800",
-    },
-    {
-      name: "",
-      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s800",
-    },
-  ];
-
   const aboutUsContent = (
     <div className="leading-relaxed flex flex-col gap-1">
-      <span className="font-bold">
-        Our Mission:
-      </span>
+      <span className="font-bold">Our Mission:</span>
 
       <span>
-        Harness the transformative power of generative AI to enhance everyday life.
-        Democratize access to generative AI, making it accessible to everyone.
-
+        Harness the transformative power of generative AI to enhance everyday
+        life. Democratize access to generative AI, making it accessible to
+        everyone.
       </span>
 
-      <span className="font-bold">
-        About Us:
-      </span>
+      <span className="font-bold">About Us:</span>
 
       <span>
-        Playcloud Technologies Limited (HeadGen AI) is dedicated to perfecting AI-generated images.
-        Situated at the crossroads of design, programming, and art.
-        We craft exceptional digital tools and services leveraging generative AI.
+        Playcloud Technologies Limited (HeadGen AI) is dedicated to perfecting
+        AI-generated images. Situated at the crossroads of design, programming,
+        and art. We craft exceptional digital tools and services leveraging
+        generative AI.
       </span>
 
-
-      <span className="font-bold">
-        Founders:
-      </span>
+      <span className="font-bold">Founders:</span>
 
       <span>
         Ruark Gordon: Film Director, Producer, and Serial Entrepreneur.
@@ -70,17 +32,15 @@ const AboutUs = () => {
         Krasia Gordon: Computer Engineer with a knack for visual design.
       </span>
 
-      <span className="font-bold">
-        Contact Us:
-
-      </span>
+      <span className="font-bold">Contact Us:</span>
 
       <span>
         Email: support@headgen.ai <br />
-        WhatsApp: +91 9820442749 (for collaborations or urgent requests)<br />
-        We value your input and welcome your thoughts, feedback, and requests. Let's shape the future together!
+        WhatsApp: +91 9820442749 (for collaborations or urgent requests)
+        <br />
+        We value your input and welcome your thoughts, feedback, and requests.
+        Let's shape the future together!
       </span>
-
     </div>
   );
 
@@ -101,13 +61,18 @@ const AboutUs = () => {
       ],
       content: (
         <>
-          Ruark Gordon is an experienced Film Director and Producer who has created over 700 ad films for 200 corporations over the past 11 years.
-          As a serial entrepreneur, he has founded companies such as Affy Studios, Playcloud Technologies Limited, and Medzzi.
-          With a deep passion for generative AI, Ruark has utilized his extensive experience as a photographer, during which he created print campaigns for numerous brands and corporations.
-          This background has equipped him with the skills to craft the best prompts for generating the most realistic and high-quality AI images, tailored specifically for corporate needs and dating applications.
-
+          Ruark Gordon is an experienced Film Director and Producer who has
+          created over 700 ad films for 200 corporations over the past 11 years.
+          As a serial entrepreneur, he has founded companies such as Affy
+          Studios, Playcloud Technologies Limited, and Medzzi. With a deep
+          passion for generative AI, Ruark has utilized his extensive experience
+          as a photographer, during which he created print campaigns for
+          numerous brands and corporations. This background has equipped him
+          with the skills to craft the best prompts for generating the most
+          realistic and high-quality AI images, tailored specifically for
+          corporate needs and dating applications.
         </>
-      )
+      ),
     },
     {
       name: "Krasia Gordon",
@@ -124,12 +89,18 @@ const AboutUs = () => {
         },
       ],
 
-
       content: (
         <>
-          Krasia Gordon has a deep understanding and passion for generative AI and visual aesthetics. As a computer science graduate, she leveraged her technical knowledge to work alongside her brother, Ruark, in creating the most realistic AI headshot generator on the market. Krasia's strengths in computer science and visual design, combined with Ruark's vast experience as an entrepreneur and photographer, have created the perfect blend for HeadGen AI, resulting in a groundbreaking tool for generating high-quality AI images.
+          Krasia Gordon has a deep understanding and passion for generative AI
+          and visual aesthetics. As a computer science graduate, she leveraged
+          her technical knowledge to work alongside her brother, Ruark, in
+          creating the most realistic AI headshot generator on the market.
+          Krasia's strengths in computer science and visual design, combined
+          with Ruark's vast experience as an entrepreneur and photographer, have
+          created the perfect blend for HeadGen AI, resulting in a
+          groundbreaking tool for generating high-quality AI images.
         </>
-      )
+      ),
     },
   ];
 
@@ -165,15 +136,15 @@ const AboutUs = () => {
     <div className="bg-[#161616]">
       <div className="relative w-full text-white py-14 xl:py-24 px-10 xl:px-[250px]  flex flex-col gap-8 xl:gap-[3.5rem] tracking-wider">
         <div className="mt-10">
-          <img src="https://drive.google.com/thumbnail?id=1KpGw_yfU-oOPsc9fkrJUWAcIkJOkp8_M&sz=s1000" className="w-full rounded-xl  shadow-[0_0_0_1px#d1d1d1]" />
+          <LazyLoadImage
+          src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721024048/about_us_page_tzdcu9_nqiswz.webp"
+          className="w-full rounded-xl shadow-[0_0_0_1px#d1d1d1]" />
         </div>
         <div className="flex justify-center my-10">
           <div className="flex flex-col md:flex-row flex-wrap md:justify-between w-full">
             <div className="w-full md:w-1/5 flex flex-col gap-4 justify-center items-center ">
               <div className="flex flow-row md:flex-col gap-1 w-fit text-5xl leading-[3.5rem] py-3 md:py-0 ">
-                <div className="text-[#F1F1F1]  font-medium">
-                  Our
-                </div>
+                <div className="text-[#F1F1F1]  font-medium">Our</div>
                 <div className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
                   story
                 </div>
@@ -188,29 +159,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* trusted by */}
-
-      <div className="flex  justify-center gap-6">
-        <div
-          className={`flex flex-col justify-center text-center font-bold text-sm px-2 bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text `}
-        >
-          Trusted By
-        </div>
-        <div className={`flex flex-row`}>
-          {logoData?.map((item, idx) => (
-            <div
-              key={`logo${idx}`}
-              className="md:w-[150px] flex flex-col justify-center"
-            >
-              <img
-                src={item?.imgPath}
-                alt={item?.name}
-                className="w-auto h-full"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+      <AsSeenOn />
 
       <div className="relative w-full text-white px-10 xl:px-[250px] py-20 bg-[#161616] flex flex-col gap-14 md:gap-8 xl:gap-[6rem] tracking-wider">
         <div className="text-[#F1F1F1] text-center text-3xl md:text-5xl font-medium">
@@ -226,7 +175,7 @@ const AboutUs = () => {
               className={`flex flex-col mx-auto md:mx-0 justify-evenly items-center bg-gradient-to-b  from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
             >
               <div className="w-[80%] -translate-y-20 group-hover:-translate-y-24 rounded-xl transition duration-300">
-                <img
+                <LazyLoadImage
                   src={foundersContent[0]?.imagePath}
                   className="w-full rounded-xl"
                 />
@@ -258,7 +207,9 @@ const AboutUs = () => {
           </div>
           <div className="w-full md:w-3/5 flex flex-col gap-6 justify-center *:items-center">
             {foundersContent[0]?.content && (
-              <p className="text-justified xl:text-xl">{foundersContent[0]?.content}</p>
+              <p className="text-justified xl:text-xl">
+                {foundersContent[0]?.content}
+              </p>
             )}
           </div>
         </div>
@@ -266,7 +217,9 @@ const AboutUs = () => {
         <div className="flex flex-row gap-6 md:gap-0 flex-wrap md:justify-between w-full">
           <div className="w-full order-2 md:order-none md:w-3/5 flex flex-col gap-6 justify-center *:items-center">
             {foundersContent[1]?.content && (
-              <p className="text-justified xl:text-xl">{foundersContent[1]?.content}</p>
+              <p className="text-justified xl:text-xl">
+                {foundersContent[1]?.content}
+              </p>
             )}
           </div>
 
@@ -275,7 +228,7 @@ const AboutUs = () => {
               className={`flex flex-col  mx-auto md:mx-0 justify-evenly items-center bg-gradient-to-b  from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
             >
               <div className="w-[80%] -translate-y-20 group-hover:-translate-y-24 rounded-xl transition duration-300">
-                <img
+                <LazyLoadImage
                   src={foundersContent[1]?.imagePath}
                   className="w-full rounded-xl"
                 />

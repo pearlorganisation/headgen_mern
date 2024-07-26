@@ -1,24 +1,41 @@
-import React from 'react'
+import axios from "axios";
+import DOMPurify from "dompurify";
+import React, { useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
 
 const BlogDetails = () => {
-    return (
-        <div className='container mx-auto min-h-screen py-28'>
-            <div className=' max-w-4xl  mx-auto text-white space-y-4'>
-                <img className='rounded-md ' src="https://www.themultiverse.ai/_next/image?url=https%3A%2F%2Fthe-multiverse-ai.ghost.io%2Fcontent%2Fimages%2F2023%2F11%2Fno-watermark---team-gallery--1-.webp&w=1920&q=75" alt="" />
-                <h1 className='text-3xl max-w-2xl '>21 Best “Meet the Team” Examples and Why They Work
-                    Updated on May 9, 2024</h1>
-                <p>The "Meet the Team" gallery is a dynamic display showcasing the team's diversity and skills. This gallery goes beyond a simple staff introduction page; it presents an in-depth look at the team member bios, offering stories of dedication and expertise that resonate with visitors. The "Employee Spotlight Gallery" and "Team Bio Showcase" sections are particularly engaging, providing a rich narrative of each team member.
+  const { state } = useLocation();
+  const { blogId } = useParams();
+  const [blogData, setBlogData] = useState(null);
 
-                    Sections like "The Team Members" and "Employee Professional Profiles" are designed to connect personally with visitors. The "Team Member Highlights" segment offers a deeper understanding of each individual's contributions, illustrating how their unique skills and experiences enhance the team's overall dynamics.</p>
-                <p>The "Meet the Team" gallery is a dynamic display showcasing the team's diversity and skills. This gallery goes beyond a simple staff introduction page; it presents an in-depth look at the team member bios, offering stories of dedication and expertise that resonate with visitors. The "Employee Spotlight Gallery" and "Team Bio Showcase" sections are particularly engaging, providing a rich narrative of each team member.
+  const getBlogData = () => {
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/blogs/${blogId}`)
+      .then((res) => {
+        let data = res.data.blogData;
+        data.content = DOMPurify.sanitize(data.content);
+        setBlogData(data);
+      })
+      .catch((err) => console.error(err));
+  };
 
-                    Sections like "The Team Members" and "Employee Professional Profiles" are designed to connect personally with visitors. The "Team Member Highlights" segment offers a deeper understanding of each individual's contributions, illustrating how their unique skills and experiences enhance the team's overall dynamics.</p>
-                <p>The "Meet the Team" gallery is a dynamic display showcasing the team's diversity and skills. This gallery goes beyond a simple staff introduction page; it presents an in-depth look at the team member bios, offering stories of dedication and expertise that resonate with visitors. The "Employee Spotlight Gallery" and "Team Bio Showcase" sections are particularly engaging, providing a rich narrative of each team member.
+  useEffect(() => {
+    if (!state) {
+      getBlogData();
+    } else {
+      setBlogData(state.item);
+    }
+  }, [state, blogId]);
 
-                    Sections like "The Team Members" and "Employee Professional Profiles" are designed to connect personally with visitors. The "Team Member Highlights" segment offers a deeper understanding of each individual's contributions, illustrating how their unique skills and experiences enhance the team's overall dynamics.</p>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="container mx-auto min-h-screen pt-28 px-10">
+      <div className=" flex flex-col items-center max-w-4xl  mx-auto text-white space-y-8">
+        <img className="rounded-md " src={blogData?.banner} alt="" />
+        <h1 className="text-3xl max-w-2xl ">{blogData?.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: blogData?.content }}></div>
+      </div>
+    </div>
+  );
+};
 
-export default BlogDetails
+export default BlogDetails;

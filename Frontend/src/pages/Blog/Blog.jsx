@@ -1,59 +1,173 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import axios from "axios";
+import Pagination from "@mui/material/Pagination";
+import { makeStyles } from "@mui/styles";
+import DOMPurify from "dompurify";
+import Skeleton from "@mui/material/Skeleton";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
+const useStyles = makeStyles({
+  ul: {
+    "& .MuiPaginationItem-root": {
+      color: "white",
+    },
+  },
+});
 
 const Blog = () => {
-    const blogData = {
-        _id: 'skdlfjksd',
-        title: `21 Best “Meet the Team” Examples and Why They Work
-        Updated on May 9, 2024`,
-        blogImage: 'https://www.themultiverse.ai/_next/image?url=https%3A%2F%2Fthe-multiverse-ai.ghost.io%2Fcontent%2Fimages%2F2023%2F11%2Fno-watermark---team-gallery--1-.webp&w=1920&q=75',
-        blogContent: `The "Meet the Team" gallery is a dynamic display showcasing the team's diversity and skills. This gallery goes beyond a simple staff introduction page; it presents an in-depth look at the team member bios, offering stories of dedication and expertise that resonate with visitors. The "Employee Spotlight Gallery" and "Team Bio Showcase" sections are particularly engaging, providing a rich narrative of each team member.
+  const classes = useStyles();
+  const [blogData, setBlogData] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
+  const [page, setPage] = useState(searchParams.get("page") || 1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
+  //   useEffect(() => {
+  //     if(!searchParams) setSearchParams({page: 1})
+  //   })
 
-        Sections like "The Team Members" and "Employee Professional Profiles" are designed to connect personally with visitors. The "Team Member Highlights" segment offers a deeper understanding of each individual's contributions, illustrating how their unique skills and experiences enhance the team's overall dynamics.`
+  const sanitizeData = (data) => {
+    let cleanData = data.map((item) => {
+      item.content = DOMPurify.sanitize(item.content);
+      return item;
+    });
+    if(cleanData.length > 0) setBlogData(cleanData);
+  };
 
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/blogs?page=${page}`)
+      .then((res) => {
+        setIsLoading(false);
+        sanitizeData(res.data.blogsData);
+        setTotalPages(res?.data?.totalPages);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+      });
+  }, [page]);
 
-    }
-    return (
-        <div className='min-h-screen grid place-items-center text-white'>
-            <section className="py-28">
-                <div className="container px-4 md:px-6">
-                    <div className="mb-8 md:mb-10 lg:mb-12 text-center">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">Our Latest Blog Posts</h2>
-                        <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
-                            Discover the latest insights, trends, and stories from our team of experts.
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
-                        {
-                            Array(6).fill(blogData).map(item => {
-                                return <Link to={`/blog/${item?._id}`} className="rounded-lg group overflow-hidden shadow-lg cursor-pointer transition-all hover:text-white hover:bg-gradient-to-tr from-[#02AFDC] to-[#2563EB]">
-                                    <img
-                                        alt="Blog Post 1"
-                                        className="w-full h-56 object-cover"
-                                        height={400}
-                                        src={item?.blogImage}
-                                        style={{
-                                            aspectRatio: "600/400",
-                                            objectFit: "cover",
-                                        }}
-                                        width={600}
-                                    />
-                                    <div className="p-4 md:p-6">
-                                        <h3 className="text-xl md:text-2xl font-bold mb-2 line-clamp-2">{item?.title}</h3>
-                                        <p className="text-gray-500 group-hover:text-white  line-clamp-3">
-                                            {item?.blogContent}
-                                        </p>
-                                    </div>
-                                </Link>
-                            })
-                        }
+  const handlePagination = (e, p) => {
+    setPage(p);
+    setSearchParams({ page: p });
+  };
 
-
-                    </div>
+  return (
+    <div className="min-h-screen grid place-items-center text-white">
+      <section className="py-28 flex flex-col gap-10">
+        <div className="container px-4 md:px-6">
+          <div className="mb-8 md:mb-10 lg:mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+              Our Latest Blog Posts
+            </h2>
+            <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
+              Discover the latest insights, trends, and stories from our team of
+              experts.
+            </p>
+          </div>
+          {isLoading ? (
+            <div className="flex flex-wrap justify-center items-center w-full text-center gap-12 px-2 md:px-0">
+              <div className="flex flex-col gap-2">
+                <Skeleton
+                  animation="wave"
+                  variant="rectangular"
+                  width={350}
+                  height={250}
+                  className="rounded-t-2xl !bg-neutral-800 after:!bg-gradient-to-r after:!from-neutral-800 after:!via-neutral-700 after:!to-neutral-800 !w-[250px] !h-[150px] sm:!w-[350px] sm:!h-[250px]"
+                />
+                <Skeleton
+                  animation="wave"
+                  variant="rectangular"
+                  width={350}
+                  height={30}
+                  className="rounded-b-2xl !bg-neutral-800 after:!bg-gradient-to-r after:!from-neutral-800 after:!via-neutral-700 after:!to-neutral-800 !w-[250px] !h-[20px] sm:!w-[350px] sm:!h-[30px]"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Skeleton
+                  animation="wave"
+                  variant="rectangular"
+                  width={350}
+                  height={250}
+                  className="rounded-t-2xl !bg-neutral-800 after:!bg-gradient-to-r after:!from-neutral-800 after:!via-neutral-700 after:!to-neutral-800 !w-[250px] !h-[150px] sm:!w-[350px] sm:!h-[250px]"
+                />
+                <Skeleton
+                  animation="wave"
+                  variant="rectangular"
+                  width={350}
+                  height={30}
+                  className="rounded-b-2xl !bg-neutral-800 after:!bg-gradient-to-r after:!from-neutral-800 after:!via-neutral-700 after:!to-neutral-800 !w-[250px] !h-[20px] sm:!w-[350px] sm:!h-[30px]"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Skeleton
+                  animation="wave"
+                  variant="rectangular"
+                  width={350}
+                  height={250}
+                  className="rounded-t-2xl !bg-neutral-800 after:!bg-gradient-to-r after:!from-neutral-800 after:!via-neutral-700 after:!to-neutral-800 !w-[250px] !h-[150px] sm:!w-[350px] sm:!h-[250px]"
+                />
+                <Skeleton
+                  animation="wave"
+                  variant="rectangular"
+                  width={350}
+                  height={30}
+                  className="rounded-b-2xl !bg-neutral-800 after:!bg-gradient-to-r after:!from-neutral-800 after:!via-neutral-700 after:!to-neutral-800 !w-[250px] !h-[20px] sm:!w-[350px] sm:!h-[30px]"
+                />
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
+              {blogData ? (
+                blogData.map((item) => {
+                  return (
+                    <Link
+                      to={`/blog/${item?._id}`}
+                      state={{ item: item }}
+                      className="rounded-lg group overflow-hidden shadow-lg cursor-pointer transition duration-300"
+                    >
+                      <LazyLoadImage
+                        alt="Blog Post 1"
+                        className="w-full h-56 object-cover"
+                        height={400}
+                        src={item?.banner}
+                        style={{
+                          aspectRatio: "1920/1080",
+                          objectFit: "cover",
+                        }}
+                        width={600}
+                      />
+                      <div className="p-4 md:p-6 group-hover:text-white group-hover:bg-gradient-to-tr group-hover:from-[#02AFDC] group-hover:to-[#2563EB] transition duration-300">
+                        <h3 className="text-xl md:text-2xl font-bold mb-2 line-clamp-2">
+                          {item?.title}
+                        </h3>
+                      </div>
+                    </Link>
+                  );
+                })
+              ) : (
+                <div className="col-span-1 sm:col-span-2 lg:col-span-3 w-full text-center text-2xl">
+                  No Blogs Found.
                 </div>
-            </section>
+              )}
+            </div>
+          )}
         </div>
-    )
-}
+        {!isLoading && blogData && (
+          <div className="flex flex-row justify-center w-full">
+            <Pagination
+              count={totalPages}
+              page={Number(page)}
+              color="primary"
+              classes={{ ul: classes.ul }}
+              onChange={handlePagination}
+            />
+          </div>
+        )}
+      </section>
+    </div>
+  );
+};
 
-export default Blog
+export default Blog;

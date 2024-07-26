@@ -3,6 +3,8 @@ import { FaCheck } from "react-icons/fa";
 import HeadshotsSlider from "./HeadshotsSlider";
 import DatingHero from "../../components/Dating/DatingHero/DatingHero";
 import { Link } from "react-router-dom";
+import AsSeenOn from "../../components/AsSeenOn/AsSeenOn";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const FreeHeadshots = () => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -85,50 +87,26 @@ const FreeHeadshots = () => {
           <div className="grid grid-cols-2  w-fit gap-4">
             {[
               {
-                path: "https://drive.google.com/thumbnail?id=1RLSZGeOJRclpVCS7eg5uJPBDAIxvQxy5&sz=s250",
+                path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022431/Outdoor_Park_Formal_AI_Headshots_1_j32tml.webp",
               },
               {
-                path: "https://drive.google.com/thumbnail?id=13g3gmT-4jZwvjCaVELNXzftxrLF_ZLiF&sz=s250",
+                path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022431/Outdoor_Park_Formal_AI_Headshots_4_ymvfrv.webp",
               },
               {
-                path: "https://drive.google.com/thumbnail?id=1c0UurxRLv1yM92t-iiGG-26MsQaPyGKe&sz=s250",
+                path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022430/Outdoor_Park_Formal_AI_Headshots_3_yzrmwh.webp",
               },
               {
-                path: "https://drive.google.com/thumbnail?id=1GmKauZa5soyNyqoXEZ5ukREj7cfpZgCa&sz=s250",
+                path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022432/Outdoor_Park_Formal_AI_Headshots_2_hwybsx.webp",
               },
             ].map((item) => {
-              return <img className="rounded-lg" src={item.path} alt="" />;
+              return <LazyLoadImage className="rounded-lg" src={item.path} alt="" />;
             })}
           </div>
         </div>
 
         {/* trusted by */}
 
-        <div className="flex flex-col lg:flex-row justify-center   w-full">
-          <div
-            className={`flex flex-col justify-center text-center font-bold text-[20px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text ${isAnimated ? "animatedReveal" : "invisible"
-              }`}
-          >
-            Trusted By
-          </div>
-          <div
-            className={`flex flex-row ${isAnimated ? "animatedReveal" : "invisible"
-              }`}
-          >
-            {logoData?.map((item, idx) => (
-              <div
-                key={`logo${idx}`}
-                className="lg:w-[150px] flex flex-col justify-center"
-              >
-                <img
-                  src={item?.imgPath}
-                  alt={item?.name}
-                  className="w-auto h-full"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        <AsSeenOn /> 
       </div>
 
       {/* coupon code */}
@@ -148,10 +126,11 @@ const FreeHeadshots = () => {
       {/* Free AI Headshots */}
 
       <div className="flex justify-center gap-3 md:gap-0  md:flex-row flex-col items-center  text-white p-6 rounded-lg shadow-lg">
-        <img
-          src="https://drive.google.com/thumbnail?id=1sSZgnSOQBeWxqDVg0ClcFwKYDiSBXL-R&sz=s300"
+        <LazyLoadImage
+          src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023866/dating_headshots_5_fkywuz.webp"
           alt="Headshot"
           class=" rounded-lg  mr-6"
+          width={300}
         />
         <div className="text-center md:text-left">
           <h1 className="text-3xl md:text-5xl font-bold mb-2">Free AI Headshots</h1>

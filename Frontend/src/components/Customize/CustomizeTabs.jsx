@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import AppSvgs from "../../components/AppSvgs/AppSvgs";
-import OrderDetails from "../OrderDetails/OrderDetails";
-import PriceCards from "../PriceCards/PriceCards";
-import { useStateManager } from "react-select";
 import { FaUserTie } from "react-icons/fa";
 import { IoShirtSharp } from "react-icons/io5";
+
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const CustomizeTabs = ({ setUserData, userData, type }) => {
   const temp = [
@@ -21,19 +19,19 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
           images: [
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1RLSZGeOJRclpVCS7eg5uJPBDAIxvQxy5&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022432/Outdoor_Park_Formal_AI_Headshots_2_hwybsx.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1GmKauZa5soyNyqoXEZ5ukREj7cfpZgCa&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022431/Outdoor_Park_Formal_AI_Headshots_1_j32tml.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=13g3gmT-4jZwvjCaVELNXzftxrLF_ZLiF&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022431/Outdoor_Park_Formal_AI_Headshots_4_ymvfrv.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1c0UurxRLv1yM92t-iiGG-26MsQaPyGKe&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022430/Outdoor_Park_Formal_AI_Headshots_3_yzrmwh.webp",
             },
           ],
         },
@@ -42,19 +40,19 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
           images: [
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1Ml1yIMvA5v3-m8iYB7eEmPH-QGoEpNFg&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022466/Indoor_Office_Formal_AI_Headshots_1_a8nwg9.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=13wdIfSJr1CjNkWtgWpsbs6SMwy6HeFhq&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022465/Indoor_Office_Formal_AI_Headshots_4_mbr5da.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1_amqnLhSWdW9APznkImLY-v9925uNAvU&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022464/Indoor_Office_Formal_AI_Headshots_3_iqtd1b.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1-LmNKvMjW8SdScmSu-xEycWJDDGI7V9x&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022464/Indoor_Office_Formal_AI_Headshots_2_w5upsa.webp",
             },
           ],
         },
@@ -63,19 +61,19 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
           images: [
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1jZRhuuiYF4AImZ31ZB0wJAyCvRmL9CgM&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022477/Studio_Grey_Formal_AI_Headshots_2_kjj3pw.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1msIFQi6IOtyFQc73XXNC6CKzs3Bg8W78&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022477/Studio_Grey_Formal_AI_Headshots_1_rrauks.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1mvFeBjuyeDF5Na6ujBVS_JHzEWGsiVS7&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022476/Studio_Grey_Formal_AI_Headshots_4_aw6yyo.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1Aa2lZexTQGuv9TvXRDKs6lMz4LnYUOwH&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022475/Studio_Grey_Formal_AI_Headshots_3_u4xae2.webp",
             },
           ],
         },
@@ -84,19 +82,19 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
           images: [
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1QFXp1mdWQOLH9HWj-HCKyaevfk6onaYR&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022490/Studio_White_Formal_AI_Headshots_2_oh7epr.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1zfh_Ig5pYT3VzxnaKN0yje9PLvFioZ41&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022489/Studio_White_Formal_AI_Headshots_1_bnl0yv.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1SqtVNi0mr_GeXtbEuGDnir6qVWv80AIr&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022488/Studio_White_Formal_AI_Headshots_4_zuiveh.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1Eh__LWSTh2uHmvMxvuV9la3La7nv9Zk8&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022487/Studio_White_Formal_AI_Headshots_3_xop4yo.webp",
             },
           ],
         },
@@ -105,19 +103,19 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
           images: [
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1Bnx6PkZuXMCV5HfbgN8Epc5FWZ_OIDR9&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022496/Black_White_AI_Headshots_1_oiukwk.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=11gm58mI09URzYilTbN8vzuWp2jHfqh_N&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022495/Black_White_AI_Headshots_4_fqvxil.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1bixkRKNkh6snSmo5kZyzR3FfBpVRYx88&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022494/Black_White_AI_Headshots_3_umm95z.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1tiD3IVmeuWgRnG0pHeuN86kgK6dUdSCx&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022493/Black_White_AI_Headshots_2_jxctih.webp",
             },
           ],
         },
@@ -136,19 +134,19 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
           images: [
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1kjqyyVmmS2j-eTWBMkO6DPbTmkkeezdY&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022550/Outdoor_Park_Casual_AI_Headshots_2_y8lbst.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1lFYhjO0CPgYCVHjWjv52UTWHRwBrG88T&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022549/Outdoor_Park_Casual_AI_Headshots_1_dtzbks.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1IJrg3o8pIsHImTvvnX54HdHwS4uYxNg8&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022548/Outdoor_Park_Casual_AI_Headshots_4_wdyblv.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1LxAraE5dx5YWLZ39SrnsGqVU5zZrNdiB&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022547/Outdoor_Park_Casual_AI_Headshots_3_fvkmk9.webp",
             },
           ],
         },
@@ -157,19 +155,19 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
           images: [
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1vRtqDzpg_GP4SylEr0y_Ce9FkA-_2VPf&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022543/Indoor_Office_Casual_AI_Headshots_2_qq4ch7.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1IJ4sumK_Td5-EIkQX5_Di6CuVcU_EyaI&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022542/Indoor_Office_Casual_AI_Headshots_1_oljdix.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1_ZrNX0fxh1HI6yXtKx777ahY-MdpjfuA&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022541/Indoor_Office_Casual_AI_Headshots_4_lee18t.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1sSZgnSOQBeWxqDVg0ClcFwKYDiSBXL-R&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022541/Indoor_Office_Casual_AI_Headshots_3_w6ubbp.webp",
             },
           ],
         },
@@ -178,19 +176,19 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
           images: [
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1CnjACj9W9EaKfECABnOrXHcs-qXs7v10&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022556/Studio_Grey_AI_Headshots_2_rjkqnv.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1Ggz7GdYxXYk4tPkDQrYVTYJnz5xp1EAh&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022554/Studio_Grey_AI_Headshots_1_fz6chh.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=13u-NQ8sZa7zS45xEpBoQ-7zxbNGmCmT3&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022553/Studio_Grey_AI_Headshots_4_vmrm2s.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1raImtXH1cM8joq7HJYUtbokIib3us-HT&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022552/Studio_Grey_AI_Headshots_3_knuflq.webp",
             },
           ],
         },
@@ -199,19 +197,19 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
           images: [
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1FngWrf0eZrk2stah1js4bAfoLDsSDwgc&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022563/Studio_white_AI_Headshots_2_fidgrx.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1hrUo99eNxYJntLqUgj-WBdzQK8CNMXkT&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022562/Studio_white_AI_Headshots_1_rgm51w.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1z3XZIATqXDH48rrdGAPa63pmaasGFD24&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022561/Studio_white_AI_Headshots_4_vwnzzr.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1dz0xwvFxykFYGIJS9wnm0UAU3H5P9lAE&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022559/Studio_white_AI_Headshots_3_e2dnlk.webp",
             },
           ],
         },
@@ -220,19 +218,19 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
           images: [
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1_Be-Y1PJaQjMr1mPk5UIVBKbYHfqt4XN&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022537/Black_and_white_casual_AI_Headshots_2_nvehwj.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=17U3ze5BOHgKaPxM-aZ_RDG8PHeo8BqY7&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022536/Black_and_white_casual_AI_Headshots_1_zlpbds.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1DZkWvRKQfaXAuSLG59JLc1tBKkacd--t&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022535/Black_and_white_casual_AI_Headshots_4_nmxx1k.webp",
             },
             {
               name: "",
-              path: "https://drive.google.com/thumbnail?id=1Alk3uHUUp7wIFSD9I2JcygaReqJ-NEbQ&sz=s400",
+              path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022534/Black_and_white_casual_AI_Headshots_3_cwpmjn.webp",
             },
           ],
         },
@@ -347,9 +345,11 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
         <section className="flex justify-around gap-4 items-center flex-wrap">
           {subSectionImages?.map((item) => {
             return (
-              <img
+              <LazyLoadImage
                 src={item?.path}
                 className="w-[200px] h-[200px] cursor-pointer hover:shadow-[0_0_0_1px#ffffff] rounded-xl transition duration-300"
+                width={200}
+                height={200}
               />
             );
           })}

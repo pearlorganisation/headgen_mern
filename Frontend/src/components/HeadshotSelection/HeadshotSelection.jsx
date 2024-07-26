@@ -11,6 +11,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { A11y, Autoplay, Navigation } from "swiper/modules";
 import { useParams } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const HeadshotSelection = ({
   userData,
@@ -54,7 +55,7 @@ const HeadshotSelection = ({
                   className="w-full h-[90%]   rounded-xl  shadow-[0_0_1px#ababab] "
                 >
 
-                  <img
+                  <LazyLoadImage
                     src={`${filteredItem?.headshotInfo?.imgPath}`}
                     className="w-full h-full rounded-xl"
                   />
@@ -72,7 +73,7 @@ const HeadshotSelection = ({
               })
               .map((filteredItem, idx) => (
                 <div className="flex justify-center rounded-xl ">
-                  <img
+                  <LazyLoadImage
                     src={filteredItem?.imgPreview}
                     className="!h-[320px] mx-auto rounded-xl"
                   />

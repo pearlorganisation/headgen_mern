@@ -31,44 +31,44 @@ const Tab = () => {
     {
       name: "Corporate Headshots",
       headshotInfo: {
-        imgPath: "https://drive.google.com/thumbnail?id=15m130osnWyGu65RwKQ17HWpfIuKAMra6&sz=s800",
+        imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022217/headgen/Headshots/Banners/ypsqnt8jj4rdbkphzkgj.webp",
       },
-      imgPreview: 'https://drive.google.com/thumbnail?id=1cNF1y4bnCERR4mFDYI60POS3w-a4rXy9&sz=s400'
+      imgPreview: 'https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022265/headgen/Headshots/Image%20to%20appear%20on%20click/haybecoslhl5oawukalb.webp'
     },
     {
       name: "Doctor Headshots",
       headshotInfo: {
-        imgPath: "https://drive.google.com/thumbnail?id=1gXGt0a95L5qIZGzTaHaIUcrd2ppL32lv&sz=s800",
+        imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022218/headgen/Headshots/Banners/gvvvyfx5myikud4df6zb.webp",
       },
-      imgPreview: 'https://drive.google.com/thumbnail?id=1UJpOzDSR_A5w6hA4D6zjfrnKMExF9vbC&sz=s400'
+      imgPreview: 'https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022266/headgen/Headshots/Image%20to%20appear%20on%20click/l3stzd5y9i3jjt371sol.webp'
     },
     {
       name: "Lawyer Headshots",
       headshotInfo: {
-        imgPath: "https://drive.google.com/thumbnail?id=16p1K3X3OQMCpqW4nl8ylAOlTVsCjjPPS&sz=s800",
+        imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022219/headgen/Headshots/Banners/anfy7t5v3ml6iecxljn8.webp",
       },
-      imgPreview: 'https://drive.google.com/thumbnail?id=1bncFGpxo0FTHu8tUHgLiB3D_jmIMJE0Y&sz=s400'
+      imgPreview: 'https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022267/headgen/Headshots/Image%20to%20appear%20on%20click/jxk2vge6mx4a2xgdvkvh.webp'
     },
     {
       name: "Sales Headshots",
       headshotInfo: {
-        imgPath: "https://drive.google.com/thumbnail?id=13SRDkSNJKlIj9qWD5sGKPQSGAyXSNJJW&sz=s800",
+        imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022219/headgen/Headshots/Banners/j6er2wouvgyqujpws6fw.webp",
       },
-      imgPreview: 'https://drive.google.com/thumbnail?id=1-2l3yZmBK085Zbirg_D8OiHjVD3-r7HM&sz=s400'
+      imgPreview: 'https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022267/headgen/Headshots/Image%20to%20appear%20on%20click/iqmmj3zciq7v0gkueumu.webp'
     },
     {
       name: "Students Headshots",
       headshotInfo: {
-        imgPath: "https://drive.google.com/thumbnail?id=1A4yCODABo4qCZn7cRPlEdTUuSy5w-gLl&sz=s800",
+        imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022220/headgen/Headshots/Banners/ztfzaecdn0qryd0i7m4t.webp",
       },
-      imgPreview: 'https://drive.google.com/thumbnail?id=1PRgcUxiH3r2NMbqDePx2eF9V7NVHX7nY&sz=s400'
+      imgPreview: 'https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022268/headgen/Headshots/Image%20to%20appear%20on%20click/kgzajygbfhmsbmupz7gv.webp'
     },
     {
       name: "Teacher Headshots",
       headshotInfo: {
-        imgPath: "https://drive.google.com/thumbnail?id=1cGdkBJVVXcCwxo3CnErPumzgdwccwvLo&sz=s800",
+        imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022220/headgen/Headshots/Banners/gcswieneujqynonujwdd.webp",
       },
-      imgPreview: 'https://drive.google.com/thumbnail?id=1lvE4qi0vK9gqHeEZJ6JFn96D92NEPfOM&sz=s400'
+      imgPreview: 'https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022268/headgen/Headshots/Image%20to%20appear%20on%20click/rwe5vljldwisdqyihe2s.webp'
     },
   ];
 

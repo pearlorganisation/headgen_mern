@@ -52,9 +52,9 @@ const PromptTab = ({ userData, setUserData, errors, type }) => {
               </div>
             </div>
             <div className="  rounded-xl">
-              <img
+              <LazyLoadImage
                 className="mx-auto md:max-w-md"
-                src="https://drive.google.com/thumbnail?id=1f4MXXPgJ5NvYa8j3iW49XXpT0CX4FG1k&sz=s600"
+                src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022294/headgen/Headshots/custom%20prompts/qdlt9nskw1dgmczqzgtk.webp"
                 alt="" />
               {/* <LazyLoadImage
                 className=" md:max-w-md"
