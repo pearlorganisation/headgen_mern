@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   createBrowserRouter,
   Navigate,
@@ -14,9 +14,9 @@ import Login from "./pages/Auth/Login/Login";
 import Layout from "./components/Layout/Layout";
 // import ComingSoon from "./pages/NotFound/ComingSoon";
 import NotFound from "./pages/NotFound/NotFound";
-import Perfumes from "./pages/Blogs/Blogs";
-import AddPerfume from "./pages/Blogs/AddBlogs";
-import UpdatePerfume from "./pages/Blogs/UpdateBlogs";
+import Blogs from "./pages/Blogs/Blogs";
+import AddBlogs from "./pages/Blogs/AddBlogs";
+import UpdateBlogs from "./pages/Blogs/UpdateBlogs";
 
 const isUserLoggedIn = localStorage.getItem("isusrlgd");
 
@@ -38,15 +38,15 @@ const App = () => {
         },
         {
           path: "/blogs",
-          element: <Perfumes />,
+          element: <Blogs />,
         },
         {
           path: "/blogs/add",
-          element: <AddPerfume />,
+          element: <AddBlogs />,
         },
         {
           path: "/blogs/update/:id",
-          element: <UpdatePerfume />,
+          element: <UpdateBlogs />,
         },
       ],
     },

@@ -6,7 +6,7 @@ import { instance } from "../../services/axiosInterceptor";
 import { Toaster, toast } from "sonner";
 import { ClipLoader } from "react-spinners";
 
-const CreateBlog = () => {
+const AddBlogs = () => {
   const [blogData, setBlogData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -178,4 +178,4 @@ const CreateBlog = () => {
   );
 };
 
-export default CreateBlog;
+export default AddBlogs;

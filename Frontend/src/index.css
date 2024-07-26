@@ -285,21 +285,22 @@ body,
 
 /* infinity text slider */
 
-@-webkit-keyframes textScrollLeft {
+@-webkit-keyframes textScrollRight {
   0% {
-    transform: translateX(0);
+    transform: translateX(calc(-800px * 7));
   }
   100% {
-    transform: translateX(calc(-800px * 7));
+    transform: translateX(0);
+    
   }
 }
 
-@keyframes textScrollLeft {
+@keyframes textScrollRight {
   0% {
-    transform: translateX(0);
+    transform: translateX(calc(-800px * 7));
   }
   100% {
-    transform: translateX(calc(-800px * 7));
+    transform: translateX(0);
   }
 }
 
@@ -321,14 +322,14 @@ body,
   left: 0;
   top: 0;
 }
-.infinityTextSlider .text-slide-track-left {
-  -webkit-animation: textScrollLeft 40s linear infinite;
-  animation: textScrollLeft 40s linear infinite;
+.infinityTextSlider .text-slide-track-right {
+  -webkit-animation: textScrollRight 40s linear infinite;
+  animation: textScrollRight 40s linear infinite;
   display: flex;
   width: calc(800px * 14);
 }
 
-.infinityTextSlider .text-slide-left {
+.infinityTextSlider .text-slide-right {
   height: 100px;
   width: 800px;
 }

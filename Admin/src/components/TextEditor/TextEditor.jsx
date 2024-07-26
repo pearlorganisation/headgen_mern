@@ -28,6 +28,8 @@ const TextEditor = ({ sendContent, onChange }) => {
         onChange={(newContent) => {
           setContent(newContent);
         }}
+        config={{ theme: "dark" }}
+
       />
     </div>
   );

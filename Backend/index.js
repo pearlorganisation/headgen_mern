@@ -43,15 +43,13 @@ app.use(
     })
   );
 
-app.use(error)
-
 // routes
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/payment', paymentsRouter)
 app.use('/api/v1/freeHeadshot', freeHeadshotRouter)
 app.use('/api/v1/blogs', blogsRouter)
 
-
+app.use(error)
 
 app.listen(PORT, () => {
     console.log(chalk.blue(`Connected to port ${process.env.PORT}`))

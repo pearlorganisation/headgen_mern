@@ -11,9 +11,8 @@ import { IoDocumentTextOutline, IoStarSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import InfinityTextSlider from "../../components/InfinitySlider/InfinityTextSlider";
 import { IoIosStar } from "react-icons/io";
-import {LazyLoadImage} from "react-lazy-load-image-component"
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import AsSeenOn from "../../components/AsSeenOn/AsSeenOn";
-
 
 const Home = () => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -90,7 +89,7 @@ const Home = () => {
       name: "",
       path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/kajqgzz1tplnrbw2i1x6.webp",
     },
-   
+
     {
       name: "",
       path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/fywiulkockfh5o04cpgk.webp",
@@ -119,7 +118,7 @@ const Home = () => {
       name: "",
       path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/kajqgzz1tplnrbw2i1x6.webp",
     },
-   
+
     {
       name: "",
       path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/fywiulkockfh5o04cpgk.webp",
@@ -152,7 +151,6 @@ const Home = () => {
       name: "",
       path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/fzoqqrrvyydpyfvslpsx.webp",
     },
-   
   ];
 
   const imgData3 = [
@@ -560,7 +558,10 @@ const Home = () => {
 
             <div className="flex flex-col md:flex-row gap-1 justify-between">
               <div className="flex flex-col justify-center">
-                <LazyLoadImage src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022126/headgen/Home/eqiraehtzcsqsugxkcsp.webp" width={'120px'} />
+                <LazyLoadImage
+                  src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022126/headgen/Home/eqiraehtzcsqsugxkcsp.webp"
+                  width={"120px"}
+                />
               </div>
 
               <div className=" flex flex-col leading-tight">
@@ -657,7 +658,7 @@ const Home = () => {
 
       {/* trusted by */}
 
-     <AsSeenOn isAnimated={isAnimated} />
+      <AsSeenOn isAnimated={isAnimated} />
 
       {/* how it works */}
 
@@ -705,7 +706,10 @@ const Home = () => {
             cardData?.map((item, idx) => (
               <div className="relative w-full max-w-[320px] h-[300px] md:w-[32%] rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
                 <div className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] absolute -top-14 md:-top-20 right-2">
-                  <LazyLoadImage src={item?.imgPath} className="w-full h-full" />
+                  <LazyLoadImage
+                    src={item?.imgPath}
+                    className="w-full h-full"
+                  />
                 </div>
                 <div className="flex flex-col gap-2 px-6 h-[200px]">
                   <div className="text-2xl  md:text-5xl lg:text-7xl text-[#0055D4] font-medium">
@@ -903,9 +907,9 @@ const Home = () => {
         </div>
 
         {/* turn your selfie info card */}
-        <div className="w-full grid md:grid-cols-2 gap-4 bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-10 rounded-xl shadow-[0_0_1px_1px#f1f1f1] ">
+        <div className="w-full grid md:grid-cols-2 gap-4 bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-5 lg:py-10 rounded-xl shadow-[0_0_1px_1px#f1f1f1] ">
           <div className="flex w-full flex-col  items-center md:items-start justify-evenly gap-2 md:gap-4 px-10">
-            <div className="text-xl md:text-[32px] xl:text-[48px] 2xl:text-4xl text-[#F1F1F1]">
+            <div className="text-xl md:text-[22px] lg:text-[32px] xl:text-[48px] 2xl:text-4xl text-[#F1F1F1]">
               Turn your selfie into
             </div>
             <div className=" text-center w-full md:text-left text-2xl md:text-4xl lg:text-6xl 2xl:text-7xl  bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
@@ -923,10 +927,16 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className=" w-full ">
+          <div className="w-full ">
             <LazyLoadImage
               src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021956/headgen/Home/Turn%20your%20selfie%20into%20professional%20headshots/nrg3dczzklbafdfbc2lp.webp"
-              className="w-full h-full  "
+              className="w-full h-full"
+              height={250}
+              width={430}
+              style={{
+                aspectRatio: "1920/1080",
+                objectFit: "contain",
+              }}
             />
           </div>
         </div>
@@ -1016,7 +1026,7 @@ const Home = () => {
             <div className="w-2/3 max-w-[300px]">
               <LazyLoadImage
                 src={`${moneyBackPics[0].path}`}
-                className="h-full max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-full !max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
                 height={300}
                 width={300}
               />
@@ -1024,13 +1034,13 @@ const Home = () => {
             <div className="w-1/3 max-w-[150px] flex flex-col gap-1">
               <LazyLoadImage
                 src={`${moneyBackPics[1].path}`}
-                className="h-1/2 max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
                 height={150}
                 width={150}
               />
               <LazyLoadImage
                 src={`${moneyBackPics[2].path}`}
-                className="h-1/2 max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
                 height={150}
                 width={150}
               />
@@ -1040,13 +1050,13 @@ const Home = () => {
             <div className="w-1/3 max-w-[150px] flex flex-col gap-1">
               <LazyLoadImage
                 src={`${moneyBackPics[3].path}`}
-                className="h-1/2 max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
                 height={150}
                 width={150}
               />
               <LazyLoadImage
                 src={`${moneyBackPics[4].path}`}
-                className="h-1/2 max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
                 height={150}
                 width={150}
               />
@@ -1054,7 +1064,7 @@ const Home = () => {
             <div className="w-2/3 max-w-[300px]">
               <LazyLoadImage
                 src={`${moneyBackPics[5].path}`}
-                className="h-full max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
+                className="h-full !max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
                 height={300}
                 width={300}
               />

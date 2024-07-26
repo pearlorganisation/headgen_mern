@@ -31,7 +31,7 @@ const Blog = () => {
       item.content = DOMPurify.sanitize(item.content);
       return item;
     });
-    setBlogData(cleanData);
+    if(cleanData.length > 0) setBlogData(cleanData);
   };
 
   useEffect(() => {

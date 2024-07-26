@@ -12,7 +12,7 @@ const FaqItem = ({ question, answer }) => {
     <div className="relative mb-4">
       <h6 className="mb-0">
         <button
-          className="bg-gradient-to-r from-[#1b198d] via-[#1c1a9c] to-[#2522b8] text-[#F1F1F1] rounded-lg h-[58px] hover:from-[#15136d] hover:via-[#15137e] hover:to-[#17157c] relative flex items-center w-full p-4 text-left transition duration-300 cursor-pointer group"
+          className="bg-gradient-to-r from-[#1b198d] via-[#1c1a9c] to-[#2522b8] text-[#F1F1F1] rounded-lg h-[58px] hover:from-[#15136d] hover:via-[#15137e] hover:to-[#17157c] relative flex items-center w-full p-4 text-sm lg:text-base text-left transition duration-300 cursor-pointer group"
           onClick={toggleAccordion}
         >
           <span>{question}</span>
