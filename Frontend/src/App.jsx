@@ -24,6 +24,7 @@ import FreeHeadshotsTab from "./pages/FreeHeadshots/FreeHeadshotsTab";
 import { useEffect } from "react";
 import AddReview from "./pages/Reviews/AddReview";
 import Reviews from "./pages/Reviews/Reviews";
+import ComingSoon from './pages/NotFound/ComingSoon'
 
 
 function App() {
@@ -54,7 +55,7 @@ function App() {
         <Route path="/blogs" element={<Blog />} />
         <Route path="/blog/:blogId" element={<BlogDetails />} />
         <Route path="/reviews" element={<Reviews />} />
-        <Route path="/addreview" element={<AddReview />} />
+        <Route path="/addreview" element={<ComingSoon />} />
         <Route path="/freeHeadshots" element={<FreeHeadshots />} />
         <Route path="/freeheadshotupload" element={<FreeHeadshotsTab />} />
         <Route path="*" element={<NotFound />} />

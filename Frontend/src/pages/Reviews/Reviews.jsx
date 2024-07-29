@@ -23,40 +23,40 @@ const Reviews = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
-  //   useEffect(() => {
-  //     axios
-  //       .get(`${import.meta.env.VITE_API_URL}/reviews?page=${page}`)
-  //       .then((res) => {
-  //         setIsLoading(false);
-  //         setReviewsData(res.data.reviewsData);
-  //         setTotalPages(res?.data?.totalPages);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //         setIsLoading(false);
-  //       });
-  //   }, [page]);
+    useEffect(() => {
+      axios
+        .get(`${import.meta.env.VITE_API_URL}/reviews?page=${page}`)
+        .then((res) => {
+          setIsLoading(false);
+          setReviewsData(res.data.reviewsData);
+          setTotalPages(res?.data?.totalPages);
+        })
+        .catch((err) => {
+          console.log(err);
+          setIsLoading(false);
+        });
+    }, [page]);
 
   const handlePagination = (e, p) => {
     setPage(p);
     setSearchParams({ page: p });
   };
 
-  useEffect(() => {
-    const data = [
-      {
-        image:
-          "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/snqcx5gvbg2bp1jrwxju.webp",
-        title: "Review 1",
-        review: "this is just a simple review by me",
-        name: "Jai Singh",
-        stars: 5,
-        email: "jai@pearlorganisation.com",
-      },
-    ];
-    setReviewsData(data);
-    setIsLoading(false);
-  }, []);
+  // useEffect(() => {
+  //   const data = [
+  //     {
+  //       image:
+  //         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/snqcx5gvbg2bp1jrwxju.webp",
+  //       title: "Review 1",
+  //       review: "this is just a simple review by me",
+  //       name: "Jai Singh",
+  //       stars: 5,
+  //       email: "jai@pearlorganisation.com",
+  //     },
+  //   ];
+  //   setReviewsData(data);
+  //   setIsLoading(false);
+  // }, []);
 
   return (
     <div className="min-h-screen grid place-items-center text-white">
