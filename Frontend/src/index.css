@@ -287,7 +287,7 @@ body,
 
 @-webkit-keyframes textScrollRight {
   0% {
-    transform: translateX(calc(-800px * 7));
+    transform: translateX(calc(-500px * 7));
   }
   100% {
     transform: translateX(0);
@@ -297,7 +297,7 @@ body,
 
 @keyframes textScrollRight {
   0% {
-    transform: translateX(calc(-800px * 7));
+    transform: translateX(calc(-500px * 7));
   }
   100% {
     transform: translateX(0);
@@ -326,10 +326,10 @@ body,
   -webkit-animation: textScrollRight 40s linear infinite;
   animation: textScrollRight 40s linear infinite;
   display: flex;
-  width: calc(800px * 14);
+  width: calc(500px * 14);
 }
 
 .infinityTextSlider .text-slide-right {
   height: 100px;
-  width: 800px;
+  width: 500px;
 }
