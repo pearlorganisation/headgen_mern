@@ -134,8 +134,18 @@ const Header = () => {
     },
     {
       name: "Blogs",
-      path: "/blogs",
-      showDropdown: false,
+      path: '/blogs',
+      paths: [
+        {
+          name: "Blogs",
+          path: "/blogs",
+        },
+        {
+          name: "Reviews",
+          path: "/reviews",
+        },
+      ],
+      showDropdown: true,
     },
     {
       name: "Free Headshots",

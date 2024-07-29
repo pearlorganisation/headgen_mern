@@ -18,9 +18,12 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   (response) => {
+    console.log(response)
     return response;
   },
   async (error) => {
+    console.log(error)
+
     let errorMessage = "";
     // Do something with response error
     let loggedInUserName = 'admin';
