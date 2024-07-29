@@ -957,7 +957,7 @@ const Home = () => {
 
               <span>Questions</span>
             </div>
-            <div className="text-[#F1F1F1] text-[14px]">
+            <div className="text-[#F1F1F1] text-center text-[12px] md:text-[14px]">
               E-mail is at support@headgen.ai we are available round the clock.
             </div>
           </div>
@@ -1074,14 +1074,13 @@ const Home = () => {
 
         <div className="w-full flex justify-center">
           <div className="flex flex-col items-center justify-center gap-4 md:gap-6 top-0">
-            <div className="text-center space-x-3 md:space-x-0 md:grid text-[#F1F1F1] text-[32px] md:text-[42px] lg:text-[52px] 2xl:text-[60px] font-medium">
+            <div className="text-center space-x-3 md:space-x-0 md:grid text-[#F1F1F1] text-[26px] sm:text-[32px] md:text-[42px] lg:text-[52px] 2xl:text-[60px] font-medium">
               <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
                 Money-Back
               </span>
-
               <span>Guarantee</span>
             </div>
-            <div className="text-[#F1F1F1] text-[14px]">
+            <div className="text-[#F1F1F1] text-center text-[10px] md:text-[14px]">
               Try Headgen.ai with confidence. Our results are Mind blowing.
             </div>
             <Link

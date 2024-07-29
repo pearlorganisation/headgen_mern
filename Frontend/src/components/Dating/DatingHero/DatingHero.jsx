@@ -16,7 +16,7 @@ const DatingHero = () => {
           <div>matches with our</div>
           <div>AI dating photos</div>
         </div>
-        <div className="text-[12px]  lg:text-[14px] 2xl:text-[16px] text-[#F1F1F1] text-center md:text-left">
+        <div className="text-[11px] sm:text-[13px] lg:text-[14px] 2xl:text-[16px] text-[#F1F1F1] text-center md:text-left">
           <div>
             Use our AI headshot generator built by AI researchers to improve
             your dating

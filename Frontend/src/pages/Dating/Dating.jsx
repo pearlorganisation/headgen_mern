@@ -136,39 +136,41 @@ const Dating = () => {
       </div>
 
       <div className="flex flex-wrap gap-20 lg:gap-0 justify-between cursor-default">
-        <div className="grid lg:grid-cols-[auto_25rem] gap-10">
+        <div className="grid lg:grid-cols-[auto_25rem] gap-20 md:gap-10">
           <div className="relative  w-full bg-gradient-to-br from-[#c4325eab] to-[#e60045c2] rounded-2xl shadow-[0_0_0_1px_#ffffff] pt-10 px-4 md:px-6 transition duration-500">
             <div className="absolute bg-white shadow-[0_0_0_1px_#ffffff] w-2/5 flex justify-center gap-2 top-0 right-0 p-2 rounded-[0_1rem_0_1rem] text-sm md:text-lg 2xl:text-[24px]">
               <span>It's a</span>{" "}
               <span className="font-bold italic">Match!</span>
             </div>
             <div className="flex flex-col gap-10  h-full">
-              <div className="flex flex-col md:flex-row justify-start gap-10 items-center w-full ">
-                <div className="w-fit  md:-translate-y-28">
+              <div className="flex flex-col sm:flex-row justify-start gap-10 items-center w-full ">
+                <div className="w-fit flex justify-center sm:block !max-h-[500px] sm:-translate-y-28">
                   <LazyLoadImage
                     src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023815/Untitled_design_68_zueeax.webp"
-                    width={"400px"}
+                    width={300}
+                    height={500}
                     className="w-auto h-full"
                   />
                 </div>
-                <div className="flex w-full flex-col justify-normal sm:justify-center !text-responsive  leading-tight items-center md:items-start font-semibold text-[#F1F1F1] col-span-2 lg:col-span-2 px-2 sm:px-0">
+                <div className="pb-4 md:pb-0 flex w-full flex-col justify-normal sm:justify-center !text-responsive  leading-tight items-center sm:items-start font-semibold text-[#F1F1F1] col-span-2 lg:col-span-2 px-2 sm:px-0">
                   <div>Higher</div>
                   <div>Quality</div>
                   <div>Conversations</div>
+                  <div className="flex flex-col gap-2 text-[#f1f1f1] text-center sm:text-left text-sm md:text-xl pb-4">
+                    Not only will you get more matches, our AI dating photos
+                    will also increase the quality of your matches.
+                  </div>
                 </div>
-              </div>
-              <div className="hidden md:flex flex-col gap-2 text-[#f1f1f1] text-base md:text-2xl">
-                Not only will you get more matches, our AI dating photos will
-                also increase the quality of your matches.
               </div>
             </div>
           </div>
           <div className="w-full flex flex-col gap-10 ">
             <div className="w-full !glassMorphism !bg-gradient-to-br !from-[#10151dde] to-[#121720de] py-10 rounded-2xl relative px-8 shadow-[0_0_0_1px_#ffffff] h-2/3">
-              <div className="absolute w-[220px] h-[200px] -top-8 -translate-y-10 -right-5">
+              <div className="absolute w-[170px] h-[150px] sm:w-[220px] sm:h-[200px] !max-h-[200px] -top-8 -translate-y-10 -right-5">
                 <LazyLoadImage
                   src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023816/Corporate_HeadShots_wscmqk.webp"
-                  width={"600px"}
+                  width={220}
+                  height={200}
                   className="h-full w-full"
                 />
               </div>

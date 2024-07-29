@@ -57,15 +57,15 @@ const ContactUs = () => {
         Contact Us
       </div>
 
-      <div className="flex gap-10 font-regular text-[#f1f1f1]">
+      <div className="flex flex-col md:flex-row gap-10 font-regular text-[#f1f1f1]">
         {contactContent &&
           contactContent?.map((item) => (
-            <div className="w-[48%] shadow-[0_0_0_1px_#F1F1F1] rounded-xl p-6 flex flex-col gap-2  text-md bg-gradient-to-r from-[#295ac4] to-[#0a3797] cursor-default hover:-translate-y-2 transition duration-1000">
-              <div className="flex font-semibold gap-2">
+            <div className="w-full md:w-[48%] shadow-[0_0_0_1px_#F1F1F1] rounded-xl p-6 flex flex-col gap-2  text-md bg-gradient-to-r from-[#295ac4] to-[#0a3797] cursor-default hover:-translate-y-2 transition duration-1000">
+              <div className="flex flex-col sm:flex-row font-semibold gap-2">
                 <div className="font-bold">{item?.title}</div>
-                {item?.heading}
+                <div className="text-sm sm:text-base">{item?.heading}</div>
               </div>
-              <div className="leading-7 xl:leading-9  font-semibold">
+              <div className="text-sm sm:text-base leading-7 xl:leading-9  font-semibold">
                 {item?.content}
               </div>
             </div>
