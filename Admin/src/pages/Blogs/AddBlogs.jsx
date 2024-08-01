@@ -31,7 +31,7 @@ const AddBlogs = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data)
+    
     if (isLoading) return;
     setIsLoading(true);
     const formData = new FormData();

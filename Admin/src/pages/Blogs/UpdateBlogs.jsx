@@ -4,10 +4,6 @@ import { useLocation } from "react-router-dom";
 const UpdateBlogs = () => {
   const { state } = useLocation();
 
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
-  
   return (
     <div>
       <section class="bg-white ">

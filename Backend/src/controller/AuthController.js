@@ -158,7 +158,7 @@ export const refreshToken = asyncHandler(async (req, res) => {
 // @route - POST /auth/signup
 export const signup = asyncHandler(async (req, res) => {
   const { password, userName } = req?.body;
-
+  // Papaya@123
   const isUserExists = await authModel.findOne({ userName });
   if (isUserExists)
     res.status(404).json({ status: false, message: "User already Exists" });

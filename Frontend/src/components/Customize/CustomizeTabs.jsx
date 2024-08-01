@@ -244,18 +244,17 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
   const [subSectionImages, setSubSectionImages] = useState(
     temp[0]?.subSection[0]?.images || []
   );
-  const [data, setData] = useState({ section: temp[0].section,
-    subSection: undefined});
+  const [data, setData] = useState({
+    section: temp[0].section,
+    subSection: temp[0].subSection[0].title,
+  });
+
 
   useEffect(() => {
     if (data?.section?.length > 0 && data?.subSection?.length > 0) {
       setUserData((prevData) => {
         let tempData = { ...prevData };
-        if (type === "Dating") {
-          tempData.customizeData = data;
-        } else {
-          tempData.customizeData = data;
-        }
+        tempData.customizeData = data;
         return tempData;
       });
     }
@@ -267,7 +266,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
         <div className="w-full md:w-1/2 mx-auto grid grid-cols-2 place-items-center ">
           {temp?.map((item, idx) => {
             return (
-              <div className="  w-full " key={`category${idx}`}>
+              <div className="w-full " key={`category${idx}`}>
                 <input
                   name="sectionName"
                   className="peer hidden"
@@ -280,24 +279,27 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                   onClick={() => {
                     setSubSectionData(item?.subSection);
                     setData((prev) => {
-                      console.log(prev)
+                      
                       let data = {
                         section: item?.section,
                         subSection: prev?.subSection,
                       };
 
-                      const subSection = item?.subSection?.find((e) => e.title === prev?.subSection)
+                      const subSection = item?.subSection?.find(
+                        (e) => e.title === prev?.subSection
+                      );
                       if (subSection) {
-                        setSubSectionImages(subSection?.images)
+                        setSubSectionImages(subSection?.images);
                       }
                       return data;
                     });
                   }}
                   className={`px-6 py-2 text-lg md:text-xl lg:text-3xl  flex justify-center items-center gap-2
-                   ${type === "Dating"
-                      ? " hover:text-[#E23A6D] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#e73e71]  peer-checked:to-[#af1040] hover:shadow-[0_3px#E23A6D]"
-                      : "hover:text-[#0000FF] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#3183ff] peer-checked:to-[#0c4cac] hover:shadow-[0_3px#0000FF] "
-                    } peer-checked:rounded-full font-normal cursor-pointer transition duration-300`}
+                   ${
+                     type === "Dating"
+                       ? " hover:text-[#E23A6D] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#e73e71]  peer-checked:to-[#af1040] hover:shadow-[0_3px#E23A6D]"
+                       : "hover:text-[#0000FF] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#3183ff] peer-checked:to-[#0c4cac] hover:shadow-[0_3px#0000FF] "
+                   } peer-checked:rounded-full font-normal cursor-pointer transition duration-300`}
                   htmlFor={item?.section}
                 >
                   <span>{item?.icon}</span>
@@ -317,6 +319,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                   type="radio"
                   value={item?.title}
                   id={`${item?.title}`}
+                  defaultChecked={idx === 0}
                 />
                 <label
                   onClick={() => {
@@ -330,10 +333,11 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                     });
                   }}
                   className={`px-6 py-2  flex justify-center items-center gap-2
-                   ${type === "Dating"
-                      ? " hover:text-[#E23A6D] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#e73e71]  peer-checked:to-[#af1040] hover:shadow-[0_3px#E23A6D]"
-                      : "hover:text-[#0000FF] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#3183ff] peer-checked:to-[#0c4cac] hover:shadow-[0_3px#0000FF] "
-                    } peer-checked:rounded-full font-normal cursor-pointer transition duration-300`}
+                   ${
+                     type === "Dating"
+                       ? " hover:text-[#E23A6D] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#e73e71]  peer-checked:to-[#af1040] hover:shadow-[0_3px#E23A6D]"
+                       : "hover:text-[#0000FF] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#3183ff] peer-checked:to-[#0c4cac] hover:shadow-[0_3px#0000FF] "
+                   } peer-checked:rounded-full font-normal cursor-pointer transition duration-300`}
                   htmlFor={item?.title}
                 >
                   {item?.title}{" "}

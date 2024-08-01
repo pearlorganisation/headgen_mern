@@ -21,11 +21,7 @@ const Customize = ({
   type,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  console.log(
-    type != "Dating"
-      ? "from-[#afc5f5] to-[#6495ff]"
-      : "from-[#e73e71] to-[#af1040] "
-  );
+ 
 
   const customizePriceCardData = [
     {
@@ -48,7 +44,7 @@ const Customize = ({
   console.log("type::", type);
   const customizeData = [
     {
-      idx: 0,
+      idx: 0, 
       ele: (
         <>
           <CustomizeTabs
@@ -171,6 +167,7 @@ const Customize = ({
           email: "",
           gender: "",
           files: "",
+          customizeData: { section: "Formal", subSection: "Outdoor Park" }
         };
       });
       localStorage.clear();
@@ -183,9 +180,6 @@ const Customize = ({
     }
   }, [files]);
 
-  useEffect(() => {
-    console.log(userData);
-  }, [userData]);
 
   return (
     <>

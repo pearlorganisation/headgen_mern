@@ -11,6 +11,7 @@ import blogsRouter from './src/routes/blogsRoute.js';
 import chalk from 'chalk';
 import cookieParser from 'cookie-parser'
 import { error } from './src/middleware/error.js';
+import reviewsRouter from './src/routes/reviewsRoute.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -48,6 +49,7 @@ app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/payment', paymentsRouter)
 app.use('/api/v1/freeHeadshot', freeHeadshotRouter)
 app.use('/api/v1/blogs', blogsRouter)
+app.use('/api/v1/reviews', reviewsRouter)
 
 app.use(error)
 
