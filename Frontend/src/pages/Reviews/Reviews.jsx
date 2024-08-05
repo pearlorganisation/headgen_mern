@@ -27,6 +27,7 @@ const Reviews = () => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/reviews?page=${page}`)
       .then((res) => {
+        console.log(res)
         setIsLoading(false);
         setReviewsData(res.data.reviewsData);
         setTotalPages(res?.data?.totalPages);
@@ -42,22 +43,22 @@ const Reviews = () => {
     setSearchParams({ page: p });
   };
 
-  useEffect(() => {
-    const data = [
-      {
-        image:
-          "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/snqcx5gvbg2bp1jrwxju.webp",
-        title: "Review 1",
-        review: "this is just a simple review by me",
-        name: "Jai Singh",
-        verification: { name: "Verified Purchase", color: "#224cc2" },
-        stars: 5,
-        email: "jai@pearlorganisation.com",
-      },
-    ];
-    setReviewsData(data);
-    setIsLoading(false);
-  }, []);
+  // useEffect(() => {
+  //   const data = [
+  //     {
+  //       image:
+  //         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/snqcx5gvbg2bp1jrwxju.webp",
+  //       title: "Review 1",
+  //       review: "this is just a simple review by me",
+  //       name: "Jai Singh",
+  //       verification: { name: "Verified Purchase", color: "#224cc2" },
+  //       stars: 5,
+  //       email: "jai@pearlorganisation.com",
+  //     },
+  //   ];
+  //   setReviewsData(data);
+  //   setIsLoading(false);
+  // }, []);
 
   return (
     <div className="min-h-screen grid place-items-center text-white">
@@ -129,7 +130,7 @@ const Reviews = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
-              {reviewsData ? (
+              {reviewsData && reviewsData?.length > 0 ? (
                 reviewsData.map((item) => {
                   return (
                     <div className="relative rounded-lg group overflow-hidden shadow-lg cursor-pointer transition duration-300">
