@@ -39,16 +39,16 @@ const Sidebar = () => {
             </Link>
           </li>
 
-          {/*           
+                   
           <li>
             <Link
-              to="/perfumenotes"
+              to="/reviews"
               className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
             >
             <CategoryIcon />
-              <span className="flex-1 ms-3 whitespace-nowrap">Perfume Notes</span>
+              <span className="flex-1 ms-3 whitespace-nowrap">Reviews</span>
             </Link>
-          </li> */}
+          </li> 
 
           <li>
             <div

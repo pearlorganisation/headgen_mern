@@ -1,41 +1,41 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const reviewSchema = new mongoose.Schema({
-    image:{
-        type: [],
-    },
+  image: {
+    type: [],
+  },
   title: {
-    type: String, 
-    required: [true, 'Title is required']
+    type: String,
+    required: [true, "Title is required"],
   },
   review: {
-    type: String, 
-    required: [true, 'Review is required']
+    type: String,
+    required: [true, "Review is required"],
   },
   name: {
-    type: String, 
-    required: [true, 'Name is required']
+    type: String,
+    required: [true, "Name is required"],
   },
-  verification: { 
+  verification: {
     name: {
-        type: String, 
-        required: [true, 'Verification name is required']
-      },
+      type: String,
+      required: [true, "Verification name is required"],
+    },
     color: {
-        type: String, 
-        required: [true, 'Color is required'],
-        default: "#224cc2"
-      }
-     },
+      type: String,
+      required: [true, "Color is required"],
+      default: "#224cc2",
+    },
+  },
   stars: {
     type: Number,
-    required: [true, 'Star Ratings are required'],
-    default: 0
+    required: [true, "Star Ratings are required"],
+    default: 0,
   },
   email: {
     type: String,
-    required: [true, 'email is required']
+    required: [true, "email is required"],
   },
-})
+});
 
-export const reviewsModel = mongoose.model('reviews',reviewSchema, 'reviews')
+export const reviewsModel = mongoose.model("reviews", reviewSchema, "reviews");

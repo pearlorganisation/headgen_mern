@@ -1,7 +1,6 @@
 import { asyncHandler } from "../utils/errorHandler/asyncHandler.js";
 import { blogsModel } from "../model/blogsModel.js";
 import { uploadFile } from "../utils/cloudinary.js";
-import chalk from "chalk";
 
 export const getBlogs = asyncHandler(async (req, res) => {
   const limit = req?.query?.limit || 12;
@@ -16,6 +15,13 @@ export const getBlogs = asyncHandler(async (req, res) => {
 
   res.status(200).json({ status: true, totalPages, blogsData: result });
 });
+
+export const getRecentBlogs = asyncHandler(async (req, res) => {
+  const limit = 3
+  const result = await blogsModel.find().limit(limit)
+
+  res.status(200).json({status: true, blogsData: result})
+})
 
 export const getBlogData = asyncHandler(async (req, res) => {
   const { blogId } = req.params;

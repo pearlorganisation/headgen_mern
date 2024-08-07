@@ -17,6 +17,9 @@ import NotFound from "./pages/NotFound/NotFound";
 import Blogs from "./pages/Blogs/Blogs";
 import AddBlogs from "./pages/Blogs/AddBlogs";
 import UpdateBlogs from "./pages/Blogs/UpdateBlogs";
+import AddReviews from "./pages/Reviews/AddReviews";
+import UpdateReviews from "./pages/Reviews/UpdateReviews";
+import Reviews from "./pages/Reviews/Reviews";
 
 const isUserLoggedIn = localStorage.getItem("isusrlgd");
 
@@ -48,6 +51,20 @@ const App = () => {
           path: "/blogs/update/:id",
           element: <UpdateBlogs />,
         },
+
+        {
+          path: "/reviews",
+          element: <Reviews />,
+        },
+        {
+          path: "/reviews/add",
+          element: <AddReviews />,
+        },
+        {
+          path: "/reviews/update/:id",
+          element: <UpdateReviews />,
+        },
+
       ],
     },
     {
