@@ -2,21 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Pagination from "@mui/material/Pagination";
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import DOMPurify from "dompurify";
 import Skeleton from "@mui/material/Skeleton";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-const useStyles = makeStyles({
-  ul: {
-    "& .MuiPaginationItem-root": {
-      color: "white",
-    },
+const StyledPagination = styled(Pagination)(({ theme }) => ({
+  "& .MuiPaginationItem-root": {
+    color: "white",
   },
-});
+}));
 
 const Blog = () => {
-  const classes = useStyles();
   const [blogData, setBlogData] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
   const [page, setPage] = useState(searchParams.get("page") || 1);
@@ -156,11 +153,10 @@ const Blog = () => {
         </div>
         {!isLoading && blogData && (
           <div className="flex flex-row justify-center w-full">
-            <Pagination
+            <StyledPagination
               count={totalPages}
               page={Number(page)}
               color="primary"
-              classes={{ ul: classes.ul }}
               onChange={handlePagination}
             />
           </div>

@@ -2,21 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Pagination from "@mui/material/Pagination";
-import { makeStyles } from "@mui/styles";
-import DOMPurify from "dompurify";
 import Skeleton from "@mui/material/Skeleton";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { styled } from "@mui/material";
 
-const useStyles = makeStyles({
-  ul: {
-    "& .MuiPaginationItem-root": {
-      color: "white",
-    },
+const StyledPagination = styled(Pagination)(({ theme }) => ({
+  "& .MuiPaginationItem-root": {
+    color: "white",
   },
-});
-
+}));
 const Reviews = () => {
-  const classes = useStyles();
   const [reviewsData, setReviewsData] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
   const [page, setPage] = useState(searchParams.get("page") || 1);
@@ -166,12 +161,12 @@ const Reviews = () => {
                           {item?.review}
                         </p>
                       </div>
-                      {item?.image && (
+                      {item?.image[0]?.url && (
                         <LazyLoadImage
                           alt="reviews image"
                           className="w-full h-56 object-cover"
                           height={400}
-                          src={item?.image}
+                          src={item?.image[0]?.url}
                           style={{
                             aspectRatio: "1920/1080",
                             objectFit: "cover",
@@ -192,11 +187,10 @@ const Reviews = () => {
         </div>
         {!isLoading && reviewsData && (
           <div className="flex flex-row justify-center w-full">
-            <Pagination
+            <StyledPagination
               count={totalPages}
               page={Number(page)}
               color="primary"
-              classes={{ ul: classes.ul }}
               onChange={handlePagination}
             />
           </div>

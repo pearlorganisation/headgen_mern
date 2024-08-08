@@ -1,24 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import axios from "axios";
-import Pagination from "@mui/material/Pagination";
-import { makeStyles } from "@mui/styles";
-import DOMPurify from "dompurify";
-import Skeleton from "@mui/material/Skeleton";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import StarRating from "../../components/StarRating/StarRating";
+import { Toaster, toast } from "sonner";
 
-const useStyles = makeStyles({
-  ul: {
-    "& .MuiPaginationItem-root": {
-      color: "white",
-    },
-  },
-});
+
 
 const AddReview = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showReviewForm, setShowReviewForm] = useState(false);
+  const [stars, setStars] = useState(0);
 
   const {
     register,
@@ -26,14 +16,51 @@ const AddReview = () => {
     watch,
     formState: { errors },
     control,
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    if (isLoading) return;
+    setIsLoading(true);
+    const formData = new FormData();
+    const { image } = data;
+    if (image) {
+      formData.append("image", image[0]);
+    }
+    formData.append("review", data.review);
+    formData.append("title", data.title);
+    formData.append("stars", data.stars);
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+
+    // api call here
+    axios
+      .post(`/reviews`, formData)
+      .then((res) => {
+        reset();
+        setIsLoading(false);
+        toast.success(res.data.message, {
+          style: {
+            background: "green",
+            color: "white",
+          },
+        });
+      })
+      .catch((err) => {
+        reset();
+        setIsLoading(false);
+        toast.error(err, {
+          style: {
+            background: "red",
+            color: "white",
+          },
+        });
+      });
   };
 
   return (
     <div className="min-h-screen grid place-items-center text-white">
+      <Toaster />
       <section className="py-28 flex flex-col gap-10">
         <div className="container px-4 md:px-6">
           {!showReviewForm ? (
@@ -63,6 +90,21 @@ const AddReview = () => {
                 <div className="w-full">
                   <label
                     class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    for="name"
+                  >
+                    Name:
+                  </label>
+                  <input
+                    {...register("name", { required: true })}
+                    id="name"
+                    placeholder="name"
+                    className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline"
+                    type="text"
+                  />
+                </div>
+                <div className="w-full">
+                  <label
+                    class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     for="email"
                   >
                     E-Mail:
@@ -76,7 +118,31 @@ const AddReview = () => {
                   />
                 </div>
                 <div className="w-full">
-                <label
+                  <label
+                    class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    for="title"
+                  >
+                    Title:
+                  </label>
+                  <input
+                    {...register("title", { required: true })}
+                    id="title"
+                    placeholder="title"
+                    className="w-full !text-black rounded-md border border-solid px-4 py-2 text-base leading-[140%]  outline-none  focus:outline-none focus:ring-[2px] focus:ring-blue-600 focus:hover:border-blue-500 active:outline"
+                    type="text"
+                  />
+                </div>
+                <div className="w-full">
+                  <label
+                    class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    for="title"
+                  >
+                    Rating:
+                  </label>
+                  <StarRating />
+                </div>
+                <div className="w-full">
+                  <label
                     class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     for="review"
                   >
@@ -103,7 +169,6 @@ const AddReview = () => {
                     id="file_input"
                     type="file"
                     {...register("image", { required: false })}
-                    
                   />
                 </div>
                 <button

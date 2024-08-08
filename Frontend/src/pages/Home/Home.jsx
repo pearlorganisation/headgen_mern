@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios'
 import BeforeAfterSlider from "../../components/BeforeAfterSlider/BeforeAfterSlider";
 import InfinitySlider from "../../components/InfinitySlider/InfinitySlider";
 import FaqAccordian from "../../components/FaqAccordian/FaqAccordian";
@@ -16,71 +17,72 @@ import AsSeenOn from "../../components/AsSeenOn/AsSeenOn";
 
 const Home = () => {
   const [isAnimated, setIsAnimated] = useState(false);
+  const [blogData, setBlogData] = useState(null)
 
   const imgData1 = [
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722235149/HeadGen_AI_HeadShots_7_vqu14t.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722235053/HeadGen_AI_HeadShots_6_mws1op.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234954/HeadGen_AI_HeadShots_5_ur8a05.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234896/HeadGen_AI_HeadShots_2_cueds0.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234895/HeadGen_AI_HeadShots_gkz5mj.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234891/HeadGen_AI_HeadShots_9_tzkq9v.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234890/HeadGen_AI_HeadShots_8_tpqcon.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722235149/HeadGen_AI_HeadShots_7_vqu14t.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1IOdDiEkZd6_mDZcTHbwlxHTn_UvD3b8u&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722235053/HeadGen_AI_HeadShots_6_mws1op.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1GUyv6jlwuNGrbaT6Yrd-GLY8pIF-keXf&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234954/HeadGen_AI_HeadShots_5_ur8a05.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=15HVg-zhaBCYOB0Oc2Oo--UrS6AlYZuiL&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234896/HeadGen_AI_HeadShots_2_cueds0.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1HMLeKlSPY97lR-viypYIXazQF8uKjra5&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234895/HeadGen_AI_HeadShots_gkz5mj.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1AdTy58hl9yEcyjXuvp1F-UAPI8vrNQqh&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234891/HeadGen_AI_HeadShots_9_tzkq9v.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234890/HeadGen_AI_HeadShots_8_tpqcon.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1IOdDiEkZd6_mDZcTHbwlxHTn_UvD3b8u&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234954/HeadGen_AI_HeadShots_5_ur8a05.webp",
     },
     {
       name: "",
-      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234896/HeadGen_AI_HeadShots_2_cueds0.webp",
     },
   ];
 
@@ -314,21 +316,21 @@ const Home = () => {
       content:
         "Start your professional AI image generation experience by uploading your selfie.",
       imgPath:
-        "https://drive.google.com/thumbnail?id=1Z2eHvjtVo6jYo9EGwSPYILub23hsMxBY&sz=s600",
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234855/HeadGen_AI_15_f5art0.webp",
     },
     {
       title: "Make Payment",
       content:
         "Make your payment to unlock the power of AI and transform your image into stunning professional images.",
       imgPath:
-        "https://drive.google.com/thumbnail?id=1pndNiBuEgvuDl_RVGFTpw_W6vCCWvCn1&sz=s600",
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234854/HeadGen_AI_16_zrurrd.webp",
     },
     {
       title: "Get Professional Images",
       content:
         "Get professional images all delivered to you within a swift window of time.",
       imgPath:
-        "https://drive.google.com/thumbnail?id=17smkegUhG8QWeR3v8xMhLqx8gGPG8l1a&sz=s600",
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1722234854/HeadGen_AI_17_arw1w9.webp",
     },
   ];
 
@@ -400,7 +402,7 @@ const Home = () => {
       title: "Linkedin Photo",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "https://drive.google.com/thumbnail?id=1SC-xFjJKwj9IUmnK8rYdoJnVAcg5-wQH&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1723101550/HeadGen_AI_HeadShots_9_lhlcoo.webp",
       svg: (
         <>
           <FaLinkedin size={22} className="text-blue-500" />
@@ -411,7 +413,7 @@ const Home = () => {
       title: "Resume",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "https://drive.google.com/thumbnail?id=1qYhll_Ny7A4pJhoPPvW6743tYJiE7yWP&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1723101549/HeadGen_AI_HeadShots_8_lmyrof.webp",
       svg: (
         <>
           <IoDocumentTextOutline size={22} className="text-blue-500" />
@@ -433,7 +435,7 @@ const Home = () => {
       title: "Portfolio Website",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "https://drive.google.com/thumbnail?id=1oIOd5rDDBUX19HTiz5eDLokW57w1X0nF&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1723101550/HeadGen_AI_HeadShots_10_doxubx.webp",
       svg: (
         <>
           <LazyLoadImage
@@ -447,33 +449,12 @@ const Home = () => {
       title: "Job Portal",
       content:
         "Get an authentic, professionally generated AI headshot that appears professionally shot.",
-      path: "https://drive.google.com/thumbnail?id=1zltDX4qtRqhuof60XWaTdOwQXSCQhETw&sz=s600",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1723101551/HeadGen_AI_HeadShots_zazqd5.webp",
       svg: (
         <>
           <LazyLoadImage src="/Indeed_logo.png" className="h-[16px]" />
         </>
       ),
-    },
-  ];
-
-  const blogData = [
-    {
-      title: "",
-      content: "10 Tips to Generate the Best AI Headshots",
-      imgPath: "/aiBlog/1.png",
-      btnLink: "/",
-    },
-    {
-      title: "",
-      content: "Can you use Professional Headshots on LinkedIn?",
-      imgPath: "/aiBlog/2.png",
-      btnLink: "/",
-    },
-    {
-      title: "",
-      content: "Do’s & Don’ts for the best results for AI Image Generation",
-      imgPath: "/aiBlog/3.png",
-      btnLink: "/",
     },
   ];
 
@@ -502,6 +483,14 @@ const Home = () => {
   ];
 
   useEffect(() => {
+
+    axios.get(`${import.meta.env.VITE_API_URL}/blogs/recent`).then((res) => {
+      console.log(res.data.blogsData)
+      setBlogData(res.data.blogsData)
+    }).catch((err) => {
+      console.error(err)
+    })
+
     // Set a small delay before applying the animation class
     const timeout = setTimeout(() => {
       setIsAnimated(true);
@@ -1092,18 +1081,19 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      <div className="flex flex-col gap-24 px-10 md:px-16 2xl:px-[200px]">
-        <div className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
-          <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-            HeadGen
-          </span>{" "}
-          AI Blog
+      {blogData && blogData?.length > 0 && (
+        <div className="flex flex-col gap-24 px-10 md:px-16 2xl:px-[200px]">
+          <div className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
+            <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+              HeadGen
+            </span>{" "}
+            AI Blog
+          </div>
+          <div>
+            <BlogCards data={blogData} />
+          </div>
         </div>
-        <div>
-          <BlogCards data={blogData} />
-        </div>
-      </div>
+      )}
     </div>
   );
 };

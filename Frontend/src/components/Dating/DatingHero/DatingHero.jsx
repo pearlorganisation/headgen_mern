@@ -36,7 +36,7 @@ const DatingHero = () => {
       </div>
       <div className="w-full flex flex-col justify-center items-end">
         <LazyLoadImage
-          src="https://lh3.googleusercontent.com/d/11mgX3mlp1kIqIc9ehghQ8DRzD1GVBwvv=s800?authuser=0"
+          src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1723100630/HeadGen_AI_Dating_xnvsvi.webp"
           className="w-full !max-h-[700px]"
           alt=""
           height={700}
