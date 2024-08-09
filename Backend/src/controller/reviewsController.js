@@ -27,14 +27,16 @@ export const getReviewData = asyncHandler(async (req, res) => {
 export const addReview = asyncHandler(async (req, res) => {
   const image = await uploadFile(req?.files);
   const customer = await customersModel.findOne({ email: req.body.email });
-  let verification = { name: "Unverified", color: "#000000" };
-  switch (customer.generationType) {
-    case "freeHeadshot":
-      verification = { name: "Free Headshot", color: "#4a0f93" };
-      break;
-    default:
-      verification = { name: "Verified Purchase", color: "#224cc2" };
-      break;
+  let verification = { name: "Unverified", color: "#000000" }
+  if(customer){
+    switch (customer?.generationType) {
+      case "freeHeadshot":
+        verification = { name: "Free Headshot", color: "#4a0f93" };
+        break;
+      default:
+        verification = { name: "Verified Purchase", color: "#224cc2" };
+        break;
+    }
   }
 
   const payload = {
