@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, Navigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Pagination from "@mui/material/Pagination";
 import Skeleton from "@mui/material/Skeleton";
@@ -11,6 +11,7 @@ const StyledPagination = styled(Pagination)(({ theme }) => ({
     color: "white",
   },
 }));
+
 const Reviews = () => {
   const [reviewsData, setReviewsData] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
@@ -18,11 +19,13 @@ const Reviews = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
+
+
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/reviews?page=${page}`)
       .then((res) => {
-        console.log(res)
+        console.log(res);
         setIsLoading(false);
         setReviewsData(res.data.reviewsData);
         setTotalPages(res?.data?.totalPages);
@@ -37,23 +40,6 @@ const Reviews = () => {
     setPage(p);
     setSearchParams({ page: p });
   };
-
-  // useEffect(() => {
-  //   const data = [
-  //     {
-  //       image:
-  //         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/snqcx5gvbg2bp1jrwxju.webp",
-  //       title: "Review 1",
-  //       review: "this is just a simple review by me",
-  //       name: "Jai Singh",
-  //       verification: { name: "Verified Purchase", color: "#224cc2" },
-  //       stars: 5,
-  //       email: "jai@pearlorganisation.com",
-  //     },
-  //   ];
-  //   setReviewsData(data);
-  //   setIsLoading(false);
-  // }, []);
 
   return (
     <div className="min-h-screen grid place-items-center text-white">
@@ -128,7 +114,7 @@ const Reviews = () => {
               {reviewsData && reviewsData?.length > 0 ? (
                 reviewsData.map((item) => {
                   return (
-                    <div className="relative rounded-lg group overflow-hidden shadow-lg cursor-pointer transition duration-300">
+                    <div className="md:min-w-[300px] relative rounded-lg group overflow-hidden shadow-lg cursor-pointer transition duration-300">
                       <div
                         className={`absolute bg-white text-center w-1/3 top-0 right-0 font-semibold text-xs italic rounded-bl`}
                         style={{ color: item?.verification?.color }}

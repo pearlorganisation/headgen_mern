@@ -340,13 +340,14 @@ export const sendMailToTeamsCustomer = async (userData) => {
                 <td>${customerData.teamName}</td>
             </tr>
              ${
-               customerData?.website?.length > 0 ?
-               `
+               customerData?.website?.length > 0
+                 ? `
               <tr>
                 <td><strong>Website</strong></td>
                 <td>${customerData.website}</td>
               </tr>              
-              ` : ``
+              `
+                 : ``
              }
 
             <tr>
@@ -383,7 +384,6 @@ export const sendMailToTeamsCustomer = async (userData) => {
 </html>
 `;
 
-
   // send mail with defined transport object
   const info = await transporter.sendMail({
     from: process.env.MAIL_ID, // sender address
@@ -403,20 +403,17 @@ export const sendMailToTeamsCustomer = async (userData) => {
   });
 };
 
-
-
-// Free headshot 
+// Free headshot
 
 export const sendMailToFreeCustomer = async (userData, images) => {
-    const body = JSON.parse(userData.body);
-  
-    let imgTableRows = "";
-    images?.forEach((item, idx) => {
-      imgTableRows += `<a href=${item.url}>Image ${idx + 1}</a><br>`;
-    });
-  
-     
-    const htmlContent = `
+  const body = JSON.parse(userData.body);
+
+  let imgTableRows = "";
+  images?.forEach((item, idx) => {
+    imgTableRows += `<a href=${item.url}>Image ${idx + 1}</a><br>`;
+  });
+
+  const htmlContent = `
     
     <!DOCTYPE html>
       <html lang="en">
@@ -542,20 +539,135 @@ export const sendMailToFreeCustomer = async (userData, images) => {
   </html>
   
     `;
-    // send mail with defined transport object
-    const info = await transporter.sendMail({
-      from: process.env.MAIL_ID, // sender address
-      to: body.email, // list of receivers
-      subject: "Order confirmed - Headgen AI", // Subject line
-      html: htmlContent, // html body
-    });
+  // send mail with defined transport object
+  const info = await transporter.sendMail({
+    from: process.env.MAIL_ID, // sender address
+    to: body.email, // list of receivers
+    subject: "Order confirmed - Headgen AI", // Subject line
+    html: htmlContent, // html body
+  });
+
+  // send mail to seller
+
+  await transporter.sendMail({
+    from: process.env.MAIL_ID, // sender address
+    to: process.env.SELLER_MAIL, // list of receivers
+    subject: `Free Order by ${body.email}`, // Subject line
+    html: htmlContent, // html body
+  });
+};
+
+export const sendMailForReview = async (email, coupon) => {
+  const htmlContent = `
+    
+    <!DOCTYPE html>
+      <html lang="en">
+      <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+      <title>Coupon for your review</title>
+      <style>
+          body {
+              background-color: #000000;
+              color: #ffffff;
+              margin: 0;
+              padding: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              font-family: 'Oswald', sans-serif;
+          }
+          .imgB {
+              border-radius: 12px;
+          }
+          .container {
+              width: 650px;
+              border: 5px solid #204CC6;
+              padding: 20px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+              background: linear-gradient(135deg, #000000, #000b3b);
+              border-radius: 15px;
+          }
+          .header {
+              text-align: center;
+              margin-bottom: 20px;
+          }
+          .header img {
+              width: 150px;
+          }
+          .title {
+              font-size: 24px;
+              font-weight: bold;
+          }
+          table {
+              width: 100%;
+              border-collapse: collapse;
+          }
+          td {
+              padding: 10px;
+              color: #ffffff;
+          }
+          .bd {
+              border-bottom: 3px solid #ffffff;
+          }
+          .total {
+              font-size: 24px;
+              font-weight: bold;
+          }
+          .footer {
+              text-align: center;
+              margin-top: 20px;
+              font-size: 12px;
+              color: #00ADEF;
+          }
+          .fHeading {
+              font-size: 18px;
+              font-weight: bold;
+          }
+          a {
+              color: #0000FF;
+              text-decoration: none;
+              font-weight: bold;
+          }
+      </style>
+    </head>
+  <body>
+      <div class="container">
+          <div class="header"></div>
+          <table>
+              <tr>
+                  <td><a href="https://headgen.ai"><img class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
+                  <td>
+                      <div class="title">Review posted</div>
+                      <span>Your Coupon code has been generated</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td style="width: 50%;"><strong>Coupon Code</strong></td>
+                  <td style="width: 50%;">${coupon}</td>
+              </tr>
+          
+        
+          </table>
+          <div class="footer">
+              <span class="fHeading">AI HEADSHOT GENERATOR</span><br>
+              <br>
+              <a href="mailto:support@headgen.ai">Playcloud Technologies Limited support@headgen.ai | +91 9820442749</a> 
+          </div>
+      </div>
+  </body>
+  </html>
   
-    // send mail to seller
-  
-    await transporter.sendMail({
-      from: process.env.MAIL_ID, // sender address
-      to: process.env.SELLER_MAIL, // list of receivers
-      subject: `Free Order by ${body.email}`, // Subject line
-      html: htmlContent, // html body
-    });
-  };
+    `;
+  // send mail with defined transport object
+  const info = await transporter.sendMail({
+    from: process.env.MAIL_ID, // sender address
+    to: email, // list of receivers
+    subject: "Review Submitted - Headgen AI", // Subject line
+    html: htmlContent, // html body
+  });
+};

@@ -2,6 +2,8 @@ import { reviewsModel } from "../model/reviewsModel.js";
 import { asyncHandler } from "../utils/errorHandler/asyncHandler.js";
 import { uploadFile } from "../utils/cloudinary.js";
 import { customersModel } from "../model/customersModel.js";
+import { sendMailForReview } from "../utils/nodeMailer.js";
+import Stripe from "stripe";
 
 export const getReviews = asyncHandler(async (req, res) => {
   const limit = req?.query?.limit || 12;
@@ -27,8 +29,9 @@ export const getReviewData = asyncHandler(async (req, res) => {
 export const addReview = asyncHandler(async (req, res) => {
   const image = await uploadFile(req?.files);
   const customer = await customersModel.findOne({ email: req.body.email });
-  let verification = { name: "Unverified", color: "#000000" }
-  if(customer){
+  const reviewExist = await reviewsModel.findOne({ email: req.body.email });
+  let verification = { name: "Unverified", color: "#000000" };
+  if (customer) {
     switch (customer?.generationType) {
       case "freeHeadshot":
         verification = { name: "Free Headshot", color: "#4a0f93" };
@@ -46,11 +49,25 @@ export const addReview = asyncHandler(async (req, res) => {
     name: req.body.name,
     verification: verification,
     stars: req.body.stars,
-    email: req.body.email
+    email: req.body.email,
   };
 
   await reviewsModel.create(payload);
-  res.status(200).json({ status: true, message: "Review saved successfully" });
+
+  if (!reviewExist && !req?.body?.fromAdmin) {
+    const stripe = Stripe(process.env.SK_LIVE);
+    const promotionCode = await stripe.promotionCodes.create({
+      coupon: 'T2QW7h46',
+    });
+    await sendMailForReview(req.body.email, promotionCode.code);
+
+  res.status(200).json({ status: true, message: "Review saved & COUPON sent to mail successfully" });
+
+
+  } else {
+    res.status(200).json({ status: true, message: "Review saved successfully" });
+  }
+
 });
 
 export const deleteReview = asyncHandler(async (req, res) => {

@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import StarRating from "../../components/StarRating/StarRating";
 import { Toaster, toast } from "sonner";
-
-
+import axios from "axios";
+import { BeatLoader } from "react-spinners";
 
 const AddReview = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [stars, setStars] = useState(0);
 
@@ -20,6 +20,14 @@ const AddReview = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    if (stars === 0) {
+      toast.error("Please rate the review", {
+        style: {
+          color: "white",
+          background: "red",
+        },
+      });
+    }
     if (isLoading) return;
     setIsLoading(true);
     const formData = new FormData();
@@ -29,13 +37,13 @@ const AddReview = () => {
     }
     formData.append("review", data.review);
     formData.append("title", data.title);
-    formData.append("stars", data.stars);
+    formData.append("stars", stars);
     formData.append("name", data.name);
     formData.append("email", data.email);
 
     // api call here
     axios
-      .post(`/reviews`, formData)
+      .post(`${import.meta.env.VITE_API_URL}/reviews`, formData)
       .then((res) => {
         reset();
         setIsLoading(false);
@@ -59,9 +67,9 @@ const AddReview = () => {
   };
 
   return (
-    <div className="min-h-screen grid place-items-center text-white">
+    <div className="pt-20 min-h-screen grid place-items-center text-white">
       <Toaster />
-      <section className="py-28 flex flex-col gap-10">
+      <section className="py-20 flex flex-col gap-10">
         <div className="container px-4 md:px-6">
           {!showReviewForm ? (
             <div className="mb-8 md:mb-10 lg:mb-12 text-center flex flex-col items-center gap-4">
@@ -132,15 +140,7 @@ const AddReview = () => {
                     type="text"
                   />
                 </div>
-                <div className="w-full">
-                  <label
-                    class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    for="title"
-                  >
-                    Rating:
-                  </label>
-                  <StarRating />
-                </div>
+
                 <div className="w-full">
                   <label
                     class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -157,6 +157,17 @@ const AddReview = () => {
                     type="text"
                   />
                 </div>
+
+                <div className="w-full">
+                  <label
+                    class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    for="rating"
+                  >
+                    Rating:
+                  </label>
+                  <StarRating id="rating" setStars={setStars} stars={stars} />
+                </div>
+
                 <div className="w-full">
                   <label
                     class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -175,7 +186,7 @@ const AddReview = () => {
                   type="submit"
                   className="py-3 bg-gradient-to-r mt-2 active:scale-[0.98] transition-all from-[#02AFDC] to-[#2563EB] w-48 rounded-lg"
                 >
-                  Submit
+                  {isLoading ? <BeatLoader color="#ffffff" /> : "Submit"}
                 </button>
               </form>
             </div>

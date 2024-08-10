@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-const StarRating = ({ setStar, totalStars = 5 }) => {
-  const [rating, setRating] = useState(0);
+const StarRating = ({ stars=0, setStars, totalStars = 5 }) => {
+  const [rating, setRating] = useState(stars);
   const [hover, setHover] = useState(0);
   const handleClick = (index) => {
-    setStar(index + 1);
+    setStars(index + 1);
     setRating(index + 1);
   };
 

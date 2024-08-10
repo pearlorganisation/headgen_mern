@@ -35,7 +35,6 @@ function App() {
     window.scrollTo({top:0, left:0, behavior: 'smooth'})
   }, [location])
   
-
   return (
     <>
       <Header />
@@ -55,7 +54,7 @@ function App() {
         <Route path="/blogs" element={<Blog />} />
         <Route path="/blog/:blogId" element={<BlogDetails />} />
         <Route path="/reviews" element={<Reviews />} />
-        <Route path="/addreview" element={<ComingSoon />} />
+        <Route path="/addreview" element={<AddReview />} />
         <Route path="/freeHeadshots" element={<FreeHeadshots />} />
         <Route path="/freeheadshotupload" element={<FreeHeadshotsTab />} />
         <Route path="*" element={<NotFound />} />

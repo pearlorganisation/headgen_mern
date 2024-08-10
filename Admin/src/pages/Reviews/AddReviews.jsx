@@ -33,6 +33,7 @@ const AddReviews = () => {
     formData.append("stars", data.stars);
     formData.append("name", data.name);
     formData.append("email", data.email);
+    formData.append("fromAdmin", true);
 
     // api call here
     instance
