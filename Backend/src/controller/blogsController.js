@@ -11,17 +11,21 @@ export const getBlogs = asyncHandler(async (req, res) => {
   const totalAttendees = await blogsModel.countDocuments();
   totalPages = Math.ceil(totalAttendees / limit);
 
-  const result = await blogsModel.find().skip(skip).limit(limit);
+  const result = await blogsModel
+    .find()
+    .select("title")
+    .skip(skip)
+    .limit(limit);
 
   res.status(200).json({ status: true, totalPages, blogsData: result });
 });
 
 export const getRecentBlogs = asyncHandler(async (req, res) => {
-  const limit = 3
-  const result = await blogsModel.find().limit(limit)
+  const limit = 3;
+  const result = await blogsModel.find().limit(limit);
 
-  res.status(200).json({status: true, blogsData: result})
-})
+  res.status(200).json({ status: true, blogsData: result });
+});
 
 export const getBlogData = asyncHandler(async (req, res) => {
   const { blogId } = req.params;
@@ -32,7 +36,6 @@ export const getBlogData = asyncHandler(async (req, res) => {
 
 export const addBlog = asyncHandler(async (req, res) => {
   const bannerImg = await uploadFile(req?.files);
-  console.log(bannerImg);
 
   const payload = {
     title: req.body.title,
@@ -41,6 +44,21 @@ export const addBlog = asyncHandler(async (req, res) => {
   };
 
   await blogsModel.create(payload);
+  res.status(200).json({ status: true, message: "Blog saved successfully" });
+});
+
+export const updateBlog = asyncHandler(async (req, res) => {
+  const payload = {
+    title: req.body.title,
+    content: req.body.content,
+  };
+
+  if (req?.files) {
+    const bannerImg = await uploadFile(req?.files);
+    payload.banner = bannerImg.result[0].url;
+  }
+
+  await blogsModel.findOneAndUpdate({_id: req.body.id }, payload);
   res.status(200).json({ status: true, message: "Blog saved successfully" });
 });
 
