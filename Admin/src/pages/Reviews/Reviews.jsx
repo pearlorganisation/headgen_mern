@@ -102,7 +102,7 @@ const Reviews = () => {
 
                     <td className="px-6 py-4">
                       <Link
-                        to={`/blogs/update/${item?._id}`}
+                        to={`/reviews/update/${item?._id}`}
                         className="font-medium text-blue-600  hover:underline"
                       >
                         Edit
