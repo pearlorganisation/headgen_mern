@@ -82,7 +82,7 @@ const Blogs = () => {
                   <th scope="col" className="px-6 py-3">
                     Title
                   </th>
-                  <th scope="col" className="col-span-2 px-6 py-3">
+                  <th scope="col" colSpan={2} className="text-center col-span-2 px-6 py-3">
                     Actions
                   </th>
                 </tr>
@@ -100,7 +100,7 @@ const Blogs = () => {
                     </th>
                     <td className="px-6 py-4">{item.title}</td>
 
-                    <td className="px-6 py-4">
+                    <td className="px-6 py-4  text-center">
                       <Link
                         to={`/blogs/update/${item?._id}`}
                         className="font-medium text-blue-600  hover:underline"
@@ -108,7 +108,7 @@ const Blogs = () => {
                         Edit
                       </Link>
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="px-6 py-4 text-center">
                       <button
                         className="font-medium text-red-600  hover:underline"
                         onClick={() => {

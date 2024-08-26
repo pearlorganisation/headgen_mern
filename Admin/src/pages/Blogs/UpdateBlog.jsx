@@ -51,6 +51,8 @@ const UpdateBlog = () => {
     reset({
       title: blogData.title,
     });
+
+    
     setValue("content", blogData.content);  // This updates the content field's value
   }, [blogData, setValue, reset]);
 

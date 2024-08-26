@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { instance } from "../../services/axiosInterceptor";
 import { Toaster, toast } from "sonner";
@@ -8,9 +8,10 @@ import { ClipLoader } from "react-spinners";
 const UpdateReview = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [imageName, setimageName] = useState({});
-  const [reviewData, setReviewData] = useState(null)
+  const [reviewData, setReviewData] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
 
-  const {reviewId} = useParams()
+  const { reviewId } = useParams();
 
   const {
     register,
@@ -23,9 +24,8 @@ const UpdateReview = () => {
     defaultValues: {},
   });
 
-
   const getReview = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     instance
       .get(`/reviews/${reviewId}`)
       .then((res) => {
@@ -36,7 +36,7 @@ const UpdateReview = () => {
         console.log(err);
         setIsLoading(false);
       });
-  }
+  };
 
   useEffect(() => {
     if (reviewId) {
@@ -44,9 +44,8 @@ const UpdateReview = () => {
     }
   }, [reviewId]);
 
-
   useEffect(() => {
-    if(!reviewData) return
+    if (!reviewData) return;
     reset({
       title: reviewData.title,
       review: reviewData.review,
@@ -54,9 +53,8 @@ const UpdateReview = () => {
       email: reviewData.email,
       stars: reviewData.stars,
     });
-  }, [reviewData])
-
-
+    setPreviewImage(reviewData.image[0]);
+  }, [reviewData]);
 
   const onSubmit = (data) => {
     if (isLoading) return;
@@ -103,6 +101,20 @@ const UpdateReview = () => {
     setimageName(temp);
   }, [temp]);
 
+
+  const convertToBase64 = () => {
+    const reader = new FileReader()
+
+    reader.readAsDataURL(selectedFile)
+    let final;
+    reader.onload = () => {
+      final = reader.result
+    }
+
+    return final
+  }
+
+
   return (
     <div className="p-10">
       <Toaster />
@@ -137,7 +149,6 @@ const UpdateReview = () => {
               placeholder="write a review of max 300 characters"
               maxLength={300}
               type="text"
-
             />
 
             {errors?.description && (
@@ -178,13 +189,17 @@ const UpdateReview = () => {
               min={0}
               max={5}
               className="w-full mt-2 me-50 px-5 py-2 text-gray-500 border-slate-300 bg-transparent outline-none border focus:border-teal-400 shadow-sm rounded-lg"
-
             />
             {errors.topic && (
               <span className="text-red-500">Reviewer name is required</span>
             )}
           </div>
           <div className="flex-1 items-center mx-auto mb-3 space-y-4 sm:flex sm:space-y-0">
+            {previewImage && (
+              <div className="w-full">
+                <img src={previewImage.url} />
+              </div>
+            )}
             <div className="relative w-full space-y-1">
               <label htmlFor="input" className="font-medium ">
                 Image (optional)
@@ -225,6 +240,9 @@ const UpdateReview = () => {
                     className="hidden"
                     accept="image/png,image/jpeg,image/webp"
                     id="input"
+                    onChange={(e) => {
+                      setPreviewImage(convertToBase64(e.target.files[0]));
+                    }}
                   />
                 </label>
               </div>

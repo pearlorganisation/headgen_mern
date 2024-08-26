@@ -48,18 +48,28 @@ export const addBlog = asyncHandler(async (req, res) => {
 });
 
 export const updateBlog = asyncHandler(async (req, res) => {
+
+
+  const {blogId} = req.params
+
+  if(!blogId){
+    res.status(500).json({status: false, message: 'Missing Blog ID'})
+  }
+
   const payload = {
     title: req.body.title,
     content: req.body.content,
   };
 
-  if (req?.files) {
+  console.log(payload)
+
+  if (req?.files && req?.files?.length > 0) {
     const bannerImg = await uploadFile(req?.files);
     payload.banner = bannerImg.result[0].url;
   }
 
-  await blogsModel.findOneAndUpdate({_id: req.body.id }, payload);
-  res.status(200).json({ status: true, message: "Blog saved successfully" });
+  await blogsModel.findOneAndUpdate({_id: blogId}, payload);
+  res.status(200).json({ status: true, message: "Blog Updated successfully" });
 });
 
 export const deleteBlog = asyncHandler(async (req, res) => {

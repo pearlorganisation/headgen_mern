@@ -70,6 +70,33 @@ export const addReview = asyncHandler(async (req, res) => {
 
 });
 
+export const updateReview = asyncHandler(async (req, res) => {
+
+
+  const {reviewId} = req.params
+
+  if(!reviewId){
+    res.status(500).json({status: false, message: 'Missing Review ID'})
+  }
+  const payload = {
+    title: req.body.title,
+    review: req.body.review,
+    name: req.body.name,
+    stars: req.body.stars,
+    email: req.body.email,
+  };
+
+
+  if (req?.files && req?.files?.length > 0) {
+    const reviewImg = await uploadFile(req?.files);
+    payload.image = reviewImg.result[0];
+  }
+
+  await reviewsModel.findOneAndUpdate({_id: reviewId}, payload);
+  res.status(200).json({ status: true, message: "Review Updated successfully" });
+});
+
+
 export const deleteReview = asyncHandler(async (req, res) => {
   const { reviewId } = req.params;
   if (!reviewId) {

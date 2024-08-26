@@ -7,7 +7,6 @@ paymentsRouter.route("/checkout").post(upload.array("images"),checkout);
 paymentsRouter.route("/complete").get(complete);
 paymentsRouter.route("/cancel").get(cancel); 
 
-
 paymentsRouter.route("/teamscheckout").post(teamsCheckout);
 paymentsRouter.route("/teamscomplete").get(teamsComplete);
 paymentsRouter.route("/teamscancel").get(teamsCancel); 
