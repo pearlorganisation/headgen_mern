@@ -11,7 +11,8 @@ const UpdateBlog = () => {
   const [blogData, setBlogData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [bannerName, setBannerName] = useState({});
-  const [contentData, setContentData] = useState("");
+  const [selectedBanner, setSelectedBanner] = useState(null)
+  const [previewImage, setPreviewImage] = useState(null);
   const { blogId } = useParams();
 
   const {
@@ -51,9 +52,9 @@ const UpdateBlog = () => {
     reset({
       title: blogData.title,
     });
-
-    
-    setValue("content", blogData.content);  // This updates the content field's value
+    console.log(blogData)
+    setPreviewImage(blogData.banner);
+    setValue("content", blogData.content); // This updates the content field's value
   }, [blogData, setValue, reset]);
 
   const onSubmit = (data) => {
@@ -61,8 +62,8 @@ const UpdateBlog = () => {
     setIsLoading(true);
     const formData = new FormData();
     const { banner } = data;
-    if (banner[0]) {
-      formData.append("banner", banner[0]);
+    if (selectedBanner) {
+      formData.append("banner", selectedBanner);
     }
     formData.append("content", data.content);
     formData.append("title", data.title);
@@ -101,6 +102,11 @@ const UpdateBlog = () => {
     setBannerName(temp);
   }, [temp]);
 
+  const handleFileInputChange = (e) => {
+    setSelectedBanner(e.target.files[0])
+    setPreviewImage(URL.createObjectURL(e.target.files[0]));
+  };
+
   return (
     <div className="p-10">
       <Toaster />
@@ -124,7 +130,12 @@ const UpdateBlog = () => {
             <span className="text-red-500">Title is required</span>
           )}
 
-          <div className="flex-1 items-center mx-auto mb-3 space-y-4 sm:flex sm:space-y-0">
+          <div className="flex-1 items-center mx-auto gap-2 mb-3 space-y-4 sm:flex sm:space-y-0">
+            {previewImage && (
+              <div className="w-full max-w-[48%]">
+                <img src={previewImage} className="max-h-[500px]" />
+              </div>
+            )}
             <div className="relative w-full space-y-1">
               <label htmlFor="input" className="font-medium ">
                 Banner
@@ -165,6 +176,7 @@ const UpdateBlog = () => {
                     className="hidden"
                     accept="image/png,image/jpeg,image/webp"
                     id="input"
+                    onChange={handleFileInputChange}
                   />
                 </label>
               </div>

@@ -10,6 +10,7 @@ const UpdateReview = () => {
   const [imageName, setimageName] = useState({});
   const [reviewData, setReviewData] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null)
 
   const { reviewId } = useParams();
 
@@ -52,17 +53,17 @@ const UpdateReview = () => {
       name: reviewData.name,
       email: reviewData.email,
       stars: reviewData.stars,
+      image:null
     });
-    setPreviewImage(reviewData.image[0]);
+    setPreviewImage(reviewData.image[0].url);
   }, [reviewData]);
 
   const onSubmit = (data) => {
     if (isLoading) return;
     setIsLoading(true);
     const formData = new FormData();
-    const { image } = data;
-    if (image) {
-      formData.append("image", image[0]);
+    if (selectedImage) {
+      formData.append("image", selectedImage);
     }
     formData.append("review", data.review);
     formData.append("title", data.title);
@@ -101,19 +102,22 @@ const UpdateReview = () => {
     setimageName(temp);
   }, [temp]);
 
+  const handleFileInputChange = (e) => {
+    setSelectedImage(e.target.files[0])
+    setPreviewImage(URL.createObjectURL(e.target.files[0]));
+  };
 
-  const convertToBase64 = () => {
-    const reader = new FileReader()
+  // const convertToBase64 = () => {
+  //   const reader = new FileReader()
 
-    reader.readAsDataURL(selectedFile)
-    let final;
-    reader.onload = () => {
-      final = reader.result
-    }
+  //   reader.readAsDataURL(selectedFile)
+  //   let final;
+  //   reader.onload = () => {
+  //     final = reader.result
+  //   }
 
-    return final
-  }
-
+  //   return final
+  // }
 
   return (
     <div className="p-10">
@@ -196,8 +200,8 @@ const UpdateReview = () => {
           </div>
           <div className="flex-1 items-center mx-auto mb-3 space-y-4 sm:flex sm:space-y-0">
             {previewImage && (
-              <div className="w-full">
-                <img src={previewImage.url} />
+              <div className="w-full max-w-1/2">
+                <img src={previewImage} className="max-h-[500px]"/>
               </div>
             )}
             <div className="relative w-full space-y-1">
@@ -240,9 +244,7 @@ const UpdateReview = () => {
                     className="hidden"
                     accept="image/png,image/jpeg,image/webp"
                     id="input"
-                    onChange={(e) => {
-                      setPreviewImage(convertToBase64(e.target.files[0]));
-                    }}
+                    onChange={handleFileInputChange}
                   />
                 </label>
               </div>
