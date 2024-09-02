@@ -120,8 +120,7 @@ const Blog = () => {
                 blogData.map((item) => {
                   return (
                     <Link
-                      to={`/blog/${item?._id}`}
-                      state={{ item: item }}
+                      to={`/blog/${item?.slug}`}
                       className="rounded-lg group overflow-hidden shadow-lg cursor-pointer transition duration-300"
                     >
                       <LazyLoadImage

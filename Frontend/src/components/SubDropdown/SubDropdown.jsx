@@ -7,10 +7,10 @@ const SubDropdown = ({ data, setShowMobDropdown }) => {
   return (
     <>
       <div
-        className="w-full flex justify-center  py-2 hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-lg transition duration-300 cursor-pointer"
+        className="w-full flex justify-end  py-2 px-3 hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-base transition duration-300 cursor-pointer"
         onClick={() => setShowDropdown(!showDropdown)}
       >
-        <span className="w-[120px] flex justify-center gap-1">
+        <span className="w-[120px] flex justify-end gap-1">
           {data.name}
           <span className="flex flex-col justify-center">
             <IoIosArrowDown />
@@ -23,7 +23,7 @@ const SubDropdown = ({ data, setShowMobDropdown }) => {
           <Link
             key={`subDropdownMenu${idx}`}
             to={item.path}
-            className={` w-full text-center py-2 bg-[#1a1a1b] hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-lg transition duration-300 cursor-pointer relative`}
+            className={` w-full text-right py-2 px-3 bg-[#1a1a1b] hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-base transition duration-300 cursor-pointer relative`}
             onClick={() => setShowMobDropdown(false)}
           >
             {item.name}

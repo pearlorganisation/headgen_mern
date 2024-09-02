@@ -12,7 +12,6 @@ const Header = () => {
   const [showMobDropdown, setShowMobDropdown] = useState(false);
 
   useEffect(() => {
-    // console.log(location);
     if (
       location.pathname === "/dating" ||
       location.pathname === "/upload/dating"
@@ -134,18 +133,13 @@ const Header = () => {
     },
     {
       name: "Blogs",
-      // path: "/blogs",
-      paths: [
-        {
-          name: "Blogs",
-          path: "/blogs",
-        },
-        {
-          name: "Reviews",
-          path: "/reviews",
-        },
-      ],
-      showDropdown: true,
+      path: "/blogs",
+      showDropdown: false,
+    },
+    {
+      name: "Reviews",
+      path: "/reviews",
+      showDropdown: false,
     },
     {
       name: "Free Headshots",
@@ -196,7 +190,7 @@ const Header = () => {
           <div
             className={`${
               showMobDropdown ? "" : "hidden"
-            } absolute top-[102%] left-0 w-full bg-[#2f2f31] flex flex-col shadow-[0_2px_2px#121212]`}
+            } absolute top-[102%] right-0 w-fit bg-[#2f2f31] flex flex-col shadow-[0_2px_2px#121212]`}
           >
             {navData &&
               navData.map((item, idx) => (
@@ -209,10 +203,10 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.path}
-                      className="w-full flex justify-center hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-lg py-2 hover:bg-blue-600 hover:text-white transition duration-300 "
+                      className="w-full flex justify-end hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-base py-2 px-3 hover:bg-blue-600 hover:text-white transition duration-300 "
                       onClick={() => setShowMobDropdown(false)}
                     >
-                      <span className="w-[120px] text-center">{item.name}</span>
+                      <span className="w-[120px] text-right">{item.name}</span>
                     </Link>
                   )}
                 </div>

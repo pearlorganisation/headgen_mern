@@ -52,7 +52,7 @@ function App() {
         <Route path="/success" element={<PaymentSuccess />} />
         <Route path="/cancel" element={<PaymentCancel />} />
         <Route path="/blogs" element={<Blog />} />
-        <Route path="/blog/:blogId" element={<BlogDetails />} />
+        <Route path="/blog/:slug" element={<BlogDetails />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/addreview" element={<AddReview />} />
         <Route path="/freeHeadshots" element={<FreeHeadshots />} />
