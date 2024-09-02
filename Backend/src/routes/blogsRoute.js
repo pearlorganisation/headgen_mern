@@ -7,6 +7,7 @@ const blogsRouter = express.Router()
 
 blogsRouter.route('/').get(getBlogs).post(verifyTokenMiddleware, upload.array('banner'), addBlog)
 blogsRouter.route('/recent').get(getRecentBlogs)
-blogsRouter.route('/:blogId').get(getBlogData).delete(verifyTokenMiddleware, deleteBlog).patch(verifyTokenMiddleware,upload.array('banner'),updateBlog)
+blogsRouter.route('/:slug').get(getBlogData).patch(verifyTokenMiddleware,upload.array('banner'),updateBlog)
+blogsRouter.route('/delete/:blogId').delete(verifyTokenMiddleware, deleteBlog)
 
 export default blogsRouter

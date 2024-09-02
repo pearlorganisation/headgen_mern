@@ -13,7 +13,7 @@ export const getBlogs = asyncHandler(async (req, res) => {
 
   const result = await blogsModel
     .find()
-    .select("title")
+    .select("title banner slug")
     .skip(skip)
     .limit(limit);
 
@@ -28,8 +28,8 @@ export const getRecentBlogs = asyncHandler(async (req, res) => {
 });
 
 export const getBlogData = asyncHandler(async (req, res) => {
-  const { blogId } = req.params;
-  const result = await blogsModel.findById(blogId);
+  const { slug } = req.params;
+  const result = await blogsModel.findOne({slug: slug});
 
   res.status(200).json({ status: true, blogData: result });
 });
@@ -39,6 +39,7 @@ export const addBlog = asyncHandler(async (req, res) => {
 
   const payload = {
     title: req.body.title,
+    slug: req.body.slug,
     content: req.body.content,
     banner: bannerImg.result[0].url,
   };
@@ -48,27 +49,26 @@ export const addBlog = asyncHandler(async (req, res) => {
 });
 
 export const updateBlog = asyncHandler(async (req, res) => {
+  const { slug } = req.params;
 
-
-  const {blogId} = req.params
-
-  if(!blogId){
-    res.status(500).json({status: false, message: 'Missing Blog ID'})
+  if (!slug) {
+    res.status(500).json({ status: false, message: "Missing Slug" });
   }
 
   const payload = {
     title: req.body.title,
     content: req.body.content,
+    slug: req.body.slug,
   };
 
-  console.log(payload)
+  console.log(payload);
 
   if (req?.files && req?.files?.length > 0) {
     const bannerImg = await uploadFile(req?.files);
     payload.banner = bannerImg.result[0].url;
   }
 
-  await blogsModel.findOneAndUpdate({_id: blogId}, payload);
+  await blogsModel.findOneAndUpdate({ _id: req.body.id }, payload);
   res.status(200).json({ status: true, message: "Blog Updated successfully" });
 });
 

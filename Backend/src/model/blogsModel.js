@@ -5,6 +5,11 @@ const blogSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Title is required']
     },
+    slug: {
+        type: String,
+        required: [true, 'URL Slug is required'],
+        unique: true,
+    },
     content: {
         type: String,
         required: [true, 'Content is requried']
