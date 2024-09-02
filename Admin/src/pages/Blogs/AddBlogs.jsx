@@ -31,7 +31,6 @@ const AddBlogs = () => {
   });
 
   const onSubmit = (data) => {
-    
     if (isLoading) return;
     setIsLoading(true);
     const formData = new FormData();
@@ -39,6 +38,7 @@ const AddBlogs = () => {
     formData.append("banner", banner[0]);
     formData.append("content", data.content);
     formData.append("title", data.title);
+    formData.append("slug", data.slug);
     // api call here
     instance
       .post(`/blogs`, formData, {
@@ -53,7 +53,7 @@ const AddBlogs = () => {
             color: "white",
           },
         });
-        window.location.href = '/blogs'
+        window.location.href = "/blogs";
       })
       .catch((err) => {
         reset();
@@ -92,10 +92,24 @@ const AddBlogs = () => {
             {...register("title", { required: "title is required" })}
             type="text"
             className="w-full mt-2 me-50 px-5 py-2 text-gray-500 border-slate-300 bg-transparent outline-none border focus:border-teal-400 shadow-sm rounded-lg"
+            placeholder="Enter a title for your blog"
           />
           {errors.topic && (
             <span className="text-red-500">Title is required</span>
           )}
+          <div>
+            <label className="font-medium">URL Slug</label>
+
+            <input
+              {...register("slug", { required: "URL Slug is required" })}
+              type="text"
+              className="w-full mt-2 me-50 px-5 py-2 text-gray-500 border-slate-300 bg-transparent outline-none border focus:border-teal-400 shadow-sm rounded-lg"
+              placeholder="Enter-a-slug-like-this"
+            />
+            {errors.topic && (
+              <span className="text-red-500">URL Slug is required</span>
+            )}
+          </div>
 
           <div className="flex-1 items-center mx-auto mb-3 space-y-4 sm:flex sm:space-y-0">
             <div className="relative w-full space-y-1">

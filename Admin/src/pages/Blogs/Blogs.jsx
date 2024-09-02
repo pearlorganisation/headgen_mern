@@ -28,7 +28,7 @@ const Blogs = () => {
 
   const deleteItem = (item) => {
     if(window.confirm(`Are you sure you want to delete blog`)){
-      instance.delete(`${import.meta.env.VITE_API_URL}/blogs/${item._id}`).then((res) => {
+      instance.delete(`${import.meta.env.VITE_API_URL}/blogs/delete/${item._id}`).then((res) => {
         toast.success(res.data.message, {
           style: {
             background: "green",
@@ -102,7 +102,7 @@ const Blogs = () => {
 
                     <td className="px-6 py-4  text-center">
                       <Link
-                        to={`/blogs/update/${item?._id}`}
+                        to={`/blogs/update/${item?.slug}`}
                         className="font-medium text-blue-600  hover:underline"
                       >
                         Edit

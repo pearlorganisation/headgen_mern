@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import TextEditor from "../../components/TextEditor/TextEditor";
 import { instance } from "../../services/axiosInterceptor";
 import { Toaster, toast } from "sonner";
 import { ClipLoader } from "react-spinners";
@@ -11,7 +10,7 @@ const UpdateBlog = () => {
   const [blogData, setBlogData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [bannerName, setBannerName] = useState({});
-  const [selectedBanner, setSelectedBanner] = useState(null)
+  const [selectedBanner, setSelectedBanner] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const { blogId } = useParams();
 
@@ -50,9 +49,9 @@ const UpdateBlog = () => {
   useEffect(() => {
     if (!blogData) return;
     reset({
-      title: blogData.title,
+      title: blogData?.title,
+      slug: blogData?.slug,
     });
-    console.log(blogData)
     setPreviewImage(blogData.banner);
     setValue("content", blogData.content); // This updates the content field's value
   }, [blogData, setValue, reset]);
@@ -65,8 +64,11 @@ const UpdateBlog = () => {
     if (selectedBanner) {
       formData.append("banner", selectedBanner);
     }
+    formData.append("id", blogData._id);
     formData.append("content", data.content);
     formData.append("title", data.title);
+    formData.append("slug", data.slug);
+
     // api call here
     instance
       .patch(`/blogs/${blogId}`, formData, {
@@ -103,7 +105,7 @@ const UpdateBlog = () => {
   }, [temp]);
 
   const handleFileInputChange = (e) => {
-    setSelectedBanner(e.target.files[0])
+    setSelectedBanner(e.target.files[0]);
     setPreviewImage(URL.createObjectURL(e.target.files[0]));
   };
 
@@ -112,7 +114,7 @@ const UpdateBlog = () => {
       <Toaster />
       <div className=" flex justify-center">
         <h3 className="text-gray-600 text-2xl font-semibold sm:text-3xl">
-          Add a blog
+          Update blog
         </h3>
       </div>
       <div className="bg-white rounded-lg shadow p-4 py-6  sm:rounded-lg sm:max-w-5xl mt-8 mx-auto">
@@ -125,10 +127,24 @@ const UpdateBlog = () => {
             {...register("title", { required: "title is required" })}
             type="text"
             className="w-full mt-2 me-50 px-5 py-2 text-gray-500 border-slate-300 bg-transparent outline-none border focus:border-teal-400 shadow-sm rounded-lg"
+            placeholder="Enter a title for your blog"
           />
           {errors.topic && (
             <span className="text-red-500">Title is required</span>
           )}
+          <div>
+            <label className="font-medium">URL Slug</label>
+
+            <input
+              {...register("slug", { required: "URL Slug is required" })}
+              type="text"
+              className="w-full mt-2 me-50 px-5 py-2 text-gray-500 border-slate-300 bg-transparent outline-none border focus:border-teal-400 shadow-sm rounded-lg"
+              placeholder="Enter-a-slug-like-this"
+            />
+            {errors.topic && (
+              <span className="text-red-500">URL Slug is required</span>
+            )}
+          </div>
 
           <div className="flex-1 items-center mx-auto gap-2 mb-3 space-y-4 sm:flex sm:space-y-0">
             {previewImage && (
