@@ -183,6 +183,7 @@ const IndividualTab = ({
         email: "",
         gender: "",
         files: "",
+        headshotType: "Corporate Headshots"
       });
     }
   }, []);

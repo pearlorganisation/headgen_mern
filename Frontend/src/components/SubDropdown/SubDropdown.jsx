@@ -11,14 +11,19 @@ const SubDropdown = ({ data, setShowMobDropdown }) => {
         onClick={() => setShowDropdown(!showDropdown)}
       >
         <span className="w-[120px] flex justify-end gap-1">
-          {data.name}
           <span className="flex flex-col justify-center">
             <IoIosArrowDown />
           </span>
+
+          {data.name}
         </span>
       </div>
 
-      <div className={`${showDropdown ? "" : "hidden"} w-full bg-[#2f2f31] flex flex-col`}>
+      <div
+        className={`${
+          showDropdown ? "" : "hidden"
+        } w-full bg-[#2f2f31] flex flex-col`}
+      >
         {data?.paths?.map((item, idx) => (
           <Link
             key={`subDropdownMenu${idx}`}

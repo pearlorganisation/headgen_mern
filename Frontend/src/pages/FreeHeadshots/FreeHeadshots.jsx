@@ -116,7 +116,7 @@ const FreeHeadshots = () => {
           COUPON : HDGEN10 FOR 10% OFF
         </span>
         <Link
-          to="/upload/Corporate%20Headshots"
+          to="/corporate-ai-headshots"
           className="w-full md:w-1/3 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] text-sm rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
         >
           Get Standard Headshots

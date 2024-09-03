@@ -537,7 +537,7 @@ const Home = () => {
             }`}
           >
             <Link
-              to="/upload/Corporate%20Headshots"
+              to="/corporate-ai-headshots"
               className={`w-full px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${
                 isAnimated ? "animatedReveal" : "invisible"
               }`}
@@ -662,7 +662,7 @@ const Home = () => {
                 works
               </div>
               <Link
-                to="/upload/Corporate%20Headshots"
+                to="/corporate-ai-headshots"
                 className="hover:squeezyBtn col-span-2 md:col-auto flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full py-2 md:py-4  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]"
               >
                 Get your photos for $29
@@ -843,7 +843,7 @@ const Home = () => {
             </div>
             <div className="flex flex-col gap-4 w-full md:w-1/2 items-center">
               <Link
-                to="/upload/Corporate%20Headshots"
+                to="/corporate-ai-headshots"
                 className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full py-2 px-4  md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
               >
                 Get your photos for $29
@@ -909,7 +909,7 @@ const Home = () => {
             </div>
             <div>
               <Link
-                to="/upload/Corporate%20Headshots"
+                to="/corporate-ai-headshots"
                 className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full px-6 py-2 md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
               >
                 Get your photos for $29
@@ -1073,7 +1073,7 @@ const Home = () => {
               Try Headgen.ai with confidence. Our results are Mind blowing.
             </div>
             <Link
-              to="/upload/Corporate%20Headshots"
+              to="/corporate-ai-headshots"
               className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full md:w-2/3 py-2  md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
             >
               Get your photos for $29

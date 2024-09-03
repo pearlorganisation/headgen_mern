@@ -14,7 +14,7 @@ const Header = () => {
   useEffect(() => {
     if (
       location.pathname === "/dating" ||
-      location.pathname === "/upload/dating"
+      location.pathname === "/dating-ai-headshot-generator"
     ) {
       setIsDatingPage(true);
       setToggleCss("bg-gradient-to-r from-[#810000] to-red-800");
@@ -67,7 +67,7 @@ const Header = () => {
   const navData = [
     {
       name: "How it works",
-      path: "/howitworks",
+      path: "/how-it-works",
       showDropdown: false,
     },
     {
@@ -75,19 +75,19 @@ const Header = () => {
       paths: [
         {
           name: "Corporate Headshots",
-          path: "/upload/Corporate%20Headshots",
+          path: "/corporate-ai-headshots",
         },
         {
           name: "Doctor Headshots",
-          path: "/upload/Doctor%20Headshots",
+          path: "/doctor-ai-headshots",
         },
         {
           name: "Lawyer Headshots",
-          path: "/upload/Lawyer%20Headshots",
+          path: "/lawyer-ai-headshots",
         },
         {
           name: "Sales Headshots",
-          path: "/upload/Sales%20Headshots",
+          path: "/sales-headshots",
         },
         {
           name: "Students Headshots",
@@ -95,14 +95,14 @@ const Header = () => {
         },
         {
           name: "Teacher Headshots",
-          path: "/upload/Teacher%20Headshots",
+          path: "/teacher-ai-headshots",
         },
       ],
       showDropdown: true,
     },
     {
       name: "Dating",
-      path: "/dating",
+      path: "/dating-ai-headshot-generator",
       showDropdown: false,
     },
     {
@@ -110,23 +110,23 @@ const Header = () => {
       paths: [
         {
           name: "About Us",
-          path: "/aboutus",
+          path: "/about-us",
         },
         {
           name: "Privacy Policy",
-          path: "/privacypolicy",
+          path: "/privacy-policy",
         },
         {
           name: "Terms & Conditions",
-          path: "/termsandconditions",
+          path: "/terms-and-conditions",
         },
         {
           name: "Cancellation & Refunds",
-          path: "/cancellationandrefunds",
+          path: "/cancellation-and-refunds",
         },
         {
           name: "Contact Us",
-          path: "/contactus",
+          path: "/contact-us",
         },
       ],
       showDropdown: true,
@@ -143,7 +143,7 @@ const Header = () => {
     },
     {
       name: "Free Headshots",
-      path: "/freeHeadshots",
+      path: "/free-ai-headshot-generator",
       showDropdown: false,
     },
   ];

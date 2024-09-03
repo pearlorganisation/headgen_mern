@@ -79,7 +79,7 @@ const HowItWorks = () => {
                 works
               </div>
               <Link
-                to="/upload/Corporate%20Headshots"
+                to="/corporate-ai-headshots"
                 className="hover:squeezyBtn flex flex-col justify-center  items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]"
               >
                 Get your photos for $29

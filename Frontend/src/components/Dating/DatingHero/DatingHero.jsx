@@ -27,7 +27,7 @@ const DatingHero = () => {
         </div>
         <div>
           <Link
-            to="/upload/dating"
+            to="/dating-ai-headshot-generator"
             className="hover:squeezyBtn flex flex-col justify-center items-center bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436] text-[#F1F1F1] rounded-lg w-full px-6 h-[58px] hover:shadow-[0_0_0_2px_#ffffff] transition duration-500"
           >
             Get your photos for $29

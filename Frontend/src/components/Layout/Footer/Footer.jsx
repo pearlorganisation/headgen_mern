@@ -10,33 +10,33 @@ const Footer = () => {
         [
           {
             title: "Corporate",
-            link: "/upload/Corporate%20Headshots",
+            link: "/corporate-ai-headshots",
           },
           {
             title: "Doctor",
-            link: "/upload/Doctor%20Headshots",
+            link: "/doctor-ai-headshots",
           },
           {
             title: "Lawyer",
-            link: "/upload/Lawyer%20Headshots",
+            link: "/lawyer-ai-headshots",
           },
           {
             title: "Sales",
-            link: "/upload/Sales%20Headshots",
+            link: "/sales-headshots",
           },
           {
             title: "Student",
-            link: "/upload/Student%20Headshots",
+            link: "/student-ai-headshots",
           },
           {
             title: "Teacher",
-            link: "/upload/Teacher%20Headshots",
+            link: "/teacher-ai-headshots",
           },
         ],
         [
           {
             title: "Dating",
-            link: "/upload/dating",
+            link: "/dating-ai-headshot-generator",
           },
           {
             title: "Custom",
@@ -48,7 +48,7 @@ const Footer = () => {
           },
           {
             title: "Teams",
-            link: "/upload",
+            link: "/ai-headshots-teams",
           },
           {
             title: "Blogs",
@@ -67,19 +67,19 @@ const Footer = () => {
       list: [
         {
           title: "About Us",
-          link: "/aboutus",
+          link: "/about-us",
         },
         {
           title: "Privacy Policy",
-          link: "/privacypolicy",
+          link: "/privacy-policy",
         },
         {
           title: "Terms & Conditions",
-          link: "/termsandconditions",
+          link: "/terms-and-conditions",
         },
         {
           title: "Cancellation & Refunds",
-          link: "/cancellationandrefunds",
+          link: "/cancellation-and-refunds",
         },
       ],
     },
@@ -88,7 +88,7 @@ const Footer = () => {
       list: [
         {
           title: "Contact Us",
-          link: "/contactus",
+          link: "/contact-us",
         },
         // {
         //   title: "Payment Gateway",

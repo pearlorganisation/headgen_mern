@@ -2,14 +2,12 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 // import { GenIcon } from "react-icons";
 import { FaChevronRight } from "react-icons/fa";
 
-import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { A11y, Autoplay, Navigation } from "swiper/modules";
 import { useParams } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
@@ -18,26 +16,34 @@ const HeadshotSelection = ({
   setUserData,
   errors,
   headshots = null,
+  selection = "Corporate Headshots"
 }) => {
-  const { headshot } = useParams();
-  const decodedParam = decodeURIComponent(headshot);
-  const [headshotType, setHeadshotType] = useState(userData?.headshotType);
+
+  const [headshotType, setHeadshotType] = useState(selection);
 
   useEffect(() => {
     if (headshotType) {
       console.log(headshotType);
       const updatedUserData = { ...userData };
+      console.log(updatedUserData)
       updatedUserData.headshotType = headshotType;
       setUserData(updatedUserData);
     }
   }, [headshotType]);
 
-  useEffect(() => {
-    console.log(headshotType);
-    if (decodedParam) {
-      setHeadshotType(decodedParam);
+   const updateHeashotSelection = (headshotName) => {
+
+   }
+
+
+   useEffect(() => {
+    const dataFound = localStorage.getItem("userData")
+    if (dataFound) {
+      console.log(dataFound)
+      setUserData(JSON.parse(dataFound));
     }
-  }, [decodedParam]);
+  }, []);
+
 
   return (
     <div className="flex flex-col gap-4 justify-between relative h-full  w-full items-center ">
@@ -94,9 +100,7 @@ const HeadshotSelection = ({
                   ? "!bg-[#355cc9] text-[#f1f1f1]"
                   : "bg-[#f1f1f1] "
                   } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-full  transition duration-500 text-[14px] md:text-[12px] lg:text-[18px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
-                onClick={() => {
-                  setHeadshotType(item?.name);
-                }}
+                onClick={updateHeashotSelection(item?.name)}
               >
                 <span>{item?.name}</span>
                 <div className=" grid place-items-center">
