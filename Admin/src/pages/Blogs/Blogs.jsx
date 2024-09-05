@@ -1,19 +1,31 @@
-import { Skeleton } from "@mui/material";
+import { Pagination, Skeleton, styled } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 import { instance } from "../../services/axiosInterceptor";
 
+
+const StyledPagination = styled(Pagination)(({ theme }) => ({
+  "& .MuiPaginationItem-root": {
+    color: "black",
+  },
+}));
+
+
 const Blogs = () => {
   const [blogsData, setBlogsData] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
+  const [page, setPage] = useState(searchParams.get("page") || 1);
+  const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   
   const getBlogs = () => {
     setIsLoading(true)
     instance
-      .get(`/blogs`)
+      .get(`/blogs?page=${page}`)
       .then((res) => {
         setBlogsData(res?.data?.blogsData);
+        setTotalPages(res?.data?.totalPages);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -24,7 +36,12 @@ const Blogs = () => {
 
   useEffect(() => {
     getBlogs()
-  }, []);
+  }, [page]);
+
+  const handlePagination = (e, p) => {
+    setPage(p);
+    setSearchParams({ page: p });
+  };
 
   const deleteItem = (item) => {
     if(window.confirm(`Are you sure you want to delete blog`)){
@@ -54,7 +71,7 @@ const Blogs = () => {
     <div>
       <Toaster />
 
-      <div class="p-10 ">
+      <div class="p-10 space-y-10">
         <div class="flex items-center justify-end flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-8 bg-white ">
           <Link
             to="/blogs/add"
@@ -72,7 +89,7 @@ const Blogs = () => {
            <Skeleton animation="wave" height={50} />
          </>
           )}
-          {blogsData && (
+          {!isLoading && blogsData && (
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50  ">
                 <tr>
@@ -95,7 +112,7 @@ const Blogs = () => {
                       className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap "
                     >
                       <div className="ps-3">
-                       {idx + 1}
+                       {idx + 1 + (page > 1 && ((page - 1) * 12))}
                       </div>
                     </th>
                     <td className="px-6 py-4">{item.title}</td>
@@ -124,6 +141,16 @@ const Blogs = () => {
             </table>
           )}
         </div>
+        {!isLoading && blogsData && (
+          <div className="flex flex-row justify-center w-full">
+            <StyledPagination
+              count={totalPages}
+              page={Number(page)}
+              color="primary"
+              onChange={handlePagination}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
