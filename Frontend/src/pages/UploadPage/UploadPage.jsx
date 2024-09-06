@@ -15,7 +15,7 @@ const UploadPage = ({section}) => {
 
   return (
     <div className="w-full py-28 flex flex-col bg-[#161616] gap-28">
-      {isDatingPage ? <DatingTab /> : <Tab />}
+      {isDatingPage ? <DatingTab section={section} /> : <Tab section={section} />}
     </div>
   );
 };

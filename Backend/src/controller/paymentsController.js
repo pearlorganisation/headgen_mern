@@ -105,16 +105,7 @@ export const checkout = async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {
-          adjustable_quantity: {
-            enabled: true,
-          },
-          price_data: {
-            currency: "GBP",
-            unit_amount: 5 * 100,
-            product_data: {
-              name: 'test 1'
-            }
-          },
+          price: `${price}`,
           quantity: 1,
         },
       ],

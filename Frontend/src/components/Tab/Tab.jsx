@@ -7,8 +7,9 @@ import axios from "axios";
 import Prompt from "../Prompt/Prompt";
 import IndividualTab from "../IndividualTab/IndividualTab";
 
-const Tab = () => {
+const Tab = ({section}) => {
   const [isLoading, setIsLoading] = useState(false);
+  console.log(section)
   const [userData, setUserData] = useState({
     email: "",
     gender: "",
@@ -19,7 +20,6 @@ const Tab = () => {
   const [fileErrorMsg, setFileErrorMsg] = useState(null);
   const [files, setFiles] = useState([]);
   const [tabSwitched, setTabSwitched] = useState(true);
-  // const [currentIndex, setCurrentIndex] = useState(0);
 
   const tabs = ["Individual", "Teams", "Customize", "Prompts"];
   const [tabText, setTabText] = useState("Individual");
@@ -30,6 +30,7 @@ const Tab = () => {
   const headshots = [
     {
       name: "Corporate Headshots",
+      link: "/corporate-ai-headshots",
       headshotInfo: {
         imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022217/headgen/Headshots/Banners/ypsqnt8jj4rdbkphzkgj.webp",
       },
@@ -37,6 +38,7 @@ const Tab = () => {
     },
     {
       name: "Doctor Headshots",
+      link: "/doctor-ai-headshots",
       headshotInfo: {
         imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022218/headgen/Headshots/Banners/gvvvyfx5myikud4df6zb.webp",
       },
@@ -44,6 +46,7 @@ const Tab = () => {
     },
     {
       name: "Lawyer Headshots",
+      link: "/lawyer-ai-headshots",
       headshotInfo: {
         imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022219/headgen/Headshots/Banners/anfy7t5v3ml6iecxljn8.webp",
       },
@@ -51,6 +54,7 @@ const Tab = () => {
     },
     {
       name: "Sales Headshots",
+      link: "/salesman-ai-headshots",
       headshotInfo: {
         imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022219/headgen/Headshots/Banners/j6er2wouvgyqujpws6fw.webp",
       },
@@ -58,6 +62,7 @@ const Tab = () => {
     },
     {
       name: "Students Headshots",
+      link: "/students-ai-headshots",
       headshotInfo: {
         imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022220/headgen/Headshots/Banners/ztfzaecdn0qryd0i7m4t.webp",
       },
@@ -65,6 +70,7 @@ const Tab = () => {
     },
     {
       name: "Teacher Headshots",
+      link: "/teacher-ai-headshots",
       headshotInfo: {
         imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022220/headgen/Headshots/Banners/gcswieneujqynonujwdd.webp",
       },
@@ -80,7 +86,6 @@ const Tab = () => {
     if (localStorage.getItem("userData")) {
       localStorage.clear();
     }
-    
   }, []);
 
   useEffect(() => {
@@ -160,12 +165,6 @@ const Tab = () => {
       });
   };
 
-  // useEffect(() => {
-  //   // console.log(userData, "userData")
-  //   // console.log(files, "files")
-  // }, [userData, files])
-
-
   return (
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px]">
       <div
@@ -215,6 +214,7 @@ const Tab = () => {
               tabContentRef={tabContentRef}
               isLoading={isLoading}
               handlePayment={handlePayment}
+              section={section}
             />
           )}
           {tabText === "Teams" && <Teams setUserData={setUserData} userData={userData}

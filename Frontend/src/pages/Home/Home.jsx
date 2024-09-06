@@ -16,7 +16,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import AsSeenOn from "../../components/AsSeenOn/AsSeenOn";
 
 const Home = () => {
-  const [isAnimated, setIsAnimated] = useState(false);
   const [blogData, setBlogData] = useState(null)
 
   const imgData1 = [
@@ -483,7 +482,6 @@ const Home = () => {
   ];
 
   useEffect(() => {
-
     axios.get(`${import.meta.env.VITE_API_URL}/blogs/recent`).then((res) => {
       console.log(res.data.blogsData)
       setBlogData(res.data.blogsData)
@@ -491,13 +489,6 @@ const Home = () => {
       console.error(err)
     })
 
-    // Set a small delay before applying the animation class
-    const timeout = setTimeout(() => {
-      setIsAnimated(true);
-    }, 100);
-
-    // Clear the timeout on component unmount to prevent memory leaksq
-    return () => clearTimeout(timeout);
   }, []);
 
   return (
@@ -510,37 +501,27 @@ const Home = () => {
         >
           <div className="flex flex-col leading-none mb-4 space-y-0">
             <div
-              className={`text-xl lg:text-3xl font-bold bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
-                isAnimated ? "animatedReveal" : "invisible"
-              }`}
+              className={`text-xl lg:text-3xl font-bold bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text`}
             >
               AI HEADSHOT GENERATOR
             </div>
             <div
-              className={`text-white oswald text-[6rem] lg:text-[9rem] font-bold pb-4 ${
-                isAnimated ? "animatedReveal" : "invisible"
-              }`}
+              className={`text-white oswald text-[6rem] lg:text-[9rem] font-bold pb-4`}
             >
               AI TOOL
             </div>
             <div
-              className={` text-[20px] lg:text-[28px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text ${
-                isAnimated ? "animatedReveal" : "invisible"
-              }`}
+              className={` text-[20px] lg:text-[28px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text`}
             >
               FOR PROFESSIONAL HEADSHOTS
             </div>
           </div>
           <div
-            className={`flex flex-col gap-6 mb-3 md:mb-0 text-center justify-center items-center md:items-start ${
-              isAnimated ? "animatedReveal" : "invisible"
-            }`}
+            className={`flex flex-col gap-6 mb-3 md:mb-0 text-center justify-center items-center md:items-start `}
           >
             <Link
               to="/corporate-ai-headshots"
-              className={`w-full px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 ${
-                isAnimated ? "animatedReveal" : "invisible"
-              }`}
+              className={`w-full px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500`}
             >
               Get your photos for $29
             </Link>
@@ -572,14 +553,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {/* <div
-          className={`max-w-[834px] w-full flex flex-col gap-4 items-end pt-10`}
-        >
-          <LazyLoadImage
-            src={`https://drive.google.com/thumbnail?id=1UA7FyAGDxxNyOmQI2aEocXL8V1a70uJ-&sz=s600`}
-            className="h-full w-full"
-          />
-        </div> */}
+     
       </div>
 
       {/* infinity slider */}
@@ -587,67 +561,9 @@ const Home = () => {
         <InfinitySlider imgData1={imgData1} />
       </div>
 
-      {/* featured by */}
-
-      {/* 
-      <div className="flex flex-col items-center gap-6">
-        <div
-          className={`flex flex-row gap-6  ${
-            isAnimated ? "animatedReveal" : "invisible"
-          }`}
-        >
-          <div className="flex gap-2">
-            <div className=" flex flex-col justify-center text-[#f1f1f1]">
-              Featured in
-            </div>
-            <div className=" flex flex-col justify-center">
-              <AppSvgs name="forbes" width={100} height={100} />
-            </div>
-          </div>
-
-          <div className="flex gap-2">
-            <div className=" flex flex-col justify-center text-[#f1f1f1]">
-              <AppSvgs name="productHunt" width={40} height={40} />
-            </div>
-            <div className=" flex flex-col justify-center text-[#f1f1f1]">
-              <span className="text-[10px]">Featured on</span>
-              <span className="text-[24px] font-semibold leading-none">
-                Product Hunt
-              </span>
-            </div>
-          </div>
-
-          <div className="flex gap-2">
-            <div className=" flex flex-col justify-center text-[#f1f1f1] font-semibold text-[36px]">
-              <div className="flex gap-2">
-                <span>300K+</span>
-                <span>Users</span>
-              </div>
-            </div>
-          </div>
-
-
-
-
-          <div className="flex gap-2">
-            <div className=" flex flex-col justify-center text-[#f1f1f1]">
-            <IoStarSharp size={34} className="text-green-500"/>
-
-            </div>
-            <div className=" flex flex-col justify-center text-[#f1f1f1]">
-              <span className="text-[10px]">Trustpilot</span>
-              <span className="text-[20px] font-semibold leading-none">
-                Rated 4.7/5 (4129)
-              </span>
-            </div>
-          </div>
-
-        </div>
-      </div> */}
-
       {/* trusted by */}
 
-      <AsSeenOn isAnimated={isAnimated} />
+      <AsSeenOn/>
 
       {/* how it works */}
 

@@ -5,48 +5,17 @@ import DatingHero from "../../components/Dating/DatingHero/DatingHero";
 import { Link } from "react-router-dom";
 import AsSeenOn from "../../components/AsSeenOn/AsSeenOn";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
+import {Helmet} from "react-helmet"
 const FreeHeadshots = () => {
-  const [isAnimated, setIsAnimated] = useState(false);
+ 
 
-  const logoData = [
-    {
-      name: "walmart logo",
-      imgPath:
-        "https://drive.google.com/thumbnail?id=1up3Y8G7BYQt4vFDeXYicUUbrnMDNz0QK&sz=s600",
-    },
-    {
-      name: "microsoft logo",
-      imgPath:
-        "https://drive.google.com/thumbnail?id=10vAAtNBCVa35oLUmY6NZKDwrq2kl8w6V&sz=s600",
-    },
-    {
-      name: "google logo",
-      imgPath:
-        "https://drive.google.com/thumbnail?id=1T5_P_dHHDNxPdlN_oCp8lxcxAM7BXYEp&sz=s600",
-    },
-    {
-      name: "airbnb logo",
-      imgPath:
-        "https://drive.google.com/thumbnail?id=1m45hPUM6sDgtDdC1hG89FKgd7MAmAwsi&sz=s600",
-    },
-    {
-      name: "amazon logo",
-      imgPath:
-        "https://drive.google.com/thumbnail?id=1bupr8brSqprqrt5xDygIUbcTkxkc-uX0&sz=s600",
-    },
-  ];
 
-  useEffect(() => {
-    // Set a small delay before applying the animation class
-    const timeout = setTimeout(() => {
-      setIsAnimated(true);
-    }, 100);
-
-    // Clear the timeout on component unmount to prevent memory leaksq
-    return () => clearTimeout(timeout);
-  }, []);
   return (
+    <>
+    <Helmet>
+      <title>Free AI Headshots | Try HeadGen AI’s Free AI Image Generator & AI Photo Generator</title>
+      <meta name="description" content="Get free AI Generated images with HeadGen AI’s advanced AI image generator. Create professional photos for resumes, teams, or LinkedIn with our easy-to-use AI headshot generator" />
+    </Helmet>
     <div className=" space-y-4 text-white pt-28 md:px-10  xl:px-[160px] 2xl:px-[250px]">
       <div className="flex flex-wrap gap-12 md:gap-0 place-items-center space-y-4 ">
         <div className="space-y-6 w-full lg:w-1/2 lg:justify-normal justify-center ">
@@ -76,7 +45,7 @@ const FreeHeadshots = () => {
           </div>
           <div className="flex justify-center lg:justify-start">
             <Link
-              to="/freeheadshotupload"
+              to="/free-ai-headshots"
               className="w-1/2 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
             >
               Upload Photos
@@ -153,6 +122,7 @@ const FreeHeadshots = () => {
         <DatingHero />
       </div>
     </div>
+    </>
   );
 };
 

@@ -40,11 +40,11 @@ const Footer = () => {
           },
           {
             title: "Custom",
-            link: "/upload",
+            link: "/custom-ai-headshots",
           },
           {
             title: "Prompts",
-            link: "/upload",
+            link: "/prompts-ai-headshots",
           },
           {
             title: "Teams",

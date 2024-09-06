@@ -19,6 +19,7 @@ const IndividualTab = ({
   tabContentRef,
   isLoading,
   handlePayment,
+  section,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -49,8 +50,11 @@ const IndividualTab = ({
     },
   ];
 
+  useEffect(() => {
+    localStorage.setItem("userData", JSON.stringify(userData));
+  }, [userData]);
+
   const indivdualData = [
-    
     {
       idx: 0,
       ele: (
@@ -60,6 +64,7 @@ const IndividualTab = ({
             setUserData={setUserData}
             errors={errors}
             headshots={headshots}
+            section={section}
           />
         </>
       ),
@@ -183,7 +188,7 @@ const IndividualTab = ({
         email: "",
         gender: "",
         files: "",
-        headshotType: "Corporate Headshots"
+        headshotType: section,
       });
     }
   }, []);

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import OrderDetails from "../OrderDetails/OrderDetails";
 import PriceCards from "../PriceCards/PriceCards";
 import CustomizeTabs from "./CustomizeTabs";
@@ -41,7 +41,7 @@ const Customize = ({
       tag: "",
     },
   ];
-  console.log("type::", type);
+  
   const customizeData = [
     {
       idx: 0, 

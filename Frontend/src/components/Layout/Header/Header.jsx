@@ -97,6 +97,10 @@ const Header = () => {
           name: "Teacher Headshots",
           path: "/teacher-ai-headshots",
         },
+        {
+          name: "Free Headshots",
+          path: "/free-ai-headshot-generator",
+        },
       ],
       showDropdown: true,
     },
@@ -214,7 +218,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="xl:flex flex-row gap-4 hidden ">
+        <div className="xl:flex flex-row gap-2 hidden ">
           {navData.map((item, idx) => (
             <HeaderLink
               key={`header${idx}`}

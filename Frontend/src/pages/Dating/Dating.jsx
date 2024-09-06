@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import AppSvgs from "../../components/AppSvgs/AppSvgs";
-import { Link } from "react-router-dom";
 import DatingHero from "../../components/Dating/DatingHero/DatingHero";
 import BlogCards from "../../components/BlogCards/BlogCards";
 import InfinitySlider from "../../components/InfinitySlider/InfinitySlider";
@@ -94,18 +93,6 @@ const Dating = () => {
       name: "",
       path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023848/dating_headshots_15_r0kmdv.webp",
     },
-    // {
-    //   name: "",
-    //   path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023843/dating_headshots_13_uqi2zx.webp",
-    // },
-    // {
-    //   name: "",
-    //   path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023841/dating_headshots_12_kwweiv.webp",
-    // },
-    // {
-    //   name: "",
-    //   path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023840/dating_headshots_11_efsg0u.webp",
-    // },
   ];
 
   return (
@@ -114,9 +101,6 @@ const Dating = () => {
         <DatingHero />
       </div>
       <InfinitySlider imgData1={imgData1} />
-
-      {/* <div className="w-full overflow-hidden px-10  xl:px-[160px] 2xl:px-[250px]">
-      </div> */}
 
       <div className="flex flex-wrap  justify-center gap-6">
         <div

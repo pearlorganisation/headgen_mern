@@ -4,7 +4,6 @@ import { IoManSharp, IoWoman } from "react-icons/io5"
 const UserDetails = ({ userData, setUserData, errors, type }) => {
   const [email, setEmail] = useState(userData?.email);
   const [gender, setGender] = useState(userData?.gender);
-  console.log(type, "type")
   const genderSelections = [
     {
       name: "Male",

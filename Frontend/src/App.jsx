@@ -13,9 +13,6 @@ import CancellationAndRefunds from "./pages/CancellationAndRefunds/CancellationA
 import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import UploadPage from "./pages/UploadPage/UploadPage";
-import PaymentSuccess from "./pages/PaymentSuccess/PaymentSuccess";
-import PaymentCancel from "./pages/PaymentCancel/PaymentCancel";
-import Checkout from "./pages/Checkout/Checkout";
 import HowItWorks from "./pages/HowItWorks/HowItWorks";
 import Blog from "./pages/Blog/Blog";
 import BlogDetails from "./pages/Blog/BlogDetails";
@@ -24,7 +21,7 @@ import FreeHeadshotsTab from "./pages/FreeHeadshots/FreeHeadshotsTab";
 import { useEffect } from "react";
 import AddReview from "./pages/Reviews/AddReview";
 import Reviews from "./pages/Reviews/Reviews";
-import ComingSoon from "./pages/NotFound/ComingSoon";
+// import ComingSoon from "./pages/NotFound/ComingSoon";
 
 function App() {
   const location = useLocation();
@@ -55,6 +52,11 @@ function App() {
 
         {/* Upload page routes */}
         <Route
+          path="/dating-ai-headshots"
+          element={<UploadPage section={"dating"} />}
+        />
+
+        <Route
           path="/corporate-ai-headshots"
           element={<UploadPage section={"Corporate Headshots"} />}
         />
@@ -68,26 +70,22 @@ function App() {
         />
         <Route
           path="/salesman-ai-headshots"
-          element={<UploadPage section={"Salesman Headshots"} />}
+          element={<UploadPage section={"Sales Headshots"} />}
         />
         <Route
-          path="/student-ai-headshots"
-          element={<UploadPage section={"Student Headshots"} />}
+          path="/students-ai-headshots"
+          element={<UploadPage section={"Students Headshots"} />}
         />
         <Route
           path="/teacher-ai-headshots"
           element={<UploadPage section={"Teacher Headshots"} />}
         />
         <Route path="/free-ai-headshot-generator" element={<FreeHeadshots />} />
-
-        {/* <Route path="/test" element={<Checkout />} /> */}
-        {/* <Route path="/success" element={<PaymentSuccess />} /> */}
-        {/* <Route path="/cancel" element={<PaymentCancel />} /> */}
+        <Route path="/free-ai-headshots" element={<FreeHeadshotsTab />} />
         <Route path="/blogs" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogDetails />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/addreview" element={<AddReview />} />
-
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

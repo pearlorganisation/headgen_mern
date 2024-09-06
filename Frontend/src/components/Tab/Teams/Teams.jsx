@@ -62,12 +62,8 @@ const Teams = ({ userData, setUserData }) => {
   ];
 
   const [data, setData] = useState(priceData[0]);
-  const [form, setForm] = useState(false);
-  const [index, setIndex] = useState(1);
 
   const onSubmit = (data1) => {
-    // console.log(data1)
-    // console.log(data)
     setFormValid(true);
     setUserData((prevData) => {
       let tempData = { ...data, ...data1 };
@@ -412,20 +408,19 @@ const Teams = ({ userData, setUserData }) => {
                   </div>
                 </div>
                 <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-3">
-
-                <div className="w-full">
-                  <div className="mb-2 ">Contact Email</div>
-                  <div className="w-full border-b-2 pl-0 px-4 py-2 text-base leading-[140%]  outline-none ">
-                    {userData?.email}
+                  <div className="w-full">
+                    <div className="mb-2 ">Contact Email</div>
+                    <div className="w-full border-b-2 pl-0 px-4 py-2 text-base leading-[140%]  outline-none ">
+                      {userData?.email}
+                    </div>
                   </div>
-                </div>
 
-                <div className="w-full">
-                  <div className="mb-2 ">Whatsapp Number</div>
-                  <div className="w-full border-b-2 pl-0 px-4 py-2 text-base leading-[140%]  outline-none ">
-                    {userData?.whatsappNumber}
+                  <div className="w-full">
+                    <div className="mb-2 ">Whatsapp Number</div>
+                    <div className="w-full border-b-2 pl-0 px-4 py-2 text-base leading-[140%]  outline-none ">
+                      {userData?.whatsappNumber}
+                    </div>
                   </div>
-                </div>
                 </div>
                 <div className="w-full">
                   <div className="mb-2 ">Website (Optional)</div>
@@ -480,12 +475,12 @@ const Teams = ({ userData, setUserData }) => {
   useEffect(() => {
     if (localStorage.getItem("userData")) {
       localStorage.clear();
+      setUserData({ email: "" });
     }
-
   }, []);
 
   const handlePayment = () => {
-    const data = {...userData};
+    const data = { ...userData };
     setIsLoading(true);
     axios
       .post(`${import.meta.env.VITE_API_URL}/payment/teamscheckout`, data)
@@ -544,11 +539,7 @@ const Teams = ({ userData, setUserData }) => {
               handlePayment("teams");
             }}
           >
-            {isLoading ? (
-              <BeatLoader color="#ffffff" />
-            ) : (
-              "Proceed to Payment"
-            )}
+            {isLoading ? <BeatLoader color="#ffffff" /> : "Proceed to Payment"}
           </button>
         )}
       </div>
