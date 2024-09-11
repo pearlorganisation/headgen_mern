@@ -3,45 +3,56 @@ import AppSvgs from "../../components/AppSvgs/AppSvgs";
 import { Link } from "react-router-dom";
 import AsSeenOn from "../../components/AsSeenOn/AsSeenOn";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import Helmet from "react-helmet";
 
 const AboutUs = () => {
   const aboutUsContent = (
-    <div className="leading-relaxed flex flex-col gap-1">
-      <span className="font-bold">Our Mission:</span>
+    <>
+      <Helmet>
+        <title>About HeadGen AI | Leading AI Headshot & Photo Generator for Professional AI Headshots</title>
+        <meta
+          name="description"
+          content="Learn how HeadGen AI’s AI image generator delivers professional, realistic headshots. Our AI Generated images and AI Headshot generator create polished photos for individuals and teams."
+        />
+      </Helmet>
 
-      <span>
-        Harness the transformative power of generative AI to enhance everyday
-        life. Democratize access to generative AI, making it accessible to
-        everyone.
-      </span>
+      <div className="leading-relaxed flex flex-col gap-1">
+        <span className="font-bold">Our Mission:</span>
 
-      <span className="font-bold">About Us:</span>
+        <span>
+          Harness the transformative power of generative AI to enhance everyday
+          life. Democratize access to generative AI, making it accessible to
+          everyone.
+        </span>
 
-      <span>
-        Playcloud Technologies Limited (HeadGen AI) is dedicated to perfecting
-        AI-generated images. Situated at the crossroads of design, programming,
-        and art. We craft exceptional digital tools and services leveraging
-        generative AI.
-      </span>
+        <span className="font-bold">About Us:</span>
 
-      <span className="font-bold">Founders:</span>
+        <span>
+          Playcloud Technologies Limited (HeadGen AI) is dedicated to perfecting
+          AI-generated images. Situated at the crossroads of design,
+          programming, and art. We craft exceptional digital tools and services
+          leveraging generative AI.
+        </span>
 
-      <span>
-        Ruark Gordon: Film Director, Producer, and Serial Entrepreneur.
-        <br />
-        Krasia Gordon: Computer Engineer with a knack for visual design.
-      </span>
+        <span className="font-bold">Founders:</span>
 
-      <span className="font-bold">Contact Us:</span>
+        <span>
+          Ruark Gordon: Film Director, Producer, and Serial Entrepreneur.
+          <br />
+          Krasia Gordon: Computer Engineer with a knack for visual design.
+        </span>
 
-      <span>
-        Email: support@headgen.ai <br />
-        WhatsApp: +91 9820442749 (for collaborations or urgent requests)
-        <br />
-        We value your input and welcome your thoughts, feedback, and requests.
-        Let's shape the future together!
-      </span>
-    </div>
+        <span className="font-bold">Contact Us:</span>
+
+        <span>
+          Email: support@headgen.ai <br />
+          WhatsApp: +91 9820442749 (for collaborations or urgent requests)
+          <br />
+          We value your input and welcome your thoughts, feedback, and requests.
+          Let's shape the future together!
+        </span>
+      </div>
+    </>
   );
 
   const foundersContent = [
@@ -137,8 +148,9 @@ const AboutUs = () => {
       <div className="relative w-full text-white py-14 xl:py-24 px-10 xl:px-[250px]  flex flex-col gap-8 xl:gap-[3.5rem] tracking-wider">
         <div className="mt-10">
           <LazyLoadImage
-          src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721024048/about_us_page_tzdcu9_nqiswz.webp"
-          className="w-full rounded-xl shadow-[0_0_0_1px#d1d1d1]" />
+            src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721024048/about_us_page_tzdcu9_nqiswz.webp"
+            className="w-full rounded-xl shadow-[0_0_0_1px#d1d1d1]"
+          />
         </div>
         <div className="flex justify-center my-10">
           <div className="flex flex-col md:flex-row flex-wrap md:justify-between w-full">

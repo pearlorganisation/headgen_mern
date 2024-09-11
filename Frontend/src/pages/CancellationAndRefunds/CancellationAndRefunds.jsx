@@ -1,8 +1,9 @@
 import React from "react";
+import Helmet from "react-helmet";
 
 const CancellationAndRefunds = () => {
   const CancellationContent = [
-    { 
+    {
       heading: "",
       content: [
         {
@@ -63,7 +64,7 @@ const CancellationAndRefunds = () => {
           subheading: "",
           content: (
             <>
-              For any concerns or issues related to cancellations and refunds,  
+              For any concerns or issues related to cancellations and refunds,
               <br /> customers can contact us at: Customer Care <br /> Number:
               9987357345 <br />
               Email: support@headgen.ai
@@ -86,32 +87,43 @@ const CancellationAndRefunds = () => {
   ];
 
   return (
-    <div className="w-full text-white py-14 xl:py-24 px-10 xl:px-[250px] bg-[#161616] flex flex-col gap-6 xl:gap-[3.5rem] tracking-wider">
-      <div className="w-full text-center font-medium text-[44px] md:text-[52px] xl:text-[60px]">
-        Cancellation & Refund Policy
-      </div>
-      <div className="flex flex-col justify-between gap-6 text-[14px] md:text-[16px]  xl:text-[22px] text-[#e4e2e2] font-light h-full">
-        {CancellationContent &&
-          CancellationContent?.map((data, idx) => (
-            <div className="flex flex-col gap-6">
-              <div className="font-semibold">
-                {data?.heading?.length > 0 && `${idx}. ${data?.heading}`}
+    <>
+      <Helmet>
+        <title>
+        Cancellation & Refund Policy | HeadGen AI - AI Headshot Generator & AI Photo Services
+        </title>
+        {/* <meta
+          name="description"
+          content="Discover how HeadGen AI’s AI image generator creates professional, realistic headshots for resumes, teams, doctors, and LinkedIn. Using our AI photo generator, we deliver the best AI Generated images with ease."
+        /> */}
+      </Helmet>
+      <div className="w-full text-white py-14 xl:py-24 px-10 xl:px-[250px] bg-[#161616] flex flex-col gap-6 xl:gap-[3.5rem] tracking-wider">
+        <div className="w-full text-center font-medium text-[44px] md:text-[52px] xl:text-[60px]">
+          Cancellation & Refund Policy
+        </div>
+        <div className="flex flex-col justify-between gap-6 text-[14px] md:text-[16px]  xl:text-[22px] text-[#e4e2e2] font-light h-full">
+          {CancellationContent &&
+            CancellationContent?.map((data, idx) => (
+              <div className="flex flex-col gap-6">
+                <div className="font-semibold">
+                  {data?.heading?.length > 0 && `${idx}. ${data?.heading}`}
+                </div>
+                {data?.content &&
+                  data?.content?.map((subData, idx2) => (
+                    <div className="flex flex-col gap-6">
+                      {subData?.subheading?.length > 0 && (
+                        <div>
+                          {idx}.{idx2} {subData?.subheading}
+                        </div>
+                      )}
+                      <div>{subData?.content}</div>
+                    </div>
+                  ))}
               </div>
-              {data?.content &&
-                data?.content?.map((subData, idx2) => (
-                  <div className="flex flex-col gap-6">
-                    {subData?.subheading?.length > 0 && (
-                      <div>
-                        {idx}.{idx2} {subData?.subheading}
-                      </div>
-                    )}
-                    <div>{subData?.content}</div>
-                  </div>
-                ))}
-            </div>
-          ))}
+            ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -4,6 +4,7 @@ import StarRating from "../../components/StarRating/StarRating";
 import { Toaster, toast } from "sonner";
 import axios from "axios";
 import { BeatLoader } from "react-spinners";
+import {Helmet} from "react-helmet";
 
 const AddReview = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -67,6 +68,16 @@ const AddReview = () => {
   };
 
   return (
+    <>
+     <Helmet>
+        <title>
+        HeadGen AI Reviews | Customer Feedback on AI Headshots & AI Image Generator Services
+        </title>
+        {/* <meta
+          name="description"
+          content="Get free AI Generated images with HeadGen AI’s advanced AI image generator. Create professional photos for resumes, teams, or LinkedIn with our easy-to-use AI headshot generator"
+        /> */}
+      </Helmet>
     <div className="pt-20 min-h-screen grid place-items-center text-white">
       <Toaster />
       <section className="py-20 flex flex-col gap-10">
@@ -194,6 +205,7 @@ const AddReview = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

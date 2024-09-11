@@ -14,6 +14,7 @@ import InfinityTextSlider from "../../components/InfinitySlider/InfinityTextSlid
 import { IoIosStar } from "react-icons/io";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import AsSeenOn from "../../components/AsSeenOn/AsSeenOn";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const [blogData, setBlogData] = useState(null)
@@ -492,6 +493,16 @@ const Home = () => {
   }, []);
 
   return (
+    <>
+    <Helmet>
+        <title>
+        HeadGen AI | AI Image Generator for Realistic AI Headshots & High-Quality AI Photos
+        </title>
+        <meta
+          name="description"
+          content="HeadGen AI’s AI image generator creates professional, realistic headshots for resumes, teams, doctors, and LinkedIn. Using our AI photo generator, we deliver the best AI Generated images with ease."
+        />
+      </Helmet>
     <div className="w-full py-20  flex flex-col bg-[#161616] gap-10">
       {/* hero */}
 
@@ -500,21 +511,7 @@ const Home = () => {
           className={`w-full md:w-1/2 flex flex-col items-center gap-0 pt-5 md:pt-10 text-center`}
         >
           <div className="flex flex-col leading-none mb-4 space-y-0">
-            <div
-              className={`text-xl lg:text-3xl font-bold bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text`}
-            >
-              AI HEADSHOT GENERATOR
-            </div>
-            <div
-              className={`text-white oswald text-[6rem] lg:text-[9rem] font-bold pb-4`}
-            >
-              AI TOOL
-            </div>
-            <div
-              className={` text-[20px] lg:text-[28px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text`}
-            >
-              FOR PROFESSIONAL HEADSHOTS
-            </div>
+            <img src="/heading.png" alt="" srcset="" />
           </div>
           <div
             className={`flex flex-col gap-6 mb-3 md:mb-0 text-center justify-center items-center md:items-start `}
@@ -1011,6 +1008,7 @@ const Home = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import axios from "axios";
 import DOMPurify from "dompurify";
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useLocation, useParams } from "react-router-dom";
 
 const BlogDetails = () => {
@@ -23,13 +24,26 @@ const BlogDetails = () => {
   }, [slug]);
 
   return (
-    <div className="container mx-auto min-h-screen pt-28 px-10">
-      <div className=" flex flex-col items-center max-w-4xl  mx-auto text-white space-y-8">
-        <img className="rounded-md " src={blogData?.banner} alt="" />
-        <h1 className="text-2xl text-center  md:text-3xl max-w-2xl ">{blogData?.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: blogData?.content }}></div>
+    <>
+      <Helmet>
+        <title>
+        HeadGen AI Blog | Insights on AI Headshot Generation, AI Images, and AI Photography
+        </title>
+        {/* <meta
+          name="description"
+          content="Get free AI Generated images with HeadGen AI’s advanced AI image generator. Create professional photos for resumes, teams, or LinkedIn with our easy-to-use AI headshot generator"
+        /> */}
+      </Helmet>
+      <div className="container mx-auto min-h-screen pt-28 px-10">
+        <div className=" flex flex-col items-center max-w-4xl  mx-auto text-white space-y-8">
+          <img className="rounded-md " src={blogData?.banner} alt="" />
+          <h1 className="text-2xl text-center  md:text-3xl max-w-2xl ">
+            {blogData?.title}
+          </h1>
+          <div dangerouslySetInnerHTML={{ __html: blogData?.content }}></div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

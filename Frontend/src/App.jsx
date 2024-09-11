@@ -39,7 +39,7 @@ function App() {
         <Route path="/ai-headshot-generator" element={<Home />} />
         <Route path="/ai-professional-headshots" element={<Home />} />
 
-        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route

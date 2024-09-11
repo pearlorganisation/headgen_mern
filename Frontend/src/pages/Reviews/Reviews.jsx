@@ -5,6 +5,7 @@ import Pagination from "@mui/material/Pagination";
 import Skeleton from "@mui/material/Skeleton";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Modal, styled } from "@mui/material";
+import {Helmet} from "react-helmet"
 
 const StyledPagination = styled(Pagination)(({ theme }) => ({
   "& .MuiPaginationItem-root": {
@@ -48,6 +49,16 @@ const Reviews = () => {
   };
 
   return (
+    <>
+       <Helmet>
+        <title>
+        HeadGen AI Reviews | Customer Feedback on AI Headshots & AI Image Generator Services
+        </title>
+        {/* <meta
+          name="description"
+          content="Get free AI Generated images with HeadGen AI’s advanced AI image generator. Create professional photos for resumes, teams, or LinkedIn with our easy-to-use AI headshot generator"
+        /> */}
+      </Helmet>
     <div className="min-h-screen grid place-items-center text-white">
       <section className="py-28 flex flex-col gap-10">
         <div className="container px-4 md:px-6">
@@ -249,6 +260,7 @@ const Reviews = () => {
         )}
       </section>
     </div>
+    </>
   );
 };
 

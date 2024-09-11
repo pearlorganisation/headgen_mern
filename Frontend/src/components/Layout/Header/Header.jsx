@@ -87,11 +87,11 @@ const Header = () => {
         },
         {
           name: "Sales Headshots",
-          path: "/sales-headshots",
+          path: "/salesman-ai-headshots",
         },
         {
           name: "Students Headshots",
-          path: "/upload/Students%20Headshots",
+          path: "/students-ai-headshots",
         },
         {
           name: "Teacher Headshots",
@@ -145,11 +145,11 @@ const Header = () => {
       path: "/reviews",
       showDropdown: false,
     },
-    {
-      name: "Free Headshots",
-      path: "/free-ai-headshot-generator",
-      showDropdown: false,
-    },
+    // {
+    //   name: "Free Headshots",
+    //   path: "/free-ai-headshot-generator",
+    //   showDropdown: false,
+    // },
   ];
 
   return (
@@ -230,8 +230,8 @@ const Header = () => {
           {/* button */}
           <div className="h-full flex flex-col justify-center py-3">
             <Link
-              to={`/upload/${
-                isDatingPage ? "dating" : "Corporate%20Headshots"
+              to={`/${
+                isDatingPage ? "dating-ai-headshot-generator" : "corporate-ai-headshots"
               }`}
               className={`hover:squeezyBtn px-5 py-4 ${
                 toggleNav

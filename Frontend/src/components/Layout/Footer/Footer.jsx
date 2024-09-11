@@ -21,12 +21,12 @@ const Footer = () => {
             link: "/lawyer-ai-headshots",
           },
           {
-            title: "Sales",
-            link: "/sales-headshots",
+            name: "Sales",
+            path: "/salesman-ai-headshots",
           },
           {
-            title: "Student",
-            link: "/student-ai-headshots",
+            name: "Students",
+            path: "/students-ai-headshots",
           },
           {
             title: "Teacher",
@@ -40,15 +40,15 @@ const Footer = () => {
           },
           {
             title: "Custom",
-            link: "/custom-ai-headshots",
+            link: "/corporate-ai-headshots",
           },
           {
             title: "Prompts",
-            link: "/prompts-ai-headshots",
+            link: "/corporate-ai-headshots",
           },
           {
             title: "Teams",
-            link: "/ai-headshots-teams",
+            link: "/corporate-ai-headshots",
           },
           {
             title: "Blogs",

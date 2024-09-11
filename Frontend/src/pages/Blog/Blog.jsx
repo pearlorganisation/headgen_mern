@@ -6,6 +6,7 @@ import { styled } from "@mui/material";
 import DOMPurify from "dompurify";
 import Skeleton from "@mui/material/Skeleton";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import {Helmet} from "react-helmet"
 
 const StyledPagination = styled(Pagination)(({ theme }) => ({
   "& .MuiPaginationItem-root": {
@@ -51,6 +52,16 @@ const Blog = () => {
   };
 
   return (
+    <>
+      <Helmet>
+        <title>
+        HeadGen AI Blog | Insights on AI Headshot Generation, AI Images, and AI Photography
+        </title>
+        {/* <meta
+          name="description"
+          content="Get free AI Generated images with HeadGen AI’s advanced AI image generator. Create professional photos for resumes, teams, or LinkedIn with our easy-to-use AI headshot generator"
+        /> */}
+      </Helmet>
     <div className="min-h-screen grid place-items-center text-white">
       <section className="py-28 flex flex-col gap-10">
         <div className="container px-4 md:px-6">
@@ -162,6 +173,7 @@ const Blog = () => {
         )}
       </section>
     </div>
+    </>
   );
 };
 

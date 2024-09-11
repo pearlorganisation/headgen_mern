@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from "react-helmet";
 
 const PrivacyPolicy = () => {
   const policyContent = [
@@ -123,63 +124,90 @@ const PrivacyPolicy = () => {
 
   const contactContent = [
     {
-      title:"Company Name:",
+      title: "Company Name:",
       heading: "Playcloud Technologies Private Limited",
-      content: (<>
-      Address:<br/>10th floor, RMZ Latitude Commercial Building, Bellary Rd, Vinayakanagar, Byatarayanapura, Bengaluru, Karnataka 560024<br/>Email: support@headgen.ai<br/>Date: 10-01-2024
-      </>)
+      content: (
+        <>
+          Address:
+          <br />
+          10th floor, RMZ Latitude Commercial Building, Bellary Rd,
+          Vinayakanagar, Byatarayanapura, Bengaluru, Karnataka 560024
+          <br />
+          Email: support@headgen.ai
+          <br />
+          Date: 10-01-2024
+        </>
+      ),
     },
     {
-      title:"Contact:",
+      title: "Contact:",
       heading: "",
-      content:(
+      content: (
         <>
-        Playcloud Technologies Private Limited<br/>10th floor, RMZ Latitude Commercial Building,Bellary Rd Vinayakanagar, Byatarayanapura, Bengaluru, Karnataka, 560024<br />support@headgen.ai<br/>
-        Customer Care: +91 9820442749
+          Playcloud Technologies Private Limited
+          <br />
+          10th floor, RMZ Latitude Commercial Building,Bellary Rd Vinayakanagar,
+          Byatarayanapura, Bengaluru, Karnataka, 560024
+          <br />
+          support@headgen.ai
+          <br />
+          Customer Care: +91 9820442749
         </>
-      )
+      ),
     },
   ];
 
   return (
-    <div className="w-full text-white py-14 xl:py-24 px-10 xl:px-[100px] bg-[#161616] flex flex-col gap-6 xl:gap-[3.5rem] tracking-wider">
-      <div className="w-full text-center font-medium text-[44px] md:text-[52px] xl:text-[60px]">
-        Privacy Policy
-      </div>
-      <div className="flex flex-col justify-between gap-6 text-[14px] md:text-[16px]  xl:text-[22px] text-[#e4e2e2] font-light h-full">
-        {policyContent &&
-          policyContent?.map((data, idx) => (
-            <div className="flex flex-col gap-6">
-              <div className="font-semibold">
-                {data?.heading?.length > 0 && `${idx}. ${data?.heading}`}
+    <>
+      <Helmet>
+        <title>
+          Privacy Policy | HeadGen AI - Protecting Your Data with Our AI Image
+          Generator
+        </title>
+        {/* <meta
+          name="description"
+          content="Discover how HeadGen AI’s AI image generator creates professional, realistic headshots for resumes, teams, doctors, and LinkedIn. Using our AI photo generator, we deliver the best AI Generated images with ease."
+        /> */}
+      </Helmet>
+      <div className="w-full text-white py-14 xl:py-24 px-10 xl:px-[100px] bg-[#161616] flex flex-col gap-6 xl:gap-[3.5rem] tracking-wider">
+        <div className="w-full text-center font-medium text-[44px] md:text-[52px] xl:text-[60px]">
+          Privacy Policy
+        </div>
+        <div className="flex flex-col justify-between gap-6 text-[14px] md:text-[16px]  xl:text-[22px] text-[#e4e2e2] font-light h-full">
+          {policyContent &&
+            policyContent?.map((data, idx) => (
+              <div className="flex flex-col gap-6">
+                <div className="font-semibold">
+                  {data?.heading?.length > 0 && `${idx}. ${data?.heading}`}
+                </div>
+                {data?.content &&
+                  data?.content?.map((subData, idx2) => (
+                    <div className="flex flex-col gap-6 ">
+                      {subData?.subheading?.length > 0 && (
+                        <div>
+                          {idx}.{idx2} {subData?.subheading}
+                        </div>
+                      )}
+                      <div>{subData?.content}</div>
+                    </div>
+                  ))}
               </div>
-              {data?.content &&
-                data?.content?.map((subData, idx2) => (
-                  <div className="flex flex-col gap-6 ">
-                    {subData?.subheading?.length > 0 && (
-                      <div>
-                        {idx}.{idx2} {subData?.subheading}
-                      </div>
-                    )}
-                    <div>{subData?.content}</div>
-                  </div>
-                ))}
-            </div>
-          ))}
-      </div>
-      <div className="flex gap-10 font-regular text-[#e4e2e2]">
-        {contactContent &&
-          contactContent?.map((item) => (
-            <div className="w-[48%] flex flex-col gap-2 justify-between text-[14px] md:text-[16px]  xl:text-[22px]">
-              <div className="flex gap-2">
-                <strong>{item?.title}</strong>
-                {item?.heading}
+            ))}
+        </div>
+        <div className="flex gap-10 font-regular text-[#e4e2e2]">
+          {contactContent &&
+            contactContent?.map((item) => (
+              <div className="w-[48%] flex flex-col gap-2 justify-between text-[14px] md:text-[16px]  xl:text-[22px]">
+                <div className="flex gap-2">
+                  <strong>{item?.title}</strong>
+                  {item?.heading}
+                </div>
+                <div className="leading-7 xl:leading-9 ">{item?.content}</div>
               </div>
-              <div className="leading-7 xl:leading-9 ">{item?.content}</div>
-            </div>
-          ))}
+            ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

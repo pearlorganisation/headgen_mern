@@ -5,6 +5,7 @@ import ImageSection from "../../components/ImageSection/ImageSection";
 import OrderDetails from "../../components/OrderDetails/OrderDetails";
 import axios from "axios";
 import { BeatLoader } from "react-spinners";
+import { Helmet } from "react-helmet";
 
 const FreeHeadshotsTab = () => {
   const [successMsg, setSuccessMsg] = useState(null);

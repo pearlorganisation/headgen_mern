@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import InfinityTextSlider from "../../components/InfinitySlider/InfinityTextSlider";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import Helmet from "react-helmet";
 
 const HowItWorks = () => {
   //   const [isAnimated, setIsAnimated] = useState(false);
@@ -67,6 +68,17 @@ const HowItWorks = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+        <title>
+          How HeadGen AI Works | Simple AI Headshot Generator & AI Photo Generation Process
+        </title>
+        <meta
+          name="description"
+          content="Discover how HeadGen AI’s AI image generator creates professional, realistic headshots for resumes, teams, doctors, and LinkedIn. Using our AI photo generator, we deliver the best AI Generated images with ease."
+        />
+      </Helmet>
+
     <div className="w-full py-20 flex flex-col bg-[#161616] gap-10">
       <div className="flex justify-center px-10  xl:px-[160px] 2xl:px-[250px] py-14">
         <div className="flex flex-row flex-wrap gap-6 lg:gap-0 md:justify-between w-full">
@@ -203,6 +215,7 @@ const HowItWorks = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
