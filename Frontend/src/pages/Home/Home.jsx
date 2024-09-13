@@ -8,7 +8,7 @@ import BlogCards from "../../components/BlogCards/BlogCards";
 import DatingHero from "../../components/Dating/DatingHero/DatingHero";
 import { FaLinkedin } from "react-icons/fa";
 import { MdGroups } from "react-icons/md";
-import { IoDocumentTextOutline, IoStarSharp } from "react-icons/io5";
+import { IoDocumentTextOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import InfinityTextSlider from "../../components/InfinitySlider/InfinityTextSlider";
 import { IoIosStar } from "react-icons/io";
@@ -454,11 +454,11 @@ const Home = () => {
       path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1723101551/HeadGen_AI_HeadShots_zazqd5.webp",
       svg: (
         <>
-          <LazyLoadImage 
-          src="/Indeed_logo.png" 
-          className="h-[16px]"
-          height={"16px"}
-          width={"16px"}
+          <LazyLoadImage
+            src="/Indeed_logo.png"
+            className="h-[16px]"
+            height={"16px"}
+            width={"16px"}
           />
         </>
       ),
@@ -513,7 +513,7 @@ const Home = () => {
           content="HeadGen AI’s AI image generator creates professional, realistic headshots for resumes, teams, doctors, and LinkedIn. Using our AI photo generator, we deliver the best AI Generated images with ease."
         />
       </Helmet>
-      <div className="w-full py-20  flex flex-col bg-[#161616] gap-10">
+      <div className="w-full py-20  flex flex-col bg-[#161616] gap-10 overflow-x-hidden">
         {/* hero */}
 
         <div className="flex justify-center px-10 md:px-16 2xl:px-[200px]">
@@ -521,12 +521,21 @@ const Home = () => {
             className={`w-full md:w-1/2 flex flex-col items-center gap-0 pt-5 md:pt-10 text-center`}
           >
             <h1 className="flex flex-col leading-none mb-4 space-y-0">
-              <LazyLoadImage
-                src="/heading.png"
-                alt="AI Headshot Generator AI Tool For professional headshots"
-                width={"460px"}
-                height={"230px"}
-              />
+              <div
+                className={`text-md md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text `}
+              >
+                AI HEADSHOT GENERATOR
+              </div>
+              <div
+                className={`text-white text-[3.5rem] md:text-[4.7rem] lg:text-[6rem] font-bold pb-2`}
+              >
+                AI TOOL
+              </div>
+              <div
+                className={` text-sm md:text-lg lg:text-2xl bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text `}
+              >
+                FOR PROFESSIONAL HEADSHOTS
+              </div>
             </h1>
             <div
               className={`flex flex-col gap-6 mb-3 md:mb-0 text-center justify-center items-center md:items-start `}
@@ -848,7 +857,7 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-            <div className="w-full ">
+            <div className="w-full object-contain">
               <LazyLoadImage
                 src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021956/headgen/Home/Turn%20your%20selfie%20into%20professional%20headshots/nrg3dczzklbafdfbc2lp.webp"
                 className="w-full h-full"
@@ -871,13 +880,13 @@ const Home = () => {
         <div className="grid md:grid-cols-2 gap-8 px-10 md:px-16 2xl:px-[200px]">
           <div className="w-full relative">
             <div className="flex flex-col items-center md:items-start justify-center gap-2 md:gap-6 top-0">
-              <div className=" text-[#F1F1F1] md:grid space-x-3 md:space-x-0  w-full text-center md:text-left text-xl sm:text-2xl md:text-4xl xl:text-6xl font-medium">
+              <h2 className=" text-[#F1F1F1] md:grid space-x-3 md:space-x-0  w-full text-center md:text-left text-xl sm:text-2xl md:text-4xl xl:text-6xl font-medium">
                 <span>Frequently</span>
 
                 <span>Asked</span>
 
                 <span>Questions</span>
-              </div>
+              </h2>
               <div className="text-[#F1F1F1] text-center text-[12px] md:text-[14px]">
                 E-mail is at support@headgen.ai we are available round the
                 clock.
@@ -890,12 +899,12 @@ const Home = () => {
         </div>
 
         <div className="flex space-y-4 flex-col px-10 md:px-16 2xl:px-[200px]">
-          <div className="text-center text-xl sm:text-2xl md:text-4xl xl:text-6xl  text-[#F1F1F1]">
+          <h2 className="text-center text-xl sm:text-2xl md:text-4xl xl:text-6xl  text-[#F1F1F1]">
             <span className=" bg-gradient-to-r md:leading-[5rem] from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
               Our Clients love
             </span>{" "}
             Our Results
-          </div>
+          </h2>
           <InfinitySlider
             imgData1={reviewData1}
             imgData2={reviewData1}
@@ -904,12 +913,12 @@ const Home = () => {
         </div>
 
         <div className="flex flex-col gap-5 md:gap-10">
-          <div className="text-center text-lg sm:text-xl md:text-3xl xl:text-5xl text-[#F1F1F1]">
+          <h2 className="text-center text-lg sm:text-xl md:text-3xl xl:text-5xl text-[#F1F1F1]">
             <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
               Privacy First
             </span>{" "}
             to Protect Your Data
-          </div>
+          </h2>
           <div className="flex flex-wrap justify-center gap-4  px-10 md:px-16 2xl:px-[200px] ">
             {privacyFirstData &&
               privacyFirstData?.map((item) => (
@@ -932,12 +941,12 @@ const Home = () => {
         </div>
 
         <div className="flex flex-col gap-8">
-          <div className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
+          <h2 className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
             <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
               Premium Professional
             </span>{" "}
             Image Generator
-          </div>
+          </h2>
           <div className="text-center text-[#f1f1f1] text-[15px]">
             Swipe to see more images
           </div>
@@ -1001,12 +1010,12 @@ const Home = () => {
 
           <div className="w-full flex justify-center">
             <div className="flex flex-col items-center justify-center gap-4 md:gap-6 top-0">
-              <div className="text-center space-x-3 md:space-x-0 md:grid text-[#F1F1F1] text-[26px] sm:text-[32px] md:text-[42px] lg:text-[52px] 2xl:text-[60px] font-medium">
+              <h2 className="text-center space-x-3 md:space-x-0 md:grid text-[#F1F1F1] text-[26px] sm:text-[32px] md:text-[42px] lg:text-[52px] 2xl:text-[60px] font-medium">
                 <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
                   Money-Back
                 </span>
                 <span>Guarantee</span>
-              </div>
+              </h2>
               <div className="text-[#F1F1F1] text-center text-[10px] md:text-[14px]">
                 Try Headgen.ai with confidence. Our results are Mind blowing.
               </div>
@@ -1021,12 +1030,12 @@ const Home = () => {
         </div>
         {blogData && blogData?.length > 0 && (
           <div className="flex flex-col gap-24 px-10 md:px-16 2xl:px-[200px]">
-            <div className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
+            <h2 className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
               <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
                 HeadGen
               </span>{" "}
               AI Blog
-            </div>
+            </h2>
             <div>
               <BlogCards data={blogData} />
             </div>

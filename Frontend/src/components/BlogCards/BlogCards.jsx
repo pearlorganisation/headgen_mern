@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
 const BlogCards = ({ data, datingPage }) => {
@@ -7,7 +8,7 @@ const BlogCards = ({ data, datingPage }) => {
       {data?.map((item, idx) => (
         <div key={`blogCard${idx}`} className={`flex w-full flex-col justify-evenly items-center  bg-gradient-to-b  ${datingPage ? 'from-[#c4325eab] to-[#e60045c2]' : 'from-[#1a1e43] to-[#1b2bbb].'} rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}>
           <div className="w-[80%] -translate-y-16 md:-translate-y-20 group-hover:-translate-y-24 rounded-xl transition duration-300">
-            <img src={item?.banner ? item?.banner : item?.imgPath} className="w-full rounded-xl" />
+            <LazyLoadImage src={item?.banner ? item?.banner : item?.imgPath} className="w-full rounded-xl" width={"220px"} height={"392px"} />
           </div>
           <div className={`w-full h-[50%] flex flex-col ${item?.btnLink ? 'justify-between' : ''}  gap-4 items-center px-4`}>
             {item?.title?.length > 0 && (

@@ -24,7 +24,7 @@ const HeadshotSelection = ({
 
   useEffect(() => {
     if (headshotType) {
-      console.log(headshotType);
+      // console.log(headshotType);
       const updatedUserData = { ...userData };
       updatedUserData.headshotType = headshotType;
       setUserData(updatedUserData);

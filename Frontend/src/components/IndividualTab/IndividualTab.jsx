@@ -51,6 +51,7 @@ const IndividualTab = ({
   ];
 
   useEffect(() => {
+    console.log(userData, 'updated in localStorage')
     localStorage.setItem("userData", JSON.stringify(userData));
   }, [userData]);
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AppSvgs from "../../AppSvgs/AppSvgs";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Footer = () => {
   const footerContent = [
@@ -130,7 +131,7 @@ const Footer = () => {
           />
           <div className="flex flex-col gap-1">
             <div className="w-[90%] px-2 py-3 bg-gradient-to-r from-[#59caff] to-[#5636F3] rounded-xl text-[#f1f1f1] text-[15px] font-medium transition duration-300 absolute -bottom-4 left-1/2 -translate-x-1/2">
-              <img src="/logo.webp" />
+              <LazyLoadImage src="/logo.webp" width={"240px"} height={"58px"}/>
             </div>
           </div>
         </div>
@@ -144,13 +145,13 @@ const Footer = () => {
                 </div>
                 {fc?.multiList ? (
                   <div className="grid md:grid-cols-2 text-[#f1f1f1] text-xl xl:text-[1.7rem] leading-[1.3] ">
-                    {fc?.multiList?.map((item) => (
+                    {fc?.multiList?.map((item, idx) => (
                       <div className="flex flex-col gap-1">
                         {item &&
                           item?.map((item) => (
                             <Link
                               to={item?.link}
-                              key={`fcl${item?.title}`}
+                              key={`fcll${idx}`}
                               className="oswald hover:text-blue-600 transition duration-300"
                             >
                               {item?.title}
@@ -170,7 +171,7 @@ const Footer = () => {
                           className="oswald hover:text-blue-600 transition duration-300"
                         >
                           {item?.title ? item?.title : (
-                            <img src={`${item?.imgPath}`} alt={item?.alt} className="w-full rounded-lg shadow-[0_0_0_1px#ffffff] mt-1" />
+                            <img src={`${item?.imgPath}`} alt={item?.alt} className="w-full rounded-lg shadow-[0_0_0_1px#ffffff] mt-1" width={"60px"} height={"242px"}/>
                           )}
                         </Link>
                       ))}

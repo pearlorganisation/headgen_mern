@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import HeaderLink from "./HeaderLink";
 import SubDropdown from "../../SubDropdown/SubDropdown";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Header = () => {
   const location = useLocation();
@@ -161,10 +162,12 @@ const Header = () => {
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex flex-col justify-center">
           <Link to="/">
-            <img
+            <LazyLoadImage
               src="/logo.webp"
               alt=""
               className="w-[140px] sm:w-[180px] max-w-[180px]"
+              height={"33px"}
+              width={"180px"}
             />
           </Link>
         </div>
