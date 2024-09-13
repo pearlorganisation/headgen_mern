@@ -13,6 +13,8 @@ const AsSeenOn = () => {
       <LazyLoadImage
         src={`https://res.cloudinary.com/dj2fvzfmm/image/upload/v1720502114/headgen/Home/As%20seen%20on/vgozfhzblspkran3nbai.png`}
         className={`w-full sm:w-2/3 lg:w-3/5 xl:w-2/5`}
+        width={"700px"}
+        height={"144px"}
       />
     </div>
   );

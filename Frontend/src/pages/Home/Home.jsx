@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios'
+import axios from "axios";
 import BeforeAfterSlider from "../../components/BeforeAfterSlider/BeforeAfterSlider";
 import InfinitySlider from "../../components/InfinitySlider/InfinitySlider";
 import FaqAccordian from "../../components/FaqAccordian/FaqAccordian";
@@ -17,7 +17,7 @@ import AsSeenOn from "../../components/AsSeenOn/AsSeenOn";
 import { Helmet } from "react-helmet";
 
 const Home = () => {
-  const [blogData, setBlogData] = useState(null)
+  const [blogData, setBlogData] = useState(null);
 
   const imgData1 = [
     {
@@ -441,6 +441,8 @@ const Home = () => {
           <LazyLoadImage
             src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021927/headgen/Home/use%20cases/tyyoog6ul8umehqzkb3m.webp"
             className="w-[22px] h-[22px]"
+            height={"22px"}
+            width={"22px"}
           />
         </>
       ),
@@ -452,7 +454,12 @@ const Home = () => {
       path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1723101551/HeadGen_AI_HeadShots_zazqd5.webp",
       svg: (
         <>
-          <LazyLoadImage src="/Indeed_logo.png" className="h-[16px]" />
+          <LazyLoadImage 
+          src="/Indeed_logo.png" 
+          className="h-[16px]"
+          height={"16px"}
+          width={"16px"}
+          />
         </>
       ),
     },
@@ -483,531 +490,549 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/blogs/recent`).then((res) => {
-      console.log(res.data.blogsData)
-      setBlogData(res.data.blogsData)
-    }).catch((err) => {
-      console.error(err)
-    })
-
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/blogs/recent`)
+      .then((res) => {
+        console.log(res.data.blogsData);
+        setBlogData(res.data.blogsData);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>
-        HeadGen AI | AI Image Generator for Realistic AI Headshots & High-Quality AI Photos
+          HeadGen AI | AI Image Generator for Realistic AI Headshots &
+          High-Quality AI Photos
         </title>
         <meta
           name="description"
           content="HeadGen AI’s AI image generator creates professional, realistic headshots for resumes, teams, doctors, and LinkedIn. Using our AI photo generator, we deliver the best AI Generated images with ease."
         />
       </Helmet>
-    <div className="w-full py-20  flex flex-col bg-[#161616] gap-10">
-      {/* hero */}
+      <div className="w-full py-20  flex flex-col bg-[#161616] gap-10">
+        {/* hero */}
 
-      <div className="flex justify-center px-10 md:px-16 2xl:px-[200px]">
-        <div
-          className={`w-full md:w-1/2 flex flex-col items-center gap-0 pt-5 md:pt-10 text-center`}
-        >
-          <div className="flex flex-col leading-none mb-4 space-y-0">
-            <img src="/heading.png" alt="" srcset="" />
-          </div>
+        <div className="flex justify-center px-10 md:px-16 2xl:px-[200px]">
           <div
-            className={`flex flex-col gap-6 mb-3 md:mb-0 text-center justify-center items-center md:items-start `}
+            className={`w-full md:w-1/2 flex flex-col items-center gap-0 pt-5 md:pt-10 text-center`}
           >
-            <Link
-              to="/corporate-ai-headshots"
-              className={`w-full px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500`}
+            <h1 className="flex flex-col leading-none mb-4 space-y-0">
+              <LazyLoadImage
+                src="/heading.png"
+                alt="AI Headshot Generator AI Tool For professional headshots"
+                width={"460px"}
+                height={"230px"}
+              />
+            </h1>
+            <div
+              className={`flex flex-col gap-6 mb-3 md:mb-0 text-center justify-center items-center md:items-start `}
             >
-              Get your photos for $29
-            </Link>
-
-            <div className="flex flex-col md:flex-row gap-1 justify-between">
-              <div className="flex flex-col justify-center">
-                <LazyLoadImage
-                  src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022126/headgen/Home/eqiraehtzcsqsugxkcsp.webp"
-                  width={"120px"}
-                />
-              </div>
-
-              <div className=" flex flex-col leading-tight">
-                <span className="flex gap-1 justify-start items-center md:items-start">
-                  <IoIosStar className="text-yellow-400" size={21} />
-                  <IoIosStar className="text-yellow-400" size={21} />
-                  <IoIosStar className="text-yellow-400" size={21} />
-                  <IoIosStar className="text-yellow-400" size={21} />
-                  <IoIosStar className="text-yellow-400" size={21} />
-                </span>
-
-                <span className="text-[#f1f1f1] text-[13px] ">
-                  Rated 4.9 Stars in over
-                </span>
-                <span className="text-[#f1f1f1] text-[13px] ">
-                  30,000+ AI Headshots
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-     
-      </div>
-
-      {/* infinity slider */}
-      <div className="w-full overflow-hidden px-10 md:px-16 2xl:px-[200px]">
-        <InfinitySlider imgData1={imgData1} />
-      </div>
-
-      {/* trusted by */}
-
-      <AsSeenOn/>
-
-      {/* how it works */}
-
-      <div className="flex justify-center px-10 md:px-16 2xl:px-[200px] py-14">
-        <div className="grid gap-8 md:gap-0 md:grid-cols-2  md:justify-between w-full">
-          <div className=" flex flex-col w-full gap-4 justify-center items-center  ">
-            <div className="grid grid-cols-2 md:grid-cols-1 gap-4 w-fit">
-              <div className="text-[#F1F1F1] text-3xl md:text-[60px] 2xl:text-[72px] font-medium  grid place-items-center">
-                How it
-              </div>
-              <div className="text-3xl md:text-[60px] leading-[3rem] 2xl:text-[72px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-                works
-              </div>
               <Link
                 to="/corporate-ai-headshots"
-                className="hover:squeezyBtn col-span-2 md:col-auto flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full py-2 md:py-4  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]"
+                className={`w-full px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500`}
               >
                 Get your photos for $29
               </Link>
-            </div>
-          </div>
-          <div className=" flex flex-col w-full gap-6 items-center">
-            <div className="w-full flex justify-center">
-              <iframe
-                src="https://res.cloudinary.com/dj2fvzfmm/video/upload/v1721022181/headgen/How%20it%20works%20video/ej1ci1htv6momh1v0vov.mp4"
-                width="100%"
-                height="100%"
-                className="rounded-2xl h-[200px] sm:w-[500px] sm:h-[300px] md:h-[300px] md:w-[640px] 2xl:h-[400px] 2xl:w-[700px]"
-              ></iframe>
-            </div>
 
-            <div className="text-[#F1F1F1] text-[10px]">
-              Upload a selfie and get Professional Images for your LinkedIn
-              Profile, Resume, TV Commercial etc
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* use flow card section */}
-
-      <div className="px-10 md:px-16 2xl:px-[200px] pb-20">
-        <div className="flex flex-wrap flex-col pt-8 md:pt-0 gap-[8rem] md:gap-2 md:flex-row justify-center items-center md:items-start md:justify-between px-2 ">
-          {cardData &&
-            cardData?.map((item, idx) => (
-              <div className="relative w-full max-w-[320px] h-[300px] md:w-[32%] rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
-                <div className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] absolute -top-14 md:-top-20 right-2">
+              <div className="flex flex-col md:flex-row gap-1 justify-between">
+                <div className="flex flex-col justify-center">
                   <LazyLoadImage
-                    src={item?.imgPath}
-                    className="w-full h-full"
+                    src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022126/headgen/Home/eqiraehtzcsqsugxkcsp.webp"
+                    width={"120px"}
+                    height={"45px"}
                   />
                 </div>
-                <div className="flex flex-col gap-2 px-6 h-[200px]">
-                  <div className="text-2xl  md:text-5xl lg:text-7xl text-[#0055D4] font-medium">
-                    {`0${idx + 1}`}
+
+                <div className=" flex flex-col leading-tight">
+                  <span className="flex gap-1 justify-start items-center md:items-start">
+                    <IoIosStar className="text-yellow-400" size={21} />
+                    <IoIosStar className="text-yellow-400" size={21} />
+                    <IoIosStar className="text-yellow-400" size={21} />
+                    <IoIosStar className="text-yellow-400" size={21} />
+                    <IoIosStar className="text-yellow-400" size={21} />
+                  </span>
+
+                  <span className="text-[#f1f1f1] text-[13px] ">
+                    Rated 4.9 Stars in over
+                  </span>
+                  <span className="text-[#f1f1f1] text-[13px] ">
+                    30,000+ AI Headshots
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* infinity slider */}
+        <div className="w-full overflow-hidden px-10 md:px-16 2xl:px-[200px]">
+          <InfinitySlider imgData1={imgData1} />
+        </div>
+
+        {/* trusted by */}
+
+        <AsSeenOn />
+
+        {/* how it works */}
+
+        <div className="flex justify-center px-10 md:px-16 2xl:px-[200px] py-14">
+          <div className="grid gap-8 md:gap-0 md:grid-cols-2  md:justify-between w-full">
+            <div className=" flex flex-col w-full gap-4 justify-center items-center  ">
+              <h2 className="grid grid-cols-2 md:grid-cols-1 gap-4 w-fit">
+                <div className="text-[#F1F1F1] text-3xl md:text-[60px] 2xl:text-[72px] font-medium  grid place-items-center">
+                  How it
+                </div>
+                <div className="text-3xl md:text-[60px] leading-[3rem] 2xl:text-[72px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+                  works
+                </div>
+                <Link
+                  to="/corporate-ai-headshots"
+                  className="hover:squeezyBtn col-span-2 md:col-auto flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full py-2 md:py-4  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]"
+                >
+                  Get your photos for $29
+                </Link>
+              </h2>
+            </div>
+            <div className=" flex flex-col w-full gap-6 items-center">
+              <div className="w-full flex justify-center">
+                <iframe
+                  src="https://res.cloudinary.com/dj2fvzfmm/video/upload/v1721022181/headgen/How%20it%20works%20video/ej1ci1htv6momh1v0vov.mp4"
+                  width="100%"
+                  height="100%"
+                  className="rounded-2xl h-[200px] sm:w-[500px] sm:h-[300px] md:h-[300px] md:w-[640px] 2xl:h-[400px] 2xl:w-[700px]"
+                ></iframe>
+              </div>
+
+              <div className="text-[#F1F1F1] text-[10px]">
+                Upload a selfie and get Professional Images for your LinkedIn
+                Profile, Resume, TV Commercial etc
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* use flow card section */}
+
+        <div className="px-10 md:px-16 2xl:px-[200px] pb-20">
+          <div className="flex flex-wrap flex-col pt-8 md:pt-0 gap-[8rem] md:gap-2 md:flex-row justify-center items-center md:items-start md:justify-between px-2 ">
+            {cardData &&
+              cardData?.map((item, idx) => (
+                <div className="relative w-full max-w-[320px] h-[300px] md:w-[32%] rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
+                  <div className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] absolute -top-14 md:-top-20 right-2">
+                    <LazyLoadImage
+                      src={item?.imgPath}
+                      className="w-full h-full"
+                      height={"150px"}
+                      width={"150px"}
+                    />
                   </div>
-                  <div className="flex flex-col gap-8">
-                    <div className="text-[#0C062C] text-2xl font-medium">
-                      {item?.title}
+                  <div className="flex flex-col gap-2 px-6 h-[200px]">
+                    <div className="text-2xl  md:text-5xl lg:text-7xl text-[#0055D4] font-medium">
+                      {`0${idx + 1}`}
+                    </div>
+                    <div className="flex flex-col gap-8">
+                      <h3 className="text-[#0C062C] text-2xl font-medium">
+                        {item?.title}
+                      </h3>
                     </div>
                   </div>
+                  <div className="w-full h-[150px] bg-[#0055D4] text-white px-4 pb-2 flex justify-center items-center">
+                    {item?.content}
+                  </div>
                 </div>
-                <div className="w-full h-[150px] bg-[#0055D4] text-white px-4 pb-2 flex justify-center items-center">
-                  {item?.content}
+              ))}
+          </div>
+        </div>
+
+        <div className="px-10 md:px-16 2xl:px-[200px] pb-20">
+          <InfinityTextSlider />
+        </div>
+        {/* swipe section */}
+
+        <div className="px-10 md:px-16 2xl:px-[200px] grid   lg:grid-cols-[auto_20rem] xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
+          <div className="w-[50% w-full 2xl:w-[55% bg-gradient-to-br from-[#000000] via-[#000000] to-[#000000] rounded-2xl shadow-[0_0_0_1px_#ffffff] py-10 relative transition duration-500">
+            <div className="flex flex-col justify-between gap-8 md:gap-20 items-center h-full">
+              <h2 className="flex flex-col  items-center text-[20px] sm:text-[26px] xl:text-[32px] 2xl:text-[40px] font-extrabold md:font-semibold text-[#F1F1F1]">
+                <div>The Most Realistic</div>
+                <div>AI Image Generator</div>
+              </h2>
+
+              {/* for mobile screen */}
+              <div className="text-white block md:hidden">
+                <div className="text-[24px] font-bold text-center">
+                  Professional Photoshoot
+                </div>
+                <div className="flex flex-col justify-center items-center gap-2 text-[18px]">
+                  <div>Upto $2500</div>
+                  <div>Multiple Days</div>
+                  <div>Tedious Process</div>
                 </div>
               </div>
-            ))}
-        </div>
-      </div>
-
-      <div className="px-10 md:px-16 2xl:px-[200px] pb-20">
-        <InfinityTextSlider />
-      </div>
-      {/* swipe section */}
-
-      <div className="px-10 md:px-16 2xl:px-[200px] grid   lg:grid-cols-[auto_20rem] xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
-        <div className="w-[50% w-full 2xl:w-[55% bg-gradient-to-br from-[#000000] via-[#000000] to-[#000000] rounded-2xl shadow-[0_0_0_1px_#ffffff] py-10 relative transition duration-500">
-          <div className="flex flex-col justify-between gap-8 md:gap-20 items-center h-full">
-            <div className="flex flex-col  items-center text-[20px] sm:text-[26px] xl:text-[32px] 2xl:text-[40px] font-extrabold md:font-semibold text-[#F1F1F1]">
-              <div>The Most Realistic</div>
-              <div>AI Image Generator</div>
+              <div className="text-[#f1f1f1] text-[40px] md:text-[55px] lg:text-[70px] xl:text-[80px] italic">
+                VS
+              </div>
+              <div className="text-white block md:hidden">
+                <div className="text-[24px] font-bold text-center">
+                  HeadGen AI
+                </div>
+                <div className="flex flex-col justify-center items-center gap-2 text-[18px]">
+                  <div>$29</div>
+                  <div>Within 2 hours</div>
+                  <div>Very easy process</div>
+                </div>
+              </div>
+              <div className="hidden md:flex flex-col gap-2 text-[#f1f1f1] text-[22px]">
+                <div>Why waste hours on expensive Photoshoots?</div>
+                <div>Boost your careed with amazing AI Generated</div>
+                <div>Images that are quick, easy, cheap & convenient!</div>
+              </div>
             </div>
 
-            {/* for mobile screen */}
-            <div className="text-white block md:hidden">
-              <div className="text-[24px] font-bold text-center">
+            {/* above md: screens */}
+            <div className="w-[200px] hidden  h-[200px] lg:w-[220px] lg:h-[170px] 2xl:w-[270px] 2xl:h-[220px] md:flex flex-col justify-evenly items-center bg-gradient-to-br from-[#053499] to-[#2563EB] p-4 absolute top-1/2 -translate-y-1/2 -left-8 lg:-left-14 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff]">
+              <div className="text-[18px] 2xl:text-[24px] font-bold text-center">
                 Professional Photoshoot
               </div>
-              <div className="flex flex-col justify-center items-center gap-2 text-[18px]">
+              <div className="flex flex-col gap-1 md:gap-2 text-[18px]">
                 <div>Upto $2500</div>
                 <div>Multiple Days</div>
                 <div>Tedious Process</div>
               </div>
             </div>
-            <div className="text-[#f1f1f1] text-[40px] md:text-[55px] lg:text-[70px] xl:text-[80px] italic">
-              VS
-            </div>
-            <div className="text-white block md:hidden">
-              <div className="text-[24px] font-bold text-center">
+
+            {/* above md: screens */}
+            <div className="w-[200px] h-[200px] 2xl:w-[270px] 2xl:h-[220px] hidden md:flex flex-col justify-evenly items-center bg-gradient-to-br from-[#053499] to-[#2563EB]  p-4 absolute top-1/2 -translate-y-1/2 lg:-right-14 -right-8 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff] ">
+              <div className="text-[18px] 2xl:text-[24px] font-bold text-center">
                 HeadGen AI
               </div>
-              <div className="flex flex-col justify-center items-center gap-2 text-[18px]">
+              <div className="flex flex-col gap-1 md:gap-2 text-[18px]">
                 <div>$29</div>
                 <div>Within 2 hours</div>
                 <div>Very easy process</div>
               </div>
             </div>
-            <div className="hidden md:flex flex-col gap-2 text-[#f1f1f1] text-[22px]">
-              <div>Why waste hours on expensive Photoshoots?</div>
-              <div>Boost your careed with amazing AI Generated</div>
-              <div>Images that are quick, easy, cheap & convenient!</div>
-            </div>
           </div>
+          <div className="w-[40% w-full 2xl:w-[35% flex flex-col gap-10 ">
+            <div className="w-full !glassMorphism !bg-gradient-to-br !from-[#10151dde] to-[#121720de] py-10 rounded-2xl relative px-8 shadow-[0_0_0_1px_#ffffff] h-2/3">
+              <div className="absolute w-[130px] h-[130px] md:w-[200px] md:h-[200px] -top-10 -translate-y-10 right-2 shadow-[0_0_0_1px_#ffffff] rounded-2xl">
+                <BeforeAfterSlider
+                  img1={"/beforeAfter/before.jpg"}
+                  img2={"/beforeAfter/after.jpg"}
+                />
+              </div>
 
-          {/* above md: screens */}
-          <div className="w-[200px] hidden  h-[200px] lg:w-[220px] lg:h-[170px] 2xl:w-[270px] 2xl:h-[220px] md:flex flex-col justify-evenly items-center bg-gradient-to-br from-[#053499] to-[#2563EB] p-4 absolute top-1/2 -translate-y-1/2 -left-8 lg:-left-14 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff]">
-            <div className="text-[18px] 2xl:text-[24px] font-bold text-center">
-              Professional Photoshoot
-            </div>
-            <div className="flex flex-col gap-1 md:gap-2 text-[18px]">
-              <div>Upto $2500</div>
-              <div>Multiple Days</div>
-              <div>Tedious Process</div>
-            </div>
-          </div>
-
-          {/* above md: screens */}
-          <div className="w-[200px] h-[200px] 2xl:w-[270px] 2xl:h-[220px] hidden md:flex flex-col justify-evenly items-center bg-gradient-to-br from-[#053499] to-[#2563EB]  p-4 absolute top-1/2 -translate-y-1/2 lg:-right-14 -right-8 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff] ">
-            <div className="text-[18px] 2xl:text-[24px] font-bold text-center">
-              HeadGen AI
-            </div>
-            <div className="flex flex-col gap-1 md:gap-2 text-[18px]">
-              <div>$29</div>
-              <div>Within 2 hours</div>
-              <div>Very easy process</div>
-            </div>
-          </div>
-        </div>
-        <div className="w-[40% w-full 2xl:w-[35% flex flex-col gap-10 ">
-          <div className="w-full !glassMorphism !bg-gradient-to-br !from-[#10151dde] to-[#121720de] py-10 rounded-2xl relative px-8 shadow-[0_0_0_1px_#ffffff] h-2/3">
-            <div className="absolute w-[130px] h-[130px] md:w-[200px] md:h-[200px] -top-10 -translate-y-10 right-2 shadow-[0_0_0_1px_#ffffff] rounded-2xl">
-              <BeforeAfterSlider
-                img1={"/beforeAfter/before.jpg"}
-                img2={"/beforeAfter/after.jpg"}
-              />
-            </div>
-
-            <div className="flex flex-col h-full justify-evenly gap-4 text-[#f1f1f1] ">
-              <div className="flex flex-col gap-0 ">
-                <div className="text-[30px] md:*:text-[44px] font-bold">
-                  Swipe
-                </div>
-                <div className="text-[15px] md:text-[28px] font-bold w-[200px] leading-tight">
-                  to see the results
+              <div className="flex flex-col h-full justify-evenly gap-4 text-[#f1f1f1] ">
+                <h3 className="flex flex-col gap-0 ">
+                  <div className="text-[30px] md:*:text-[44px] font-bold">
+                    Swipe
+                  </div>
+                  <div className="text-[15px] md:text-[28px] font-bold w-[200px] leading-tight">
+                    to see the results
+                  </div>
+                </h3>
+                <div className="text-[20px]">
+                  Simply upload a selfie and get High Quality Professional AI
+                  Generated Images
                 </div>
               </div>
-              <div className="text-[20px]">
-                Simply upload a selfie and get High Quality Professional AI
-                Generated Images
-              </div>
             </div>
-          </div>
-          <div className="w-full !glassMorphism !bg-gradient-to-br !from-[#10151dde] to-[#121720de] py-10 rounded-2xl relative px-8 shadow-[0_0_0_1px_#ffffff] min-h-1/3">
-            <div className="flex flex-col justify-evenly gap-4 text-[#f1f1f1]">
-              <div className="flex flex-col gap-0">
-                <div className="text-[28px] font-bold w-full flex justify-between">
-                  <div>Boost your Career</div>
-                  <FaLinkedin size={48} className="text-blue-500" />
-                </div>
-                {/* <div className="text-[28px] font-bold w-[200px] leading-tight">
+            <div className="w-full !glassMorphism !bg-gradient-to-br !from-[#10151dde] to-[#121720de] py-10 rounded-2xl relative px-8 shadow-[0_0_0_1px_#ffffff] min-h-1/3">
+              <div className="flex flex-col justify-evenly gap-4 text-[#f1f1f1]">
+                <div className="flex flex-col gap-0">
+                  <div className="text-[28px] font-bold w-full flex justify-between">
+                    <div>Boost your Career</div>
+                    <FaLinkedin size={48} className="text-blue-500" />
+                  </div>
+                  {/* <div className="text-[28px] font-bold w-[200px] leading-tight">
                   to see the results
                 </div> */}
-              </div>
-              <div className="text-[20px]">
-                Make a lasting first impression <br /> with amazing Professional
-                Headshots.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="gradientBackground px-10 md:px-16 2xl:px-[200px]">
-        <div className="flex flex-col items-center gap-6 pt-14">
-          <div className="text-white text-2xl text-center md:text-[45px] font-semibold lg:font-normal lg:text-[64px]">
-            High Quality Images
-          </div>
-          <div className="w-full max-w-[90%] flex flex-col gap-6 items-center">
-            <div className="text-center text-white text-[16px]">
-              We take our Quality very seriously Our Engineers ensure that
-              almost all the images generated can be used in a profesional
-              setting
-            </div>
-            <div className="flex flex-col gap-4 w-full md:w-1/2 items-center">
-              <Link
-                to="/corporate-ai-headshots"
-                className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full py-2 px-4  md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
-              >
-                Get your photos for $29
-              </Link>
-              <span className="flex flex-col text-center text-[19px] text-[#f1f1f1]">
-                <span>
-                  Payment handled by{" "}
-                  <strong className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text ">
-                    Stripe
-                  </strong>
-                </span>
-                <span className="text-[14px]">
-                  We do not store your payment details
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="py-8 md:py-16">
-          <InfinitySlider imgData1={imgData2} imgData2={imgData3} />
-        </div>
-
-        <div className="flex flex-col gap-10 items-center">
-          <div className="text-[#F1F1F1] space-x-2  text-xl text-center md:text-4xl 2xl:text-[72px]  font-medium">
-            <span>Use Cases of</span>
-            <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold md:py-10">
-              AI Headshots
-            </span>
-          </div>
-          <div className="flex flex-wrap justify-center items-center w-full gap-4 md:gap-2">
-            {useCaseData?.map((item) => (
-              <div className="w-auto max-w-[230px] 2xl:w-[200px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
-                <div className="w-full h-2/3">
-                  <LazyLoadImage
-                    src={item?.path}
-                    className="w-full h-full rounded-t-xl"
-                  />
                 </div>
-                <div className="flex flex-col justify-center px-2 py-4">
-                  <div className="text-medium text-sm font-bold flex justify-between">
-                    <span>{item?.title}</span>
-                    <span>{item?.svg}</span>
+                <div className="text-[20px]">
+                  Make a lasting first impression <br /> with amazing
+                  Professional Headshots.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="gradientBackground px-10 md:px-16 2xl:px-[200px]">
+          <h2 className="flex flex-col items-center gap-6 pt-14">
+            <div className="text-white text-2xl text-center md:text-[45px] font-semibold lg:font-normal lg:text-[64px]">
+              High Quality Images
+            </div>
+            <div className="w-full max-w-[90%] flex flex-col gap-6 items-center">
+              <div className="text-center text-white text-[16px]">
+                We take our Quality very seriously Our Engineers ensure that
+                almost all the images generated can be used in a profesional
+                setting
+              </div>
+              <div className="flex flex-col gap-4 w-full md:w-1/2 items-center">
+                <Link
+                  to="/corporate-ai-headshots"
+                  className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full py-2 px-4  md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+                >
+                  Get your photos for $29
+                </Link>
+                <span className="flex flex-col text-center text-[19px] text-[#f1f1f1]">
+                  <span>
+                    Payment handled by{" "}
+                    <strong className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text ">
+                      Stripe
+                    </strong>
+                  </span>
+                  <span className="text-[14px]">
+                    We do not store your payment details
+                  </span>
+                </span>
+              </div>
+            </div>
+          </h2>
+
+          <div className="py-8 md:py-16">
+            <InfinitySlider imgData1={imgData2} imgData2={imgData3} />
+          </div>
+
+          <div className="flex flex-col gap-10 items-center">
+            <h2 className="text-[#F1F1F1] space-x-2  text-xl text-center md:text-4xl 2xl:text-[72px]  font-medium">
+              <span>Use Cases of</span>
+              <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold md:py-10">
+                AI Headshots
+              </span>
+            </h2>
+            <div className="flex flex-wrap justify-center items-center w-full gap-4 md:gap-2">
+              {useCaseData?.map((item) => (
+                <div className="w-auto max-w-[230px] 2xl:w-[200px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
+                  <div className="w-full h-2/3">
+                    <LazyLoadImage
+                      src={item?.path}
+                      className="w-full h-full rounded-t-xl"
+                      height={"200px"}
+                      width={"200px"}
+                    />
                   </div>
-                  <div className="text-xs">{item?.content}</div>
+                  <div className="flex flex-col justify-center px-2 py-4">
+                    <div className="text-medium text-sm font-bold flex justify-between">
+                      <span>{item?.title}</span>
+                      <span>{item?.svg}</span>
+                    </div>
+                    <div className="text-xs">{item?.content}</div>
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* turn your selfie info card */}
+          <div className="w-full grid md:grid-cols-2 gap-4 bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-5 lg:py-10 rounded-xl shadow-[0_0_1px_1px#f1f1f1] ">
+            <div className="flex w-full flex-col  items-center md:items-start justify-evenly gap-2 md:gap-4 px-10">
+              <h3 className="text-xl md:text-[22px] lg:text-[32px] xl:text-[48px] 2xl:text-4xl text-[#F1F1F1]">
+                Turn your selfie into
+              </h3>
+              <div className=" text-center w-full md:text-left text-2xl md:text-4xl lg:text-6xl 2xl:text-7xl  bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+                Professional Headshots
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* turn your selfie info card */}
-        <div className="w-full grid md:grid-cols-2 gap-4 bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-5 lg:py-10 rounded-xl shadow-[0_0_1px_1px#f1f1f1] ">
-          <div className="flex w-full flex-col  items-center md:items-start justify-evenly gap-2 md:gap-4 px-10">
-            <div className="text-xl md:text-[22px] lg:text-[32px] xl:text-[48px] 2xl:text-4xl text-[#F1F1F1]">
-              Turn your selfie into
-            </div>
-            <div className=" text-center w-full md:text-left text-2xl md:text-4xl lg:text-6xl 2xl:text-7xl  bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-              Professional Headshots
-            </div>
-            <div className="text-xl md:text-3xl text-center md:text-left text-[#F1F1F1]">
-              AI Headshots
-            </div>
-            <div>
-              <Link
-                to="/corporate-ai-headshots"
-                className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full px-6 py-2 md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
-              >
-                Get your photos for $29
-              </Link>
-            </div>
-          </div>
-          <div className="w-full ">
-            <LazyLoadImage
-              src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021956/headgen/Home/Turn%20your%20selfie%20into%20professional%20headshots/nrg3dczzklbafdfbc2lp.webp"
-              className="w-full h-full"
-              height={250}
-              width={430}
-              style={{
-                aspectRatio: "1920/1080",
-                objectFit: "contain",
-              }}
-            />
-          </div>
-        </div>
-
-        {/* dating hero section */}
-        <div className="flex justify-center py-20 ">
-          <DatingHero />
-        </div>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-8 px-10 md:px-16 2xl:px-[200px]">
-        <div className="w-full relative">
-          <div className="flex flex-col items-center md:items-start justify-center gap-2 md:gap-6 top-0">
-            <div className=" text-[#F1F1F1] md:grid space-x-3 md:space-x-0  w-full text-center md:text-left text-xl sm:text-2xl md:text-4xl xl:text-6xl font-medium">
-              <span>Frequently</span>
-
-              <span>Asked</span>
-
-              <span>Questions</span>
-            </div>
-            <div className="text-[#F1F1F1] text-center text-[12px] md:text-[14px]">
-              E-mail is at support@headgen.ai we are available round the clock.
-            </div>
-          </div>
-        </div>
-        <div className="w-full">
-          <FaqAccordian />
-        </div>
-      </div>
-
-      <div className="flex space-y-4 flex-col px-10 md:px-16 2xl:px-[200px]">
-        <div className="text-center text-xl sm:text-2xl md:text-4xl xl:text-6xl  text-[#F1F1F1]">
-          <span className=" bg-gradient-to-r md:leading-[5rem] from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-            Our Clients love
-          </span>{" "}
-          Our Results
-        </div>
-        <InfinitySlider
-          imgData1={reviewData1}
-          imgData2={reviewData1}
-          height={"400px"}
-        />
-      </div>
-
-      <div className="flex flex-col gap-5 md:gap-10">
-        <div className="text-center text-lg sm:text-xl md:text-3xl xl:text-5xl text-[#F1F1F1]">
-          <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-            Privacy First
-          </span>{" "}
-          to Protect Your Data
-        </div>
-        <div className="flex flex-wrap justify-center gap-4  px-10 md:px-16 2xl:px-[200px] ">
-          {privacyFirstData &&
-            privacyFirstData?.map((item) => (
-              <div className=" w-[70%] md:w-[33%] xl:w-[22%] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
-                <div className="w-1/3">
-                  <LazyLoadImage src={item?.imgPath} className="w-full" />
-                </div>
-                <div className="2xl:text-lg">{item?.title}</div>
-                <div className="text-xs 2xl:text-base text-center">
-                  {item?.content}
-                </div>
+              <div className="text-xl md:text-3xl text-center md:text-left text-[#F1F1F1]">
+                AI Headshots
               </div>
-            ))}
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-8">
-        <div className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
-          <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-            Premium Professional
-          </span>{" "}
-          Image Generator
-        </div>
-        <div className="text-center text-[#f1f1f1] text-[15px]">
-          Swipe to see more images
-        </div>
-        <Carousel carouselData={carouselData} />
-        <div className="text-center text-[#f1f1f1] text-[12px]">
-          AI Generated Images using HeadGen
-        </div>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-8 px-10 md:px-16 2xl:px-[200px] py-10">
-        <div className="w-full flex flex-col items-center gap-1">
-          <div className="flex w-2/3  gap-1">
-            <div className="w-2/3 max-w-[300px]">
-              <LazyLoadImage
-                src={`${moneyBackPics[0].path}`}
-                className="h-full !max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
-                height={300}
-                width={300}
-              />
+              <div>
+                <Link
+                  to="/corporate-ai-headshots"
+                  className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full px-6 py-2 md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+                >
+                  Get your photos for $29
+                </Link>
+              </div>
             </div>
-            <div className="w-1/3 max-w-[150px] flex flex-col gap-1">
+            <div className="w-full ">
               <LazyLoadImage
-                src={`${moneyBackPics[1].path}`}
-                className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
-                height={150}
-                width={150}
-              />
-              <LazyLoadImage
-                src={`${moneyBackPics[2].path}`}
-                className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
-                height={150}
-                width={150}
+                src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021956/headgen/Home/Turn%20your%20selfie%20into%20professional%20headshots/nrg3dczzklbafdfbc2lp.webp"
+                className="w-full h-full"
+                height={"250px"}
+                width={"430px"}
+                style={{
+                  aspectRatio: "1920/1080",
+                  objectFit: "contain",
+                }}
               />
             </div>
           </div>
-          <div className="flex w-2/3   gap-1">
-            <div className="w-1/3 max-w-[150px] flex flex-col gap-1">
-              <LazyLoadImage
-                src={`${moneyBackPics[3].path}`}
-                className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
-                height={150}
-                width={150}
-              />
-              <LazyLoadImage
-                src={`${moneyBackPics[4].path}`}
-                className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
-                height={150}
-                width={150}
-              />
-            </div>
-            <div className="w-2/3 max-w-[300px]">
-              <LazyLoadImage
-                src={`${moneyBackPics[5].path}`}
-                className="h-full !max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
-                height={300}
-                width={300}
-              />
-            </div>
+
+          {/* dating hero section */}
+          <div className="flex justify-center py-20 ">
+            <DatingHero />
           </div>
         </div>
 
-        <div className="w-full flex justify-center">
-          <div className="flex flex-col items-center justify-center gap-4 md:gap-6 top-0">
-            <div className="text-center space-x-3 md:space-x-0 md:grid text-[#F1F1F1] text-[26px] sm:text-[32px] md:text-[42px] lg:text-[52px] 2xl:text-[60px] font-medium">
-              <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-                Money-Back
-              </span>
-              <span>Guarantee</span>
+        <div className="grid md:grid-cols-2 gap-8 px-10 md:px-16 2xl:px-[200px]">
+          <div className="w-full relative">
+            <div className="flex flex-col items-center md:items-start justify-center gap-2 md:gap-6 top-0">
+              <div className=" text-[#F1F1F1] md:grid space-x-3 md:space-x-0  w-full text-center md:text-left text-xl sm:text-2xl md:text-4xl xl:text-6xl font-medium">
+                <span>Frequently</span>
+
+                <span>Asked</span>
+
+                <span>Questions</span>
+              </div>
+              <div className="text-[#F1F1F1] text-center text-[12px] md:text-[14px]">
+                E-mail is at support@headgen.ai we are available round the
+                clock.
+              </div>
             </div>
-            <div className="text-[#F1F1F1] text-center text-[10px] md:text-[14px]">
-              Try Headgen.ai with confidence. Our results are Mind blowing.
-            </div>
-            <Link
-              to="/corporate-ai-headshots"
-              className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full md:w-2/3 py-2  md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
-            >
-              Get your photos for $29
-            </Link>
+          </div>
+          <div className="w-full">
+            <FaqAccordian />
           </div>
         </div>
-      </div>
-      {blogData && blogData?.length > 0 && (
-        <div className="flex flex-col gap-24 px-10 md:px-16 2xl:px-[200px]">
+
+        <div className="flex space-y-4 flex-col px-10 md:px-16 2xl:px-[200px]">
+          <div className="text-center text-xl sm:text-2xl md:text-4xl xl:text-6xl  text-[#F1F1F1]">
+            <span className=" bg-gradient-to-r md:leading-[5rem] from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+              Our Clients love
+            </span>{" "}
+            Our Results
+          </div>
+          <InfinitySlider
+            imgData1={reviewData1}
+            imgData2={reviewData1}
+            height={"400px"}
+          />
+        </div>
+
+        <div className="flex flex-col gap-5 md:gap-10">
+          <div className="text-center text-lg sm:text-xl md:text-3xl xl:text-5xl text-[#F1F1F1]">
+            <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+              Privacy First
+            </span>{" "}
+            to Protect Your Data
+          </div>
+          <div className="flex flex-wrap justify-center gap-4  px-10 md:px-16 2xl:px-[200px] ">
+            {privacyFirstData &&
+              privacyFirstData?.map((item) => (
+                <div className=" w-[70%] md:w-[33%] xl:w-[22%] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
+                  <div className="w-1/3">
+                    <LazyLoadImage
+                      src={item?.imgPath}
+                      className="w-full"
+                      height={"100px"}
+                      width={"100px"}
+                    />
+                  </div>
+                  <div className="2xl:text-lg">{item?.title}</div>
+                  <div className="text-xs 2xl:text-base text-center">
+                    {item?.content}
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-8">
           <div className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
             <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-              HeadGen
+              Premium Professional
             </span>{" "}
-            AI Blog
+            Image Generator
           </div>
-          <div>
-            <BlogCards data={blogData} />
+          <div className="text-center text-[#f1f1f1] text-[15px]">
+            Swipe to see more images
+          </div>
+          <Carousel carouselData={carouselData} />
+          <div className="text-center text-[#f1f1f1] text-[12px]">
+            AI Generated Images using HeadGen
           </div>
         </div>
-      )}
-    </div>
+
+        <div className="grid md:grid-cols-2 gap-8 px-10 md:px-16 2xl:px-[200px] py-10">
+          <div className="w-full flex flex-col items-center gap-1">
+            <div className="flex w-2/3  gap-1">
+              <div className="w-2/3 max-w-[300px]">
+                <LazyLoadImage
+                  src={`${moneyBackPics[0].path}`}
+                  className="h-full !max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
+                  height={"300px"}
+                  width={"300px"}
+                />
+              </div>
+              <div className="w-1/3 max-w-[150px] flex flex-col gap-1">
+                <LazyLoadImage
+                  src={`${moneyBackPics[1].path}`}
+                  className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                  height={"150px"}
+                  width={"150px"}
+                />
+                <LazyLoadImage
+                  src={`${moneyBackPics[2].path}`}
+                  className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                  height={"150px"}
+                  width={"150px"}
+                />
+              </div>
+            </div>
+            <div className="flex w-2/3   gap-1">
+              <div className="w-1/3 max-w-[150px] flex flex-col gap-1">
+                <LazyLoadImage
+                  src={`${moneyBackPics[3].path}`}
+                  className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                  height={"150px"}
+                  width={"150px"}
+                />
+                <LazyLoadImage
+                  src={`${moneyBackPics[4].path}`}
+                  className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
+                  height={"150px"}
+                  width={"150px"}
+                />
+              </div>
+              <div className="w-2/3 max-w-[300px]">
+                <LazyLoadImage
+                  src={`${moneyBackPics[5].path}`}
+                  className="h-full !max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
+                  height={"300px"}
+                  width={"300px"}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full flex justify-center">
+            <div className="flex flex-col items-center justify-center gap-4 md:gap-6 top-0">
+              <div className="text-center space-x-3 md:space-x-0 md:grid text-[#F1F1F1] text-[26px] sm:text-[32px] md:text-[42px] lg:text-[52px] 2xl:text-[60px] font-medium">
+                <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+                  Money-Back
+                </span>
+                <span>Guarantee</span>
+              </div>
+              <div className="text-[#F1F1F1] text-center text-[10px] md:text-[14px]">
+                Try Headgen.ai with confidence. Our results are Mind blowing.
+              </div>
+              <Link
+                to="/corporate-ai-headshots"
+                className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full md:w-2/3 py-2  md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+              >
+                Get your photos for $29
+              </Link>
+            </div>
+          </div>
+        </div>
+        {blogData && blogData?.length > 0 && (
+          <div className="flex flex-col gap-24 px-10 md:px-16 2xl:px-[200px]">
+            <div className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
+              <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+                HeadGen
+              </span>{" "}
+              AI Blog
+            </div>
+            <div>
+              <BlogCards data={blogData} />
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 };
