@@ -21,7 +21,7 @@ const BlogCards = ({ data, datingPage }) => {
             </div> */}
             {item?._id && (
               <div className="w-full">
-                <Link to={`/blog/${item?._id}`} className="flex justify-center items-center hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full py-2 md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]">
+                <Link to={`/blog/${item?.slug}`} className="flex justify-center items-center hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full py-2 md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]">
                   Learn More
                 </Link>
               </div>

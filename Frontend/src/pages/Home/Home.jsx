@@ -493,7 +493,6 @@ const Home = () => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/blogs/recent`)
       .then((res) => {
-        console.log(res.data.blogsData);
         setBlogData(res.data.blogsData);
       })
       .catch((err) => {

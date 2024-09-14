@@ -38,7 +38,7 @@ const AddBlogs = () => {
     formData.append("banner", banner[0]);
     formData.append("content", data.content);
     formData.append("title", data.title);
-    formData.append("slug", data.slug);
+    formData.append("slug", data.slug); 
     // api call here
     instance
       .post(`/blogs`, formData, {
