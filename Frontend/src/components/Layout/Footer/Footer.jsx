@@ -131,7 +131,7 @@ const Footer = () => {
           />
           <div className="flex flex-col gap-1">
             <div className="w-[90%] px-2 py-3 bg-gradient-to-r from-[#59caff] to-[#5636F3] rounded-xl text-[#f1f1f1] text-[15px] font-medium transition duration-300 absolute -bottom-4 left-1/2 -translate-x-1/2">
-              <LazyLoadImage src="/logo.webp" width={"240px"} height={"58px"}/>
+              <LazyLoadImage alt=""  src="/logo.webp" width={"240px"} height={"58px"}/>
             </div>
           </div>
         </div>

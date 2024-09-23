@@ -17,7 +17,7 @@ const AboutUs = () => {
       </Helmet>
 
       <div className="leading-relaxed flex flex-col gap-1">
-        <span className="font-bold">Our Mission:</span>
+        <h3 className="font-bold">Our Mission:</h3>
 
         <span>
           Harness the transformative power of generative AI to enhance everyday
@@ -25,7 +25,7 @@ const AboutUs = () => {
           everyone.
         </span>
 
-        <span className="font-bold">About Us:</span>
+        <h3 className="font-bold">About Us:</h3>
 
         <span>
           Playcloud Technologies Limited (HeadGen AI) is dedicated to perfecting
@@ -34,7 +34,7 @@ const AboutUs = () => {
           leveraging generative AI.
         </span>
 
-        <span className="font-bold">Founders:</span>
+        <h3 className="font-bold">Founders:</h3>
 
         <span>
           Ruark Gordon: Film Director, Producer, and Serial Entrepreneur.
@@ -42,7 +42,7 @@ const AboutUs = () => {
           Krasia Gordon: Computer Engineer with a knack for visual design.
         </span>
 
-        <span className="font-bold">Contact Us:</span>
+        <h3 className="font-bold">Contact Us:</h3>
 
         <span>
           Email: support@headgen.ai <br />
@@ -147,7 +147,7 @@ const AboutUs = () => {
     <div className="bg-[#161616]">
       <div className="relative w-full text-white py-14 xl:py-24 px-10 xl:px-[250px]  flex flex-col gap-8 xl:gap-[3.5rem] tracking-wider">
         <div className="mt-10">
-          <LazyLoadImage
+          <LazyLoadImage alt="" 
             src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721024048/about_us_page_tzdcu9_nqiswz.webp"
             className="w-full rounded-xl shadow-[0_0_0_1px#d1d1d1]"
           />
@@ -155,12 +155,12 @@ const AboutUs = () => {
         <div className="flex justify-center my-10">
           <div className="flex flex-col md:flex-row flex-wrap md:justify-between w-full">
             <div className="w-full md:w-1/5 flex flex-col gap-4 justify-center items-center ">
-              <div className="flex flow-row md:flex-col gap-1 w-fit text-5xl leading-[3.5rem] py-3 md:py-0 ">
+              <h1 className="flex flow-row md:flex-col gap-1 w-fit text-5xl leading-[3.5rem] py-3 md:py-0 ">
                 <div className="text-[#F1F1F1]  font-medium">Our</div>
                 <div className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
                   story
                 </div>
-              </div>
+              </h1>
             </div>
             <div className="w-full md:w-3/5 flex flex-col gap-6 items-center">
               {aboutUsContent && (
@@ -174,12 +174,12 @@ const AboutUs = () => {
       <AsSeenOn />
 
       <div className="relative w-full text-white px-10 xl:px-[250px] py-20 bg-[#161616] flex flex-col gap-14 md:gap-8 xl:gap-[6rem] tracking-wider">
-        <div className="text-[#F1F1F1] text-center text-3xl md:text-5xl font-medium">
+        <h2 className="text-[#F1F1F1] text-center text-3xl md:text-5xl font-medium">
           Meet the AI Founders of{" "}
           <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold py-5">
             Headgen
           </span>
-        </div>
+        </h2>
 
         <div className="flex flex-col gap-6 md:gap-0 md:flex-row flex-wrap md:justify-between w-full ">
           <div className="w-full md:w-2/5 flex flex-col gap-4 justify-center items-start ">
@@ -187,7 +187,7 @@ const AboutUs = () => {
               className={`flex flex-col mx-auto md:mx-0 justify-evenly items-center bg-gradient-to-b  from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
             >
               <div className="w-[80%] -translate-y-20 group-hover:-translate-y-24 rounded-xl transition duration-300">
-                <LazyLoadImage
+                <LazyLoadImage alt="" 
                   src={foundersContent[0]?.imagePath}
                   className="w-full rounded-xl"
                 />
@@ -240,7 +240,7 @@ const AboutUs = () => {
               className={`flex flex-col  mx-auto md:mx-0 justify-evenly items-center bg-gradient-to-b  from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
             >
               <div className="w-[80%] -translate-y-20 group-hover:-translate-y-24 rounded-xl transition duration-300">
-                <LazyLoadImage
+                <LazyLoadImage alt="" 
                   src={foundersContent[1]?.imagePath}
                   className="w-full rounded-xl"
                 />

@@ -36,7 +36,7 @@ const BlogDetails = () => {
       </Helmet>
       <div className="container mx-auto min-h-screen pt-28 px-10">
         <div className=" flex flex-col items-center max-w-4xl  mx-auto text-white space-y-8">
-          <img className="rounded-md " src={blogData?.banner} alt="" />
+          <img alt=""  className="rounded-md " src={blogData?.banner} />
           <h1 className="text-2xl text-center  md:text-3xl max-w-2xl ">
             {blogData?.title}
           </h1>

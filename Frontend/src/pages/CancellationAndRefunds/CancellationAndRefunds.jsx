@@ -98,23 +98,23 @@ const CancellationAndRefunds = () => {
         /> */}
       </Helmet>
       <div className="w-full text-white py-14 xl:py-24 px-10 xl:px-[250px] bg-[#161616] flex flex-col gap-6 xl:gap-[3.5rem] tracking-wider">
-        <div className="w-full text-center font-medium text-[44px] md:text-[52px] xl:text-[60px]">
+        <h1 className="w-full text-center font-medium text-[44px] md:text-[52px] xl:text-[60px]">
           Cancellation & Refund Policy
-        </div>
+        </h1>
         <div className="flex flex-col justify-between gap-6 text-[14px] md:text-[16px]  xl:text-[22px] text-[#e4e2e2] font-light h-full">
           {CancellationContent &&
             CancellationContent?.map((data, idx) => (
               <div className="flex flex-col gap-6">
-                <div className="font-semibold">
+                <h2 className="font-semibold">
                   {data?.heading?.length > 0 && `${idx}. ${data?.heading}`}
-                </div>
+                </h2>
                 {data?.content &&
                   data?.content?.map((subData, idx2) => (
                     <div className="flex flex-col gap-6">
                       {subData?.subheading?.length > 0 && (
-                        <div>
+                        <h3>
                           {idx}.{idx2} {subData?.subheading}
-                        </div>
+                        </h3>
                       )}
                       <div>{subData?.content}</div>
                     </div>

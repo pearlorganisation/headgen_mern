@@ -438,7 +438,7 @@ const Home = () => {
       path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1723101550/HeadGen_AI_HeadShots_10_doxubx.webp",
       svg: (
         <>
-          <LazyLoadImage
+          <LazyLoadImage alt="" 
             src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021927/headgen/Home/use%20cases/tyyoog6ul8umehqzkb3m.webp"
             className="w-[22px] h-[22px]"
             height={"22px"}
@@ -454,7 +454,7 @@ const Home = () => {
       path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1723101551/HeadGen_AI_HeadShots_zazqd5.webp",
       svg: (
         <>
-          <LazyLoadImage
+          <LazyLoadImage alt="" 
             src="/Indeed_logo.png"
             className="h-[16px]"
             height={"16px"}
@@ -548,7 +548,7 @@ const Home = () => {
 
               <div className="flex flex-col md:flex-row gap-1 justify-between">
                 <div className="flex flex-col justify-center">
-                  <LazyLoadImage
+                  <LazyLoadImage alt="" 
                     src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022126/headgen/Home/eqiraehtzcsqsugxkcsp.webp"
                     width={"120px"}
                     height={"45px"}
@@ -612,6 +612,7 @@ const Home = () => {
                   width="100%"
                   height="100%"
                   className="rounded-2xl h-[200px] sm:w-[500px] sm:h-[300px] md:h-[300px] md:w-[640px] 2xl:h-[400px] 2xl:w-[700px]"
+                  title="how it works video"
                 ></iframe>
               </div>
 
@@ -631,7 +632,7 @@ const Home = () => {
               cardData?.map((item, idx) => (
                 <div className="relative w-full max-w-[320px] h-[300px] md:w-[32%] rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
                   <div className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] absolute -top-14 md:-top-20 right-2">
-                    <LazyLoadImage
+                    <LazyLoadImage alt="" 
                       src={item?.imgPath}
                       className="w-full h-full"
                       height={"150px"}
@@ -801,9 +802,9 @@ const Home = () => {
             </div>
           </h2>
 
-          <div className="py-8 md:py-16">
+          {/* <div className="py-8 md:py-16">
             <InfinitySlider imgData1={imgData2} imgData2={imgData3} />
-          </div>
+          </div> */}
 
           <div className="flex flex-col gap-10 items-center">
             <h2 className="text-[#F1F1F1] space-x-2  text-xl text-center md:text-4xl 2xl:text-[72px]  font-medium">
@@ -816,7 +817,7 @@ const Home = () => {
               {useCaseData?.map((item) => (
                 <div className="w-auto max-w-[230px] 2xl:w-[200px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
                   <div className="w-full h-2/3">
-                    <LazyLoadImage
+                    <LazyLoadImage alt="" 
                       src={item?.path}
                       className="w-full h-full rounded-t-xl"
                       height={"200px"}
@@ -857,7 +858,7 @@ const Home = () => {
               </div>
             </div>
             <div className="w-full object-contain">
-              <LazyLoadImage
+              <LazyLoadImage alt="" 
                 src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021956/headgen/Home/Turn%20your%20selfie%20into%20professional%20headshots/nrg3dczzklbafdfbc2lp.webp"
                 className="w-full h-full"
                 height={"250px"}
@@ -923,7 +924,7 @@ const Home = () => {
               privacyFirstData?.map((item) => (
                 <div className=" w-[70%] md:w-[33%] xl:w-[22%] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
                   <div className="w-1/3">
-                    <LazyLoadImage
+                    <LazyLoadImage alt="" 
                       src={item?.imgPath}
                       className="w-full"
                       height={"100px"}
@@ -959,7 +960,7 @@ const Home = () => {
           <div className="w-full flex flex-col items-center gap-1">
             <div className="flex w-2/3  gap-1">
               <div className="w-2/3 max-w-[300px]">
-                <LazyLoadImage
+                <LazyLoadImage alt="" 
                   src={`${moneyBackPics[0].path}`}
                   className="h-full !max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
                   height={"300px"}
@@ -967,13 +968,13 @@ const Home = () => {
                 />
               </div>
               <div className="w-1/3 max-w-[150px] flex flex-col gap-1">
-                <LazyLoadImage
+                <LazyLoadImage alt="" 
                   src={`${moneyBackPics[1].path}`}
                   className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
                   height={"150px"}
                   width={"150px"}
                 />
-                <LazyLoadImage
+                <LazyLoadImage alt="" 
                   src={`${moneyBackPics[2].path}`}
                   className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
                   height={"150px"}
@@ -983,13 +984,13 @@ const Home = () => {
             </div>
             <div className="flex w-2/3   gap-1">
               <div className="w-1/3 max-w-[150px] flex flex-col gap-1">
-                <LazyLoadImage
+                <LazyLoadImage alt="" 
                   src={`${moneyBackPics[3].path}`}
                   className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
                   height={"150px"}
                   width={"150px"}
                 />
-                <LazyLoadImage
+                <LazyLoadImage alt="" 
                   src={`${moneyBackPics[4].path}`}
                   className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
                   height={"150px"}
@@ -997,7 +998,7 @@ const Home = () => {
                 />
               </div>
               <div className="w-2/3 max-w-[300px]">
-                <LazyLoadImage
+                <LazyLoadImage alt="" 
                   src={`${moneyBackPics[5].path}`}
                   className="h-full !max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
                   height={"300px"}

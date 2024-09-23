@@ -17,14 +17,14 @@ const BeforeAfterSlider = ({ img1, img2 }) => {
         style={{ "--position": `${position}%` }}
       >
         <div className="image-container">
-          <LazyLoadImage
+          <LazyLoadImage 
             className="image-before slider-image"
             src={img1}
             alt="color photo"
             width={300}
             height={300}
           />
-          <LazyLoadImage
+          <LazyLoadImage 
             className="image-after slider-image"
             src={img2}
             alt="black and white"

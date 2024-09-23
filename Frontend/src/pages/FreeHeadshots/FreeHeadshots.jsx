@@ -68,7 +68,7 @@ const FreeHeadshots = () => {
                 path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022432/Outdoor_Park_Formal_AI_Headshots_2_hwybsx.webp",
               },
             ].map((item) => {
-              return <LazyLoadImage className="rounded-lg" src={item.path} alt="" />;
+              return <LazyLoadImage alt=""  className="rounded-lg" src={item.path} />;
             })}
           </div>
         </div>

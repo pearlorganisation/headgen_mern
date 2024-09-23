@@ -112,7 +112,7 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
             <div>
               {selectedImage && (
                 <div className="relative w-full">
-                  <ImgCropT
+                  <img alt="" CropT
 
                     selectedImage={selectedImage}
                     updateFile={updateFile}
@@ -129,7 +129,7 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
             {correctData &&
               correctData?.map((item, idx) => (
                 <div className="flex flex-col  rounded-2xl w-full max-w-[200px] mx-auto ">
-                  <img
+                  <img alt="" 
                     src={item?.imgPath}
                     className="w-full sm:h-[180px] rounded-2xl"
                   />
@@ -147,7 +147,7 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
             {incorrectData &&
               incorrectData?.map((item, idx) => (
                 <div className="flex flex-col  rounded-2xl w-full mx-auto  max-w-[200px]">
-                  <img
+                  <img alt="" 
                     src={item?.imgPath}
                     className="w-full h-[180px] rounded-2xl"
                   />
@@ -159,7 +159,7 @@ const ImageSection = ({ files, setFiles, fileErrorMsg, setFileErrorMsg, maxUploa
           </div>
         </div>
       </div>
-      {/* {croppedImage && <img src={croppedImage} />} */}
+      {/* {croppedImage && <img alt=""  src={croppedImage} />} */}
     </div>
   );
 };

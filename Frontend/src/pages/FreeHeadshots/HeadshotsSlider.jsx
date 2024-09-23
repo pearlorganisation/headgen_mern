@@ -96,7 +96,7 @@ const HeadshotsSlider = () => {
                     <span className="w-full text-center text-2xl">
                       What you'll get
                     </span>
-                    <img
+                    <img 
                       className="rounded-lg w-[300px] h-[300px] "
                       src={item?.imgPreview}
                       alt=""

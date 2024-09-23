@@ -56,11 +56,11 @@ const PromptTab = ({ userData, setUserData, errors, type }) => {
                 className="mx-auto md:max-w-md"
                 src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022294/headgen/Headshots/custom%20prompts/qdlt9nskw1dgmczqzgtk.webp"
                 alt="" />
-              {/* <LazyLoadImage
+              {/* <LazyLoadImage alt="" 
                 className=" md:max-w-md"
                 effect="black-and-white"
                 placeholderSrc="https://drive.google.com/thumbnail?id=1f4MXXPgJ5NvYa8j3iW49XXpT0CX4FG1k&sz=s600"
-                src="https://drive.google.com/thumbnail?id=1f4MXXPgJ5NvYa8j3iW49XXpT0CX4FG1k&sz=s600" // use normal <img> attributes as props
+                src="https://drive.google.com/thumbnail?id=1f4MXXPgJ5NvYa8j3iW49XXpT0CX4FG1k&sz=s600"
               /> */}
             </div>
           </div>

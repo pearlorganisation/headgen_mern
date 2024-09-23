@@ -146,7 +146,7 @@ const DragAndDrop = ({
               className="w-[120px] h-auto rounded-lg flex flex-col gap-1"
             >
               <div className="shadow-[0_0_0_1px#c9c9c9] rounded-lg h-2/3 max-h-[150px]">
-                <img
+                <img alt="" 
                   src={item}
                   className="w-full h-full rounded-lg object-contain"
                 />

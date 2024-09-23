@@ -64,9 +64,9 @@ const ContactUs = () => {
         /> */}
       </Helmet>
     <div className="w-full text-white py-14 xl:py-24 px-10 xl:px-[250px] bg-[#161616] flex flex-col gap-6 xl:gap-[3.5rem] tracking-wider">
-      <div className="w-full text-center font-medium text-[44px] md:text-[52px] xl:text-[60px]">
+      <h1 className="w-full text-center font-medium text-[44px] md:text-[52px] xl:text-[60px]">
         Contact Us
-      </div>
+      </h1>
 
       <div className="flex flex-col md:flex-row gap-10 font-regular text-[#f1f1f1]">
         {contactContent &&
@@ -74,7 +74,7 @@ const ContactUs = () => {
             <div className="w-full md:w-[48%] shadow-[0_0_0_1px_#F1F1F1] rounded-xl p-6 flex flex-col gap-2  text-md bg-gradient-to-r from-[#295ac4] to-[#0a3797] cursor-default hover:-translate-y-2 transition duration-1000">
               <div className="flex flex-col sm:flex-row font-semibold gap-2">
                 <div className="font-bold">{item?.title}</div>
-                <div className="text-sm sm:text-base">{item?.heading}</div>
+                <h2 className="text-sm sm:text-base">{item?.heading}</h2>
               </div>
               <div className="text-sm sm:text-base leading-7 xl:leading-9  font-semibold">
                 {item?.content}

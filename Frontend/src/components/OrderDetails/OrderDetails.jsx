@@ -94,7 +94,7 @@ const OrderDetails = ({ userData, files, type }) => {
         <div className="w-full overflow-auto">
           <div className="flex gap-2 bg-[#1d2838]">
             {files &&
-              files?.map((item) => <img src={item} className="h-[200px]" />)}
+              files?.map((item) => <img alt=""  src={item} className="h-[200px]" />)}
           </div>
         </div>
       </div>
