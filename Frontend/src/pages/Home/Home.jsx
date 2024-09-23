@@ -802,9 +802,9 @@ const Home = () => {
             </div>
           </h2>
 
-          {/* <div className="py-8 md:py-16">
+          <div className="py-8 md:py-16">
             <InfinitySlider imgData1={imgData2} imgData2={imgData3} />
-          </div> */}
+          </div>
 
           <div className="flex flex-col gap-10 items-center">
             <h2 className="text-[#F1F1F1] space-x-2  text-xl text-center md:text-4xl 2xl:text-[72px]  font-medium">
