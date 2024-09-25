@@ -48,6 +48,7 @@ const FreeHeadshotsTab = () => {
             fileErrorMsg={fileErrorMsg}
             setFileErrorMsg={setFileErrorMsg}
             maxUploads={1}
+            type="freeHeadshot"
           />
         </>
       ),
@@ -72,7 +73,10 @@ const FreeHeadshotsTab = () => {
   let maxIndex = 3 - 1;
 
   const updateIndex = (val) => {
+
     let newIndex = Math.max(currentIndex + val, 0);
+
+    console.log(val, newIndex)
 
     if (newIndex > 0 && newIndex < 2 && val > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -93,7 +97,7 @@ const FreeHeadshotsTab = () => {
         if (userData?.gender?.length == 0) {
           error.gender = "Please select a gender";
         }
-        console.log(userData?.gender?.length);
+        
         setErrors(() => {
           console.log(error);
           return error;
@@ -101,7 +105,7 @@ const FreeHeadshotsTab = () => {
         return;
       }
     }
-    if (newIndex > 0 && val > 0) {
+    if (newIndex > 1 && val > 0) {
       if (files.length > 0 && files.length <= 4) {
         setFileErrorMsg();
         if (maxIndex === currentIndex && val > 0) {

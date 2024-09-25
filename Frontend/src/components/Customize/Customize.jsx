@@ -131,7 +131,7 @@ const Customize = ({
         setErrors({ customize: "Select customize options" });
         return;
       }
-    } else if (newIndex > 1 && val > 0) {
+    } else if (newIndex >= 1 && val > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (emailRegex.test(userData?.email) && userData?.email?.length > 0) {
         setErrors({});

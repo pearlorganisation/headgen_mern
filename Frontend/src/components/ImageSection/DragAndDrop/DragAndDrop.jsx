@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./styles.css";
 import { GoPlus } from "react-icons/go";
 import { MdDelete } from "react-icons/md";
@@ -9,17 +9,20 @@ import ImgCropT from "../CropTool/ImgCropT";
 const DragAndDrop = ({
   files,
   setFiles,
+  selectedImage,
   setSelectedImage,
-  deleteFile,
   fileErrorMsg,
   setFileErrorMsg,
   maxUploads,
   imgCropRef,
-  type = "Regular"
+  type = "Regular",
 }) => {
   const [isDragActive, setIsDragActive] = useState(false);
 
+  const inputRef = useRef(null);
+
   const handleFileChange = (event) => {
+
     const selectedFiles = Object.fromEntries(
       Object.entries(event.target.files).slice(0, maxUploads)
     );
@@ -65,23 +68,22 @@ const DragAndDrop = ({
 
   const displayFile = async (selectedFile) => {
     let imgData = selectedFile;
-    console.log(imgData)
+    console.log(imgData);
     let jpegData;
     const fileNameArr = selectedFile.name.split(".");
     if (fileNameArr[1] === "heic" || fileNameArr[1] === "HEIC") {
-      jpegData = await heic2any({ blob: selectedFile, toType: 'image/jpeg' });
-      console.log(jpegData)
+      jpegData = await heic2any({ blob: selectedFile, toType: "image/jpeg" });
+      console.log(jpegData);
       imgData = new File(
         [jpegData],
         selectedFile.name.replace(".heic", ".jpg"),
         {
-            type: "image/jpeg",
-            lastModified: selectedFile.lastModified,
-            lastModifiedDate: selectedFile.lastModifiedDate,
+          type: "image/jpeg",
+          lastModified: selectedFile.lastModified,
+          lastModifiedDate: selectedFile.lastModifiedDate,
         }
-    );
+      );
     }
-
 
     const fileReader = new FileReader();
     fileReader.onload = () => {
@@ -96,6 +98,21 @@ const DragAndDrop = ({
       });
     };
     fileReader.readAsDataURL(imgData);
+  };
+
+  const deleteFile = (file) => {
+    setFiles((currentSelection) => {
+      const newSelection = currentSelection.slice();
+      const fileIndex = currentSelection.indexOf(file);
+      if (selectedImage === file) {
+        setSelectedImage(null);
+      }
+      newSelection.splice(fileIndex, 1);
+      return newSelection;
+    });
+    // Reset the input so the same file can be uploaded again
+    inputRef.current.value = null;
+
   };
 
   return (
@@ -131,6 +148,7 @@ const DragAndDrop = ({
             maxLength={maxUploads}
             hidden
             onChange={handleFileChange}
+            ref={inputRef}
             accept=".heic, .jpg, .jpeg, .png"
           />
         </div>
@@ -146,7 +164,8 @@ const DragAndDrop = ({
               className="w-[120px] h-auto rounded-lg flex flex-col gap-1"
             >
               <div className="shadow-[0_0_0_1px#c9c9c9] rounded-lg h-2/3 max-h-[150px]">
-                <img alt="" 
+                <img
+                  alt=""
                   src={item}
                   className="w-full h-full rounded-lg object-contain"
                 />
@@ -157,8 +176,12 @@ const DragAndDrop = ({
                     size={24}
                     className="text-blue-500 cursor-pointer hover:text-blue-800"
                     onClick={() => {
-                      setSelectedImage(item)
-                      imgCropRef.current.scrollTo({top:0, left:0, behavior: 'smooth'})
+                      setSelectedImage(item);
+                      imgCropRef.current.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: "smooth",
+                      });
                     }}
                   />
                 </div>
@@ -178,7 +201,11 @@ const DragAndDrop = ({
           Upload requirements:
         </h2>
         <ul className="max-w-md space-y-1 text-gray-700 list-disc list-inside">
-          <li>{type === "freeHeadshot" ? 'Please upload 1 image.' : 'Please upload 1-4 images.'}</li>
+          <li>
+            {type === "freeHeadshot"
+              ? "Please upload 1 image."
+              : "Please upload 1-4 images."}
+          </li>
           <li>Accepted format .jpeg, .jpg or .heic</li>
           <li>Please ensure that your image is less than 2mb</li>
           <li>Please make sure only 1 person is in the image.</li>
