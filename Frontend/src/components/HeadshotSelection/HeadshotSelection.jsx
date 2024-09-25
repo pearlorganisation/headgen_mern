@@ -45,7 +45,7 @@ const HeadshotSelection = ({
               .map((filteredItem, idx) => (
                 <div
                   key={`filteredItem${idx}`}
-                  className="w-full h-[90%]   rounded-xl  shadow-[0_0_1px#ababab] "
+                  className="w-full  rounded-xl  shadow-[0_0_1px#ababab] "
                 >
 
                   <LazyLoadImage alt="" 
@@ -68,7 +68,7 @@ const HeadshotSelection = ({
                 <div className="flex justify-center rounded-xl ">
                   <LazyLoadImage alt="" 
                     src={filteredItem?.imgPreview}
-                    className="!h-[320px] mx-auto rounded-xl"
+                    className="!max-h-[320px] mx-auto rounded-xl"
                   />
                 </div>
               ))}

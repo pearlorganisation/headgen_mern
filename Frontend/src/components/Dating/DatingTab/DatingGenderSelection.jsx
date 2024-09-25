@@ -51,7 +51,7 @@ const DatingGenderSelection = ({
   ];
 
   return (
-    <div className="flex flex-col gap-4 justify-between relative h-full items-center space-y-10 ">
+    <div className="flex flex-col gap-4 justify-between relative h-full items-center space-y-10">
       <div>Pick from our custom headshot templates:</div>
       <div className="grid md:grid-cols-[auto_20rem] gap-8 w-full  ">
         <div className="w-full mt-2 flex flex-col  justify-end  rounded-xl">
@@ -63,7 +63,7 @@ const DatingGenderSelection = ({
               .map((filteredItem, idx) => (
                 <div
                   key={`filteredItem${idx}`}
-                  className="w-full h-[90%]   rounded-xl  shadow-[0_0_1px#ababab] "
+                  className="w-full rounded-xl  shadow-[0_0_1px#ababab] "
                 >
                   <img
                     alt=""
@@ -87,7 +87,7 @@ const DatingGenderSelection = ({
                   <img
                     alt=""
                     src={filteredItem?.imgPreview}
-                    className="!h-[320px] mx-auto rounded-xl"
+                    className="!max-h-[320px] mx-auto rounded-xl"
                     width={"400px"}
                   />
                 </div>

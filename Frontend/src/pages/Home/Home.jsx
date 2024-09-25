@@ -521,17 +521,17 @@ const Home = () => {
           >
             <h1 className="flex flex-col leading-none mb-4 space-y-0">
               <div
-                className={`text-md md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text `}
+                className={`text-md text-[2rem] md:text-[3rem] lg:text-[3.5rem] font-bold bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text `}
               >
-                AI HEADSHOT GENERATOR
+                AI HEADSHOT 
               </div>
               <div
-                className={`text-white text-[3.5rem] md:text-[4.7rem] lg:text-[6rem] font-bold pb-2`}
+                className={`text-white text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-bold pb-2`}
               >
-                AI TOOL
+                GENERATOR
               </div>
               <div
-                className={` text-sm md:text-lg lg:text-2xl bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text `}
+                className={` font-semibold text-sm md:text-xl lg:text-2xl bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text `}
               >
                 FOR PROFESSIONAL HEADSHOTS
               </div>

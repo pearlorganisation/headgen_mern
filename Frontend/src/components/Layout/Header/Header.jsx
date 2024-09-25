@@ -18,10 +18,10 @@ const Header = () => {
       location.pathname === "/dating-ai-headshot-generator"
     ) {
       setIsDatingPage(true);
-      setToggleCss("bg-gradient-to-r from-[#810000] to-red-800");
+      setToggleCss("bg-gradient-to-r from-[#ff437b] to-[#ff1158]");
     } else {
       setIsDatingPage(false);
-      setToggleCss("bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800");
+      setToggleCss("bg-gradient-to-r from-[#02AFDC] to-[#2563EB] ");
     }
   }, [location]);
 
@@ -240,13 +240,13 @@ const Header = () => {
                 toggleNav
                   ? `${
                       isDatingPage
-                        ? "shadow-[0_1px_2px_0_#131313] bg-[#af2828d8] hover:bg-[#1d2838]"
-                        : "shadow-[0_1px_2px_0_#131313] bg-[#4f3bffd8] hover:bg-[#1d2838]"
+                        ? "shadow-[0_1px_2px_0_#131313] bg-gradient-to-b from-[#c91a4f] to-[#8a0930] hover:from-[#bb2c57] hover:to-[#861436]"
+                        : "bg-[#224cc2] shadow-md hover:bg-[#1d2838]"
                     }`
                   : `${
                       isDatingPage
-                        ? "bg-[#1d2838] hover:bg-[#af2828d8]"
-                        : "bg-[#1d2838] hover:bg-[#1f58ad]"
+                        ? "bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436]"
+                        : "bg-[#224cc2] hover:bg-[#1d2838]"
                     }`
               } hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#ffffff] text-[15px] font-medium transition duration-[0.6s]`}
             >
