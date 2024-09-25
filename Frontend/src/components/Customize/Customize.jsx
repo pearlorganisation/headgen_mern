@@ -21,7 +21,6 @@ const Customize = ({
   type,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
- 
 
   const customizePriceCardData = [
     {
@@ -41,10 +40,10 @@ const Customize = ({
       tag: "",
     },
   ];
-  
+
   const customizeData = [
     {
-      idx: 0, 
+      idx: 0,
       ele: (
         <>
           <CustomizeTabs
@@ -97,6 +96,7 @@ const Customize = ({
               userData={userData}
               setUserData={setUserData}
               type={type}
+              errors={errors}
             />
           </div>
         </>
@@ -119,8 +119,8 @@ const Customize = ({
 
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
-
-    if (newIndex > 0 && val > 0) {
+    console.log(val, newIndex);
+    if (newIndex >= 0 && newIndex < 2 && val > 0) {
       if (userData?.customizeData || userData?.customizeDatingData) {
         setErrors({});
         if (maxIndex === currentIndex && val > 0) {
@@ -131,7 +131,7 @@ const Customize = ({
         setErrors({ customize: "Select customize options" });
         return;
       }
-    } else if (newIndex >= 1 && val > 0) {
+    } else if (newIndex > 1 && newIndex <= 2 && val > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (emailRegex.test(userData?.email) && userData?.email?.length > 0) {
         setErrors({});
@@ -141,6 +141,29 @@ const Customize = ({
         setCurrentIndex(newIndex);
       } else {
         setErrors({ email: "Incorrect/Missing email" });
+        return;
+      }
+    } else if (newIndex > 2 && newIndex <= 3 && val > 0) {
+      if (files.length > 0 && files.length <= 4) {
+        setFileErrorMsg();
+        if (maxIndex === currentIndex && val > 0) {
+          return;
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        setCurrentIndex(newIndex);
+      } else {
+        setFileErrorMsg("Please upload 1-4 images to continue");
+      }
+      return;
+    } else if (newIndex > 3 && val > 0) {
+      if (userData?.selectedPlan) {
+        setErrors({});
+        if (maxIndex === currentIndex && val > 0) {
+          return;
+        }
+        setCurrentIndex(newIndex);
+      } else {
+        setErrors({ selectedPlan: "Please select a pack to continue" });
         return;
       }
     } else {
@@ -161,13 +184,14 @@ const Customize = ({
             gender: "",
             files: "",
             generationType: "datingCustomize",
+            customizeData: { section: "Formal", subSection: "Outdoor Park" },
           };
         }
         return {
           email: "",
           gender: "",
           files: "",
-          customizeData: { section: "Formal", subSection: "Outdoor Park" }
+          customizeData: { section: "Formal", subSection: "Outdoor Park" },
         };
       });
       localStorage.clear();
@@ -179,7 +203,6 @@ const Customize = ({
       localStorage.setItem("userImgs", files);
     }
   }, [files]);
-
 
   return (
     <>

@@ -65,6 +65,9 @@ const PromptTab = ({ userData, setUserData, errors, type }) => {
             </div>
           </div>
         </div>
+        {errors?.prompt && (
+        <div className="text-red-500 text-base text-center">{errors?.prompt}</div>
+      )}
       </section>
     </>
   );

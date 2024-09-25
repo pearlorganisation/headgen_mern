@@ -90,7 +90,7 @@ const Tab = ({ section }) => {
   ];
 
   useEffect(() => {
-    console.log(userData)
+    // console.log(userData)
     localStorage.setItem("userData", JSON.stringify(userData));
   }, [userData]);
 

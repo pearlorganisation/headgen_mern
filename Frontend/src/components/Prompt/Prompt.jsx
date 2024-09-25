@@ -87,6 +87,7 @@ const Prompt = ({
               userData={userData}
               setUserData={setUserData}
               type={type}
+              errors={errors}
             />
           </div>
         </>
@@ -98,7 +99,7 @@ const Prompt = ({
       ele: (
         <>
           <div>
-            <OrderDetails userData={userData} files={files} type='Dating' />
+            <OrderDetails userData={userData} files={files} type="Dating" />
           </div>
         </>
       ),
@@ -109,17 +110,57 @@ const Prompt = ({
 
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
-
-    if (newIndex > 1 && val > 0) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (emailRegex.test(userData?.email) && userData?.email?.length > 0) {
+    if (newIndex > 0 && newIndex <= 1 && val > 0) {
+      if (userData?.promptData && userData?.promptData?.length > 0) {
         setErrors({});
         if (maxIndex === currentIndex && val > 0) {
           return;
         }
         setCurrentIndex(newIndex);
       } else {
-        setErrors({ email: "Incorrect/Missing email" });
+        setErrors({ prompt: "Please enter a prompt to continue." });
+        return;
+      }
+    } else if (newIndex > 1 && newIndex <= 2 && val > 0) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (
+        emailRegex.test(userData?.email) &&
+        userData?.email?.length > 0 &&
+        userData?.gender?.length > 0
+      ) {
+        setErrors({});
+        if (maxIndex === currentIndex && val > 0) {
+          return;
+        }
+        setCurrentIndex(newIndex);
+      } else {
+        setErrors({
+          email: "Incorrect/Missing email",
+          gender: "Please select a gender",
+        });
+        return;
+      }
+    } else if (newIndex > 2 && newIndex <= 3 && val > 0) {
+      if (files.length > 0 && files.length <= 4) {
+        setFileErrorMsg();
+        if (maxIndex === currentIndex && val > 0) {
+          return;
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        setCurrentIndex(newIndex);
+      } else {
+        setFileErrorMsg("Please upload 1-4 images to continue");
+      }
+      return;
+    } else if (newIndex > 3 && val > 0) {
+      if (userData?.selectedPlan) {
+        setErrors({});
+        if (maxIndex === currentIndex && val > 0) {
+          return;
+        }
+        setCurrentIndex(newIndex);
+      } else {
+        setErrors({ selectedPlan: "Please select a pack to continue" });
         return;
       }
     } else {
@@ -133,24 +174,23 @@ const Prompt = ({
 
   useEffect(() => {
     if (localStorage.getItem("userData")) {
-      setUserData(prev => {
-        if (type === 'Dating') {
+      setUserData((prev) => {
+        if (type === "Dating") {
           return {
             email: "",
             gender: "",
             files: "",
-            generationType: 'datingPrompt'
-          }
-        } return {
+            generationType: "datingPrompt",
+          };
+        }
+        return {
           email: "",
           gender: "",
           files: "",
-        }
-
+        };
       });
       localStorage.clear();
     }
-
   }, []);
 
   useEffect(() => {
@@ -186,7 +226,11 @@ const Prompt = ({
           )}
           {currentIndex >= 0 && currentIndex < maxIndex && (
             <button
-              className={`w-full sm:w-auto hover:squeezyBtn px-8 py-3 ${type === 'Dating' ? ' bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57]' : 'bg-[#1f58ad] hover:bg-[#1f58ad94]'}  hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+              className={`w-full sm:w-auto hover:squeezyBtn px-8 py-3 ${
+                type === "Dating"
+                  ? " bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57]"
+                  : "bg-[#1f58ad] hover:bg-[#1f58ad94]"
+              }  hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
               onClick={() => {
                 updateIndex(1);
               }}

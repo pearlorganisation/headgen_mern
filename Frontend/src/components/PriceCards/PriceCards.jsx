@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 
-const PriceCards = ({ data, userData, setUserData, type }) => {
+const PriceCards = ({ data, userData, setUserData, type, errors }) => {
   const [selectedPlan, setSelectedPlan] = useState(userData?.selectedPlan);
   useEffect(() => {
     const updatedUserData = { ...userData };
@@ -68,6 +68,9 @@ const PriceCards = ({ data, userData, setUserData, type }) => {
             </div>
           ))}
       </div>
+      {errors?.selectedPlan && (
+        <div className="text-red-500 text-base text-center">{errors?.selectedPlan}</div>
+      )}
     </div>
   );
 };
