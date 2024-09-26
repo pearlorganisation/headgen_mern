@@ -15,10 +15,11 @@ const Header = () => {
   useEffect(() => {
     if (
       location.pathname === "/dating" ||
+      location.pathname === "/dating-ai-headshots"||
       location.pathname === "/dating-ai-headshot-generator"
     ) {
       setIsDatingPage(true);
-      setToggleCss("bg-gradient-to-r from-[#ff437b] to-[#ff1158]");
+      setToggleCss("bg-gradient-to-b from-[#c32352] to-[#7f0228]");
     } else {
       setIsDatingPage(false);
       setToggleCss("bg-gradient-to-r from-[#02AFDC] to-[#2563EB] ");
@@ -234,7 +235,7 @@ const Header = () => {
           <div className="h-full flex flex-col justify-center py-3">
             <Link
               to={`/${
-                isDatingPage ? "dating-ai-headshot-generator" : "corporate-ai-headshots"
+                isDatingPage ? "dating-ai-headshots" : "corporate-ai-headshots"
               }`}
               className={`hover:squeezyBtn px-5 py-4 ${
                 toggleNav
