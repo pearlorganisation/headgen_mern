@@ -294,7 +294,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
                       return data;
                     });
                   }}
-                  className={`px-6 py-2 text-lg md:text-xl lg:text-3xl  flex justify-center items-center gap-2
+                  className={`px-6 py-2 text-sm md:text-xl lg:text-3xl  flex justify-center items-center gap-2
                    ${
                      type === "Dating"
                        ? " hover:text-[#E23A6D] peer-checked:text-white peer-checked:bg-gradient-to-r peer-checked:from-[#e73e71]  peer-checked:to-[#af1040] hover:shadow-[0_3px#E23A6D]"
@@ -309,7 +309,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
             );
           })}
         </div>
-        <section className="flex flex-wrap justify-center items-center p-2 text-lg gap-3">
+        <section className="flex flex-wrap justify-center items-center p-2 text-sm md:text-lg gap-3">
           {subSectionData?.map((item, idx) => {
             return (
               <div className="relative " key={`subCategory${idx}`}>
@@ -351,7 +351,7 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
             return (
               <LazyLoadImage alt="" 
                 src={item?.path}
-                className="w-[200px] h-[200px] cursor-pointer hover:shadow-[0_0_0_1px#ffffff] rounded-xl transition duration-300"
+                className="object-contain w-full max-w-[200px] max-h-[200px] cursor-pointer hover:shadow-[0_0_0_1px#ffffff] rounded-xl transition duration-300"
                 width={200}
                 height={200}
               />

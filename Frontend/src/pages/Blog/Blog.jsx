@@ -41,7 +41,7 @@ const Blog = () => {
         setTotalPages(res?.data?.totalPages);
       })
       .catch((err) => {
-        console.log(err);
+      // console.log(err);
         setIsLoading(false);
       });
   }, [page]);

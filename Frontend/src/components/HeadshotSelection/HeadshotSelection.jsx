@@ -51,6 +51,8 @@ const HeadshotSelection = ({
                   <LazyLoadImage alt="" 
                     src={`${filteredItem?.headshotInfo?.imgPath}`}
                     className="w-full h-full rounded-xl"
+                    width={"600px"}
+
                   />
 
                 </div>
@@ -65,7 +67,7 @@ const HeadshotSelection = ({
                 return item?.name === section && item?.headshotInfo;
               })
               .map((filteredItem, idx) => (
-                <div className="flex justify-center rounded-xl ">
+                <div key={`imgPreview${idx}`} className="flex justify-center rounded-xl ">
                   <LazyLoadImage alt="" 
                     src={filteredItem?.imgPreview}
                     className="!max-h-[320px] mx-auto rounded-xl"
@@ -87,7 +89,7 @@ const HeadshotSelection = ({
                 className={`bg-[#f1f1f1]  text-[#131313] ${userData?.headshotType === item?.name
                   ? "!bg-[#355cc9] text-[#f1f1f1]"
                   : "bg-[#f1f1f1] "
-                  } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-full  transition duration-500 text-[14px] md:text-[12px] lg:text-[18px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
+                  } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-full  transition duration-500 text-[12px] md:text-[12px] lg:text-[18px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
                   onClick={() => setHeadshotType(item?.name)}
               >
                 <span>{item?.name}</span>

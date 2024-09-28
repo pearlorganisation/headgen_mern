@@ -119,7 +119,7 @@ const Customize = ({
 
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
-    console.log(val, newIndex);
+  // console.log(val, newIndex);
     if (newIndex >= 0 && newIndex < 2 && val > 0) {
       if (userData?.customizeData || userData?.customizeDatingData) {
         setErrors({});

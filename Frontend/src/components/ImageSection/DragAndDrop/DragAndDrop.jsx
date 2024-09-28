@@ -4,7 +4,6 @@ import { GoPlus } from "react-icons/go";
 import { MdDelete } from "react-icons/md";
 import { FaCropSimple } from "react-icons/fa6";
 import heic2any from "heic2any";
-import ImgCropT from "../CropTool/ImgCropT";
 
 const DragAndDrop = ({
   files,
@@ -15,6 +14,7 @@ const DragAndDrop = ({
   setFileErrorMsg,
   maxUploads,
   imgCropRef,
+  toolContainerRef,
   type = "Regular",
 }) => {
   const [isDragActive, setIsDragActive] = useState(false);
@@ -22,7 +22,6 @@ const DragAndDrop = ({
   const inputRef = useRef(null);
 
   const handleFileChange = (event) => {
-
     const selectedFiles = Object.fromEntries(
       Object.entries(event.target.files).slice(0, maxUploads)
     );
@@ -68,12 +67,12 @@ const DragAndDrop = ({
 
   const displayFile = async (selectedFile) => {
     let imgData = selectedFile;
-    console.log(imgData);
+  // console.log(imgData);
     let jpegData;
     const fileNameArr = selectedFile.name.split(".");
     if (fileNameArr[1] === "heic" || fileNameArr[1] === "HEIC") {
       jpegData = await heic2any({ blob: selectedFile, toType: "image/jpeg" });
-      console.log(jpegData);
+    // console.log(jpegData);
       imgData = new File(
         [jpegData],
         selectedFile.name.replace(".heic", ".jpg"),
@@ -112,7 +111,6 @@ const DragAndDrop = ({
     });
     // Reset the input so the same file can be uploaded again
     inputRef.current.value = null;
-
   };
 
   return (
@@ -177,11 +175,17 @@ const DragAndDrop = ({
                     className="text-blue-500 cursor-pointer hover:text-blue-800"
                     onClick={() => {
                       setSelectedImage(item);
-                      imgCropRef.current.scrollTo({
-                        top: 0,
-                        left: 0,
-                        behavior: "smooth",
-                      });
+                      if (screen.width > 750) {
+                        imgCropRef.current.scrollTo({
+                          top: 0,
+                          left: 0,
+                          behavior: "smooth",
+                        });
+                      } else {
+                        imgCropRef.current.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                      }
                     }}
                   />
                 </div>

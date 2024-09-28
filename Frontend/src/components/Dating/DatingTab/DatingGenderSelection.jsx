@@ -12,6 +12,7 @@ import "swiper/css/scrollbar";
 import { A11y, Autoplay, Navigation } from "swiper/modules";
 
 import UserDetails from "../../UserDetails/UserDetails";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const DatingGenderSelection = ({
   userData,
@@ -51,10 +52,12 @@ const DatingGenderSelection = ({
   ];
 
   return (
-    <div className="flex flex-col gap-4 justify-between relative h-full items-center space-y-10">
-      <div>Pick from our custom headshot templates:</div>
-      <div className="grid md:grid-cols-[auto_20rem] gap-8 w-full  ">
-        <div className="w-full mt-2 flex flex-col  justify-end  rounded-xl">
+    <div className="flex flex-col gap-4 justify-between relative h-full  w-full items-center">
+      <div className="text-center  lg:text-left text-xl sm:text-2xl md:text-3xl">
+        Pick from our custom headshot templates:
+      </div>
+      <div className="grid lg:grid-cols-[auto_20rem] gap-8 w-full   ">
+        <div className="w-full mt-2 hidden md:flex flex-col  justify-end  rounded-xl">
           {userData?.gender?.length > 0 &&
             selectionData
               ?.filter((item) => {
@@ -84,25 +87,22 @@ const DatingGenderSelection = ({
               })
               .map((filteredItem) => (
                 <div className="flex justify-center rounded-xl ">
-                  <img
+                  <LazyLoadImage
                     alt=""
                     src={filteredItem?.imgPreview}
                     className="!max-h-[320px] mx-auto rounded-xl"
-                    width={"400px"}
                   />
                 </div>
               ))}
         </div>
       </div>
 
-      <div className="px-1  w-full">
-        <UserDetails
-          userData={userData}
-          setUserData={setUserData}
-          errors={errors}
-          type={type}
-        />
-      </div>
+      <UserDetails
+        userData={userData}
+        setUserData={setUserData}
+        errors={errors}
+        type={type}
+      />
     </div>
   );
 };

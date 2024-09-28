@@ -32,13 +32,13 @@ const Reviews = () => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/reviews?page=${page}`)
       .then((res) => {
-        console.log(res);
+      // console.log(res);
         setIsLoading(false);
         setReviewsData(res.data.reviewsData);
         setTotalPages(res?.data?.totalPages);
       })
       .catch((err) => {
-        console.log(err);
+      // console.log(err);
         setIsLoading(false);
       });
   }, [page]);
@@ -190,61 +190,7 @@ const Reviews = () => {
                   </div>
                 )}
               </div>
-
-              <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <div className="relative w-[95vw] md:w-[60vw] bg-white shadow-[0_0_0_1px#ffdd00] rounded-md left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-3">
-                  <div
-                    className={`absolute bg-white text-center w-1/3 top-0 right-0 font-semibold text-xs italic rounded-bl`}
-                    style={{ color: previewData?.verification?.color }}
-                  >
-                    {previewData?.verification?.name}
-                  </div>
-                  <div className="p-4 md:p-6 text-white bg-gradient-to-tr from-[#02AFDC] to-[#2563EB] transition duration-300">
-                    <p className="text-lg md:text-2xl font-bold line-clamp-2">
-                      {previewData?.title}
-                    </p>
-                    <p className="text-xs font-semibold mb-2 line-clamp-2">
-                      by {previewData?.name}
-                    </p>
-                    <div className="flex justify-start">
-                      {Array(previewData?.stars)
-                        .fill()
-                        .map((ele, idx) => (
-                          <svg
-                            key={idx}
-                            className={`w-4 h-4 text-yellow-500`}
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.217 3.742a1 1 0 00.95.69h3.929c.969 0 1.371 1.24.588 1.81l-3.182 2.31a1 1 0 00-.364 1.118l1.218 3.742c.3.922-.755 1.688-1.54 1.118l-3.182-2.31a1 1 0 00-1.175 0l-3.182 2.31c-.784.57-1.838-.196-1.54-1.118l1.218-3.742a1 1 0 00-.364-1.118l-3.182-2.31c-.783-.57-.38-1.81.588-1.81h3.929a1 1 0 00.95-.69l1.217-3.742z" />
-                          </svg>
-                        ))}
-                    </div>
-                    <p className="text-sm md:text-base font-semibold mb-2">
-                      {previewData?.review}
-                    </p>
-                  </div>
-                  {previewData?.image[0]?.url && (
-                    <LazyLoadImage
-                      alt="reviews image"
-                      className="w-full object-cover"
-                      height={400}
-                      src={previewData?.image[0]?.url}
-                      style={{
-                        aspectRatio: "1920/1080",
-                        objectFit: "cover",
-                      }}
-                      width={600}
-                    />
-                  )}
-                </div>
-              </Modal>
+                       
             </>
           )}
         </div>

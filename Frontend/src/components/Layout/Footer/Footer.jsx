@@ -108,10 +108,11 @@ const Footer = () => {
           link: "tel:+919820442749",
         },
         {
-          link:'https://www.producthunt.com/products/headgen-ai',
-          alt:'product hunt',
-          imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1720504906/Untitled_design_71_yhk24p.jpg"
-        }
+          link: "https://www.producthunt.com/products/headgen-ai",
+          alt: "product hunt",
+          imgPath:
+            "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1720504906/Untitled_design_71_yhk24p.jpg",
+        },
       ],
     },
   ];
@@ -126,12 +127,16 @@ const Footer = () => {
           <img
             src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022117/headgen/Home/Footer/om5r1nxxq4cbjmcqmdet.webp"
             alt=""
-            srcset=""
             className="w-full h-[90%] rounded-2xl shadow-[0_0_0_5px#5636F3]"
           />
           <div className="flex flex-col gap-1">
             <div className="w-[90%] px-2 py-3 bg-gradient-to-r from-[#59caff] to-[#5636F3] rounded-xl text-[#f1f1f1] text-[15px] font-medium transition duration-300 absolute -bottom-4 left-1/2 -translate-x-1/2">
-              <LazyLoadImage alt=""  src="/logo.webp" width={"240px"} height={"58px"}/>
+              <LazyLoadImage
+                alt=""
+                src="/logo.webp"
+                width={"240px"}
+                height={"58px"}
+              />
             </div>
           </div>
         </div>
@@ -139,19 +144,26 @@ const Footer = () => {
         <div className="py-16 px-8 oswald md:px-16  w-full rounded-2xl bg-[#000000] grid grid-cols-1 md:grid-cols-4 gap-2 md:justify-center shadow-[0_0_0_5px#000000]">
           {footerContent &&
             footerContent?.map((fc, idx) => (
-              <div className={`flex flex-col  gap-3 md:gap-1 ${fc?.multiList && 'md:col-span-2'}`} key={`fc${idx}`}>
-                <div className={`text-2xl xl:text-[2.4rem] md:h-[80px] oswald text-blue-600`}>
+              <div
+                key={`fc${idx}`}
+                className={`flex flex-col  gap-3 md:gap-1 ${
+                  fc?.multiList && "md:col-span-2"
+                }`}
+              >
+                <div
+                  className={`text-2xl xl:text-[2.4rem] md:h-[80px] oswald text-blue-600`}
+                >
                   {fc?.title}
                 </div>
                 {fc?.multiList ? (
                   <div className="grid md:grid-cols-2 text-[#f1f1f1] text-xl xl:text-[1.7rem] leading-[1.3] ">
-                    {fc?.multiList?.map((item, idx) => (
-                      <div className="flex flex-col gap-1">
+                    {fc?.multiList?.map((item, idx1) => (
+                      <div key={`fcml${idx1}`} className="flex flex-col gap-1">
                         {item &&
-                          item?.map((item) => (
+                          item?.map((item, idx2) => (
                             <Link
+                              key={`fcsml${idx2}`}
                               to={item?.link}
-                              key={`fcll${idx}`}
                               className="oswald hover:text-blue-600 transition duration-300"
                             >
                               {item?.title}
@@ -164,14 +176,21 @@ const Footer = () => {
                   <div className="flex flex-col gap-1 text-[#f1f1f1] text-xl xl:text-[1.7rem] leading-[1.3]  ">
                     {fc?.list &&
                       fc?.list?.map((item, idx2) => (
-                        
                         <Link
                           to={item?.link}
                           key={`fcl${idx2}`}
                           className="oswald hover:text-blue-600 transition duration-300"
                         >
-                          {item?.title ? item?.title : (
-                            <img src={`${item?.imgPath}`} alt={item?.alt} className="w-full rounded-lg shadow-[0_0_0_1px#ffffff] mt-1" width={"60px"} height={"242px"}/>
+                          {item?.title ? (
+                            item?.title
+                          ) : (
+                            <img
+                              src={`${item?.imgPath}`}
+                              alt={item?.alt}
+                              className="w-full rounded-lg shadow-[0_0_0_1px#ffffff] mt-1"
+                              width={"60px"}
+                              height={"242px"}
+                            />
                           )}
                         </Link>
                       ))}

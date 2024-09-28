@@ -51,7 +51,7 @@ const IndividualTab = ({
   ];
 
   useEffect(() => {
-    console.log(userData, "updated in localStorage");
+  // console.log(userData, "updated in localStorage");
     localStorage.setItem("userData", JSON.stringify(userData));
   }, [userData]);
 
@@ -153,7 +153,7 @@ const IndividualTab = ({
         if (userData?.gender?.length == 0) {
           error.gender = "Please select a gender";
         }
-        console.log(userData?.gender?.length);
+      // console.log(userData?.gender?.length);
         setErrors(() => {
           // console.log(error);
           return error;
@@ -164,7 +164,7 @@ const IndividualTab = ({
     if (newIndex > 2 && newIndex <= 3 && val > 0) {
       if (files.length > 0 && files.length <= 4) {
         setFileErrorMsg();
-        console.log("in this");
+      // console.log("in this");
         if (maxIndex === currentIndex && val > 0) {
           return;
         }

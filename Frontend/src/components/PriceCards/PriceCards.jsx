@@ -12,7 +12,7 @@ const PriceCards = ({ data, userData, setUserData, type, errors }) => {
   return (
     <div className="flex flex-col gap-4 justify-between items-center">
       <div className="pb-4">Select a plan:</div>
-      <div className="w-full flex flex-wrap justify-center gap-3">
+      <div className="w-full flex flex-wrap justify-center gap-4">
         {data &&
           data?.map((item, idx) => (
             <div
@@ -28,7 +28,7 @@ const PriceCards = ({ data, userData, setUserData, type, errors }) => {
                   className={`absolute rounded-full text-white text-[12px] md:text-[14px] font-bold bg-gradient-to-r ${type != "Dating"
                       ? "from-[#02AFDC] to-[#2563EB]"
                       : "from-[#e73e71] to-[#af1040] "
-                    } px-4 -top-2 -translate-y-2 left-1/2 -translate-x-1/2`}
+                    } px-4 -top-2 -translate-y-2 left-1/2 -translate-x-1/2 w-[150px] text-center`}
                 >
                   {item?.tag}
                 </div>

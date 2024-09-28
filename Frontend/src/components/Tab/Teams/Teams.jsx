@@ -74,7 +74,7 @@ const Teams = ({ userData, setUserData }) => {
 
   const handleData = (e) => {
     const val = parseInt(e.target.value, 10);
-    console.log(typeof val);
+  // console.log(typeof val);
     if (val < 51) {
       setData((prev) => {
         const temp = priceData[0];
@@ -122,7 +122,7 @@ const Teams = ({ userData, setUserData }) => {
       });
     }
 
-    console.log(val);
+  // console.log(val);
     setData((prev) => {
       return { ...prev, users: val };
     });
@@ -162,16 +162,16 @@ const Teams = ({ userData, setUserData }) => {
       ele: (
         <>
           <div className="max-w-5xl min-h-[30rem]  w-full grid md:grid-cols-2 gap-3 shadow-[0_0_0_1px#f1f1f1 rounded-2xl text-white">
-            <div className="flex flex-col justify-between p-6">
+            <div className="flex flex-col justify-between p-4 md:p-6">
               <div className="space-y-6">
                 <div className="bg-slate-50/10 w-fit px-4 py-2 rounded-md">
-                  <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold text-lg">
+                  <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold text-base md:text-lg">
                     {data?.discount}
                   </span>
                 </div>
                 {!data?.price ? (
                   <>
-                    <div className="text-blue-500 text-5xl font-bold flex justify-start ">
+                    <div className="text-blue-500 text-4xl md:text-5xl font-bold flex justify-start ">
                       Contact Sales
                     </div>
                     <p>
@@ -182,12 +182,12 @@ const Teams = ({ userData, setUserData }) => {
                 ) : (
                   <>
                     <div className="flex justify-start items-end -translate-x-3">
-                      <div className="text-blue-500 text-7xl font-bold flex justify-start">
+                      <div className="text-blue-500 text-5xl md:text-7xl font-bold flex justify-start">
                         {" "}
                         <PiCurrencyDollarBold className=" " />
                         {data?.price}{" "}
                       </div>{" "}
-                      <span className="pb-3 pl-1">/ Team Members</span>
+                      <span className="text-xs md:text-base pb-3 pl-1">/ Team Members</span>
                     </div>
                     <div>
                       <div className="flex justify-start gap-1 items-center font-bold">
@@ -220,7 +220,7 @@ const Teams = ({ userData, setUserData }) => {
                 </div>
               </div>
             </div>
-            <div className="p-6">
+            <div className="p-6 mb-5 md:mb-0 ">
               <div className="font-medium">INCLUDES:</div>
               <div className="list-inside">
                 {includes?.map((item) => {

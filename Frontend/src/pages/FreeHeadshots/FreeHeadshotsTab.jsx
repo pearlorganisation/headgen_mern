@@ -76,7 +76,7 @@ const FreeHeadshotsTab = () => {
 
     let newIndex = Math.max(currentIndex + val, 0);
 
-    console.log(val, newIndex)
+  // console.log(val, newIndex)
 
     if (newIndex > 0 && newIndex < 2 && val > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -99,7 +99,7 @@ const FreeHeadshotsTab = () => {
         }
         
         setErrors(() => {
-          console.log(error);
+        // console.log(error);
           return error;
         });
         return;
@@ -155,7 +155,7 @@ const FreeHeadshotsTab = () => {
               let extension = blob.type.split("/");
 
               const file = new File([blob], `${idx}.${extension[1]}`);
-              console.log(file);
+            // console.log(file);
               newFiles.push(file);
             })
             .catch((error) => reject(error))

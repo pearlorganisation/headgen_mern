@@ -130,7 +130,7 @@ const DatingTab = () => {
 
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
-    console.log(newIndex, val)
+  // console.log(newIndex, val)
     if (newIndex > 0 && newIndex < 2 && val > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (
@@ -152,7 +152,7 @@ const DatingTab = () => {
         }
         // console.log(userData?.gender?.length);
         setErrors(() => {
-          console.log(error);
+        // console.log(error);
           return error;
         });
         return;
@@ -284,28 +284,29 @@ const DatingTab = () => {
   }
 
   return (
-    <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px] gradientBgRed py-6">
+    <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px] gradientBdRed">
+    
       <div
         ref={fieldsRef}
-        className="rounded-full   bg-gradient-to-br from-[#1d2838] to-[#1d283880] p-1 px-2 relative h-[50px] flex justify-between"
+        className="rounded-full  w-fit  bg-gradient-to-br from-[#1d2838] to-[#1d283880] p-1 px-2 relative h-[50px] flex justify-between"
       >
         {tabs?.map((item, idx) => {
           return (
-            <div className="relative" key={`datingTabs${idx}`} >
+            <div className="relative text-sm md:text-base" key={`tab${idx}`}>
               <div
-                className={` ${tabText === item ? "flex" : "hidden"
-                  }  absolute text-white h-full `}
+                className={` ${
+                  tabText === item ? "flex" : "hidden"
+                }  absolute text-white h-full  `}
               >
                 <span
-                  className={` rounded-full h-full w-[8rem] md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-b from-[#e73e71] to-[#af1040] z-[10] transition duration-300`}
-                  onClick={() => { }}
+                  className={` rounded-full h-full w-[5rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-b from-[#e73e71] to-[#af1040] z-[10] transition duration-300`}
                 >
                   {item}
                 </span>
               </div>
 
               <span
-                className={` rounded-full h-full w-[8rem] md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center text-white  z-[10] transition duration-300`}
+                className={` rounded-full h-full w-[5rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center text-white  z-[10] transition duration-300`}
                 onClick={() => {
                   setTabSwitched(true);
                   setTabText(item);
@@ -317,7 +318,7 @@ const DatingTab = () => {
           );
         })}
       </div>
-      <div className="shadow-[0_0_0_1px_#babcbf80] rounded-xl px-20 2xl:px-32 py-12 w-full 2xl:w-[1200px] min-h-[700px] bg-gradient-to-br from-[#1d2838] to-[#1d283880]">
+      <div className="shadow-[0_0_0_1px_#babcbf80] rounded-xl px-6 md:px-20 2xl:px-24 py-12 w-full 2xl:w-[1200px] min-h-[700px] bg-gradient-to-br from-[#1d2838] to-[#1d283880]">
         <div className="text-white text-3xl h-full ">
           {tabText === "Individual" && (
             <div

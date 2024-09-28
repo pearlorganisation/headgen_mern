@@ -189,21 +189,21 @@ const Tab = ({ section }) => {
       >
         {tabs?.map((item, idx) => {
           return (
-            <div className="relative text-sm md:text-base" key={`tab${idx}`}>
+            <div className="relative text-xs sm:text-sm md:text-base" key={`tab${idx}`}>
               <div
                 className={` ${
                   tabText === item ? "flex" : "hidden"
-                }  absolute text-white h-full  `}
+                }  absolute text-white h-full`}
               >
                 <span
-                  className={` rounded-full h-full w-[5rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
+                  className={` rounded-full h-full w-[4.1rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
                 >
                   {item}
                 </span>
               </div>
 
               <span
-                className={` rounded-full h-full w-[5rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center text-white  z-[10] transition duration-300`}
+                className={` rounded-full h-full w-[4.1rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center text-white  z-[10] transition duration-300`}
                 onClick={() => {
                   setTabSwitched(true);
                   setTabText(item);

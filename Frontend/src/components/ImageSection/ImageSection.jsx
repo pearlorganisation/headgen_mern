@@ -12,6 +12,8 @@ const ImageSection = ({
 }) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const imgCropRef = useRef(null);
+  const toolContainerRef = useRef(null);
+
   const correctData = [
     {
       imgPath:
@@ -105,6 +107,7 @@ const ImageSection = ({
         fileErrorMsg={fileErrorMsg}
         setFileErrorMsg={setFileErrorMsg}
         imgCropRef={imgCropRef}
+        toolContainerRef={toolContainerRef}
         type={type}
       />
 
@@ -126,14 +129,14 @@ const ImageSection = ({
           </>
         )}
 
-        <div className="w-full h-fit bg-[#ecfff1] text-black rounded-md flex flex-col gap-2 p-4">
+        <div className="w-full h-fit bg-[#ecfff1] text-black rounded-md flex flex-col gap-2 p-4" >
           <div className="text-[18px] text-center md:text-left">
             ✅ PHOTO REQUIREMENTS
           </div>
           <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 gap-2 p-4">
             {correctData &&
               correctData?.map((item, idx) => (
-                <div className="flex flex-col  rounded-2xl w-full max-w-[200px] mx-auto ">
+                <div key={`photoReq${idx}`} className="flex flex-col  rounded-2xl w-full max-w-[200px] mx-auto ">
                   <img
                     alt=""
                     src={item?.imgPath}
@@ -156,7 +159,7 @@ const ImageSection = ({
           <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 gap-2 p-4">
             {incorrectData &&
               incorrectData?.map((item, idx) => (
-                <div className="flex flex-col items-center rounded-2xl w-full mx-auto  max-w-[200px] ">
+                <div key={`photoRest${idx}`} className="flex flex-col items-center rounded-2xl w-full mx-auto  max-w-[200px] ">
                   <img
                     alt=""
                     src={item?.imgPath}
