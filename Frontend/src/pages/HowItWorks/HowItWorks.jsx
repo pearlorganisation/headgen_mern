@@ -210,7 +210,7 @@ const HowItWorks = () => {
         <div className="container rounded-xl flex justify-center">
           
             <LazyLoadImage alt="" 
-              src={`/howItWorks/promptSection.png`}
+              src={`https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030853/promptSection_brdsnx.png`}
               className="w-full rounded-xl"
             />
          

@@ -455,7 +455,7 @@ const Home = () => {
       svg: (
         <>
           <LazyLoadImage alt="" 
-            src="/Indeed_logo.png"
+            src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728031057/Indeed_logo_cvpykw.png"
             className="h-[16px]"
             height={"16px"}
             width={"16px"}
@@ -470,22 +470,22 @@ const Home = () => {
       title: "Advanced Encryption",
       content:
         "Your data deserves the best protection. We encrypt all sensitive user data",
-      imgPath: "/privacyFirst/encryption.webp",
+      imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030952/encryption_e1volq.webp",
     },
     {
       title: "Secured Data",
       content: "HeadGen.ai will never sell your data to any third party.",
-      imgPath: "/privacyFirst/secure.webp",
+      imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030951/secure_auiiz0.webp",
     },
     {
       title: "You’re in Control",
       content: "We will never use your photos  to train our AI model .",
-      imgPath: "/privacyFirst/control.webp",
+      imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030951/control_vkdhtx.webp",
     },
     {
       title: "Live Support",
       content: "E-mail us anytime. We respond Monday-Saturday.",
-      imgPath: "/privacyFirst/support.webp",
+      imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030951/support_ktdvai.webp",
     },
   ];
 

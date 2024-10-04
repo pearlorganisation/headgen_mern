@@ -59,7 +59,7 @@ const AboutUs = () => {
     {
       name: "Ruark Gordon",
       designation: "Founder & CEO.",
-      imagePath: "/ruark.png",
+      imagePath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030757/ruark_mkfzqh.png",
       socials: [
         {
           name: "linkedIn",
@@ -88,7 +88,7 @@ const AboutUs = () => {
     {
       name: "Krasia Gordon",
       designation: "Co-Founder & Design Lead.",
-      imagePath: "/krasia.png",
+      imagePath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030757/krasia_xvwlup.png",
       socials: [
         {
           name: "linkedIn",
