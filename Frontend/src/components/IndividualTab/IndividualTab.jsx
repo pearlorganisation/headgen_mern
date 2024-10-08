@@ -19,6 +19,7 @@ const IndividualTab = ({
   tabContentRef,
   isLoading,
   handlePayment,
+  section,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -49,8 +50,12 @@ const IndividualTab = ({
     },
   ];
 
+  useEffect(() => {
+  // console.log(userData, "updated in localStorage");
+    localStorage.setItem("userData", JSON.stringify(userData));
+  }, [userData]);
+
   const indivdualData = [
-    
     {
       idx: 0,
       ele: (
@@ -60,6 +65,7 @@ const IndividualTab = ({
             setUserData={setUserData}
             errors={errors}
             headshots={headshots}
+            section={section}
           />
         </>
       ),
@@ -103,6 +109,7 @@ const IndividualTab = ({
               data={priceCardData}
               userData={userData}
               setUserData={setUserData}
+              errors={errors}
             />
           </div>
         </>
@@ -146,7 +153,7 @@ const IndividualTab = ({
         if (userData?.gender?.length == 0) {
           error.gender = "Please select a gender";
         }
-        console.log(userData?.gender?.length);
+      // console.log(userData?.gender?.length);
         setErrors(() => {
           // console.log(error);
           return error;
@@ -154,10 +161,10 @@ const IndividualTab = ({
         return;
       }
     }
-    if (newIndex > 2 && val > 0) {
+    if (newIndex > 2 && newIndex <= 3 && val > 0) {
       if (files.length > 0 && files.length <= 4) {
         setFileErrorMsg();
-        console.log("in this");
+      // console.log("in this");
         if (maxIndex === currentIndex && val > 0) {
           return;
         }
@@ -167,6 +174,17 @@ const IndividualTab = ({
         setFileErrorMsg("Please upload 1-4 images to continue");
       }
       return;
+    }  else if (newIndex > 3 && val > 0) {
+      if (userData?.selectedPlan) {
+        setErrors({});
+        if (maxIndex === currentIndex && val > 0) {
+          return;
+        }
+        setCurrentIndex(newIndex);
+      } else {
+        setErrors({ selectedPlan: "Please select a pack to continue" });
+        return;
+      }
     } else {
       if (maxIndex === currentIndex && val > 0) {
         return;
@@ -183,6 +201,7 @@ const IndividualTab = ({
         email: "",
         gender: "",
         files: "",
+        headshotType: section,
       });
     }
   }, []);

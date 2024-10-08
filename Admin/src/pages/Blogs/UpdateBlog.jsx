@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import TextEditor from "../../components/TextEditor/TextEditor";
 import { instance } from "../../services/axiosInterceptor";
 import { Toaster, toast } from "sonner";
 import { ClipLoader } from "react-spinners";
+import { useParams } from "react-router-dom";
+import JoditEditor from "jodit-react";
 
-const AddBlogs = () => {
+const UpdateBlog = () => {
   const [blogData, setBlogData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
-
   const [bannerName, setBannerName] = useState({});
-
-  useEffect(() => {
-    if (blogData?.status) {
-      navigate("/blog");
-    }
-  }, [blogData]);
+  const [selectedBanner, setSelectedBanner] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
+  const { blogId } = useParams();
 
   const {
     register,
@@ -25,23 +20,58 @@ const AddBlogs = () => {
     formState: { errors },
     control,
     watch,
+    setValue, // Allows you to manually set field values
     reset,
   } = useForm({
     defaultValues: {},
   });
+
+  const getBlog = () => {
+    setIsLoading(true);
+    instance
+      .get(`/blogs/${blogId}`)
+      .then((res) => {
+        setBlogData(res?.data?.blogData);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    if (blogId) {
+      getBlog();
+    }
+  }, [blogId]);
+
+  useEffect(() => {
+    if (!blogData) return;
+    reset({
+      title: blogData?.title,
+      slug: blogData?.slug,
+    });
+    setPreviewImage(blogData.banner);
+    setValue("content", blogData.content); // This updates the content field's value
+  }, [blogData, setValue, reset]);
 
   const onSubmit = (data) => {
     if (isLoading) return;
     setIsLoading(true);
     const formData = new FormData();
     const { banner } = data;
-    formData.append("banner", banner[0]);
+    if (selectedBanner) {
+      formData.append("banner", selectedBanner);
+    }
+    formData.append("id", blogData._id);
     formData.append("content", data.content);
     formData.append("title", data.title);
-    formData.append("slug", data.slug); 
+    formData.append("slug", data.slug);
+
     // api call here
     instance
-      .post(`/blogs`, formData, {
+      .patch(`/blogs/${blogId}`, formData, {
         withCredentials: true,
       })
       .then((res) => {
@@ -74,12 +104,17 @@ const AddBlogs = () => {
     setBannerName(temp);
   }, [temp]);
 
+  const handleFileInputChange = (e) => {
+    setSelectedBanner(e.target.files[0]);
+    setPreviewImage(URL.createObjectURL(e.target.files[0]));
+  };
+
   return (
     <div className="p-10">
       <Toaster />
       <div className=" flex justify-center">
         <h3 className="text-gray-600 text-2xl font-semibold sm:text-3xl">
-          Add a blog
+          Update blog
         </h3>
       </div>
       <div className="bg-white rounded-lg shadow p-4 py-6  sm:rounded-lg sm:max-w-5xl mt-8 mx-auto">
@@ -111,7 +146,12 @@ const AddBlogs = () => {
             )}
           </div>
 
-          <div className="flex-1 items-center mx-auto mb-3 space-y-4 sm:flex sm:space-y-0">
+          <div className="flex-1 items-center mx-auto gap-2 mb-3 space-y-4 sm:flex sm:space-y-0">
+            {previewImage && (
+              <div className="w-full max-w-[48%]">
+                <img src={previewImage} className="max-h-[500px]" />
+              </div>
+            )}
             <div className="relative w-full space-y-1">
               <label htmlFor="input" className="font-medium ">
                 Banner
@@ -148,10 +188,11 @@ const AddBlogs = () => {
                   </span>
                   <input
                     type="file"
-                    {...register("banner", { required: "topic is required" })}
+                    {...register("banner")}
                     className="hidden"
                     accept="image/png,image/jpeg,image/webp"
                     id="input"
+                    onChange={handleFileInputChange}
                   />
                 </label>
               </div>
@@ -167,9 +208,11 @@ const AddBlogs = () => {
               name={`content`}
               control={control}
               render={({ field }) => (
-                <TextEditor
-                  onChange={(data) => field.onChange(data)} // Pass onChange handler from field
-                  value={field.value} // Pass value from field to TextEditor
+                <JoditEditor
+                  value={field.value} // Controlled by react-hook-form
+                  tabIndex={1}
+                  onBlur={(newContent) => field.onChange(newContent)}
+                  config={{ theme: "dark" }}
                 />
               )}
               rules={{ required: true }}
@@ -193,4 +236,4 @@ const AddBlogs = () => {
   );
 };
 
-export default AddBlogs;
+export default UpdateBlog;

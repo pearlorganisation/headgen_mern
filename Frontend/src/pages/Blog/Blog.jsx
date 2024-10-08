@@ -2,21 +2,19 @@ import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Pagination from "@mui/material/Pagination";
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material";
 import DOMPurify from "dompurify";
 import Skeleton from "@mui/material/Skeleton";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import {Helmet} from "react-helmet"
 
-const useStyles = makeStyles({
-  ul: {
-    "& .MuiPaginationItem-root": {
-      color: "white",
-    },
+const StyledPagination = styled(Pagination)(({ theme }) => ({
+  "& .MuiPaginationItem-root": {
+    color: "white",
   },
-});
+}));
 
 const Blog = () => {
-  const classes = useStyles();
   const [blogData, setBlogData] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
   const [page, setPage] = useState(searchParams.get("page") || 1);
@@ -43,7 +41,7 @@ const Blog = () => {
         setTotalPages(res?.data?.totalPages);
       })
       .catch((err) => {
-        console.log(err);
+      // console.log(err);
         setIsLoading(false);
       });
   }, [page]);
@@ -54,6 +52,16 @@ const Blog = () => {
   };
 
   return (
+    <>
+      <Helmet>
+        <title>
+        HeadGen AI Blog | Insights on AI Headshot Generation, AI Images, and AI Photography
+        </title>
+        {/* <meta
+          name="description"
+          content="Get free AI Generated images with HeadGen AI’s advanced AI image generator. Create professional photos for resumes, teams, or LinkedIn with our easy-to-use AI headshot generator"
+        /> */}
+      </Helmet>
     <div className="min-h-screen grid place-items-center text-white">
       <section className="py-28 flex flex-col gap-10">
         <div className="container px-4 md:px-6">
@@ -123,8 +131,7 @@ const Blog = () => {
                 blogData.map((item) => {
                   return (
                     <Link
-                      to={`/blog/${item?._id}`}
-                      state={{ item: item }}
+                      to={`/blog/${item?.slug}`}
                       className="rounded-lg group overflow-hidden shadow-lg cursor-pointer transition duration-300"
                     >
                       <LazyLoadImage
@@ -156,17 +163,17 @@ const Blog = () => {
         </div>
         {!isLoading && blogData && (
           <div className="flex flex-row justify-center w-full">
-            <Pagination
+            <StyledPagination
               count={totalPages}
               page={Number(page)}
               color="primary"
-              classes={{ ul: classes.ul }}
               onChange={handlePagination}
             />
           </div>
         )}
       </section>
     </div>
+    </>
   );
 };
 

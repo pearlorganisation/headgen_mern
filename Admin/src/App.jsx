@@ -16,7 +16,10 @@ import Layout from "./components/Layout/Layout";
 import NotFound from "./pages/NotFound/NotFound";
 import Blogs from "./pages/Blogs/Blogs";
 import AddBlogs from "./pages/Blogs/AddBlogs";
-import UpdateBlogs from "./pages/Blogs/UpdateBlogs";
+import UpdateBlog from "./pages/Blogs/UpdateBlog";
+import AddReviews from "./pages/Reviews/AddReviews";
+import Reviews from "./pages/Reviews/Reviews";
+import UpdateReview from "./pages/Reviews/UpdateReview";
 
 const isUserLoggedIn = localStorage.getItem("isusrlgd");
 
@@ -45,9 +48,23 @@ const App = () => {
           element: <AddBlogs />,
         },
         {
-          path: "/blogs/update/:id",
-          element: <UpdateBlogs />,
+          path: "/blogs/update/:blogId",
+          element: <UpdateBlog />,
         },
+
+        {
+          path: "/reviews",
+          element: <Reviews />,
+        },
+        {
+          path: "/reviews/add",
+          element: <AddReviews />,
+        },
+        {
+          path: "/reviews/update/:reviewId",
+          element: <UpdateReview />,
+        },
+
       ],
     },
     {

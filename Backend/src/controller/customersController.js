@@ -9,14 +9,14 @@ export const addCustomer = async (userData, images) => {
     });
     // console.log(filteredImgUrls);
     let customerData = {
-      email: data.email,
-      gender: data.gender,
+      email: data?.email,
+      gender: data?.gender,
       images: filteredImgUrls,
       packDetails: data?.selectedPlan ? JSON.parse(data?.selectedPlan) : null ,
-      generationType: data.generationType,
+      generationType: data?.generationType,
     };
 
-    switch (data.generationType) {
+    switch (data?.generationType) {
       case "individual":
         customerData.headshotType = data.headshotType;
         break;

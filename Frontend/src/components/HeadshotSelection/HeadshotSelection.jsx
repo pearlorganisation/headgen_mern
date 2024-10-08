@@ -2,42 +2,35 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 // import { GenIcon } from "react-icons";
 import { FaChevronRight } from "react-icons/fa";
 
-import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { A11y, Autoplay, Navigation } from "swiper/modules";
-import { useParams } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Link } from "react-router-dom";
 
 const HeadshotSelection = ({
   userData,
   setUserData,
   errors,
   headshots = null,
+  section
 }) => {
-  const { headshot } = useParams();
-  const decodedParam = decodeURIComponent(headshot);
+
+
   const [headshotType, setHeadshotType] = useState(userData?.headshotType);
 
   useEffect(() => {
     if (headshotType) {
-      console.log(headshotType);
+      // console.log(headshotType);
       const updatedUserData = { ...userData };
       updatedUserData.headshotType = headshotType;
       setUserData(updatedUserData);
     }
   }, [headshotType]);
 
-  useEffect(() => {
-    console.log(headshotType);
-    if (decodedParam) {
-      setHeadshotType(decodedParam);
-    }
-  }, [decodedParam]);
 
   return (
     <div className="flex flex-col gap-4 justify-between relative h-full  w-full items-center ">
@@ -47,17 +40,19 @@ const HeadshotSelection = ({
           {headshots &&
             headshots
               ?.filter((item) => {
-                return item?.name === headshotType && item?.headshotInfo;
+                return item?.name === section && item?.headshotInfo;
               })
               .map((filteredItem, idx) => (
                 <div
                   key={`filteredItem${idx}`}
-                  className="w-full h-[90%]   rounded-xl  shadow-[0_0_1px#ababab] "
+                  className="w-full  rounded-xl  shadow-[0_0_1px#ababab] "
                 >
 
-                  <LazyLoadImage
+                  <LazyLoadImage alt="" 
                     src={`${filteredItem?.headshotInfo?.imgPath}`}
                     className="w-full h-full rounded-xl"
+                    width={"600px"}
+
                   />
 
                 </div>
@@ -69,13 +64,13 @@ const HeadshotSelection = ({
           {headshots &&
             headshots
               ?.filter((item) => {
-                return item?.name === headshotType && item?.headshotInfo;
+                return item?.name === section && item?.headshotInfo;
               })
               .map((filteredItem, idx) => (
-                <div className="flex justify-center rounded-xl ">
-                  <LazyLoadImage
+                <div key={`imgPreview${idx}`} className="flex justify-center rounded-xl ">
+                  <LazyLoadImage alt="" 
                     src={filteredItem?.imgPreview}
-                    className="!h-[320px] mx-auto rounded-xl"
+                    className="!max-h-[320px] mx-auto rounded-xl"
                   />
                 </div>
               ))}
@@ -88,21 +83,20 @@ const HeadshotSelection = ({
         <div className="grid md:grid-cols-3 gap-4 w-full max-w-4xl mx-auto">
           {headshots &&
             headshots?.map((item, idx) => (
-              <div
+              <Link
                 key={`headshotType${idx}`}
+                to={item.link}
                 className={`bg-[#f1f1f1]  text-[#131313] ${userData?.headshotType === item?.name
                   ? "!bg-[#355cc9] text-[#f1f1f1]"
                   : "bg-[#f1f1f1] "
-                  } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-full  transition duration-500 text-[14px] md:text-[12px] lg:text-[18px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
-                onClick={() => {
-                  setHeadshotType(item?.name);
-                }}
+                  } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-full  transition duration-500 text-[12px] md:text-[12px] lg:text-[18px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
+                  onClick={() => setHeadshotType(item?.name)}
               >
                 <span>{item?.name}</span>
                 <div className=" grid place-items-center">
                   <FaChevronRight />
                 </div>
-              </div>
+              </Link>
             ))}
         </div>
       </div>

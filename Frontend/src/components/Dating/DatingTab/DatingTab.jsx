@@ -32,9 +32,7 @@ const DatingTab = () => {
   const fieldsRef = useRef();
 
   const tabContentRef = useRef(null);
-  useEffect(() => {
-    console.log("userData", userData)
-  }, [userData])
+  
 
 
 
@@ -109,6 +107,7 @@ const DatingTab = () => {
               userData={userData}
               setUserData={setUserData}
               type='Dating'
+              errors={errors}
             />
           </div>
         </>
@@ -131,7 +130,7 @@ const DatingTab = () => {
 
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
-
+  // console.log(newIndex, val)
     if (newIndex > 0 && newIndex < 2 && val > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (
@@ -151,18 +150,18 @@ const DatingTab = () => {
         if (userData?.gender?.length == 0) {
           error.gender = "Please select a gender";
         }
-        console.log(userData?.gender?.length);
+        // console.log(userData?.gender?.length);
         setErrors(() => {
-          console.log(error);
+        // console.log(error);
           return error;
         });
         return;
       }
     }
-    if (newIndex > 1 && val > 0) {
+    if (newIndex > 1 && newIndex <= 2 && val > 0) {
       if (files.length > 0 && files.length <= 4) {
         setFileErrorMsg();
-        console.log("in this");
+        
         if (maxIndex === currentIndex && val > 0) {
           return;
         }
@@ -171,7 +170,18 @@ const DatingTab = () => {
         setFileErrorMsg("Please upload 1-4 images to continue");
       }
       return;
-    } else {
+    }  else if (newIndex > 2 && val > 0) {
+      if (userData?.selectedPlan) {
+        setErrors({});
+        if (maxIndex === currentIndex && val > 0) {
+          return;
+        }
+        setCurrentIndex(newIndex);
+      } else {
+        setErrors({ selectedPlan: "Please select a pack to continue" });
+        return;
+      }
+    }  else {
       if (maxIndex === currentIndex && val > 0) {
         return;
       }
@@ -210,7 +220,7 @@ const DatingTab = () => {
               let extension = blob.type.split("/");
 
               const file = new File([blob], `${idx}.${extension[1]}`);
-              console.log(file);
+              // console.log(file);
               newFiles.push(file);
             })
             .catch((error) => reject(error))
@@ -274,28 +284,29 @@ const DatingTab = () => {
   }
 
   return (
-    <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px] gradientBgRed py-6">
+    <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px] gradientBdRed">
+    
       <div
         ref={fieldsRef}
-        className="rounded-full   bg-gradient-to-br from-[#1d2838] to-[#1d283880] p-1 px-2 relative h-[50px] flex justify-between"
+        className="rounded-full  w-fit  bg-gradient-to-br from-[#1d2838] to-[#1d283880] p-1 px-2 relative h-[50px] flex justify-between"
       >
         {tabs?.map((item, idx) => {
           return (
-            <div className="relative" key={`datingTabs${idx}`} >
+            <div className="relative text-sm md:text-base" key={`tab${idx}`}>
               <div
-                className={` ${tabText === item ? "flex" : "hidden"
-                  }  absolute text-white h-full `}
+                className={` ${
+                  tabText === item ? "flex" : "hidden"
+                }  absolute text-white h-full  `}
               >
                 <span
-                  className={` rounded-full h-full w-[8rem] md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-b from-[#e73e71] to-[#af1040] z-[10] transition duration-300`}
-                  onClick={() => { }}
+                  className={` rounded-full h-full w-[5rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-b from-[#e73e71] to-[#af1040] z-[10] transition duration-300`}
                 >
                   {item}
                 </span>
               </div>
 
               <span
-                className={` rounded-full h-full w-[8rem] md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center text-white  z-[10] transition duration-300`}
+                className={` rounded-full h-full w-[5rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center text-white  z-[10] transition duration-300`}
                 onClick={() => {
                   setTabSwitched(true);
                   setTabText(item);
@@ -307,7 +318,7 @@ const DatingTab = () => {
           );
         })}
       </div>
-      <div className="shadow-[0_0_0_1px_#babcbf80] rounded-xl px-6 2xl:px-24 py-12 w-full 2xl:w-[1200px] min-h-[700px] bg-gradient-to-br from-[#1d2838] to-[#1d283880]">
+      <div className="shadow-[0_0_0_1px_#babcbf80] rounded-xl px-6 md:px-20 2xl:px-24 py-12 w-full 2xl:w-[1200px] min-h-[700px] bg-gradient-to-br from-[#1d2838] to-[#1d283880]">
         <div className="text-white text-3xl h-full ">
           {tabText === "Individual" && (
             <div

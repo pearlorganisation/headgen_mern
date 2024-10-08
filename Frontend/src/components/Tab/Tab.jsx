@@ -7,7 +7,7 @@ import axios from "axios";
 import Prompt from "../Prompt/Prompt";
 import IndividualTab from "../IndividualTab/IndividualTab";
 
-const Tab = () => {
+const Tab = ({ section }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [userData, setUserData] = useState({
     email: "",
@@ -19,7 +19,6 @@ const Tab = () => {
   const [fileErrorMsg, setFileErrorMsg] = useState(null);
   const [files, setFiles] = useState([]);
   const [tabSwitched, setTabSwitched] = useState(true);
-  // const [currentIndex, setCurrentIndex] = useState(0);
 
   const tabs = ["Individual", "Teams", "Customize", "Prompts"];
   const [tabText, setTabText] = useState("Individual");
@@ -30,57 +29,81 @@ const Tab = () => {
   const headshots = [
     {
       name: "Corporate Headshots",
+      link: "/corporate-ai-headshots",
       headshotInfo: {
-        imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022217/headgen/Headshots/Banners/ypsqnt8jj4rdbkphzkgj.webp",
+        imgPath:
+          "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022217/headgen/Headshots/Banners/ypsqnt8jj4rdbkphzkgj.webp",
       },
-      imgPreview: 'https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022265/headgen/Headshots/Image%20to%20appear%20on%20click/haybecoslhl5oawukalb.webp'
+      imgPreview:
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022265/headgen/Headshots/Image%20to%20appear%20on%20click/haybecoslhl5oawukalb.webp",
     },
     {
       name: "Doctor Headshots",
+      link: "/doctor-ai-headshots",
       headshotInfo: {
-        imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022218/headgen/Headshots/Banners/gvvvyfx5myikud4df6zb.webp",
+        imgPath:
+          "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022218/headgen/Headshots/Banners/gvvvyfx5myikud4df6zb.webp",
       },
-      imgPreview: 'https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022266/headgen/Headshots/Image%20to%20appear%20on%20click/l3stzd5y9i3jjt371sol.webp'
+      imgPreview:
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022266/headgen/Headshots/Image%20to%20appear%20on%20click/l3stzd5y9i3jjt371sol.webp",
     },
     {
       name: "Lawyer Headshots",
+      link: "/lawyer-ai-headshots",
       headshotInfo: {
-        imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022219/headgen/Headshots/Banners/anfy7t5v3ml6iecxljn8.webp",
+        imgPath:
+          "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022219/headgen/Headshots/Banners/anfy7t5v3ml6iecxljn8.webp",
       },
-      imgPreview: 'https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022267/headgen/Headshots/Image%20to%20appear%20on%20click/jxk2vge6mx4a2xgdvkvh.webp'
+      imgPreview:
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022267/headgen/Headshots/Image%20to%20appear%20on%20click/jxk2vge6mx4a2xgdvkvh.webp",
     },
     {
       name: "Sales Headshots",
+      link: "/salesman-ai-headshots",
       headshotInfo: {
-        imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022219/headgen/Headshots/Banners/j6er2wouvgyqujpws6fw.webp",
+        imgPath:
+          "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022219/headgen/Headshots/Banners/j6er2wouvgyqujpws6fw.webp",
       },
-      imgPreview: 'https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022267/headgen/Headshots/Image%20to%20appear%20on%20click/iqmmj3zciq7v0gkueumu.webp'
+      imgPreview:
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022267/headgen/Headshots/Image%20to%20appear%20on%20click/iqmmj3zciq7v0gkueumu.webp",
     },
     {
       name: "Students Headshots",
+      link: "/students-ai-headshots",
       headshotInfo: {
-        imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022220/headgen/Headshots/Banners/ztfzaecdn0qryd0i7m4t.webp",
+        imgPath:
+          "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022220/headgen/Headshots/Banners/ztfzaecdn0qryd0i7m4t.webp",
       },
-      imgPreview: 'https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022268/headgen/Headshots/Image%20to%20appear%20on%20click/kgzajygbfhmsbmupz7gv.webp'
+      imgPreview:
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022268/headgen/Headshots/Image%20to%20appear%20on%20click/kgzajygbfhmsbmupz7gv.webp",
     },
     {
       name: "Teacher Headshots",
+      link: "/teacher-ai-headshots",
       headshotInfo: {
-        imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022220/headgen/Headshots/Banners/gcswieneujqynonujwdd.webp",
+        imgPath:
+          "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022220/headgen/Headshots/Banners/gcswieneujqynonujwdd.webp",
       },
-      imgPreview: 'https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022268/headgen/Headshots/Image%20to%20appear%20on%20click/rwe5vljldwisdqyihe2s.webp'
+      imgPreview:
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022268/headgen/Headshots/Image%20to%20appear%20on%20click/rwe5vljldwisdqyihe2s.webp",
     },
   ];
 
   useEffect(() => {
+    // console.log(userData)
     localStorage.setItem("userData", JSON.stringify(userData));
   }, [userData]);
+
+  useEffect(() => {
+    let data = { ...userData };
+    data.headshotType = section;
+    setUserData(data)
+  }, [section])
 
   useEffect(() => {
     if (localStorage.getItem("userData")) {
       localStorage.clear();
     }
-    
   }, []);
 
   useEffect(() => {
@@ -128,12 +151,10 @@ const Tab = () => {
     formData.append("email", userData.email);
     formData.append("selectedPlan", JSON.stringify(userData.selectedPlan));
     formData.append("gender", userData.gender);
-    formData.append("generationType", userData?.generationType || type
-    )
+    formData.append("generationType", userData?.generationType || type);
 
-    if (type === 'individual') {
+    if (type === "individual") {
       formData.append("headshotType", userData.headshotType);
-
     }
     if (type === "customize") {
       formData.append("customizeData", JSON.stringify(userData?.customizeData));
@@ -160,12 +181,6 @@ const Tab = () => {
       });
   };
 
-  // useEffect(() => {
-  //   // console.log(userData, "userData")
-  //   // console.log(files, "files")
-  // }, [userData, files])
-
-
   return (
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px]">
       <div
@@ -174,20 +189,21 @@ const Tab = () => {
       >
         {tabs?.map((item, idx) => {
           return (
-            <div className="relative text-sm md:text-base" key={`tab${idx}`}>
+            <div className="relative text-xs sm:text-sm md:text-base" key={`tab${idx}`}>
               <div
-                className={` ${tabText === item ? "flex" : "hidden"
-                  }  absolute text-white h-full  `}
+                className={` ${
+                  tabText === item ? "flex" : "hidden"
+                }  absolute text-white h-full`}
               >
                 <span
-                  className={` rounded-full h-full w-[5rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
+                  className={` rounded-full h-full w-[4.1rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}
                 >
                   {item}
                 </span>
               </div>
 
               <span
-                className={` rounded-full h-full w-[5rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center text-white  z-[10] transition duration-300`}
+                className={` rounded-full h-full w-[4.1rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center text-white  z-[10] transition duration-300`}
                 onClick={() => {
                   setTabSwitched(true);
                   setTabText(item);
@@ -215,12 +231,17 @@ const Tab = () => {
               tabContentRef={tabContentRef}
               isLoading={isLoading}
               handlePayment={handlePayment}
+              section={section}
             />
           )}
-          {tabText === "Teams" && <Teams setUserData={setUserData} userData={userData}
-            handlePayment={handlePayment}
-            isLoading={isLoading}
-          />}
+          {tabText === "Teams" && (
+            <Teams
+              setUserData={setUserData}
+              userData={userData}
+              handlePayment={handlePayment}
+              isLoading={isLoading}
+            />
+          )}
           {tabText === "Customize" && (
             <div>
               <Customize

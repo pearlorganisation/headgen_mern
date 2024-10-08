@@ -92,10 +92,12 @@ const InfinityTextSlider = () => {
         <div class="infinityTextSlider">
           <div class="text-slide-track-right ">
             {data?.map((item) => (
-              <div class="text-slide-right pt-2 md:pt-0">
-                <div className="flex gap-2 items-center">
+              <div class="text-slide-right md:pt-0">
+                <div className="flex pt-1 gap-2 items-center justify-center">
                   {item.svg && <span>{item.svg}</span>}
-                  <span className="text-white text-2xl sm:text-3xl md:text-5xl">{item?.content}</span>
+                  <span className="flex flex-col justify-center text-white text-3xl">
+                    {item?.content}
+                  </span>
                 </div>
               </div>
             ))}

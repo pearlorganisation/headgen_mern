@@ -188,7 +188,7 @@ const ImgCropT = ({ selectedImage, updateFile }) => {
           
             // circularCrop
           >
-            <img
+            <img 
               ref={imgRef}
               alt="Crop me"
               src={

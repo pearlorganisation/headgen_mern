@@ -20,7 +20,7 @@ const Checkout = () => {
       })
       .then((response) => {
         setIsLoading(false);
-        console.log(response.data.session);
+      // console.log(response.data.session);
         window.location.href = response.data.sessionUrl;
       })
       .catch((error) => {

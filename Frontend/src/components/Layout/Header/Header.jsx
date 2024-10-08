@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import HeaderLink from "./HeaderLink";
 import SubDropdown from "../../SubDropdown/SubDropdown";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Header = () => {
   const location = useLocation();
@@ -12,16 +13,16 @@ const Header = () => {
   const [showMobDropdown, setShowMobDropdown] = useState(false);
 
   useEffect(() => {
-    // console.log(location);
     if (
       location.pathname === "/dating" ||
-      location.pathname === "/upload/dating"
+      location.pathname === "/dating-ai-headshots"||
+      location.pathname === "/dating-ai-headshot-generator"
     ) {
       setIsDatingPage(true);
-      setToggleCss("bg-gradient-to-r from-[#810000] to-red-800");
+      setToggleCss("bg-gradient-to-b from-[#c32352] to-[#7f0228]");
     } else {
       setIsDatingPage(false);
-      setToggleCss("bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800");
+      setToggleCss("bg-gradient-to-r from-[#02AFDC] to-[#2563EB] ");
     }
   }, [location]);
 
@@ -68,7 +69,7 @@ const Header = () => {
   const navData = [
     {
       name: "How it works",
-      path: "/howitworks",
+      path: "/how-it-works",
       showDropdown: false,
     },
     {
@@ -76,34 +77,38 @@ const Header = () => {
       paths: [
         {
           name: "Corporate Headshots",
-          path: "/upload/Corporate%20Headshots",
+          path: "/corporate-ai-headshots",
         },
         {
           name: "Doctor Headshots",
-          path: "/upload/Doctor%20Headshots",
+          path: "/doctor-ai-headshots",
         },
         {
           name: "Lawyer Headshots",
-          path: "/upload/Lawyer%20Headshots",
+          path: "/lawyer-ai-headshots",
         },
         {
           name: "Sales Headshots",
-          path: "/upload/Sales%20Headshots",
+          path: "/salesman-ai-headshots",
         },
         {
           name: "Students Headshots",
-          path: "/upload/Students%20Headshots",
+          path: "/students-ai-headshots",
         },
         {
           name: "Teacher Headshots",
-          path: "/upload/Teacher%20Headshots",
+          path: "/teacher-ai-headshots",
+        },
+        {
+          name: "Free Headshots",
+          path: "/free-ai-headshot-generator",
         },
       ],
       showDropdown: true,
     },
     {
       name: "Dating",
-      path: "/dating",
+      path: "/dating-ai-headshot-generator",
       showDropdown: false,
     },
     {
@@ -111,23 +116,23 @@ const Header = () => {
       paths: [
         {
           name: "About Us",
-          path: "/aboutus",
+          path: "/about-us",
         },
         {
           name: "Privacy Policy",
-          path: "/privacypolicy",
+          path: "/privacy-policy",
         },
         {
           name: "Terms & Conditions",
-          path: "/termsandconditions",
+          path: "/terms-and-conditions",
         },
         {
           name: "Cancellation & Refunds",
-          path: "/cancellationandrefunds",
+          path: "/cancellation-and-refunds",
         },
         {
           name: "Contact Us",
-          path: "/contactus",
+          path: "/contact-us",
         },
       ],
       showDropdown: true,
@@ -138,21 +143,33 @@ const Header = () => {
       showDropdown: false,
     },
     {
-      name: "Free Headshots",
-      path: "/freeHeadshots",
+      name: "Reviews",
+      path: "/reviews",
       showDropdown: false,
     },
+    // {
+    //   name: "Free Headshots",
+    //   path: "/free-ai-headshot-generator",
+    //   showDropdown: false,
+    // },
   ];
 
   return (
     <nav
-      className={`fixed w-screen ${toggleNav ? toggleCss : ""
-        } py-3 px-5 sm:px-8 sm:py-1 2xl:px-[180px] h-fit border-[#737373] border-b-[2px] z-[99]  `}
+      className={`fixed w-screen ${
+        toggleNav ? toggleCss : ""
+      } py-3 px-5 sm:px-8 sm:py-1 2xl:px-[180px] h-fit border-[#737373] border-b-[2px] z-[99]  `}
     >
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex flex-col justify-center">
           <Link to="/">
-            <img src="/logo.webp" alt="" className="w-[140px] sm:w-[180px] max-w-[180px]" />
+            <LazyLoadImage
+              src="/logo.webp"
+              alt=""
+              className="w-[140px] sm:w-[180px] max-w-[180px]"
+              height={"33px"}
+              width={"180px"}
+            />
           </Link>
         </div>
 
@@ -179,8 +196,9 @@ const Header = () => {
             </svg>
           </div>
           <div
-            className={`${showMobDropdown ? "" : "hidden"
-              } absolute top-[102%] left-0 w-full bg-[#2f2f31] flex flex-col shadow-[0_2px_2px#121212]`}
+            className={`${
+              showMobDropdown ? "" : "hidden"
+            } absolute top-[102%] right-0 w-fit bg-[#2f2f31] flex flex-col shadow-[0_2px_2px#121212]`}
           >
             {navData &&
               navData.map((item, idx) => (
@@ -193,10 +211,10 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.path}
-                      className="w-full flex justify-center hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-lg py-2 hover:bg-blue-600 hover:text-white transition duration-300 "
+                      className="w-full flex justify-end hover:bg-gradient-to-r hover:from-[#02AFDC] hover:to-[#2563EB] text-[#ffffff] text-base py-2 px-3 hover:bg-blue-600 hover:text-white transition duration-300 "
                       onClick={() => setShowMobDropdown(false)}
                     >
-                      <span className="w-[120px] text-center">{item.name}</span>
+                      <span className="w-[120px] text-right">{item.name}</span>
                     </Link>
                   )}
                 </div>
@@ -204,7 +222,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="xl:flex flex-row gap-4 hidden ">
+        <div className="xl:flex flex-row gap-2 hidden ">
           {navData.map((item, idx) => (
             <HeaderLink
               key={`header${idx}`}
@@ -216,18 +234,22 @@ const Header = () => {
           {/* button */}
           <div className="h-full flex flex-col justify-center py-3">
             <Link
-              to={`/upload/${isDatingPage ? "dating" : "Corporate%20Headshots"
-                }`}
-              className={`hover:squeezyBtn px-5 py-4 ${toggleNav
-                ? `${isDatingPage
-                  ? "shadow-[0_1px_2px_0_#131313] bg-[#af2828d8] hover:bg-[#1d2838]"
-                  : "shadow-[0_1px_2px_0_#131313] bg-[#4f3bffd8] hover:bg-[#1d2838]"
-                }`
-                : `${isDatingPage
-                  ? "bg-[#1d2838] hover:bg-[#af2828d8]"
-                  : "bg-[#1d2838] hover:bg-[#1f58ad]"
-                }`
-                } hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#ffffff] text-[15px] font-medium transition duration-[0.6s]`}
+              to={`/${
+                isDatingPage ? "dating-ai-headshots" : "corporate-ai-headshots"
+              }`}
+              className={`hover:squeezyBtn px-5 py-4 ${
+                toggleNav
+                  ? `${
+                      isDatingPage
+                        ? "shadow-[0_1px_2px_0_#131313] bg-gradient-to-b from-[#c91a4f] to-[#8a0930] hover:from-[#bb2c57] hover:to-[#861436]"
+                        : "bg-[#224cc2] shadow-md hover:bg-[#1d2838]"
+                    }`
+                  : `${
+                      isDatingPage
+                        ? "bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436]"
+                        : "bg-[#224cc2] hover:bg-[#1d2838]"
+                    }`
+              } hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#ffffff] text-[15px] font-medium transition duration-[0.6s]`}
             >
               Get Started
             </Link>
