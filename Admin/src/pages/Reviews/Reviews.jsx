@@ -29,7 +29,7 @@ const Reviews = () => {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+      // console.log(err);
         setIsLoading(false);
       });
   }
@@ -54,7 +54,7 @@ const Reviews = () => {
         });
         getReviews()
       }).catch(err => {
-        console.log(err)
+      // console.log(err)
         toast.error("There was some issue deleting the review", {
           style: {
             background: "red",

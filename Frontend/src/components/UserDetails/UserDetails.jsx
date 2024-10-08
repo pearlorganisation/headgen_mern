@@ -3,7 +3,7 @@ import { IoManSharp, IoWoman } from "react-icons/io5";
 
 const UserDetails = ({ userData, setUserData, errors, type }) => {
   const [email, setEmail] = useState(userData?.email);
-  const [gender, setGender] = useState(userData?.gender);
+  const [gender, setGender] = useState(userData?.gender?.length > 0 ? userData?.gender : 'Male');
   const genderSelections = [
     {
       name: "Male",
@@ -26,7 +26,7 @@ const UserDetails = ({ userData, setUserData, errors, type }) => {
   useEffect(() => {
     const updatedUserData = { ...userData };
     updatedUserData.email = email;
-    updatedUserData.gender = gender;
+    updatedUserData.gender = gender?.length > 0 ? gender : 'Male';
     setUserData(updatedUserData);
   }, [email, gender]);
 

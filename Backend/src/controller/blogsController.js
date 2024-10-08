@@ -61,7 +61,7 @@ export const updateBlog = asyncHandler(async (req, res) => {
     slug: req.body.slug,
   };
 
-  console.log(payload);
+// console.log(payload);
 
   if (req?.files && req?.files?.length > 0) {
     const bannerImg = await uploadFile(req?.files);

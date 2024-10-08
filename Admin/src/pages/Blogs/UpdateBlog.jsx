@@ -35,7 +35,7 @@ const UpdateBlog = () => {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+      // console.log(err);
         setIsLoading(false);
       });
   };
@@ -149,7 +149,7 @@ const UpdateBlog = () => {
           <div className="flex-1 items-center mx-auto gap-2 mb-3 space-y-4 sm:flex sm:space-y-0">
             {previewImage && (
               <div className="w-full max-w-[48%]">
-                <img src={previewImage} className="max-h-[500px]" />
+                <img alt=""  src={previewImage} className="max-h-[500px]" />
               </div>
             )}
             <div className="relative w-full space-y-1">

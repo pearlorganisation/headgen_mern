@@ -30,7 +30,7 @@ const Header = () => {
               </svg>
             </button>
             <Link href="/" className="flex ms-2 md:me-24">
-              {/* <img
+              {/* <img alt="" 
                 src="https://flowbite.com/docs/images/logo.svg"
                 className="h-8 me-3"
               /> */}

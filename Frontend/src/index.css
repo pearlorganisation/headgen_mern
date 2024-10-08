@@ -32,18 +32,20 @@
   );
 }
 
-
 @font-face {
   font-family: "Oswald";
   src: local("Oswald"),
     url("/fonts/Oswald/Oswald-VariableFont_wght.ttf") format("opentype");
+  font-display: swap;
   /* font-weight: normal; */
 }
 
 @font-face {
   font-family: "Red Hat Display";
   src: local("Red Hat Display"),
-    url("/fonts/Red_Hat_Display/RedHatDisplay-VariableFont_wght.ttf") format("opentype");
+    url("/fonts/Red_Hat_Display/RedHatDisplay-VariableFont_wght.ttf")
+      format("opentype");
+  font-display: swap;
   /* font-weight: normal; */
 }
 
@@ -291,7 +293,6 @@ body,
   }
   100% {
     transform: translateX(0);
-    
   }
 }
 

@@ -22,7 +22,7 @@ instance.interceptors.response.use(
     return response;
   },
   async (error) => {
-    console.log(error)
+  // console.log(error)
 
     let errorMessage = "";
     // Do something with response error

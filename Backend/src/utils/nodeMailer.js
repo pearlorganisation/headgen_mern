@@ -163,7 +163,7 @@ export const sendMailToCustomer = async (userData, images) => {
         <div class="header"></div>
         <table>
             <tr>
-                <td><a href="https://headgen.ai"><img class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
+                <td><a href="https://headgen.ai"><img alt=""  class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
                     <div class="title">CUSTOMER RECEIPT</div>
                     <span>Your Headshot generation has been confirmed</span>
                 </td>
@@ -325,7 +325,7 @@ export const sendMailToTeamsCustomer = async (userData) => {
         <div class="header"></div>
         <table>
             <tr>
-                <td><a href="https://headgen.ai"><img class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
+                <td><a href="https://headgen.ai"><img alt=""  class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
                     <div class="title">CUSTOMER RECEIPT</div>
                     <span>Your Headshot Request has been confirmed, we will contact you soon.</span>
                     <span>Or contact us at support@headgen.ai | +91 9820442749</span>
@@ -495,7 +495,7 @@ export const sendMailToFreeCustomer = async (userData, images) => {
           <div class="header"></div>
           <table>
               <tr>
-                  <td><a href="https://headgen.ai"><img class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
+                  <td><a href="https://headgen.ai"><img alt=""  class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
                   <td>
                       <div class="title">CUSTOMER RECEIPT</div>
                       <span>Your Free Headshot generation has been confirmed</span>
@@ -640,7 +640,7 @@ export const sendMailForReview = async (email, coupon) => {
           <div class="header"></div>
           <table>
               <tr>
-                  <td><a href="https://headgen.ai"><img class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
+                  <td><a href="https://headgen.ai"><img alt=""  class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
                   <td>
                       <div class="title">Review posted</div>
                       <span>Your Coupon code has been generated</span>

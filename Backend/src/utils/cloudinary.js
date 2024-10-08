@@ -23,7 +23,7 @@ export const uploadFile = async (files) => {
             if (err) {
               console.error("Error deleting file from disk:", err);
             } else {
-              console.log("File deleted from disk:", file.path);
+            // console.log("File deleted from disk:", file.path);
             }
           });
           return res;

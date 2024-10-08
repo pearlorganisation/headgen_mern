@@ -4,13 +4,11 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 import { instance } from "../../services/axiosInterceptor";
 
-
 const StyledPagination = styled(Pagination)(({ theme }) => ({
   "& .MuiPaginationItem-root": {
     color: "black",
   },
 }));
-
 
 const Blogs = () => {
   const [blogsData, setBlogsData] = useState(null);
@@ -18,9 +16,9 @@ const Blogs = () => {
   const [page, setPage] = useState(searchParams.get("page") || 1);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const getBlogs = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     instance
       .get(`/blogs?page=${page}`)
       .then((res) => {
@@ -29,13 +27,13 @@ const Blogs = () => {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+      // console.log(err);
         setIsLoading(false);
       });
-  }
+  };
 
   useEffect(() => {
-    getBlogs()
+    getBlogs();
   }, [page]);
 
   const handlePagination = (e, p) => {
@@ -44,28 +42,29 @@ const Blogs = () => {
   };
 
   const deleteItem = (item) => {
-    if(window.confirm(`Are you sure you want to delete blog`)){
-      instance.delete(`${import.meta.env.VITE_API_URL}/blogs/delete/${item._id}`).then((res) => {
-        toast.success(res.data.message, {
-          style: {
-            background: "green",
-            color: "white",
-          },
+    if (window.confirm(`Are you sure you want to delete blog`)) {
+      instance
+        .delete(`${import.meta.env.VITE_API_URL}/blogs/delete/${item._id}`)
+        .then((res) => {
+          toast.success(res.data.message, {
+            style: {
+              background: "green",
+              color: "white",
+            },
+          });
+          getBlogs();
+        })
+        .catch((err) => {
+        // console.log(err);
+          toast.error("There was some issue deleting the blog", {
+            style: {
+              background: "red",
+              color: "white",
+            },
+          });
         });
-        getBlogs()
-      }).catch(err => {
-        console.log(err)
-        toast.error("There was some issue deleting the blog", {
-          style: {
-            background: "red",
-            color: "white",
-          },
-        });
-        
-      })
     }
-  }
-
+  };
 
   return (
     <div>
@@ -82,12 +81,12 @@ const Blogs = () => {
         </div>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
           {isLoading && (
-           <>
-           <Skeleton animation="wave" height={50} />
-           <Skeleton animation="wave" height={50} />
-           <Skeleton animation="wave" height={50} />
-           <Skeleton animation="wave" height={50} />
-         </>
+            <>
+              <Skeleton animation="wave" height={50} />
+              <Skeleton animation="wave" height={50} />
+              <Skeleton animation="wave" height={50} />
+              <Skeleton animation="wave" height={50} />
+            </>
           )}
           {!isLoading && blogsData && (
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
@@ -99,7 +98,11 @@ const Blogs = () => {
                   <th scope="col" className="px-6 py-3">
                     Title
                   </th>
-                  <th scope="col" colSpan={2} className="text-center col-span-2 px-6 py-3">
+                  <th
+                    scope="col"
+                    colSpan={2}
+                    className="text-center col-span-2 px-6 py-3"
+                  >
                     Actions
                   </th>
                 </tr>
@@ -112,7 +115,7 @@ const Blogs = () => {
                       className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap "
                     >
                       <div className="ps-3">
-                       {idx + 1 + (page > 1 && ((page - 1) * 12))}
+                        {idx + 1 + (page > 1 && (page - 1) * 12)}
                       </div>
                     </th>
                     <td className="px-6 py-4">{item.title}</td>
@@ -129,7 +132,7 @@ const Blogs = () => {
                       <button
                         className="font-medium text-red-600  hover:underline"
                         onClick={() => {
-                          deleteItem(item)
+                          deleteItem(item);
                         }}
                       >
                         Delete

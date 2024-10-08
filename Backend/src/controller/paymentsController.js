@@ -90,7 +90,7 @@ const stripeLinks = [
 
 export const checkout = async (req, res) => {
   // return
-  console.log("req.body", req.body);
+// console.log("req.body", req.body);
   try {
     const selectedPlan = JSON.parse(req.body.selectedPlan);
     const generationType = req.body.generationType;
@@ -146,7 +146,7 @@ export const complete = async (req, res) => {
       );
       const result = deleteUser(req.query.sessionId);
       if (result) {
-        console.log(user);
+      // console.log(user);
         const userBody = JSON.parse(user.user.body);
         const selectedPlan = JSON.parse(userBody.selectedPlan);
         res.render("payment-success", {
@@ -194,7 +194,7 @@ export const teamsCheckout = async (req, res) => {
   try {
     const teamsData = { ...req.body };
     let price = Number(teamsData.price) * Number(teamsData.users);
-    console.log(teamsData);
+  // console.log(teamsData);
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {

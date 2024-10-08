@@ -55,6 +55,6 @@ app.use("/api/v1/reviews", reviewsRouter);
 app.use(error);
 
 app.listen(PORT, () => {
-  console.log(chalk.blue(`Connected to port ${process.env.PORT}`));
+// console.log(chalk.blue(`Connected to port ${process.env.PORT}`));
   mongoConnect();
 });
