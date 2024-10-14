@@ -28,6 +28,7 @@ const AddReview = () => {
           background: "red",
         },
       });
+      return
     }
     if (isLoading) return;
     setIsLoading(true);
