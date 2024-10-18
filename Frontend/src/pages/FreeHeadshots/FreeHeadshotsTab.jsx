@@ -210,7 +210,7 @@ const FreeHeadshotsTab = () => {
         />
       </Helmet>
       <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px] gradientBg py-20 lg:py-36">
-        <div className="shadow-[0_0_0_1px_#babcbf80] rounded-xl px-20 2xl:px-24 py-12 w-full 2xl:w-[1200px] min-h-[600px] bg-gradient-to-br from-[#1d2838] to-[#1d283880]">
+        <div className="shadow-[0_0_0_1px_#babcbf80] rounded-xl px-4 sm:px-10 2xl:px-24 py-12 w-full 2xl:w-[1200px] min-h-[600px] bg-gradient-to-br from-[#1d2838] to-[#1d283880]">
           <div className="text-white text-3xl h-full ">
             <div
               className="flex flex-col justify-between h-full gap-8"

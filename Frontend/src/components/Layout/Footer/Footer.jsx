@@ -205,15 +205,21 @@ const Footer = () => {
           Copyright 2024 Playcloud Technologies Private Limited.
         </div>
         <div className="flex flex-row gap-4">
-          <Link to="/">
+          <Link to="https://www.linkedin.com/company/headgen-ai/">
             <AppSvgs name="linkedIn" />
           </Link>
 
+          {/* <Link to="/">
           <AppSvgs name="tiktok" />
-          <AppSvgs name="youtube" />
-          <AppSvgs name="x" />
-          <AppSvgs name="facebook" />
-          <AppSvgs name="discord" />
+          </Link> */}
+          <Link to="https://www.youtube.com/@HeadGen_AI">
+            <AppSvgs name="youtube" />
+          </Link>
+          <Link to="https://x.com/HeadGenAI">
+            <AppSvgs name="x" />
+          </Link>
+          {/* <AppSvgs name="facebook" /> */}
+          {/* <AppSvgs name="discord" /> */}
         </div>
       </div>
     </div>

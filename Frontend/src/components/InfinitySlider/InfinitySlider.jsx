@@ -6,10 +6,10 @@ const InfinitySlider = ({ imgData1, imgData2, size = "200" }) => {
     return (
       <LazyLoadComponent>
         <div className="w-full flex flex-col gap-4">
-          <div class="infinitySlider">
-            <div class="slide-track-right">
+          <div className="infinitySlider">
+            <div className="slide-track-right">
               {imgData2?.map((item) => (
-                <div class="slide-right">
+                <div className="slide-right">
                   <img alt="" 
                     src={item.path}
                     className={`!h-[${size}px] !w-[${size}px] rounded-2xl`}
@@ -21,10 +21,10 @@ const InfinitySlider = ({ imgData1, imgData2, size = "200" }) => {
             </div>
           </div>
 
-          <div class="infinitySlider">
-            <div class="slide-track-left">
+          <div className="infinitySlider">
+            <div className="slide-track-left">
               {imgData1?.map((item) => (
-                <div class="slide-left">
+                <div className="slide-left">
                   <img alt="" 
                     src={item.path}
                     className={`!h-[${size}px] !w-[${size}px] rounded-2xl`}
@@ -42,10 +42,10 @@ const InfinitySlider = ({ imgData1, imgData2, size = "200" }) => {
     return (
       <LazyLoadComponent>
         <div className="w-full flex flex-col gap-4">
-          <div class="infinitySlider">
-            <div class="slide-track-right">
+          <div className="infinitySlider">
+            <div className="slide-track-right">
               {imgData1?.map((item) => (
-                <div class="slide-right">
+                <div className="slide-right">
                   <img alt="" 
                     src={item.path}
                     className={`!h-[${size}px !w-[${size}px] rounded-2xl`}

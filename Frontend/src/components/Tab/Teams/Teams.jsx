@@ -74,7 +74,7 @@ const Teams = ({ userData, setUserData }) => {
 
   const handleData = (e) => {
     const val = parseInt(e.target.value, 10);
-  // console.log(typeof val);
+    // console.log(typeof val);
     if (val < 51) {
       setData((prev) => {
         const temp = priceData[0];
@@ -122,7 +122,7 @@ const Teams = ({ userData, setUserData }) => {
       });
     }
 
-  // console.log(val);
+    // console.log(val);
     setData((prev) => {
       return { ...prev, users: val };
     });
@@ -187,7 +187,9 @@ const Teams = ({ userData, setUserData }) => {
                         <PiCurrencyDollarBold className=" " />
                         {data?.price}{" "}
                       </div>{" "}
-                      <span className="text-xs md:text-base pb-3 pl-1">/ Team Members</span>
+                      <span className="text-xs md:text-base pb-3 pl-1">
+                        / Team Members
+                      </span>
                     </div>
                     <div>
                       <div className="flex justify-start gap-1 items-center font-bold">
@@ -205,7 +207,7 @@ const Teams = ({ userData, setUserData }) => {
                 )}
 
                 <div className="space-y-6">
-                  <label for="default-range" class="  text-lg font-medium ">
+                  <label for="default-range" className="  text-lg font-medium ">
                     USERS <span>{data?.users}</span>
                   </label>
                   <input
@@ -215,7 +217,7 @@ const Teams = ({ userData, setUserData }) => {
                     min={1}
                     max={300}
                     type="range"
-                    class="PB-range-slider w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                    className="PB-range-slider w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
                   />
                 </div>
               </div>
@@ -368,11 +370,11 @@ const Teams = ({ userData, setUserData }) => {
       idx: 2,
       ele: (
         <>
-          <div className="grid md:grid-cols-2">
+          <div className="grid md:grid-cols-2 mb-10">
             {/* Order Detils */}
-            <div className="shadow-[0_0_0_1px#f1f1f1 rounded-2xl text-white p-6  w-full">
-              <div class="flex flex-col gap-2 pb-2">
-                <div class="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text text-4xl font-bold tracking-tight">
+            <div className="shadow-[0_0_0_1px#f1f1f1 rounded-2xl text-white pb-6 w-full">
+              <div className="flex flex-col gap-5 pb-6">
+                <div className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text text-4xl font-bold tracking-tight">
                   Order Details
                 </div>
               </div>
@@ -387,7 +389,7 @@ const Teams = ({ userData, setUserData }) => {
                   <div className="w-full ">
                     <div className="mb-2 text-white">Your Role</div>
 
-                    <div className="w-full    border-b-2 pl-0 px-4 py-2 text-base leading-[140%]  outline-none ">
+                    <div className="w-full border-b-2 pl-0 px-4 py-2 text-base leading-[140%]  outline-none ">
                       {userData?.Role?.value}
                     </div>
                   </div>
@@ -430,22 +432,28 @@ const Teams = ({ userData, setUserData }) => {
                 </div>
               </div>
             </div>
-            <div className="w-full overflow-auto   grid place-items-center mt-10">
-              <div className="flex justify-center gap-2 ">
+            <div className="w-full flex justify-center items-center rounded-3xl">
+              <div
+                className={`w-full max-w-[400px] !glassMorphism !bg-gradient-to-br from-[#0d2e756c] to-[#031b4e] shadow-[0_0_0_2px_#ffffff]
+                  } rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center cursor-pointer  hover:shadow-[0_0_0_2px_#ffffff] min-h-[400px] relative transition duration-300`}
+              >
                 <div
-                  className={`w-[300px] shadow-[0_0_0_2px_#ffffff] !bg-gradient-to-br !from-[#2963bede] to-[#073791de] rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center min-h-[400px] relative transition duration-300`}
+                  className={`text-2xl bg-gradient-to-r from-[#02AFDC] to-[#2563EB]
+                        inline-block text-transparent bg-clip-text font-bold`}
                 >
-                  <div className="text-[22px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold">
-                    Price
-                  </div>
-                  <div className="text-[40px]  text-[#dad4d4]">
-                    {userData?.users} X ${userData?.price}
-                  </div>
-                  <div className="text-2xl font-bold">
-                    Total Price - ${userData?.totalPrice}
-                  </div>
-                  <div className="flex flex-col items-center gap-4"></div>
+                  Price
                 </div>
+
+                <div className="text-lg sm:text-2xl font-bold">
+                  {userData?.price
+                    ? `${userData?.users} X ${userData?.price}`
+                    : `${userData?.title}`}
+                </div>
+                {userData?.price && userData?.totalPrice && (
+                  <div className="text-lg sm:text-2xl font-bold">
+                    Total Price - {userData?.totalPrice}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -499,7 +507,7 @@ const Teams = ({ userData, setUserData }) => {
 
   return (
     <div className="!text-base flex flex-col gap-5 justify-center items-center ">
-      <div className="w-full  grid place-items-center">
+      <div className="w-full">
         {teamsData &&
           teamsData?.map((item, idx) => {
             if (item?.idx === currentIndex) {
@@ -512,10 +520,10 @@ const Teams = ({ userData, setUserData }) => {
           })}
       </div>
 
-      <div className="flex justify-center gap-2">
+      <div className="flex flex-col sm:flex-row justify-center gap-2 mt-10">
         {currentIndex > 0 && (
           <button
-            className={`hover:squeezyBtn px-8 py-3 bg-[#b41f58] hover:bg-[#b41f58a8] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+            className={`hover:squeezyBtn px-8 py-3 bg-[#b41f58] hover:bg-[#b41f58a8] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-sm font-medium transition duration-[0.4s]`}
             onClick={() => updateIndex(-1)}
           >
             Back
@@ -523,7 +531,7 @@ const Teams = ({ userData, setUserData }) => {
         )}
         {currentIndex >= 0 && currentIndex < maxIndex && (
           <button
-            className={`hover:squeezyBtn px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+            className={`hover:squeezyBtn px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-sm font-medium transition duration-[0.4s]`}
             onClick={() => {
               updateIndex(1);
             }}
@@ -534,7 +542,7 @@ const Teams = ({ userData, setUserData }) => {
 
         {currentIndex === maxIndex && (
           <button
-            className={`hover:squeezyBtn flex justify-center items-center px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+            className={`hover:squeezyBtn flex justify-center items-center px-8 py-3 bg-[#1f58ad] hover:bg-[#1f58ad94] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-sm font-medium transition duration-[0.4s]`}
             onClick={() => {
               handlePayment("teams");
             }}

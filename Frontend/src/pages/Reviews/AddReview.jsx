@@ -109,7 +109,7 @@ const AddReview = () => {
               >
                 <div className="w-full">
                   <label
-                    class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     for="name"
                   >
                     Name:
@@ -124,7 +124,7 @@ const AddReview = () => {
                 </div>
                 <div className="w-full">
                   <label
-                    class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     for="email"
                   >
                     E-Mail:
@@ -139,7 +139,7 @@ const AddReview = () => {
                 </div>
                 <div className="w-full">
                   <label
-                    class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     for="title"
                   >
                     Title:
@@ -155,7 +155,7 @@ const AddReview = () => {
 
                 <div className="w-full">
                   <label
-                    class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     for="review"
                   >
                     Review:
@@ -172,7 +172,7 @@ const AddReview = () => {
 
                 <div className="w-full">
                   <label
-                    class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     for="rating"
                   >
                     Rating:
@@ -182,13 +182,13 @@ const AddReview = () => {
 
                 <div className="w-full">
                   <label
-                    class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     for="file_input"
                   >
                     Upload Image (optional)
                   </label>
                   <input
-                    class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                    className="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                     id="file_input"
                     type="file"
                     {...register("image", { required: false })}

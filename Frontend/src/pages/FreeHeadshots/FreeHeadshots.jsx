@@ -80,8 +80,8 @@ const FreeHeadshots = () => {
 
       {/* coupon code */}
 
-      <div class="flex flex-col gap-4 md:flex-row w-full items-center justify-between rounded-lg border-2 border-blue-600 bg-black py-8 px-12 font-medium md:font-bold text-white">
-        <span class="mr-4 text-xl text-center lg:text-start lg:text-2xl 2xl:text-4xl">
+      <div className="flex flex-col gap-4 md:flex-row w-full items-center justify-between rounded-lg border-2 border-blue-600 bg-black py-8 px-12 font-medium md:font-bold text-white">
+        <span className="mr-4 text-xl text-center lg:text-start lg:text-2xl 2xl:text-4xl">
           COUPON : HDGEN10 FOR 10% OFF
         </span>
         <Link
@@ -98,7 +98,7 @@ const FreeHeadshots = () => {
         <LazyLoadImage
           src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023866/dating_headshots_5_fkywuz.webp"
           alt="Headshot"
-          class=" rounded-lg  mr-6"
+          className=" rounded-lg  mr-6"
           width={300}
         />
         <div className="text-center md:text-left">
