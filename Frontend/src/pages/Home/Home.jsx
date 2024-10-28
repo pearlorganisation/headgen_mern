@@ -89,69 +89,69 @@ const Home = () => {
   const imgData2 = [
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/kajqgzz1tplnrbw2i1x6.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685090/Ai-image-gnereator15_bzgx6y.webp",
     },
 
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/fywiulkockfh5o04cpgk.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685089/Ai-image-gnereator14_m0hwwb.webp",
     },
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/n6nex9zoacko8ya07hbf.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685089/Ai-image-gnereator13_p2dhmx.webp",
     },
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/fzoqqrrvyydpyfvslpsx.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685089/Ai-image-gnereator12_pitldr.webp",
     },
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/g5rrtqqnjfjvqfjdrucm.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685088/Ai-image-gnereator11_czbkiz.webp",
     },
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/snqcx5gvbg2bp1jrwxju.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685088/Ai-image-gnereator10_lojag9.webp",
     },
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021853/headgen/Home/Slideshow/top%20line/fis4kgi3ior0ytuqnm67.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685088/Ai-image-gnereator9_so34wp.webp",
     },
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/kajqgzz1tplnrbw2i1x6.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685088/Ai-image-gnereator8_azzxkj.webp",
     },
 
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/fywiulkockfh5o04cpgk.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685087/Ai-image-gnereator7_ryaykr.webp",
     },
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/n6nex9zoacko8ya07hbf.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685087/Ai-image-gnereator5_rju1kc.webp",
     },
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/fzoqqrrvyydpyfvslpsx.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685087/Ai-image-gnereator6_j35qqi.webp",
     },
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/g5rrtqqnjfjvqfjdrucm.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685087/Ai-image-gnereator4_m47q7g.webp",
     },
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/snqcx5gvbg2bp1jrwxju.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685087/Ai-image-gnereator3_hqypcq.webp",
     },
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021853/headgen/Home/Slideshow/top%20line/fis4kgi3ior0ytuqnm67.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685087/Ai-image-gnereator2_gznrf0.webp",
     },
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021855/headgen/Home/Slideshow/top%20line/n6nex9zoacko8ya07hbf.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685087/Ai-image-gnereator1_fbuwex.webp",
     },
     {
       name: "",
-      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021854/headgen/Home/Slideshow/top%20line/fzoqqrrvyydpyfvslpsx.webp",
+      path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729685088/Ai-image-gnereator11_czbkiz.webp",
     },
   ];
 
@@ -458,7 +458,7 @@ const Home = () => {
             src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728031057/Indeed_logo_cvpykw.png"
             className="h-[16px]"
             height={"16px"}
-            width={"16px"}
+            width={"50px"}
           />
         </>
       ),
@@ -549,7 +549,7 @@ const Home = () => {
               <div className="flex flex-col md:flex-row gap-1 justify-between">
                 <div className="flex flex-col justify-center">
                   <LazyLoadImage alt="" 
-                    src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022126/headgen/Home/eqiraehtzcsqsugxkcsp.webp"
+                    src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729666366/aiimagegenerator_vxpsje.webp"
                     width={"120px"}
                     height={"45px"}
                   />

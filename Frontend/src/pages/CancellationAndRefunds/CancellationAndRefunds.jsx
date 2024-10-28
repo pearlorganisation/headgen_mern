@@ -97,7 +97,7 @@ const CancellationAndRefunds = () => {
           content="Discover how HeadGen AI’s AI image generator creates professional, realistic headshots for resumes, teams, doctors, and LinkedIn. Using our AI photo generator, we deliver the best AI Generated images with ease."
         /> */}
       </Helmet>
-      <div className="w-full text-white py-14 xl:py-24 px-10 xl:px-[250px] bg-[#161616] flex flex-col gap-6 xl:gap-[3.5rem] tracking-wider">
+      <div className="w-full text-white py-24 px-10 xl:px-[250px] bg-[#161616] flex flex-col gap-6 xl:gap-[3.5rem] tracking-wider">
         <h1 className="w-full text-center font-medium text-[44px] md:text-[52px] xl:text-[60px]">
           Cancellation & Refund Policy
         </h1>

@@ -6,8 +6,8 @@ import "./Header.css";
 const HeaderLink = ({ data, showDropdown }) => {
   if (showDropdown) {
     return (
-      <div className="relative flex gap-2 h-full py-4 px-4 shadow-bottom-blue transition duration-300 cursor-pointer group ">
-        <div className="px-2 py-3 bg-transparent active:bg-[#0c0c0c] rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-300 flex justify-between gap-2">
+      <div className="relative flex gap-2 h-full py-4 px-2 2xl:px-4 shadow-bottom-blue transition duration-300 cursor-pointer group ">
+        <div className="px-2 py-3 bg-transparent active:bg-[#0c0c0c] rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-300 flex justify-between gap-0 2xl:gap-2">
           {data?.path ? (
             <Link
               to={data?.path}
@@ -47,9 +47,9 @@ const HeaderLink = ({ data, showDropdown }) => {
   return (
     <Link
       to={data?.path}
-      className="flex gap-2 h-full py-4 px-4 shadow-bottom-blue transition duration-300 cursor-pointer group"
+      className="flex gap-2 h-full py-4 px-2 2xl:px-4 shadow-bottom-blue transition duration-300 cursor-pointer group"
     >
-      <div className="px-2 py-3 bg-transparent active:bg-[#0c0c0c] rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-300 flex justify-between gap-2">
+      <div className="px-2 py-3 bg-transparent active:bg-[#0c0c0c] rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-300 flex justify-between gap-0 2xl:gap-2">
         <div className="flex flex-col justify-center oswald">{data?.name}</div>
       </div>
     </Link>

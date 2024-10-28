@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import HeaderLink from "./HeaderLink";
@@ -12,10 +12,14 @@ const Header = () => {
   const [isDatingPage, setIsDatingPage] = useState(false);
   const [showMobDropdown, setShowMobDropdown] = useState(false);
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const dropdownRef = useRef(null);
+
   useEffect(() => {
     if (
       location.pathname === "/dating" ||
-      location.pathname === "/dating-ai-headshots"||
+      location.pathname === "/dating-ai-headshots" ||
       location.pathname === "/dating-ai-headshot-generator"
     ) {
       setIsDatingPage(true);
@@ -147,12 +151,164 @@ const Header = () => {
       path: "/reviews",
       showDropdown: false,
     },
-    // {
-    //   name: "Free Headshots",
-    //   path: "/free-ai-headshot-generator",
-    //   showDropdown: false,
-    // },
+    {
+      name: "Headshots",
+      paths: [
+        {
+          name: "Corporate Headshots",
+          path: "/corporate-ai-headshots",
+        },
+        {
+          name: "Doctor Headshots",
+          path: "/doctor-ai-headshots",
+        },
+        {
+          name: "Lawyer Headshots",
+          path: "/lawyer-ai-headshots",
+        },
+        {
+          name: "Sales Headshots",
+          path: "/salesman-ai-headshots",
+        },
+        {
+          name: "Students Headshots",
+          path: "/students-ai-headshots",
+        },
+        {
+          name: "Teacher Headshots",
+          path: "/teacher-ai-headshots",
+        },
+        {
+          name: "Free Headshots",
+          path: "/free-ai-headshot-generator",
+        },
+      ],
+      showDropdown: true,
+    },
   ];
+
+  // country selection
+
+  const countries = [
+    {
+      countryImg: "https://flagcdn.com/w160/us.png",
+      countryName: "United States",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/ua.png",
+      countryName: "Canada",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/se.png",
+      countryName: "Sweden",
+    },
+
+    {
+      countryImg: "https://flagcdn.com/w160/dk.png",
+      countryName: "Denmark",
+    },
+
+    {
+      countryImg: "https://flagcdn.com/w160/gb.png",
+      countryName: "United Kingdom",
+    },
+
+    {
+      countryImg: "https://flagcdn.com/w160/ne.png",
+      countryName: "Netherlands",
+    },
+
+    {
+      countryImg: "https://flagcdn.com/w160/ch.png",
+      countryName: "Switzerland",
+    },
+
+    {
+      countryImg: "https://flagcdn.com/w160/no.png",
+      countryName: "Norway",
+    },
+
+    {
+      countryImg: "https://flagcdn.com/w160/fi.png",
+      countryName: "Finland",
+    },
+
+    {
+      countryImg: "https://flagcdn.com/w160/nz.png",
+      countryName: "New Zealand",
+    },
+
+    {
+      countryImg: "https://flagcdn.com/w160/as.png",
+      countryName: "Austria",
+    },
+
+    {
+      countryImg: "https://flagcdn.com/w160/au.png",
+      countryName: "Australia",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/de.png",
+      countryName: "Germany",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/in.png",
+      countryName: "India",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/ae.png",
+      countryName: "Dubai",
+    },
+    {
+      countryImg:
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729681906/Screenshot_2024-10-23_164133_gthtvx.png",
+      countryName: "Japan",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/kr.png",
+      countryName: "South Korea",
+    },
+  ];
+
+  useEffect(() => {
+    const storedCountry = localStorage.getItem("selectedCountry");
+    if (storedCountry) {
+      setSelectedCountry(JSON.parse(storedCountry));
+    } else {
+      localStorage.setItem(
+        "selectedCountry",
+        JSON.stringify({
+          countryImg: "https://flagcdn.com/w160/us.png",
+          countryName: "United States",
+        })
+      );
+      setSelectedCountry({
+        countryImg: "https://flagcdn.com/w160/us.png",
+        countryName: "United States",
+      });
+    }
+  }, []);
+
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  //       setIsOpen(false);
+  //     }
+  //   };
+
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, []);
+
+  const handleSelect = (country) => {
+    setSelectedCountry(country);
+    localStorage.setItem("selectedCountry", JSON.stringify(country));
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 100);
+  };
 
   return (
     <nav
@@ -162,7 +318,7 @@ const Header = () => {
     >
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex flex-col justify-center">
-          <Link to="/">
+          <Link to="/" aria-label="Home page link in header">
             <LazyLoadImage
               src="/logo.webp"
               alt=""
@@ -173,7 +329,60 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className="xl:hidden">
+        <div className="xl:hidden flex gap-2 items-center">
+          {/* country selection */}
+
+          <div
+            className="flex flex-col justify-center relative"
+            ref={dropdownRef}
+          >
+            <button
+              className="oswald text-[#f1f1f1] text-[18px] font-medium p-2 text-left bg-transparent"
+              onClick={() => setIsOpen(!isOpen)}
+
+            >
+              {selectedCountry ? (
+                <div className="flex gap-2 items-center">
+                  <img
+                    src={selectedCountry.countryImg}
+                    alt={`${selectedCountry.countryName} flag`}
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
+
+                  {/* <span className="oswald text-sm font-semibold">{selectedCountry.countryName}</span> */}
+                </div>
+              ) : (
+                "Select a country"
+              )}
+            </button>
+            {isOpen && (
+              <div
+                className="absolute z-10 w-[200px] mt-1 top-full left-1/2 -translate-x-1/2 bg-white border border-gray-300 rounded-md shadow-lg transition duration-300"
+              >
+                <ul className="max-h-96 overflow-auto">
+                  {countries.map((country) => (
+                    <li
+                      key={country.countryName}
+                      className="flex gap-2 items-center p-2 cursor-pointer hover:bg-gray-100"
+                      onTouchEnd={(e) => {
+                        e.stopPropagation();
+                        handleSelect(country);
+                      }}
+                    >
+                      <img
+                        src={country.countryImg}
+                        alt={`${country.countryName} flag`}
+                        className="w-6 h-6 rounded-full"
+                      />
+                      <span className="oswald text-sm font-semibold">
+                        {country.countryName}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
           <div
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg"
             onClick={() => setShowMobDropdown(!showMobDropdown)}
@@ -222,7 +431,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="xl:flex flex-row gap-2 hidden ">
+        <div className="xl:flex flex-row gap-0 md:gap-2 hidden ">
           {navData.map((item, idx) => (
             <HeaderLink
               key={`header${idx}`}
@@ -230,6 +439,54 @@ const Header = () => {
               showDropdown={item?.showDropdown}
             />
           ))}
+
+          {/* country selection */}
+
+          <div
+            className="flex flex-col justify-center relative"
+            ref={dropdownRef}
+          >
+            <button
+              className="oswald text-[#f1f1f1] text-[18px] font-medium p-2 text-left bg-transparent"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {selectedCountry ? (
+                <div className="flex gap-2 items-center">
+                  <img
+                    src={selectedCountry.countryImg}
+                    alt={`${selectedCountry.countryName} flag`}
+                    className="w-10 h-10 rounded-full object-fit object-cover"
+                  />
+
+                  {/* <span className="oswald text-sm font-semibold">{selectedCountry.countryName}</span> */}
+                </div>
+              ) : (
+                "Select a country"
+              )}
+            </button>
+            {isOpen && (
+              <div className="absolute z-10 w-[200px] mt-1 top-full left-1/2 -translate-x-1/2 bg-white border border-gray-300 rounded-md shadow-lg transition duration-300">
+                <ul className="max-h-96 overflow-auto">
+                  {countries.map((country) => (
+                    <li
+                      key={country.countryName}
+                      className="flex gap-2 items-center p-2 cursor-pointer hover:bg-gray-100"
+                      onClick={() => handleSelect(country)}
+                    >
+                      <img
+                        src={country.countryImg}
+                        alt={`${country.countryName} flag`}
+                        className="w-6 h-6 rounded-full"
+                      />
+                      <span className="oswald text-sm font-semibold">
+                        {country.countryName}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
 
           {/* button */}
           <div className="h-full flex flex-col justify-center py-3">

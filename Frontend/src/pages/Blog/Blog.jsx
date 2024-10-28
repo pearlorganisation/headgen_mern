@@ -133,6 +133,7 @@ const Blog = () => {
                     <Link
                       to={`/blog/${item?.slug}`}
                       className="rounded-lg group overflow-hidden shadow-lg cursor-pointer transition duration-300"
+                      aria-label={item?.title}
                     >
                       <LazyLoadImage
                         alt="Blog Post 1"

@@ -91,14 +91,6 @@ const Footer = () => {
           title: "Contact Us",
           link: "/contact-us",
         },
-        // {
-        //   title: "Payment Gateway",
-        //   link: "/",
-        // },
-        // {
-        //   title: "Affiliate Program",
-        //   link: "/",
-        // },
         {
           title: "Support@headgen.ai",
           link: "mailto:support@headgen.ai",
@@ -109,6 +101,7 @@ const Footer = () => {
         },
         {
           link: "https://www.producthunt.com/products/headgen-ai",
+          title: "product hunt logo",
           alt: "product hunt",
           imgPath:
             "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1720504906/Untitled_design_71_yhk24p.jpg",
@@ -165,6 +158,7 @@ const Footer = () => {
                               key={`fcsml${idx2}`}
                               to={item?.link}
                               className="oswald hover:text-blue-600 transition duration-300"
+                              aria-label={item?.title}
                             >
                               {item?.title}
                             </Link>
@@ -180,11 +174,13 @@ const Footer = () => {
                           to={item?.link}
                           key={`fcl${idx2}`}
                           className="oswald hover:text-blue-600 transition duration-300"
+                          aria-label={item?.title}
+
                         >
                           {item?.title ? (
                             item?.title
                           ) : (
-                            <img
+                            <LazyLoadImage
                               src={`${item?.imgPath}`}
                               alt={item?.alt}
                               className="w-full rounded-lg shadow-[0_0_0_1px#ffffff] mt-1"
@@ -205,21 +201,17 @@ const Footer = () => {
           Copyright 2024 Playcloud Technologies Private Limited.
         </div>
         <div className="flex flex-row gap-4">
-          <Link to="https://www.linkedin.com/company/headgen-ai/">
+          <Link to="https://www.linkedin.com/company/headgen-ai/" aria-label="LinkedIn">
             <AppSvgs name="linkedIn" />
           </Link>
 
-          {/* <Link to="/">
-          <AppSvgs name="tiktok" />
-          </Link> */}
-          <Link to="https://www.youtube.com/@HeadGen_AI">
+          <Link to="https://www.youtube.com/@HeadGen_AI" aria-label="YouTube">
             <AppSvgs name="youtube" />
           </Link>
-          <Link to="https://x.com/HeadGenAI">
+          <Link to="https://x.com/HeadGenAI" aria-label="Twitter">
             <AppSvgs name="x" />
           </Link>
-          {/* <AppSvgs name="facebook" /> */}
-          {/* <AppSvgs name="discord" /> */}
+       
         </div>
       </div>
     </div>
