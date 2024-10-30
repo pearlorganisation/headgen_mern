@@ -175,18 +175,17 @@ const Footer = () => {
                           key={`fcl${idx2}`}
                           className="oswald hover:text-blue-600 transition duration-300"
                           aria-label={item?.title}
-
                         >
-                          {item?.title ? (
-                            item?.title
-                          ) : (
+                          {item?.imgPath ? (
                             <LazyLoadImage
                               src={`${item?.imgPath}`}
                               alt={item?.alt}
-                              className="w-full rounded-lg shadow-[0_0_0_1px#ffffff] mt-1"
+                              className="w-full max-w-[242px] rounded-lg shadow-[0_0_0_1px#ffffff] mt-1"
                               width={"60px"}
                               height={"242px"}
                             />
+                          ) : (
+                            item?.title
                           )}
                         </Link>
                       ))}
@@ -201,7 +200,10 @@ const Footer = () => {
           Copyright 2024 Playcloud Technologies Private Limited.
         </div>
         <div className="flex flex-row gap-4">
-          <Link to="https://www.linkedin.com/company/headgen-ai/" aria-label="LinkedIn">
+          <Link
+            to="https://www.linkedin.com/company/headgen-ai/"
+            aria-label="LinkedIn"
+          >
             <AppSvgs name="linkedIn" />
           </Link>
 
@@ -211,7 +213,6 @@ const Footer = () => {
           <Link to="https://x.com/HeadGenAI" aria-label="Twitter">
             <AppSvgs name="x" />
           </Link>
-       
         </div>
       </div>
     </div>

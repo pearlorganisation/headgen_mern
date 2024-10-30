@@ -1,12 +1,4 @@
 User-agent: *
-Disallow: /dating-ai-headshots
-Disallow: /corporate-ai-headshots
-Disallow: /doctor-ai-headshots
-Disallow: /lawyer-ai-headshots
-Disallow: /salesman-ai-headshots
-Disallow: /students-ai-headshots
-Disallow: /teacher-ai-headshots
-
-Allow: /
-
-Sitemap: https://your-domain.com/sitemap.xml
+Disallow: 
+Disallow: /cgi-bin/
+Sitemap: https://headgen.ai/sitemap.xml
