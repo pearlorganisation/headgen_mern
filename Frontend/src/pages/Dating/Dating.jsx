@@ -144,7 +144,7 @@ const Dating = () => {
                       src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023815/Untitled_design_68_zueeax.webp"
                       width={300}
                       height={500}
-                      className="w-auto h-full"
+                      className="w-auto h-full !max-h-[900px]"
                     />
                   </div>
                   <div className="pb-4 md:pb-0 flex w-full flex-col justify-normal sm:justify-center !text-responsive  leading-tight items-center sm:items-start font-semibold text-[#F1F1F1] col-span-2 lg:col-span-2 px-2 sm:px-0">
