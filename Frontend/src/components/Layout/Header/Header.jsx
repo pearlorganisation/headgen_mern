@@ -151,40 +151,7 @@ const Header = () => {
       path: "/reviews",
       showDropdown: false,
     },
-    {
-      name: "Headshots",
-      paths: [
-        {
-          name: "Corporate Headshots",
-          path: "/corporate-ai-headshots",
-        },
-        {
-          name: "Doctor Headshots",
-          path: "/doctor-ai-headshots",
-        },
-        {
-          name: "Lawyer Headshots",
-          path: "/lawyer-ai-headshots",
-        },
-        {
-          name: "Sales Headshots",
-          path: "/salesman-ai-headshots",
-        },
-        {
-          name: "Students Headshots",
-          path: "/students-ai-headshots",
-        },
-        {
-          name: "Teacher Headshots",
-          path: "/teacher-ai-headshots",
-        },
-        {
-          name: "Free Headshots",
-          path: "/free-ai-headshot-generator",
-        },
-      ],
-      showDropdown: true,
-    },
+   
   ];
 
   // country selection
