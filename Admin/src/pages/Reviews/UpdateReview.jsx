@@ -55,7 +55,7 @@ const UpdateReview = () => {
       stars: reviewData.stars,
       image:null
     });
-    setPreviewImage(reviewData.image[0].url);
+    setPreviewImage(reviewData.image[0]?.url);
   }, [reviewData]);
 
   const onSubmit = (data) => {

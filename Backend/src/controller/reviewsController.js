@@ -57,26 +57,28 @@ export const addReview = asyncHandler(async (req, res) => {
   if (!reviewExist && !req?.body?.fromAdmin) {
     const stripe = Stripe(process.env.SK_LIVE);
     const promotionCode = await stripe.promotionCodes.create({
-      coupon: 'T2QW7h46',
+      coupon: "T2QW7h46",
     });
     await sendMailForReview(req.body.email, promotionCode.code);
 
-  res.status(200).json({ status: true, message: "Review saved & COUPON sent to mail successfully" });
-
-
+    res
+      .status(200)
+      .json({
+        status: true,
+        message: "Review saved & COUPON sent to mail successfully",
+      });
   } else {
-    res.status(200).json({ status: true, message: "Review saved successfully" });
+    res
+      .status(200)
+      .json({ status: true, message: "Review saved successfully" });
   }
-
 });
 
 export const updateReview = asyncHandler(async (req, res) => {
+  const { reviewId } = req.params;
 
-
-  const {reviewId} = req.params
-
-  if(!reviewId){
-    res.status(500).json({status: false, message: 'Missing Review ID'})
+  if (!reviewId) {
+    res.status(500).json({ status: false, message: "Missing Review ID" });
   }
   const payload = {
     title: req.body.title,
@@ -86,19 +88,20 @@ export const updateReview = asyncHandler(async (req, res) => {
     email: req.body.email,
   };
 
-
   if (req?.files && req?.files?.length > 0) {
     const reviewImg = await uploadFile(req?.files);
     payload.image = reviewImg.result[0];
   }
 
-  await reviewsModel.findOneAndUpdate({_id: reviewId}, payload);
-  res.status(200).json({ status: true, message: "Review Updated successfully" });
+  await reviewsModel.findOneAndUpdate({ _id: reviewId }, payload);
+  res
+    .status(200)
+    .json({ status: true, message: "Review Updated successfully" });
 });
-
 
 export const deleteReview = asyncHandler(async (req, res) => {
   const { reviewId } = req.params;
+  console.log(reviewId)
   if (!reviewId) {
     return res
       .status(400)

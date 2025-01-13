@@ -45,7 +45,7 @@ const Reviews = () => {
 
   const deleteItem = (item) => {
     if(window.confirm(`Are you sure you want to delete the review`)){
-      instance.delete(`${import.meta.env.VITE_API_URL}/reviews/delete/${item._id}`).then((res) => {
+      instance.delete(`${import.meta.env.VITE_API_URL}/reviews/${item._id}`).then((res) => {
         toast.success(res.data.message, {
           style: {
             background: "green",
@@ -71,8 +71,8 @@ const Reviews = () => {
     <div>
       <Toaster />
 
-      <div class="p-10 space-y-10">
-        <div class="flex items-center justify-end flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-8 bg-white ">
+      <div className="p-10 space-y-10">
+        <div className="flex items-center justify-end flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-8 bg-white ">
           <Link
             to="/reviews/add"
             className="bg-blue-600 rounded-md text-white px-3 py-1 font-semibold "
@@ -80,7 +80,7 @@ const Reviews = () => {
             Add
           </Link>
         </div>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           {isLoading && (
            <>
            <Skeleton animation="wave" height={50} />
