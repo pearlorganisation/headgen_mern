@@ -80,22 +80,22 @@ function Login() {
                 </div>
 
                 {/* <!-- Right column container with background and description--> */}
-                <div class="w-full flex flex-col justify-center h-full bg-white rounded-lg shadow  md:mt-0  xl:p-0 ">
-                  <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
+                <div className="w-full flex flex-col justify-center h-full bg-white rounded-lg shadow  md:mt-0  xl:p-0 ">
+                  <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                    <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                       Sign in to your account
                     </h1>
                     {errorMsg && (
                       <div className="text-red-500 text-center">{errorMsg}</div>
                     )}
                     <form
-                      class="space-y-4 md:space-y-6"
+                      className="space-y-4 md:space-y-6"
                       onSubmit={handleSubmit(onSubmit)}
                     >
                       <div>
                         <label
                           for="username"
-                          class="block mb-2 text-sm font-medium text-gray-900 "
+                          className="block mb-2 text-sm font-medium text-gray-900 "
                         >
                           {" "}
                           User Name
@@ -104,7 +104,7 @@ function Login() {
                           type="text"
                           name="username"
                           id="username"
-                          class="bg-gray-50 border  text-gray-900 sm:text-sm rounded-lg ring-primary-600   block w-full p-2.5  "
+                          className="bg-gray-50 border  text-gray-900 sm:text-sm rounded-lg ring-primary-600   block w-full p-2.5  "
                           placeholder="User Name"
                           {...register("userName", { required: true })}
                           required
@@ -113,7 +113,7 @@ function Login() {
                       <div>
                         <label
                           for="password"
-                          class="block mb-2 text-sm font-medium text-gray-900 "
+                          className="block mb-2 text-sm font-medium text-gray-900 "
                         >
                           Password
                         </label>
@@ -122,22 +122,22 @@ function Login() {
                           name="password"
                           id="password"
                           placeholder="••••••••"
-                          class="bg-gray-50 border  text-gray-900 sm:text-sm rounded-lg ring-primary-600   block w-full p-2.5  s "
+                          className="bg-gray-50 border  text-gray-900 sm:text-sm rounded-lg ring-primary-600   block w-full p-2.5  s "
                           {...register("password", { required: true })}
                           required
                         />
                       </div>
-                      {/* <div class="flex items-center justify-between">
+                      {/* <div className="flex items-center justify-between">
                           <a
                             href="#"
-                            class="text-sm font-medium text-blue-600 hover:underline dark:text-primary-500"
+                            className="text-sm font-medium text-blue-600 hover:underline dark:text-primary-500"
                           >
                             Forgot password?
                           </a>
                         </div> */}
                       <button
                         type="submit"
-                        class="w-full text-white bg-[#2563eb] hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                        className="w-full text-white bg-[#2563eb] hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                       >
                         {isLoading ? <SyncLoader color="white" /> : 'Sign in to your account'}
                       </button>

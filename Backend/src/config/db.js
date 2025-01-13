@@ -15,6 +15,5 @@ export const mongoConnect = async () => {
       error.message
         ? `MongoDB connection failed: ${error.message}`
         : `MongoDB connection failed`
-    );
   }
 };

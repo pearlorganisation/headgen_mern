@@ -39,7 +39,7 @@ export const sendMailToCustomer = async (userData, images) => {
                 <td><strong>Custom Section</strong></td>
                 <td>${customizeData.section}</td>
             </tr>
-            <tr class="bd">
+            <tr className="bd">
                 <td><strong>Custom Sub-Section</strong></td>
                 <td>${customizeData.subSection}</td>
             </tr>
@@ -66,7 +66,7 @@ export const sendMailToCustomer = async (userData, images) => {
                 <td><strong>Custom Section</strong></td>
                 <td>${customizeData.section}</td>
             </tr>
-            <tr class="bd">
+            <tr className="bd">
                 <td><strong>Custom Sub-Section</strong></td>
                 <td>${customizeData.subSection}</td>
             </tr>
@@ -159,12 +159,12 @@ export const sendMailToCustomer = async (userData, images) => {
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header"></div>
+    <div className="container">
+        <div className="header"></div>
         <table>
             <tr>
-                <td><a href="https://headgen.ai"><img alt=""  class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
-                    <div class="title">CUSTOMER RECEIPT</div>
+                <td><a href="https://headgen.ai"><img alt=""  className="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
+                    <div className="title">CUSTOMER RECEIPT</div>
                     <span>Your Headshot generation has been confirmed</span>
                 </td>
             </tr>
@@ -189,19 +189,19 @@ export const sendMailToCustomer = async (userData, images) => {
                 <td><strong>Final Price</strong></td>
                 <td>${selectedPlan.price}</td>
             </tr>
-            <tr class="bd">
+            <tr className="bd">
                 <td><strong>Images</strong></td>
                 <td>
                     ${imgTableRows}
                 </td>
             </tr>
-            <tr class="total">
+            <tr className="total">
                 <td><strong>Total</strong></td>
                 <td>${selectedPlan.price}</td>
             </tr>
         </table>
-        <div class="footer">
-            <span class="fHeading">AI HEADSHOT GENERATOR</span><br>
+        <div className="footer">
+            <span className="fHeading">AI HEADSHOT GENERATOR</span><br>
             <br>
             <a href="mailto:support@headgen.ai">Playcloud Technologies Limited support@headgen.ai | +91 9820442749</a> 
         </div>
@@ -321,12 +321,12 @@ export const sendMailToTeamsCustomer = async (userData) => {
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header"></div>
+    <div className="container">
+        <div className="header"></div>
         <table>
             <tr>
-                <td><a href="https://headgen.ai"><img alt=""  class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
-                    <div class="title">CUSTOMER RECEIPT</div>
+                <td><a href="https://headgen.ai"><img alt=""  className="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
+                    <div className="title">CUSTOMER RECEIPT</div>
                     <span>Your Headshot Request has been confirmed, we will contact you soon.</span>
                     <span>Or contact us at support@headgen.ai | +91 9820442749</span>
                 </td>
@@ -369,13 +369,13 @@ export const sendMailToTeamsCustomer = async (userData) => {
                 <td>${Number(customerData.price).toLocaleString()}</td>
             </tr>
             
-            <tr class="total">
+            <tr className="total">
                 <td><strong>Total</strong></td>
                 <td>${Number(customerData.totalPrice).toLocaleString()}</td>
             </tr>
         </table>
-        <div class="footer">
-            <span class="fHeading">AI HEADSHOT GENERATOR</span><br>
+        <div className="footer">
+            <span className="fHeading">AI HEADSHOT GENERATOR</span><br>
             <br>
             <a href="mailto:support@headgen.ai">Playcloud Technologies Limited support@headgen.ai | +91 9820442749</a> 
         </div>
@@ -491,13 +491,13 @@ export const sendMailToFreeCustomer = async (userData, images) => {
       </style>
     </head>
   <body>
-      <div class="container">
-          <div class="header"></div>
+      <div className="container">
+          <div className="header"></div>
           <table>
               <tr>
-                  <td><a href="https://headgen.ai"><img alt=""  class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
+                  <td><a href="https://headgen.ai"><img alt=""  className="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
                   <td>
-                      <div class="title">CUSTOMER RECEIPT</div>
+                      <div className="title">CUSTOMER RECEIPT</div>
                       <span>Your Free Headshot generation has been confirmed</span>
                   </td>
               </tr>
@@ -518,19 +518,19 @@ export const sendMailToFreeCustomer = async (userData, images) => {
                   <td><strong>Final Price</strong></td>
                   <td>0</td>
               </tr>
-              <tr class="bd">
+              <tr className="bd">
                   <td><strong>Images</strong></td>
                   <td>
                       ${imgTableRows}
                   </td>
               </tr>
-              <tr class="total">
+              <tr className="total">
                   <td><strong>Total</strong></td>
                   <td>0</td>
               </tr>
           </table>
-          <div class="footer">
-              <span class="fHeading">AI HEADSHOT GENERATOR</span><br>
+          <div className="footer">
+              <span className="fHeading">AI HEADSHOT GENERATOR</span><br>
               <br>
               <a href="mailto:support@headgen.ai">Playcloud Technologies Limited support@headgen.ai | +91 9820442749</a> 
           </div>
@@ -636,13 +636,13 @@ export const sendMailForReview = async (email, coupon) => {
       </style>
     </head>
   <body>
-      <div class="container">
-          <div class="header"></div>
+      <div className="container">
+          <div className="header"></div>
           <table>
               <tr>
-                  <td><a href="https://headgen.ai"><img alt=""  class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
+                  <td><a href="https://headgen.ai"><img alt=""  className="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
                   <td>
-                      <div class="title">Review posted</div>
+                      <div className="title">Review posted</div>
                       <span>Your Coupon code has been generated</span>
                   </td>
               </tr>
@@ -653,8 +653,8 @@ export const sendMailForReview = async (email, coupon) => {
           
         
           </table>
-          <div class="footer">
-              <span class="fHeading">AI HEADSHOT GENERATOR</span><br>
+          <div className="footer">
+              <span className="fHeading">AI HEADSHOT GENERATOR</span><br>
               <br>
               <a href="mailto:support@headgen.ai">Playcloud Technologies Limited support@headgen.ai | +91 9820442749</a> 
           </div>

@@ -150,8 +150,7 @@ const Header = () => {
       name: "Reviews",
       path: "/reviews",
       showDropdown: false,
-    },
-   
+    }, 
   ];
 
   // country selection
