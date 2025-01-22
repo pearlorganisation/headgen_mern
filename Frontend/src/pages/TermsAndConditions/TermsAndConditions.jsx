@@ -30,7 +30,7 @@ const TermsAndConditions = () => {
         {
           subheading: "",
           content:
-            "The service is priced at $29 US Dollars for individuals and $29 US Dollars for team headshots. Payments are securely processed through our payment partner, Stripe. We do not store any payment information on our platform.",
+            "The service is priced at €9 US Dollars for individuals and €9 US Dollars for team headshots. Payments are securely processed through our payment partner, Stripe. We do not store any payment information on our platform.",
         },
       ],
     },

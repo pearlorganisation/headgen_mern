@@ -30,7 +30,7 @@ const CancellationAndRefunds = () => {
         {
           subheading: "",
           content:
-            "We charge $29 US Dollars for individuals and $29 US Dollars for team headshots. Payments are processed securely through our payment partner, Stripe. We do not store any payment information on our platform.",
+            "We charge €9 US Dollars for individuals and €9 US Dollars for team headshots. Payments are processed securely through our payment partner, Stripe. We do not store any payment information on our platform.",
         },
       ],
     },

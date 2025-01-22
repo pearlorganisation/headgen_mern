@@ -14,7 +14,7 @@ const stripe = Stripe(process.env.SK_LIVE);
 
 const stripeLinks = [
   {
-    price: "$29",
+    price: "€9",
     packName: "Starter Pack",
     generationType: "individual",
     id: "price_1PEOSUCvLjbx73iC6iPlOjjE",
@@ -50,7 +50,7 @@ const stripeLinks = [
     id: "price_1PIPRHCvLjbx73iCLKPZ6HFA",
   },
   {
-    price: "$29",
+    price: "€9",
     packName: "Starter Pack",
     generationType: "individualDating",
     id: "price_1PIPTLCvLjbx73iCuL3vSK3C",

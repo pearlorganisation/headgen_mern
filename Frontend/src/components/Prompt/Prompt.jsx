@@ -25,8 +25,8 @@ const Prompt = ({
   const promptPriceCardData = [
     {
       title: "CUSTOM PROMPT PACK",
-      originalPrice: "$250",
-      price: "$200",
+      originalPrice: "€250",
+      price: "€200",
       features: ["Premium Quality"],
       packName: "Custom Prompt Pack",
       tag: "",
