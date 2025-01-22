@@ -5,7 +5,8 @@ const AsSeenOn = () => {
   return (
     <div className="flex flex-wrap justify-center">
       <div
-        className={`w-full sm:w-1/5 flex flex-col justify-center text-center font-bold text-lg md:text-2xl bg-gradient-to-r from-[#02AFDC] to-[#2563EB] text-transparent bg-clip-text `}
+        className={`w-full sm:w-1/5 flex flex-col justify-center text-center font-bold text-lg md:text-2xl 
+bg-[#2563EB] text-transparent bg-clip-text `}
       >
         As seen on
       </div>

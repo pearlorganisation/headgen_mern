@@ -15,6 +15,7 @@ import { IoIosStar } from "react-icons/io";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import AsSeenOn from "../../components/AsSeenOn/AsSeenOn";
 import { Helmet } from "react-helmet";
+import AIHeadshot from "./AI-HEADSHOT-EVERYONE/AI-headshot";
 
 const Home = () => {
   const [blogData, setBlogData] = useState(null);
@@ -438,7 +439,8 @@ const Home = () => {
       path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1723101550/HeadGen_AI_HeadShots_10_doxubx.webp",
       svg: (
         <>
-          <LazyLoadImage alt="" 
+          <LazyLoadImage
+            alt=""
             src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021927/headgen/Home/use%20cases/tyyoog6ul8umehqzkb3m.webp"
             className="w-[22px] h-[22px]"
             height={"22px"}
@@ -454,7 +456,8 @@ const Home = () => {
       path: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1723101551/HeadGen_AI_HeadShots_zazqd5.webp",
       svg: (
         <>
-          <LazyLoadImage alt="" 
+          <LazyLoadImage
+            alt=""
             src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728031057/Indeed_logo_cvpykw.png"
             className="h-[16px]"
             height={"16px"}
@@ -465,27 +468,47 @@ const Home = () => {
     },
   ];
 
+  const howitworks=[{
+    id:1,
+    img:"https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251125/14_1_lb0ptb.webp",},
+
+    {id:2,
+      img:"https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251125/15_1_kdhxuf.webp"
+    },
+    {id:3,
+      img:"https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251126/16_1_m5xxlu.webp"
+    },
+    {
+      id:4,
+     img:"https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251126/17_1_ksomyw.webp"
+
+    }
+  ]
   const privacyFirstData = [
     {
       title: "Advanced Encryption",
       content:
         "Your data deserves the best protection. We encrypt all sensitive user data",
-      imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030952/encryption_e1volq.webp",
+      imgPath:
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030952/encryption_e1volq.webp",
     },
     {
       title: "Secured Data",
       content: "HeadGen.ai will never sell your data to any third party.",
-      imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030951/secure_auiiz0.webp",
+      imgPath:
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030951/secure_auiiz0.webp",
     },
     {
       title: "You’re in Control",
       content: "We will never use your photos  to train our AI model .",
-      imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030951/control_vkdhtx.webp",
+      imgPath:
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030951/control_vkdhtx.webp",
     },
     {
       title: "Live Support",
       content: "E-mail us anytime. We respond Monday-Saturday.",
-      imgPath: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030951/support_ktdvai.webp",
+      imgPath:
+        "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030951/support_ktdvai.webp",
     },
   ];
 
@@ -500,6 +523,8 @@ const Home = () => {
       });
   }, []);
 
+  
+
   return (
     <>
       <Helmet>
@@ -512,12 +537,44 @@ const Home = () => {
           content="HeadGen AI’s AI image generator creates professional, realistic headshots for resumes, teams, doctors, and LinkedIn. Using our AI photo generator, we deliver the best AI Generated images with ease."
         />
       </Helmet>
-      <div className="w-full py-20  flex flex-col bg-[#161616] gap-10 overflow-x-hidden">
+      <div className="w-full py-20  flex flex-col bg-gradient-to-b gradientBg gap-10 overflow-x-hidden">
         {/* hero */}
+        {/* btn */}
+        <div className="flex items-center mx-auto mt-20">
+        <div className="p-[2px] bg-gradient-to-r from-[#002487] to-[#A300E5] rounded-full">
+  <button className="bg-[#002487] text-[#e4e7ee] rounded-full px-4 py-3 hover:opacity-90  ease-in-out hover:bg-[#1d2838] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500">
+    Most Realistic AI Headshot Generator
+  </button>
+</div>
 
-        <div className="flex justify-center px-10 md:px-16 2xl:px-[200px]">
+        </div>
+        <div className="mx-auto max-w-2xl">
+          <h1 className="text-5xl text-white px-8 font-bold ">
+            Convert your selfies into Professional{" "}
+            <span className="text-[#00B9C8]">AI Headshots</span>
+          </h1>
+        </div>
+        <div className="mx-auto">
+          <Link
+            to="/corporate-ai-headshots"
+            className={`w-48 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500`}
+          >
+            Get your photos for $9
+          </Link>
+        </div>
+
+        <div>
+     <div className="w-full overflow-hidden bg-[002C61] px-10 md:px-16 2xl:px-[200px]">
+          <InfinitySlider imgData1={imgData1} />
+        </div>
+        </div>
+
+        </div>
+        
+        <AsSeenOn />
+        {/* <div className="flex justify-center px-10 md:px-16 2xl:px-[200px]">
           <div
-            className={`w-full md:w-1/2 flex flex-col items-center gap-0 pt-5 md:pt-10 text-center`}
+          className={`w-full md:w-1/2 flex flex-col items-center gap-0 pt-5 md:pt-10 text-center`}
           >
             <h1 className="flex flex-col leading-none mb-4 space-y-0">
               <div
@@ -543,7 +600,7 @@ const Home = () => {
                 to="/corporate-ai-headshots"
                 className={`w-full px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500`}
               >
-                Get your photos for $29
+                Get your photos for $9
               </Link>
 
               <div className="flex flex-col md:flex-row gap-1 justify-between">
@@ -574,20 +631,14 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        {/* infinity slider */}
-        <div className="w-full overflow-hidden px-10 md:px-16 2xl:px-[200px]">
-          <InfinitySlider imgData1={imgData1} />
-        </div>
+ 
 
-        {/* trusted by */}
-
-        <AsSeenOn />
-
+ 
         {/* how it works */}
 
-        <div className="flex justify-center px-10 md:px-16 2xl:px-[200px] py-14">
+        {/* <div className="flex justify-center px-10 md:px-16 2xl:px-[200px] py-14">
           <div className="grid gap-8 md:gap-0 md:grid-cols-2  md:justify-between w-full">
             <div className=" flex flex-col w-full gap-4 justify-center items-center  ">
               <h2 className="grid grid-cols-2 md:grid-cols-1 gap-4 w-fit">
@@ -622,24 +673,98 @@ const Home = () => {
               </div>
             </div>
           </div>
+        </div> */}
+
+<div className="bg-gradient-to-b gradientBg text-white px-4 py-20 pb-20">
+      <div className="max-w-6xl mx-auto text-center space-y-8">
+        <h2 className="text-4xl text-left font-bold px-16">
+          How it <span className="text-blue-500">works</span>
+        </h2>
+        <div className="flex flex-wrap justify-center items-center w-full gap-4 md:gap-8">
+              {howitworks?.map((item) => (
+                <div className="w-auto max-w-[230px] 2xl:w-[200px] bg-[#111428] shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300 px-4 py-8">
+                  <div className="w-full h-2/3">
+                    <LazyLoadImage
+                      alt=""
+                      src={item?.img}
+                      className="w-full h-full rounded-t-xl"
+                      height={"250px"}
+                      width={"20px"}
+                    />
+                  </div>
+                  {/* <div className="flex flex-col justify-center px-2 py-4">
+                    <div className="text-medium text-sm font-bold flex justify-between">
+                      <span>{item?.title}</span>
+                      <span>{item?.svg}</span>
+                    </div>
+                 
+                  </div> */}
+                </div>
+              ))}
+            </div> 
+      </div>
+    </div>
+    <div className="px-14 rounded-md">
+<AIHeadshot/>
+</div>
+<div className="px-6 lg:px-20">
+  <div className="w-full flex bg-gradient-to-b gradientBg mt-28 py-8 lg:py-24 rounded-lg ">
+    <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 mx-auto px-6 lg:px-20">
+      
+      {/* Text Section */}
+      <div className="w-full lg:w-2/3 text-center lg:text-left">
+        <h1 className="text-white font-bold text-3xl lg:text-5xl leading-snug max-w-2xl mx-auto lg:mx-0">
+          Get Corporate AI Headshots for your LinkedIn Profile
+        </h1>
+        <p className="text-white mt-4 text-base lg:text-lg">
+          Get stunning AI Headshots to Boost your Professional Career
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center lg:justify-start">
+          <Link
+            to="/corporate-ai-headshots"
+            className="hover:squeezyBtn flex justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-white rounded-lg w-full sm:w-auto px-6 py-3 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+          >
+            Get Started
+          </Link>
+          <Link
+            to="/corporate-ai-headshots"
+            className="hover:squeezyBtn flex justify-center items-center border-2 border-[#dadde2] shadow-md hover:bg-[#1d2838] text-white rounded-lg w-full sm:w-auto px-6 py-3 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+          >
+            Watch Demo
+          </Link>
         </div>
+      </div>
+      
+      {/* Image Section */}
+      <div className="w-[250px] h-[250px] flex-shrink-0">
+        <img
+          alt="Corporate AI Headshots"
+          src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251126/HeadGen_New_Images_1_bh9da7.webp"
+          className="w-full h-full object-cover rounded-lg shadow-lg"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
 
         {/* use flow card section */}
-
-        <div className="px-10 md:px-16 2xl:px-[200px] pb-20">
-          <div className="flex flex-wrap flex-col pt-8 md:pt-0 gap-[8rem] md:gap-2 md:flex-row justify-center items-center md:items-start md:justify-between px-2 ">
+{/* 
+        <div className="px-10 md:px-16 2xl:px-[200px]  mt-40">
+          <div className="flex flex-wrap flex-col pt-8 md:pt-0 gap-[8rem] md:gap-2 md:flex-row justify-center items-center md:items-start md:justify-between ">
             {cardData &&
               cardData?.map((item, idx) => (
                 <div className="relative w-full max-w-[320px] h-[300px] md:w-[32%] rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
                   <div className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] absolute -top-14 md:-top-20 right-2">
-                    <LazyLoadImage alt="" 
+                    <LazyLoadImage
+                      alt=""
                       src={item?.imgPath}
                       className="w-full h-full"
-                      height={"150px"}
-                      width={"150px"}
+                      // height={"150px"}
+                      // width={"150px"}
                     />
                   </div>
-                  <div className="flex flex-col gap-2 px-6 h-[200px]">
+                  {/* <div className="flex flex-col gap-2 px-6 h-[200px]">
                     <div className="text-2xl  md:text-5xl lg:text-7xl text-[#0055D4] font-medium">
                       {`0${idx + 1}`}
                     </div>
@@ -651,15 +776,23 @@ const Home = () => {
                   </div>
                   <div className="w-full h-[150px] bg-[#0055D4] text-white px-4 pb-2 flex justify-center items-center">
                     {item?.content}
-                  </div>
-                </div>
+                  </div> */}
+                {/* </div>
               ))}
           </div>
-        </div>
+        </div> */} 
+
+// <div>
+
+// </div>
+
+
 
         <div className="px-10 md:px-16 2xl:px-[200px] pb-20">
           <InfinityTextSlider />
         </div>
+        {/* how it works */}
+        
         {/* swipe section */}
 
         <div className="px-10 md:px-16 2xl:px-[200px] grid   lg:grid-cols-[auto_20rem] xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
@@ -817,7 +950,8 @@ const Home = () => {
               {useCaseData?.map((item) => (
                 <div className="w-auto max-w-[230px] 2xl:w-[200px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
                   <div className="w-full h-2/3">
-                    <LazyLoadImage alt="" 
+                    <LazyLoadImage
+                      alt=""
                       src={item?.path}
                       className="w-full h-full rounded-t-xl"
                       height={"200px"}
@@ -833,7 +967,7 @@ const Home = () => {
                   </div>
                 </div>
               ))}
-            </div>
+            </div> 
           </div>
 
           {/* turn your selfie info card */}
@@ -858,7 +992,8 @@ const Home = () => {
               </div>
             </div>
             <div className="w-full object-contain">
-              <LazyLoadImage alt="" 
+              <LazyLoadImage
+                alt=""
                 src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021956/headgen/Home/Turn%20your%20selfie%20into%20professional%20headshots/nrg3dczzklbafdfbc2lp.webp"
                 className="w-full h-full"
                 height={"250px"}
@@ -924,7 +1059,8 @@ const Home = () => {
               privacyFirstData?.map((item) => (
                 <div className=" w-[70%] md:w-[33%] xl:w-[22%] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
                   <div className="w-1/3">
-                    <LazyLoadImage alt="" 
+                    <LazyLoadImage
+                      alt=""
                       src={item?.imgPath}
                       className="w-full"
                       height={"100px"}
@@ -960,7 +1096,8 @@ const Home = () => {
           <div className="w-full flex flex-col items-center gap-1">
             <div className="flex w-2/3  gap-1">
               <div className="w-2/3 max-w-[300px]">
-                <LazyLoadImage alt="" 
+                <LazyLoadImage
+                  alt=""
                   src={`${moneyBackPics[0].path}`}
                   className="h-full !max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
                   height={"300px"}
@@ -968,13 +1105,15 @@ const Home = () => {
                 />
               </div>
               <div className="w-1/3 max-w-[150px] flex flex-col gap-1">
-                <LazyLoadImage alt="" 
+                <LazyLoadImage
+                  alt=""
                   src={`${moneyBackPics[1].path}`}
                   className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
                   height={"150px"}
                   width={"150px"}
                 />
-                <LazyLoadImage alt="" 
+                <LazyLoadImage
+                  alt=""
                   src={`${moneyBackPics[2].path}`}
                   className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
                   height={"150px"}
@@ -984,13 +1123,15 @@ const Home = () => {
             </div>
             <div className="flex w-2/3   gap-1">
               <div className="w-1/3 max-w-[150px] flex flex-col gap-1">
-                <LazyLoadImage alt="" 
+                <LazyLoadImage
+                  alt=""
                   src={`${moneyBackPics[3].path}`}
                   className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
                   height={"150px"}
                   width={"150px"}
                 />
-                <LazyLoadImage alt="" 
+                <LazyLoadImage
+                  alt=""
                   src={`${moneyBackPics[4].path}`}
                   className="h-1/2 !max-h-[150px] rounded-xl hover:scale-[1.04] transition duration-400"
                   height={"150px"}
@@ -998,7 +1139,8 @@ const Home = () => {
                 />
               </div>
               <div className="w-2/3 max-w-[300px]">
-                <LazyLoadImage alt="" 
+                <LazyLoadImage
+                  alt=""
                   src={`${moneyBackPics[5].path}`}
                   className="h-full !max-h-[300px] rounded-xl hover:scale-[1.04] transition duration-400"
                   height={"300px"}
@@ -1041,7 +1183,7 @@ const Home = () => {
             </div>
           </div>
         )}
-      </div>
+   
     </>
   );
 };
