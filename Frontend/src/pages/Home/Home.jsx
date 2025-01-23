@@ -562,7 +562,7 @@ const Home = () => {
             to="/corporate-ai-headshots"
             className={`w-48 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500`}
           >
-            Get your photos for $9
+            Get your photos for €9
           </Link>
         </div>
 
@@ -602,7 +602,7 @@ const Home = () => {
                 to="/corporate-ai-headshots"
                 className={`w-full px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500`}
               >
-                Get your photos for $9
+                Get your photos for €9
               </Link>
 
               <div className="flex flex-col md:flex-row gap-1 justify-between">
@@ -813,14 +813,13 @@ const Home = () => {
       </div>
 
       {/*    Unbeatable Prices */}
-    
+
       <div className="pt-20 py-10 px-10 md:px-16 2xl:px-[200px] ">
-      <PricingCards />
+        <PricingCards />
       </div>
       <div className="py-10 px-10 md:px-16 2xl:px-[200px]">
         <PriceTable />
       </div>
-   
 
       <div className="gradientBackground px-10 md:px-16 2xl:px-[200px]">
         <h2 className="flex flex-col items-center gap-6 pt-20">
@@ -907,7 +906,7 @@ const Home = () => {
                 to="/corporate-ai-headshots"
                 className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full px-6 py-2 md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
               >
-                Get your photos for $29
+                Get your photos for €9
               </Link>
             </div>
           </div>
