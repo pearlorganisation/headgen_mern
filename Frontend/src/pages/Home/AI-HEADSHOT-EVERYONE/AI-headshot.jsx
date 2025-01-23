@@ -93,12 +93,11 @@ function AIHeadshot() {
   };
 
   return (
-    <div className="">
+    <div className="text-white space-y-10">
       <div>
-        <h1 className="text-[50px] text-white font-bold">
-          AI Headshots for{" "}
-          <span className="text-[rgb(52,117,190)] font-bold">Everyone</span>
-        </h1>
+        <h2 className="text-4xl text-center font-bold px-16">
+        AI Headshots for <span className="text-blue-500">Everyone</span>
+          </h2>
       </div>
 
       <div className="px-8  rounded-t-xl cursor-default transition duration-300 mx-auto   border border-[#65A2E9] rounded-md py-4">

@@ -475,11 +475,6 @@ const Home = () => {
       id: 1,
       img: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251125/14_1_lb0ptb.webp",
     },
-  const howitworks = [
-    {
-      id: 1,
-      img: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251125/14_1_lb0ptb.webp",
-    },
 
     {
       id: 2,
@@ -572,9 +567,6 @@ const Home = () => {
         </div>
 
         <div>
-          <div className="w-full overflow-hidden bg-[002C61] px-10 md:px-16 2xl:px-[200px]">
-            <InfinitySlider imgData1={imgData1} />
-          </div>
           <div className="w-full overflow-hidden bg-[002C61] px-10 md:px-16 2xl:px-[200px]">
             <InfinitySlider imgData1={imgData1} />
           </div>
@@ -714,7 +706,7 @@ const Home = () => {
       <div className="px-14 rounded-md">
         <AIHeadshot />
       </div>
-      <div className="px-6 lg:px-20">
+      <div className="pb-20 px-10 md:px-16 2xl:px-[200px]">
         <div className="w-full flex bg-gradient-to-b gradientBg mt-28 py-8 lg:py-24 rounded-lg ">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 mx-auto px-6 lg:px-20">
             {/* Text Section */}
@@ -786,155 +778,15 @@ const Home = () => {
               ))}
           </div>
         </div> */}
-      // <div>// </div>
+
       <div className="px-10 md:px-16 2xl:px-[200px] pb-20">
         <InfinityTextSlider />
       </div>
-      {/*    Unbeatable Prices */}
-      <PricingCards/>
-      <div className="mb-20">
-      <PriceTable/>
-      </div>
- 
-      {/* swipe section */}
-      <div className="px-10 md:px-16 2xl:px-[200px] grid   lg:grid-cols-[auto_20rem] xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
-        <div className="w-[50% w-full 2xl:w-[55% bg-gradient-to-br from-[#000000] via-[#000000] to-[#000000] rounded-2xl shadow-[0_0_0_1px_#ffffff] py-10 relative transition duration-500">
-          <div className="flex flex-col justify-between gap-8 md:gap-20 items-center h-full">
-            <h2 className="flex flex-col  items-center text-[20px] sm:text-[26px] xl:text-[32px] 2xl:text-[40px] font-extrabold md:font-semibold text-[#F1F1F1]">
-              <div>The Most Realistic</div>
-              <div>AI Image Generator</div>
-            </h2>
-
-            {/* for mobile screen */}
-            <div className="text-white block md:hidden">
-              <div className="text-[24px] font-bold text-center">
-                Professional Photoshoot
-              </div>
-              <div className="flex flex-col justify-center items-center gap-2 text-[18px]">
-                <div>Upto $2500</div>
-                <div>Multiple Days</div>
-                <div>Tedious Process</div>
-              </div>
-            </div>
-            <div className="text-[#f1f1f1] text-[40px] md:text-[55px] lg:text-[70px] xl:text-[80px] italic">
-              VS
-            </div>
-            <div className="text-white block md:hidden">
-              <div className="text-[24px] font-bold text-center">
-                HeadGen AI
-              </div>
-              <div className="flex flex-col justify-center items-center gap-2 text-[18px]">
-                <div>$29</div>
-                <div>Within 2 hours</div>
-                <div>Very easy process</div>
-              </div>
-            </div>
-            <div className="hidden md:flex flex-col gap-2 text-[#f1f1f1] text-[22px]">
-              <div>Why waste hours on expensive Photoshoots?</div>
-              <div>Boost your careed with amazing AI Generated</div>
-              <div>Images that are quick, easy, cheap & convenient!</div>
-            </div>
-          </div>
-         
-            <div className="text-white block md:hidden">
-              <div className="text-[24px] font-bold text-center">
-                Professional Photoshoot
-              </div>
-              <div className="flex flex-col justify-center items-center gap-2 text-[18px]">
-                <div>Upto $2500</div>
-                <div>Multiple Days</div>
-                <div>Tedious Process</div>
-              </div>
-            </div>
-            <div className="text-[#f1f1f1] text-[40px] md:text-[55px] lg:text-[70px] xl:text-[80px] italic">
-              VS
-            </div>
-            <div className="text-white block md:hidden">
-              <div className="text-[24px] font-bold text-center">
-                HeadGen AI
-              </div>
-              <div className="flex flex-col justify-center items-center gap-2 text-[18px]">
-                <div>€9</div>
-                <div>Within 2 hours</div>
-                <div>Very easy process</div>
-              </div>
-            </div>
-            <div className="hidden md:flex flex-col gap-2 text-[#f1f1f1] text-[22px]">
-              <div>Why waste hours on expensive Photoshoots?</div>
-              <div>Boost your careed with amazing AI Generated</div>
-              <div>Images that are quick, easy, cheap & convenient!</div>
-            </div>
-          </div>
-
-       
-          <div className="w-[200px] hidden  h-[200px] lg:w-[220px] lg:h-[170px] 2xl:w-[270px] 2xl:h-[220px] md:flex flex-col justify-evenly items-center bg-gradient-to-br from-[#053499] to-[#2563EB] p-4 absolute top-1/2 -translate-y-1/2 -left-8 lg:-left-14 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff]">
-            <div className="text-[18px] 2xl:text-[24px] font-bold text-center">
-              Professional Photoshoot
-            </div>
-            <div className="flex flex-col gap-1 md:gap-2 text-[18px]">
-              <div>Upto $2500</div>
-              <div>Multiple Days</div>
-              <div>Tedious Process</div>
-            </div>
-          </div>
-
-        
-          <div className="w-[200px] h-[200px] 2xl:w-[270px] 2xl:h-[220px] hidden md:flex flex-col justify-evenly items-center bg-gradient-to-br from-[#053499] to-[#2563EB]  p-4 absolute top-1/2 -translate-y-1/2 lg:-right-14 -right-8 rounded-xl shadow-[0_0_0_1px_#ffffff] hover:scale-[1.001] hover:shadow-[0_0_0_2px_#ffffff] transition duration-600 text-[#ffffff] ">
-            <div className="text-[18px] 2xl:text-[24px] font-bold text-center">
-              HeadGen AI
-            </div>
-            <div className="flex flex-col gap-1 md:gap-2 text-[18px]">
-              <div>€9</div>
-              <div>Within 2 hours</div>
-              <div>Very easy process</div>
-            </div>
-          </div>
-        </div>
-        <div className="w-[40% w-full 2xl:w-[35% flex flex-col gap-10 ">
-          <div className="w-full !glassMorphism !bg-gradient-to-br !from-[#10151dde] to-[#121720de] py-10 rounded-2xl relative px-8 shadow-[0_0_0_1px_#ffffff] h-2/3">
-            <div className="absolute w-[130px] h-[130px] md:w-[200px] md:h-[200px] -top-10 -translate-y-10 right-2 shadow-[0_0_0_1px_#ffffff] rounded-2xl">
-              <BeforeAfterSlider
-                img1={"/beforeAfter/before.jpg"}
-                img2={"/beforeAfter/after.jpg"}
-              />
-            </div>
-
-            <div className="flex flex-col h-full justify-evenly gap-4 text-[#f1f1f1] ">
-              <h3 className="flex flex-col gap-0 ">
-                <div className="text-[30px] md:*:text-[44px] font-bold">
-                  Swipe
-                </div>
-                <div className="text-[15px] md:text-[28px] font-bold w-[200px] leading-tight">
-                  to see the results
-                </div>
-              </h3>
-              <div className="text-[20px]">
-                Simply upload a selfie and get High Quality Professional AI
-                Generated Images
-              </div>
-            </div>
-          </div>
-          <div className="w-full !glassMorphism !bg-gradient-to-br !from-[#10151dde] to-[#121720de] py-10 rounded-2xl relative px-8 shadow-[0_0_0_1px_#ffffff] min-h-1/3">
-            <div className="flex flex-col justify-evenly gap-4 text-[#f1f1f1]">
-              <div className="flex flex-col gap-0">
-                <div className="text-[28px] font-bold w-full flex justify-between">
-                  <div>Boost your Career</div>
-                  <FaLinkedin size={48} className="text-blue-500" />
-                </div>
-               
-              </div>
-              <div className="text-[20px]">
-                Make a lasting first impression <br /> with amazing Professional
-                Headshots.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
 
       <div className="mx-auto text-center space-y-8 border-red-500">
         <h2 className="text-4xl text-center font-bold px-16 text-white">
-        <span className="text-blue-500">Swipe</span> to see the HeadgenAI results
+          <span className="text-blue-500">Swipe</span> to see the HeadgenAI
+          results
         </h2>
 
         <div className="px-10 md:px-16 2xl:px-[200px] flex flex-row flex-wrap justify-center gap-5">
@@ -958,6 +810,16 @@ const Home = () => {
             />
           </div>
         </div>
+      </div>
+
+      {/*    Unbeatable Prices */}
+      <div className="gradientBackground">
+      <div className="py-10 px-10 md:px-16 2xl:px-[200px] ">
+      <PricingCards />
+      </div>
+      <div className="py-10 px-10 md:px-16 2xl:px-[200px]">
+        <PriceTable />
+      </div>
       </div>
 
       <div className="gradientBackground px-10 md:px-16 2xl:px-[200px]">
