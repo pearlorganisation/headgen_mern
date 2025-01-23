@@ -679,9 +679,9 @@ const Home = () => {
           <h2 className="text-4xl text-center font-bold px-16">
             How it <span className="text-blue-500">works</span>
           </h2>
-          <div className="flex flex-wrap justify-center items-center w-full gap-4 md:gap-8">
+          <div className="flex  flex-col md:flex-row justify-center items-center w-full gap-4 md:gap-8">
             {howitworks?.map((item) => (
-              <div className="w-1/5 2xl:w-1/5 bg-[#111428] shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300 px-4 py-8">
+              <div className="w-1/5 2xl:w-1/5 bg-[#111428] shadow-[0_0_0_1px_#2563EB]  rounded-xl hover:-translate-y-4 cursor-default transition duration-300 px-4 py-8">
                 <div className="w-full h-2/3">
                   <LazyLoadImage
                     alt=""
