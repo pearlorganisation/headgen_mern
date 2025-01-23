@@ -16,6 +16,8 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import AsSeenOn from "../../components/AsSeenOn/AsSeenOn";
 import { Helmet } from "react-helmet";
 import AIHeadshot from "./AI-HEADSHOT-EVERYONE/AI-headshot";
+import PricingCards from "./unbelivablePrice/UnbelivablePrice";
+import PriceTable from "./price&TImetable/price&TimeTable";
 
 const Home = () => {
   const [blogData, setBlogData] = useState(null);
@@ -473,6 +475,11 @@ const Home = () => {
       id: 1,
       img: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251125/14_1_lb0ptb.webp",
     },
+  const howitworks = [
+    {
+      id: 1,
+      img: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251125/14_1_lb0ptb.webp",
+    },
 
     {
       id: 2,
@@ -565,6 +572,9 @@ const Home = () => {
         </div>
 
         <div>
+          <div className="w-full overflow-hidden bg-[002C61] px-10 md:px-16 2xl:px-[200px]">
+            <InfinitySlider imgData1={imgData1} />
+          </div>
           <div className="w-full overflow-hidden bg-[002C61] px-10 md:px-16 2xl:px-[200px]">
             <InfinitySlider imgData1={imgData1} />
           </div>
@@ -776,21 +786,55 @@ const Home = () => {
               ))}
           </div>
         </div> */}
-
-      <div className="px-10 md:px-16 2xl:px-[200px] py-20">
+      // <div>// </div>
+      <div className="px-10 md:px-16 2xl:px-[200px] pb-20">
         <InfinityTextSlider />
       </div>
-
+      {/*    Unbeatable Prices */}
+      <PricingCards/>
+      <div className="mb-20">
+      <PriceTable/>
+      </div>
+ 
       {/* swipe section */}
-
-      {/* <div className="px-10 md:px-16 2xl:px-[200px] grid   lg:grid-cols-[auto_20rem] xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
-        <div className="w-full 2xl:w-[55%] bg-gradient-to-br from-[#000000] via-[#000000] to-[#000000] rounded-2xl shadow-[0_0_0_1px_#ffffff] py-10 relative transition duration-500">
+      <div className="px-10 md:px-16 2xl:px-[200px] grid   lg:grid-cols-[auto_20rem] xl:grid-cols-[30rem_auto]  2xl:grid-cols-[auto_25rem] gap-[8rem] cursor-default">
+        <div className="w-[50% w-full 2xl:w-[55% bg-gradient-to-br from-[#000000] via-[#000000] to-[#000000] rounded-2xl shadow-[0_0_0_1px_#ffffff] py-10 relative transition duration-500">
           <div className="flex flex-col justify-between gap-8 md:gap-20 items-center h-full">
             <h2 className="flex flex-col  items-center text-[20px] sm:text-[26px] xl:text-[32px] 2xl:text-[40px] font-extrabold md:font-semibold text-[#F1F1F1]">
               <div>The Most Realistic</div>
               <div>AI Image Generator</div>
             </h2>
 
+            {/* for mobile screen */}
+            <div className="text-white block md:hidden">
+              <div className="text-[24px] font-bold text-center">
+                Professional Photoshoot
+              </div>
+              <div className="flex flex-col justify-center items-center gap-2 text-[18px]">
+                <div>Upto $2500</div>
+                <div>Multiple Days</div>
+                <div>Tedious Process</div>
+              </div>
+            </div>
+            <div className="text-[#f1f1f1] text-[40px] md:text-[55px] lg:text-[70px] xl:text-[80px] italic">
+              VS
+            </div>
+            <div className="text-white block md:hidden">
+              <div className="text-[24px] font-bold text-center">
+                HeadGen AI
+              </div>
+              <div className="flex flex-col justify-center items-center gap-2 text-[18px]">
+                <div>$29</div>
+                <div>Within 2 hours</div>
+                <div>Very easy process</div>
+              </div>
+            </div>
+            <div className="hidden md:flex flex-col gap-2 text-[#f1f1f1] text-[22px]">
+              <div>Why waste hours on expensive Photoshoots?</div>
+              <div>Boost your careed with amazing AI Generated</div>
+              <div>Images that are quick, easy, cheap & convenient!</div>
+            </div>
+          </div>
          
             <div className="text-white block md:hidden">
               <div className="text-[24px] font-bold text-center">
@@ -953,36 +997,36 @@ const Home = () => {
           <InfinitySlider imgData1={imgData2} imgData2={imgData3} />
         </div>
 
-        <div className="flex flex-col gap-10 items-center">
-          <h2 className="text-[#F1F1F1] space-x-2  text-xl text-center md:text-4xl 2xl:text-[72px]  font-medium">
-            <span>Use Cases of</span>
-            <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold md:py-10">
-              AI Headshots
-            </span>
-          </h2>
-          <div className="flex flex-wrap justify-center items-center w-full gap-4 md:gap-2">
-            {useCaseData?.map((item) => (
-              <div className="w-auto max-w-[230px] 2xl:w-[200px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
-                <div className="w-full h-2/3">
-                  <LazyLoadImage
-                    alt=""
-                    src={item?.path}
-                    className="w-full h-full rounded-t-xl"
-                    height={"200px"}
-                    width={"200px"}
-                  />
-                </div>
-                <div className="flex flex-col justify-center px-2 py-4">
-                  <div className="text-medium text-sm font-bold flex justify-between">
-                    <span>{item?.title}</span>
-                    <span>{item?.svg}</span>
+        {/* <div className="flex flex-col gap-10 items-center">
+            <h2 className="text-[#F1F1F1] space-x-2  text-xl text-center md:text-4xl 2xl:text-[72px]  font-medium">
+              <span>Use Cases of</span>
+              <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold md:py-10">
+                AI Headshots
+              </span>
+            </h2>
+            <div className="flex flex-wrap justify-center items-center w-full gap-4 md:gap-2">
+              {useCaseData?.map((item) => (
+                <div className="w-auto max-w-[230px] 2xl:w-[200px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
+                  <div className="w-full h-2/3">
+                    <LazyLoadImage
+                      alt=""
+                      src={item?.path}
+                      className="w-full h-full rounded-t-xl"
+                      height={"200px"}
+                      width={"200px"}
+                    />
                   </div>
-                  <div className="text-xs">{item?.content}</div>
+                  <div className="flex flex-col justify-center px-2 py-4">
+                    <div className="text-medium text-sm font-bold flex justify-between">
+                      <span>{item?.title}</span>
+                      <span>{item?.svg}</span>
+                    </div>
+                    <div className="text-xs">{item?.content}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
+              ))}
+            </div> 
+          </div> */}
 
         {/* turn your selfie info card */}
         <div className="w-full grid md:grid-cols-2 gap-4 bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-5 lg:py-10 rounded-xl shadow-[0_0_1px_1px#f1f1f1] ">
@@ -1001,7 +1045,7 @@ const Home = () => {
                 to="/corporate-ai-headshots"
                 className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full px-6 py-2 md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
               >
-                Get your photos for €9
+                Get your photos for $29
               </Link>
             </div>
           </div>
@@ -1025,7 +1069,6 @@ const Home = () => {
           <DatingHero />
         </div>
       </div>
-
       <div className="grid md:grid-cols-2 gap-8 px-10 md:px-16 2xl:px-[200px]">
         <div className="w-full relative">
           <div className="flex flex-col items-center md:items-start justify-center gap-2 md:gap-6 top-0">
@@ -1045,7 +1088,6 @@ const Home = () => {
           <FaqAccordian />
         </div>
       </div>
-
       <div className="flex space-y-4 flex-col px-10 md:px-16 2xl:px-[200px]">
         <h2 className="text-center text-xl sm:text-2xl md:text-4xl xl:text-6xl  text-[#F1F1F1]">
           <span className=" bg-gradient-to-r md:leading-[5rem] from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
@@ -1059,7 +1101,6 @@ const Home = () => {
           height={"400px"}
         />
       </div>
-
       <div className="flex flex-col gap-5 md:gap-10">
         <h2 className="text-center text-lg sm:text-xl md:text-3xl xl:text-5xl text-[#F1F1F1]">
           <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
@@ -1088,7 +1129,6 @@ const Home = () => {
             ))}
         </div>
       </div>
-
       <div className="flex flex-col gap-8">
         <h2 className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
           <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
@@ -1104,7 +1144,6 @@ const Home = () => {
           AI Generated Images using HeadGen
         </div>
       </div>
-
       <div className="grid md:grid-cols-2 gap-8 px-10 md:px-16 2xl:px-[200px] py-10">
         <div className="w-full flex flex-col items-center gap-1">
           <div className="flex w-2/3  gap-1">
