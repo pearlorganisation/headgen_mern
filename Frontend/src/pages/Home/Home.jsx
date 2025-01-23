@@ -474,19 +474,23 @@ const Home = () => {
     {
       id: 1,
       img: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251125/14_1_lb0ptb.webp",
+      title:"Upload a Selfie"
     },
 
     {
       id: 2,
       img: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251125/15_1_kdhxuf.webp",
+      title:"Select Attire & Background"
     },
     {
       id: 3,
       img: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251126/16_1_m5xxlu.webp",
+      title:"HeadGen AI gets to work"
     },
     {
       id: 4,
       img: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251126/17_1_ksomyw.webp",
+      title:"Recieve AI Headshots via E-mail"
     },
   ];
 
@@ -552,17 +556,18 @@ const Home = () => {
           </div>
         </div>
         <div className="mx-auto max-w-2xl">
-          <h1 className="text-5xl text-white px-8 font-bold ">
-            Convert your selfies into Professional{" "}
-            <span className="text-[#00B9C8]">AI Headshots</span>
-          </h1>
-        </div>
+  <h1 className="text-5xl text-white font-bold text-center px-8 leading-tight">
+    <span>Convert your selfies into Professional </span>
+    <span className="text-[#00B9C8]">AI Headshots</span>
+  </h1>
+</div>
+
         <div className="mx-auto">
           <Link
             to="/corporate-ai-headshots"
             className={`w-48 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500`}
           >
-            Get your photos for $9
+            Get your photos for €9
           </Link>
         </div>
 
@@ -602,7 +607,7 @@ const Home = () => {
                 to="/corporate-ai-headshots"
                 className={`w-full px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500`}
               >
-                Get your photos for $9
+                Get your photos for €9
               </Link>
 
               <div className="flex flex-col md:flex-row gap-1 justify-between">
@@ -679,35 +684,36 @@ const Home = () => {
           <h2 className="text-4xl text-center font-bold px-16">
             How it <span className="text-blue-500">works</span>
           </h2>
-          <div className="flex flex-wrap justify-center items-center w-full gap-4 md:gap-8">
-            {howitworks?.map((item) => (
-              <div className="w-1/5 2xl:w-1/5 bg-[#111428] shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300 px-4 py-8">
-                <div className="w-full h-2/3">
-                  <LazyLoadImage
-                    alt=""
-                    src={item?.img}
-                    className="w-full h-full rounded-t-xl"
-                    height={"250px"}
-                    width={"20px"}
-                  />
-                </div>
-                {/* <div className="flex flex-col justify-center px-2 py-4">
-                    <div className="text-medium text-sm font-bold flex justify-between">
-                      <span>{item?.title}</span>
-                      <span>{item?.svg}</span>
-                    </div>
-                 
-                  </div> */}
-              </div>
-            ))}
-          </div>
+          <div className="flex flex-col md:flex-row justify-center items-center w-full gap-4 md:gap-8">
+  {howitworks?.map((item, index) => (
+    <div key={index} className="flex flex-col items-center">
+      <div className="w-64 bg-[#111428] shadow-lg rounded-xl hover:-translate-y-4 cursor-pointer transition duration-300 px-6 py-8">
+        <div className="w-full h-56">
+          <LazyLoadImage
+            alt={item?.title || "Image"} // Optional title for accessibility
+            src={item?.img}
+            className="w-full h-full object-cover rounded-t-xl"
+            height={250}
+            width={250}
+          />
+        </div>
+      </div>
+      <div className="flex flex-row justify-between text-start gap-4">
+      <div className="mt-4 text-white font-semibold border rounded-full px-3 py-1 border-[#609F8B] ">{index + 1}</div>
+      <div className=" mt-5 text-center text-[16px]" >{item.title}</div>
+      </div>
+    
+    </div>
+  ))}
+</div>
+
         </div>
       </div>
       <div className="px-14 rounded-md">
         <AIHeadshot />
       </div>
-      <div className="pb-20 px-10 md:px-16 2xl:px-[200px]">
-        <div className="w-full flex bg-gradient-to-b gradientBg mt-28 py-8 lg:py-24 rounded-lg ">
+      <div className="pb-20 px-10 md:px-16 2xl:px-[200px] gradientBg">
+        <div className="w-full flex mt-28 py-8 lg:py-24 rounded-lg ">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 mx-auto px-6 lg:px-20">
             {/* Text Section */}
             <div className="w-full lg:w-2/3 text-center lg:text-left">
@@ -813,13 +819,12 @@ const Home = () => {
       </div>
 
       {/*    Unbeatable Prices */}
-      <div className="gradientBackground">
-      <div className="py-10 px-10 md:px-16 2xl:px-[200px] ">
-      <PricingCards />
+
+      <div className="pt-20 py-10 px-10 md:px-16 2xl:px-[200px] ">
+        <PricingCards />
       </div>
       <div className="py-10 px-10 md:px-16 2xl:px-[200px]">
         <PriceTable />
-      </div>
       </div>
 
       <div className="gradientBackground px-10 md:px-16 2xl:px-[200px]">
@@ -907,7 +912,7 @@ const Home = () => {
                 to="/corporate-ai-headshots"
                 className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full px-6 py-2 md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
               >
-                Get your photos for $29
+                Get your photos for €9
               </Link>
             </div>
           </div>

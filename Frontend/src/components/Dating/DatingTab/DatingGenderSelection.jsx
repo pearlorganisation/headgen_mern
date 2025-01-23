@@ -56,8 +56,8 @@ const DatingGenderSelection = ({
       <div className="text-center  lg:text-left text-xl sm:text-2xl md:text-3xl">
         Pick from our custom headshot templates:
       </div>
-      <div className="grid lg:grid-cols-[auto_20rem] gap-8 w-full   ">
-        <div className="w-full mt-2 hidden md:flex flex-col  justify-end  rounded-xl">
+      <div className="grid xl:grid-cols-[auto_20rem] gap-8 w-full   ">
+        {/* <div className="w-full mt-2 hidden md:flex flex-col  justify-end  rounded-xl">
           {userData?.gender?.length > 0 &&
             selectionData
               ?.filter((item) => {
@@ -76,6 +76,14 @@ const DatingGenderSelection = ({
                   />
                 </div>
               ))}
+        </div> */}
+        <div className="flex flex-col justify-center items-center">
+          <UserDetails
+            userData={userData}
+            setUserData={setUserData}
+            errors={errors}
+            type={type}
+          />
         </div>
 
         <div className="flex flex-col justify-center  items-center w-full max-h-[400px]  overflow-auto">
@@ -96,13 +104,6 @@ const DatingGenderSelection = ({
               ))}
         </div>
       </div>
-
-      <UserDetails
-        userData={userData}
-        setUserData={setUserData}
-        errors={errors}
-        type={type}
-      />
     </div>
   );
 };

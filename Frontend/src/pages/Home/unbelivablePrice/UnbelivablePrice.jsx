@@ -30,7 +30,7 @@ const plans = [
 
 const PricingCards = () => {
   return (
-    <div className="w-full rounded-2xl  transition duration-500 mb-10 md:px-10 pt-10">
+    <div className="w-full rounded-2xl bg-[#282828] py-10 transition duration-500 mb-10 md:px-10 pt-10">
    <h1 className="text-white font-bold text-2xl sm:text-3xl lg:text-5xl leading-tight sm:leading-snug text-center max-w-xl sm:max-w-4xl mx-auto px-4 sm:px-5">
   <span>Premium Professional Images</span> <br />
   <span>at</span> 
