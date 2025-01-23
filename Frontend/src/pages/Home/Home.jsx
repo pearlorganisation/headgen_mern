@@ -706,8 +706,8 @@ const Home = () => {
       <div className="px-14 rounded-md">
         <AIHeadshot />
       </div>
-      <div className="pb-20 px-10 md:px-16 2xl:px-[200px]">
-        <div className="w-full flex bg-gradient-to-b gradientBg mt-28 py-8 lg:py-24 rounded-lg ">
+      <div className="pb-20 px-10 md:px-16 2xl:px-[200px] gradientBg">
+        <div className="w-full flex mt-28 py-8 lg:py-24 rounded-lg ">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 mx-auto px-6 lg:px-20">
             {/* Text Section */}
             <div className="w-full lg:w-2/3 text-center lg:text-left">
@@ -813,14 +813,14 @@ const Home = () => {
       </div>
 
       {/*    Unbeatable Prices */}
-      <div className="gradientBackground">
-      <div className="py-10 px-10 md:px-16 2xl:px-[200px] ">
+    
+      <div className="pt-20 py-10 px-10 md:px-16 2xl:px-[200px] ">
       <PricingCards />
       </div>
       <div className="py-10 px-10 md:px-16 2xl:px-[200px]">
         <PriceTable />
       </div>
-      </div>
+   
 
       <div className="gradientBackground px-10 md:px-16 2xl:px-[200px]">
         <h2 className="flex flex-col items-center gap-6 pt-20">
