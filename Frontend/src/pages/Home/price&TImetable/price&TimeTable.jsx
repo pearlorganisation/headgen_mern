@@ -20,7 +20,7 @@ const PriceTable = () => {
         },
       ];
   return (
-    <div className="bg-black py-10 px-4 max-w-3xl mx-auto">
+    <div className=" py-10 px-4">
       <div className="overflow-x-auto">
         <table className="w-full text-white border-collapse border-spacing-0">
           <thead>

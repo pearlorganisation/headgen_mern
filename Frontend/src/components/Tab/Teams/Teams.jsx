@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaCircleCheck } from "react-icons/fa6";
-import { PiCurrencyDollarBold } from "react-icons/pi";
+
 import "./styles.css";
 import Select, { useStateManager } from "react-select";
 import { Controller, useForm } from "react-hook-form";
 import { BeatLoader } from "react-spinners";
 import axios from "axios";
+import { FaEuroSign } from "react-icons/fa";
 
 const Teams = ({ userData, setUserData }) => {
   const formRef = useRef();
@@ -184,7 +185,7 @@ const Teams = ({ userData, setUserData }) => {
                     <div className="flex justify-start items-end -translate-x-3">
                       <div className="text-blue-500 text-5xl md:text-7xl font-bold flex justify-start">
                         {" "}
-                        <PiCurrencyDollarBold className=" " />
+                        <FaEuroSign />
                         {data?.price}{" "}
                       </div>{" "}
                       <span className="text-xs md:text-base pb-3 pl-1">
@@ -195,11 +196,10 @@ const Teams = ({ userData, setUserData }) => {
                       <div className="flex justify-start gap-1 items-center font-bold">
                         Total Price:{" "}
                         <span className="flex justify-start gap-1 items-center">
-                          <PiCurrencyDollarBold className="" />
-                          {data?.totalPrice}{" "}
+                        {"€"} {data?.totalPrice}{" "}
                         </span>
                         <span className="flex justify-start items-center line-through text-gray-500">
-                          ${data?.totalPrice}
+                        {"€"} {data?.totalPrice}
                         </span>{" "}
                       </div>
                     </div>
@@ -446,12 +446,12 @@ const Teams = ({ userData, setUserData }) => {
 
                 <div className="text-lg sm:text-2xl font-bold">
                   {userData?.price
-                    ? `${userData?.users} X ${userData?.price}`
+                    ? `${userData?.users} X €${userData?.price}`
                     : `${userData?.title}`}
                 </div>
                 {userData?.price && userData?.totalPrice && (
                   <div className="text-lg sm:text-2xl font-bold">
-                    Total Price - {userData?.totalPrice}
+                     Total Price - {"€"}{userData?.totalPrice}
                   </div>
                 )}
               </div>

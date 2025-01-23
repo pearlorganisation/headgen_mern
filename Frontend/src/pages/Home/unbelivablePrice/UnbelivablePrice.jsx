@@ -30,7 +30,7 @@ const plans = [
 
 const PricingCards = () => {
   return (
-    <div className="w-full bg-gradient-to-br from-[#000000] via-[#000000] to-[#000000] rounded-2xl  transition duration-500 mb-10 md:px-10 py-20">
+    <div className="w-full rounded-2xl  transition duration-500 mb-10 md:px-10 pt-10">
    <h1 className="text-white font-bold text-2xl sm:text-3xl lg:text-5xl leading-tight sm:leading-snug text-center max-w-xl sm:max-w-4xl mx-auto px-4 sm:px-5">
   <span>Premium Professional Images</span> <br />
   <span>at</span> 
@@ -46,7 +46,7 @@ const PricingCards = () => {
         {plans.map((plan, index) => (
           <div
             key={index}
-            className="w-[300px] h-[450px] border-2 border-[#03239A] px-6 py-10 rounded-lg"
+            className="w-[300px] h-[450px] border-2 border-[#03239A] bg-[#161616] px-6 py-10 rounded-lg"
           >
             <div className="flex flex-row justify-between items-center">
             <div

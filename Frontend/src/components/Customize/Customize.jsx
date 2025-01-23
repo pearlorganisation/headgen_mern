@@ -25,16 +25,16 @@ const Customize = ({
   const customizePriceCardData = [
     {
       title: "BASIC PACK",
-      originalPrice: "$70",
-      price: "$50",
+      originalPrice: "€70",
+      price: "€50",
       features: ["Basic Quality"],
       packName: "Basic Pack",
       tag: "",
     },
     {
       title: "PREMIUM PACK",
-      originalPrice: "$130",
-      price: "$100",
+      originalPrice: "€100",
+      price: "€100",
       features: ["High Quality"],
       packName: "Premium Pack",
       tag: "",
