@@ -474,23 +474,23 @@ const Home = () => {
     {
       id: 1,
       img: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251125/14_1_lb0ptb.webp",
-      title:"Upload a Selfie"
+      title: "Upload a Selfie",
     },
 
     {
       id: 2,
       img: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251125/15_1_kdhxuf.webp",
-      title:"Select Attire & Background"
+      title: "Select Attire & Background",
     },
     {
       id: 3,
       img: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251126/16_1_m5xxlu.webp",
-      title:"HeadGen AI gets to work"
+      title: "HeadGen AI gets to work",
     },
     {
       id: 4,
       img: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251126/17_1_ksomyw.webp",
-      title:"Recieve AI Headshots via E-mail"
+      title: "Recieve AI Headshots via E-mail",
     },
   ];
 
@@ -556,11 +556,11 @@ const Home = () => {
           </div>
         </div>
         <div className="mx-auto max-w-2xl">
-  <h1 className="text-5xl text-white font-bold text-center px-8 leading-tight">
-    <span>Convert your selfies into Professional </span>
-    <span className="text-[#00B9C8]">AI Headshots</span>
-  </h1>
-</div>
+          <h1 className="text-5xl text-white font-bold text-center px-8 leading-tight">
+            <span>Convert your selfies into Professional </span>
+            <span className="text-[#00B9C8]">AI Headshots</span>
+          </h1>
+        </div>
 
         <div className="mx-auto">
           <Link
@@ -685,28 +685,30 @@ const Home = () => {
             How it <span className="text-blue-500">works</span>
           </h2>
           <div className="flex flex-col md:flex-row justify-center items-center w-full gap-4 md:gap-8">
-  {howitworks?.map((item, index) => (
-    <div key={index} className="flex flex-col items-center">
-      <div className="w-64 bg-[#111428] shadow-lg rounded-xl hover:-translate-y-4 cursor-pointer transition duration-300 px-6 py-8">
-        <div className="w-full h-56">
-          <LazyLoadImage
-            alt={item?.title || "Image"} // Optional title for accessibility
-            src={item?.img}
-            className="w-full h-full object-cover rounded-t-xl"
-            height={250}
-            width={250}
-          />
-        </div>
-      </div>
-      <div className="flex flex-row justify-between text-start gap-4">
-      <div className="mt-4 text-white font-semibold border rounded-full px-3 py-1 border-[#609F8B] ">{index + 1}</div>
-      <div className=" mt-5 text-center text-[16px]" >{item.title}</div>
-      </div>
-    
-    </div>
-  ))}
-</div>
-
+            {howitworks?.map((item, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <div className="w-64 bg-[#111428] shadow-lg rounded-xl hover:-translate-y-4 cursor-pointer transition duration-300 px-6 py-8">
+                  <div className="w-full h-56">
+                    <LazyLoadImage
+                      alt={item?.title || "Image"} // Optional title for accessibility
+                      src={item?.img}
+                      className="w-full h-full object-cover rounded-t-xl"
+                      height={250}
+                      width={250}
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-row justify-between text-start gap-4">
+                  <div className="mt-4 text-white font-semibold border rounded-full px-3 py-1 border-[#609F8B] ">
+                    {index + 1}
+                  </div>
+                  <div className=" mt-5 text-center text-[16px]">
+                    {item.title}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <div className="px-14 rounded-md">
@@ -955,7 +957,7 @@ const Home = () => {
           <FaqAccordian />
         </div>
       </div>
-      <div className="flex space-y-4 flex-col px-10 md:px-16 2xl:px-[200px]">
+      <div className="flex space-y-4 flex-col px-10 md:px-16 2xl:px-[200px] py-10">
         <h2 className="text-center text-xl sm:text-2xl md:text-4xl xl:text-6xl  text-[#F1F1F1]">
           <span className=" bg-gradient-to-r md:leading-[5rem] from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
             Our Clients love
@@ -968,7 +970,7 @@ const Home = () => {
           height={"400px"}
         />
       </div>
-      <div className="flex flex-col gap-5 md:gap-10">
+      <div className="flex flex-col gap-5 md:gap-10 py-10">
         <h2 className="text-center text-lg sm:text-xl md:text-3xl xl:text-5xl text-[#F1F1F1]">
           <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
             Privacy First
@@ -996,7 +998,7 @@ const Home = () => {
             ))}
         </div>
       </div>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-8 py-10">
         <h2 className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
           <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
             Premium Professional
