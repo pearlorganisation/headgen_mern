@@ -11,7 +11,6 @@ import { MdGroups } from "react-icons/md";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import InfinityTextSlider from "../../components/InfinitySlider/InfinityTextSlider";
-import { IoIosStar } from "react-icons/io";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import AsSeenOn from "../../components/AsSeenOn/AsSeenOn";
 import { Helmet } from "react-helmet";
@@ -798,6 +797,8 @@ const Home = () => {
         </h2>
 
         <div className="px-10 md:px-16 2xl:px-[200px] flex flex-row flex-wrap justify-center gap-5">
+          
+
           <div className="bg-[#111428] shadow-[0_0_0_1px_#2563EB] rounded-xl px-4 py-8">
             <BeforeAfterSlider
               img1={"/beforeAfter/before.jpg"}
@@ -807,10 +808,13 @@ const Home = () => {
 
           <div className="bg-[#111428] shadow-[0_0_0_1px_#2563EB] rounded-xl px-4 py-8">
             <BeforeAfterSlider
-              img1={"/beforeAfter/before.jpg"}
-              img2={"/beforeAfter/after.jpg"}
+              img1={
+                "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251126/HeadGen_New_Images_2_ulenkv.webp"
+              }
+              img2={"https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251126/HeadGen_New_Images_3_pjophi.png"}
             />
           </div>
+          
           <div className="bg-[#111428] shadow-[0_0_0_1px_#2563EB] rounded-xl px-4 py-8">
             <BeforeAfterSlider
               img1={"/beforeAfter/before.jpg"}
