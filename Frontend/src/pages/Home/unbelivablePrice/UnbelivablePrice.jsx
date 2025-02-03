@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const plans = [
   {
     title: "Starter",
-    buttonText:"",
+    buttonText: "",
     price: 9,
-    details: ["8 Headshots ( HD )", "2 Hours generation Time"],
+    details: ["4 Headshots ( BASIC )", "4 Hours generation Time"],
     link: "/corporate-ai-headshots",
     buttonCTA: "Get Photos for € 9",
   },
@@ -31,31 +31,28 @@ const plans = [
 const PricingCards = () => {
   return (
     <div className="w-full rounded-2xl bg-[#282828] py-10 transition duration-500 mb-10 md:px-10 pt-10">
-   <h1 className="text-white font-bold text-2xl sm:text-3xl lg:text-5xl leading-tight sm:leading-snug text-center max-w-xl sm:max-w-4xl mx-auto px-4 sm:px-5">
-  <span>Premium Professional Images</span> <br />
-  <span>at</span> 
-  <span 
-    className="ml-2 sm:ml-4 bg-gradient-to-r from-[#00FFA6] via-[#33A9FF] to-[#0053F9] bg-clip-text text-transparent"
-  >
-    Unbeatable Prices
-  </span>
-</h1>
-
+      <h1 className="text-white  text-2xl md:text-[45px] font-semibold lg:font-normal lg:text-[64px] leading-tight sm:leading-snug text-center max-w-xl sm:max-w-4xl mx-auto px-4 sm:px-5">
+        <span>Premium Professional Images</span> <br />
+        <span>at</span>
+        <span className="ml-2 sm:ml-4 bg-gradient-to-r from-[#00FFA6] via-[#33A9FF] to-[#0053F9] bg-clip-text text-transparent">
+          Unbeatable Prices
+        </span>
+      </h1>
 
       <div className="flex flex-wrap justify-center gap-8 mt-10">
         {plans.map((plan, index) => (
           <div
             key={index}
-            className="w-[300px] h-[450px] border-2 border-[#03239A] bg-[#161616] px-6 py-10 rounded-lg"
+            className="flex flex-col justify-between w-[300px] h-[450px] border-2 border-[#03239A] bg-[#161616] px-6 py-10 rounded-lg"
           >
             <div className="flex flex-row justify-between items-center">
-            <div
-    className={`text-white ${
-      plan.title === "Starter" ? "text-start" : "text-center"
-    } text-3xl`}
-  >
-    {plan.title}
-  </div>
+              <div
+                className={`text-white ${
+                  plan.title === "Starter" ? "text-start" : "text-center"
+                } text-3xl`}
+              >
+                {plan.title}
+              </div>
               {plan.buttonText ? (
                 <div>
                   <button className="bg-[#002487] text-[#F9F9F9] rounded-full px-2 py-3 hover:opacity-90 ease-in-out hover:bg-[#1d2838] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 text-sm">

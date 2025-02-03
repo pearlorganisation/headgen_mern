@@ -25,11 +25,11 @@ const PriceTable = () => {
         <table className="w-full text-white border-collapse border-spacing-0">
           <thead>
             <tr>
-              <th className="border-b border-white border-r py-4 px-6 text-left"></th>
-              <th className="border-b border-white border-r py-4 px-6 text-center text-2xl font-bold">
-                with <>HeadGen AI</>
+              <th className="border-b border-white border-r py-4 px-1 md:px-6 text-left"></th>
+              <th className="border-b border-white border-r py-4 px-1 md:px-6 text-center md:text-2xl font-bold">
+                with HeadGen AI
               </th>
-              <th className="border-b border-white text-2xl py-4 px-6 text-left">
+              <th className="border-b border-white border-r-0 py-4 px-1 md:px-6 text-center md:text-2xl font-bold">
                 <div className="text-center">
                   Traditional <br /> Photoshoot
                 </div>
@@ -41,9 +41,9 @@ const PriceTable = () => {
                 tableData?.map((row,index)=>(
                     <>
                        <tr key={index} >
-                    <td className="border-b border-white border-r py-4 px-6 text-center">{row.category}</td>
-                    <td className="border-b border-white border-r py-4 px-6 text-center">{row.withAI}</td>
-                    <td className="border-b border-white py-4 px-6 text-center">{row.traditional}</td>
+                    <td className="border-b border-white border-r py-4 px-1 md:px-6 text-center">{row.category}</td>
+                    <td className="border-b border-white border-r py-4 px-1 md:px-6 text-center">{row.withAI}</td>
+                    <td className="border-b border-white border-r-0 py-4 px-1 md:px-6 text-center">{row.traditional}</td>
                   </tr>
                  
                     </>

@@ -26,6 +26,7 @@ img {
 .image-container {
   max-width: 800px;
   max-height: 90vh;
+  min-width: 200px;
   aspect-ratio: 1/1;
 }
 

@@ -41,9 +41,9 @@ const PriceCards = ({ data, userData, setUserData, type, errors }) => {
               >
                 {item?.title}
               </div>
-              <div className="text-[36px] line-through text-[#dad4d4]">
+              {/* <div className="text-[36px] line-through text-[#dad4d4]">
                 {item?.originalPrice}
-              </div>
+              </div> */}
               <div className="text-[75px] font-bold">{item?.price}</div>
               <div className="flex flex-col items-center gap-4">
                 {item?.features &&
