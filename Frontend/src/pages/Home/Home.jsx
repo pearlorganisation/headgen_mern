@@ -562,9 +562,9 @@ const Home = () => {
           </div>
         </div>
         <div className="mx-auto max-w-2xl">
-          <h1 className="text-[1.45rem] sm:text-4xl md:text-5xl text-white font-bold text-center px-8 leading-tight">
-            <span>Convert your selfies into Professional </span>
-            <span className="text-[#00B9C8]">AI Headshots</span>
+          <h1 className="text-[1.45rem] sm:text-4xl md:text-5xl text-white text-center px-8 leading-tight">
+            <span className="font-semibold">Convert your selfies into Professional </span>
+            <span className="font-bold text-[#00B9C8]">AI Headshots</span>
           </h1>
         </div>
 
