@@ -119,13 +119,15 @@ function AIHeadshot() {
         </h2>
       </div>
 
-      <div className="px-4 md:px-8 rounded-t-xl cursor-default transition duration-300 mx-auto   border border-[#65A2E9] rounded-md py-4">
-        <div className="flex flex-row flex-wrap  justify-evenly  py-6">
+      <div className="p-4 md:p-8 rounded-t-xl cursor-default transition duration-200 mx-auto   border border-[#143f76] bg-[#0f1121] rounded-md py-4">
+        <div className="w-full flex justify-center ">
+          <div className="bg-[#1c2431] w-3/4 h-fit rounded-2xl">
+        <div className="flex flex-row flex-wrap  justify-evenly p-1">
           <button
-            className={`w-full sm:w-1/2 md:w-1/4 text-center  py-2 ${
+            className={`w-full sm:w-1/2 md:w-1/4 text-center transition duration-200 py-2  ${
               activeTab === "Corporate"
-                ? " bg-[#01346F] text-white rounded-lg"
-                : ""
+                ? "bg-[#01346F] text-white border border-[#3b7db6] shadow-[0_0_3px#143f76] rounded-2xl"
+                : "bg-[#1c2431]"
             } text-[#999999]`}
             onClick={() => {
               setActiveTab("Corporate");
@@ -136,10 +138,10 @@ function AIHeadshot() {
           </button>
 
           <button
-            className={`w-full sm:w-1/2 md:w-1/4 text-center  py-2 ${
+            className={`w-full sm:w-1/2 md:w-1/4 text-center transition duration-200 py-2 ${
               activeTab === "Doctor"
-                ? " bg-[#01346F] text-white rounded-lg"
-                : ""
+                ? " bg-[#01346F] text-white border border-[#3b7db6] shadow-[0_0_3px#143f76] rounded-2xl "
+                : "bg-[#1c2431]"
             } text-[#999999]`}
             onClick={() => {
               setActiveTab("Doctor");
@@ -150,10 +152,10 @@ function AIHeadshot() {
           </button>
 
           <button
-            className={`w-full sm:w-1/2 md:w-1/4 text-center  py-2 ${
+            className={`w-full sm:w-1/2 md:w-1/4 text-center transition duration-200  py-2 ${
               activeTab === "Dating"
-                ? " bg-[#01346F] text-white rounded-lg"
-                : ""
+                ? " bg-[#01346F] text-white border border-[#3b7db6] shadow-[0_0_3px#143f76] rounded-2xl"
+                : "bg-[#1c2431]"
             } text-[#999999]`}
             onClick={() => {
               setActiveTab("Dating");
@@ -163,10 +165,10 @@ function AIHeadshot() {
             Dating
           </button>
           <button
-            className={`w-full sm:w-1/2 md:w-1/4 text-center  py-2 ${
+            className={`w-full sm:w-1/2 md:w-1/4 text-center transition duration-200  py-2  ${
               activeTab === "Student"
-                ? " bg-[#01346F] text-white rounded-lg"
-                : ""
+                ? " bg-[#01346F] text-white  border border-[#3b7db6] shadow-[0_0_3px#143f76] rounded-2xl"
+                : "bg-[#1c2431] "
             } text-[#999999]`}
             onClick={() => {
               setActiveTab("Student");
@@ -176,8 +178,10 @@ function AIHeadshot() {
             Student
           </button>
         </div>
+          </div>
+        </div>
 
-        <div className="overflow-auto ">{tabContent()}</div>
+        <div className="overflow-auto">{tabContent()}</div>
       </div>
     </div>
   );

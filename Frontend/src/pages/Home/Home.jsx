@@ -551,7 +551,7 @@ const Home = () => {
           content="HeadGen AI’s AI image generator creates professional, realistic headshots for resumes, teams, doctors, and LinkedIn. Using our AI photo generator, we deliver the best AI Generated images with ease."
         />
       </Helmet>
-      <div className="w-full py-20  flex flex-col bg-gradient-to-b gradientBg gap-5 md:gap-10 overflow-x-hidden">
+      <div className="w-full py-20  flex flex-col bg-gradient-to-b gradientBg gap-5 md:gap-5 overflow-x-hidden">
         {/* hero */}
         {/* btn */}
         <div className="flex items-center mx-auto mt-20">
@@ -562,9 +562,15 @@ const Home = () => {
           </div>
         </div>
         <div className="mx-auto max-w-2xl">
-          <h1 className="text-[1.4rem] sm:text-4xl md:text-5xl text-white font-bold text-center px-8 leading-tight">
+          <h1 className="text-[1.45rem] sm:text-4xl md:text-5xl text-white font-bold text-center px-8 leading-tight">
             <span>Convert your selfies into Professional </span>
             <span className="text-[#00B9C8]">AI Headshots</span>
+          </h1>
+        </div>
+
+        <div className="mx-auto max-w-2xl">
+          <h1 className="text-[9px] md:text-base text-white font-light text-center px-8 leading-tight">
+            <span>Get Professional Image for your Linkedin/ Business / Doctor/Student Profile</span>
           </h1>
         </div>
 
@@ -690,11 +696,11 @@ const Home = () => {
           <h2 className="text-4xl text-center font-bold px-16">
             How it <span className="text-blue-500">works</span>
           </h2>
-          <div className="overflow-auto p-2 no-scrollbar">
+          <div className="overflow-auto p-2 py-5 no-scrollbar">
             <div className="flex flex-row md:justify-center items-center w-full gap-8">
               {howitworks?.map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
-                  <div className="w-64 bg-[#111428] shadow-lg rounded-xl md:hover:-translate-y-4 cursor-pointer transition duration-300 px-6 py-8">
+                  <div className="w-64 bg-[#111428] border border-[#143f76] shadow-lg rounded-xl md:hover:-translate-y-4 cursor-pointer transition duration-300 px-6 py-8">
                     <div className="w-full h-56">
                       <LazyLoadImage
                         alt={item?.title || "Image"} // Optional title for accessibility
@@ -706,8 +712,8 @@ const Home = () => {
                     </div>
                   </div>
                   <div className="flex flex-row justify-between text-start gap-4">
-                    <div className="mt-4 text-white font-semibold border rounded-full px-3 py-1 border-[#609F8B] ">
-                      {index + 1}
+                    <div className="flex flex-col items-center justify-center mt-4 text-white font-semibold rounded-full text-center h-8 w-8 border-2 border-[#8bb9ed] shadow-[0_0_4px#529cde] ">
+                      <span>{index + 1}</span>
                     </div>
                     <div className=" mt-5 text-center text-sm md:text-[16px]">
                       {item.title}
@@ -728,8 +734,8 @@ const Home = () => {
         <div className="w-full flex mt-28 py-8 lg:py-24 rounded-lg ">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 mx-auto px-6 lg:px-20">
             {/* Text Section */}
-            <div className="w-full lg:w-2/3 text-center lg:text-left">
-              <h1 className="text-white text-2xl text-center md:text-left md:text-[45px] font-semibold lg:font-normal lg:text-[64px] leading-snug max-w-2xl mx-auto lg:mx-0">
+            <div className="w-full lg:w-4/5 text-center lg:text-left">
+              <h1 className="text-white text-2xl text-center md:text-left md:text-2xl font-semibold  lg:text-4xl xl:text-5xl leading-snug max-w-2xl mx-auto lg:mx-0">
                 Get Corporate AI Headshots for your LinkedIn Profile
               </h1>
               <p className="text-white mt-4 text-base lg:text-lg">
@@ -757,7 +763,7 @@ const Home = () => {
               <img
                 alt="Corporate AI Headshots"
                 src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1736251126/HeadGen_New_Images_1_bh9da7.webp"
-                className="w-full h-full object-cover rounded-lg shadow-lg"
+                className="w-full h-full object-cover rounded-lg md:hover:-translate-y-4 cursor-pointer transition duration-300"
               />
             </div>
           </div>
@@ -923,7 +929,7 @@ const Home = () => {
           </div> */}
 
         {/* turn your selfie info card */}
-        <div className="w-full grid md:grid-cols-2 gap-4 bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-5 lg:py-10 rounded-xl shadow-[0_0_1px_1px#f1f1f1] ">
+        <div className="w-full grid md:grid-cols-2 gap-4 bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-5 lg:py-10 rounded-xl shadow-[0_0_1px_1px#1d5eb3]  ">
           <div className="flex w-full flex-col  items-center md:items-start justify-evenly gap-2 md:gap-4 px-10">
             <h3 className="text-xl md:text-[22px] lg:text-[32px] xl:text-[48px] 2xl:text-4xl text-[#F1F1F1]">
               Turn your selfie into
@@ -1005,7 +1011,7 @@ const Home = () => {
         <div className="flex flex-wrap justify-center gap-4  px-10 md:px-16 2xl:px-[200px] ">
           {privacyFirstData &&
             privacyFirstData?.map((item) => (
-              <div className=" w-[70%] md:w-[33%] xl:w-[22%] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#02AFDC] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
+              <div className=" w-[70%] md:w-[33%] xl:w-[22%] rounded-2xl p-4 py-6 bg-transparent hover:!bg-gradient-to-b hover:!from-[#02AFDC] hover:!to-[#2563EB] flex flex-col justify-between items-center text-[#F1F1F1] shadow-[0_0_2px_1px_#1d5eb3] hover:shadow-[0_0_5px_1px_#2563EB] hover:scale-[0.98] cursor-default transition duration-500">
                 <div className="w-1/3">
                   <LazyLoadImage
                     alt=""

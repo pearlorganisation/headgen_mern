@@ -1,27 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PriceCards from "../../../components/PriceCards/PriceCards";
 
 const plans = [
   {
     title: "Starter",
     buttonText: "",
-    price: 9,
-    details: ["4 Headshots ( BASIC )", "4 Hours generation Time"],
+    price: "€9",
+    features: ["4 Headshots ( BASIC )", "4 Hours generation Time"],
     link: "/corporate-ai-headshots",
     buttonCTA: "Get Photos for € 9",
   },
   {
     title: "Basic",
-    price: 29,
-    details: ["8 Headshots ( HD )", "2 Hours generation Time"],
+    price: "€29",
+    features: ["8 Headshots ( HD )", "2 Hours generation Time"],
     buttonText: "70% Pick this Plan",
     link: "/corporate-ai-headshots",
     buttonCTA: "Get Photos for € 29",
   },
   {
     title: "Premium",
-    price: 35,
-    details: ["16 Headshots ( 4K ) ", "20 Minutes generation Time"],
+    price: "€35",
+    features: ["16 Headshots ( 4K ) ", "20 Minutes generation Time"],
     buttonText: "Best Value",
     link: "/corporate-ai-headshots",
     buttonCTA: "Get Photos for € 35",
@@ -39,8 +40,15 @@ const PricingCards = () => {
         </span>
       </h1>
 
-      <div className="flex flex-wrap justify-center gap-8 mt-10">
-        {plans.map((plan, index) => (
+      <div className="w-full p-6 !text-white">
+        <PriceCards
+          data={plans}
+          userData={{}}
+          setUserData={() => {}}
+          errors={{}}
+        />
+
+        {/* {plans.map((plan, index) => (
           <div
             key={index}
             className="flex flex-col justify-between w-[300px] h-[450px] border-2 border-[#03239A] bg-[#161616] px-6 py-10 rounded-lg"
@@ -87,7 +95,7 @@ const PricingCards = () => {
               </Link>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );

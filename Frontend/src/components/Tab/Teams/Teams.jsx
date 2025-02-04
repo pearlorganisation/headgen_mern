@@ -520,7 +520,7 @@ const Teams = ({ userData, setUserData }) => {
           })}
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-center gap-2 mt-10">
+      <div className="flex flex-col-reverse sm:flex-row justify-center gap-2 mt-10">
         {currentIndex > 0 && (
           <button
             className={`hover:squeezyBtn px-8 py-3 bg-[#b41f58] hover:bg-[#b41f58a8] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-sm font-medium transition duration-[0.4s]`}
