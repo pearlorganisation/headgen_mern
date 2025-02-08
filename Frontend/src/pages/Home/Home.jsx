@@ -570,7 +570,7 @@ const Home = () => {
 
         <div className="mx-auto max-w-2xl">
           <h1 className="text-[9px] md:text-base text-white font-light text-center px-8 leading-tight">
-            <span>Get Professional Image for your Linkedin/ Business / Doctor/Student Profile</span>
+            <span>Get Professional Images for your LinkedIn , Doctor, Student or Dating Profile</span>
           </h1>
         </div>
 
