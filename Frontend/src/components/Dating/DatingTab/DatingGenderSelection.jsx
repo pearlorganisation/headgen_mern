@@ -1,26 +1,8 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
-// import { GenIcon } from "react-icons";
-import { FaChevronRight } from "react-icons/fa";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import { A11y, Autoplay, Navigation } from "swiper/modules";
-
-import UserDetails from "../../UserDetails/UserDetails";
+import React, { useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import UserDetails from "../../UserDetails/UserDetails";
 
-const DatingGenderSelection = ({
-  userData,
-  setUserData,
-  errors,
-  headshots = null,
-  type,
-}) => {
+const DatingGenderSelection = ({ userData, setUserData, errors, type }) => {
   useEffect(() => {
     if (localStorage.getItem("userData")) {
       setUserData({
@@ -52,56 +34,47 @@ const DatingGenderSelection = ({
   ];
 
   return (
-    <div className="flex flex-col gap-4 justify-between relative h-full  w-full items-center">
-      <div className="text-center  lg:text-left text-xl sm:text-2xl md:text-3xl">
-        Pick from our custom headshot templates:
-      </div>
-      <div className="grid xl:grid-cols-[auto_20rem] gap-8 w-full   ">
-        {/* <div className="w-full mt-2 hidden md:flex flex-col  justify-end  rounded-xl">
-          {userData?.gender?.length > 0 &&
-            selectionData
-              ?.filter((item) => {
-                return item?.name === userData?.gender;
-              })
-              .map((filteredItem, idx) => (
-                <div
-                  key={`filteredItem${idx}`}
-                  className="w-full rounded-xl  shadow-[0_0_1px#ababab] "
-                >
-                  <img
-                    alt=""
-                    src={`${filteredItem?.bannerImg}`}
-                    className="w-full h-full rounded-xl"
-                    width={"600px"}
-                  />
-                </div>
-              ))}
-        </div> */}
-        <div className="flex flex-col justify-center items-center">
-          <UserDetails
-            userData={userData}
-            setUserData={setUserData}
-            errors={errors}
-            type={type}
+    <div className="flex flex-col gap-6 justify-between relative h-full w-full items-center px-4 sm:px-6 md:px-10 lg:px-20">
+      {/* Grid Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-[auto_20rem] gap-6 w-full">
+        {/* Left Section */}
+        <div className="w-full flex flex-col items-center lg:items-start">
+          <div className="text-center lg:text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold ml-8">
+            Boost your Dating Profile.
+          </div>
+          <LazyLoadImage
+            alt=""
+            src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023816/ai_dating_photos_logos_rr8ugz.webp"
+            className="w-full max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[700px] mt-4"
           />
+          <div className="flex flex-col justify-center items-center w-full mt-6">
+            <UserDetails
+              userData={userData}
+              setUserData={setUserData}
+              errors={errors}
+              type={type}
+            />
+          </div>
         </div>
 
-        <div className="flex flex-col justify-center  items-center w-full max-h-[400px]  overflow-auto">
-          <div className="text-center text-xl py-2">What you'll get:</div>
+        {/* Right Section */}
+        <div className="flex flex-col justify-center items-center w-full max-h-[400px] overflow-auto">
+          <div className="text-center text-lg sm:text-xl py-2">What you'll get:</div>
           {userData?.gender?.length > 0 &&
             selectionData
-              ?.filter((item) => {
-                return item?.name === userData?.gender;
-              })
-              .map((filteredItem) => (
-                <div className="flex justify-center rounded-xl ">
+              .filter((item) => item?.name === userData?.gender)
+              .map((filteredItem, idx) => (
+                <div key={idx} className="flex justify-center rounded-xl w-full">
                   <LazyLoadImage
                     alt=""
                     src={filteredItem?.imgPreview}
-                    className="!max-h-[320px] mx-auto rounded-xl"
+                    className="w-full max-w-[90%] sm:max-w-[80%] md:max-w-[320px] mx-auto rounded-xl"
                   />
                 </div>
               ))}
+          <div className="text-sm text-center mt-2">
+            This image is a reference for Image Quality.
+          </div>
         </div>
       </div>
     </div>
