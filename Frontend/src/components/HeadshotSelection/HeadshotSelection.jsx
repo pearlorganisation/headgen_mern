@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
+import AppSvgs from "../AppSvgs/AppSvgs";
 
 const HeadshotSelection = ({
   userData,
@@ -30,8 +31,8 @@ const HeadshotSelection = ({
 
   return (
     <div className="flex flex-col gap-4 justify-between relative h-full w-full items-center ">
-      <div className="text-center lg:text-left text-xl sm:text-2xl md:text-3xl">
-        Pick from our custom headshot templates:
+      <div className="text-center font-bold lg:text-left text-xl sm:text-2xl md:text-3xl">
+        <AppSvgs name="linkedIn" /> Boost your LinkedIn / Resume
       </div>
       <div className="grid lg:grid-cols-[40%_auto]  gap-8 w-full  ">
         {/* <div className="w-full mt-2 hidden md:flex flex-col  justify-end  rounded-xl">
@@ -58,24 +59,34 @@ const HeadshotSelection = ({
         </div> */}
 
         <div className="flex flex-col justify-center  items-center w-full max-h-[400px]  overflow-auto">
-          <div className="text-center text-xl py-2">What you'll get:</div>
           {headshots &&
             headshots
               ?.filter((item) => {
                 return item?.name === section && item?.headshotInfo;
               })
               .map((filteredItem, idx) => (
-                <div
-                  key={`imgPreview${idx}`}
-                  className="flex justify-center rounded-xl "
-                >
-                  <LazyLoadImage
-                    alt=""
-                    src={filteredItem?.imgPreview}
-                    className="!max-h-[320px] mx-auto rounded-xl"
-                  />
-                </div>
+                <>
+                  <div
+                    key={`imgPreview${idx}`}
+                    className="flex justify-center rounded-xl "
+                  >
+                    <LazyLoadImage
+                      alt=""
+                      src={filteredItem?.imgPreview}
+                      className="!max-h-[320px] mx-auto rounded-xl"
+                    />
+                  </div>
+                </>
               ))}
+
+          <div className="text-center text-base py-2">
+            <div>
+              This image is a reference for{" "}
+              <strong>
+                Image Quality, Outfit, and Background of what you’ll get.
+              </strong>
+            </div>
+          </div>
         </div>
 
         <div className="px-1 flex flex-col gap-4 justify-center  w-full">

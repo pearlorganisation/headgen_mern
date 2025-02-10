@@ -573,6 +573,7 @@ const Home = () => {
             <span>Get Professional Images for your LinkedIn , Doctor, Student or Dating Profile</span>
           </h1>
         </div>
+        
 
         <div className="mx-auto">
           <Link

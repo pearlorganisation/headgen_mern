@@ -56,6 +56,14 @@ const Tab = ({ section }) => {
       },
       imgPreview:
         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022267/headgen/Headshots/Image%20to%20appear%20on%20click/jxk2vge6mx4a2xgdvkvh.webp",
+      info: (
+        <div>
+          <strong>
+            Corporate:{" "} 
+          </strong>
+          Suit & tie, indoor office background .
+        </div>
+      )
     },
     {
       name: "Sales Headshots",
