@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const PriceCards = ({ data, userData, setUserData, type, errors }) => {
+  const navigate = useNavigate()
   const [selectedPlan, setSelectedPlan] = useState(userData?.selectedPlan);
   useEffect(() => {
     const updatedUserData = { ...userData };
@@ -16,9 +18,15 @@ const PriceCards = ({ data, userData, setUserData, type, errors }) => {
         {data &&
           data?.map((item, idx) => (
             <div
-              onClick={() => setSelectedPlan(item)}
+              onClick={() => {
+                if(item?.link){
+                  navigate(item?.link)
+                } else {
+                  setSelectedPlan(item)
+                }
+              }}
               key={`priceCard${idx}`}
-              className={`w-full md:w-[32%] max-w-[400px] !glassMorphism !bg-gradient-to-br ${selectedPlan?.title === item?.title
+              className={`w-full  md:w-[32%] max-w-[400px] !glassMorphism !bg-gradient-to-br ${selectedPlan?.title === item?.title
                   ? (type != 'Dating' ? " from-[#0d2e756c] to-[#031b4e] shadow-[0_0_0_2px_#ffffff]" : "from-[#8a0815] shadow-[0_0_0_2px_#ffffff]")
                   : "!from-[#10151dde] to-[#121720de] shadow-[0_0_0_1px_#babcbf80]"
                 } rounded-3xl p-4 flex flex-col gap-2 justify-evenly items-center cursor-pointer  hover:shadow-[0_0_0_2px_#ffffff] min-h-[400px] relative transition duration-300`}
@@ -41,9 +49,9 @@ const PriceCards = ({ data, userData, setUserData, type, errors }) => {
               >
                 {item?.title}
               </div>
-              <div className="text-[36px] line-through text-[#dad4d4]">
+              {/* <div className="text-[36px] line-through text-[#dad4d4]">
                 {item?.originalPrice}
-              </div>
+              </div> */}
               <div className="text-[75px] font-bold">{item?.price}</div>
               <div className="flex flex-col items-center gap-4">
                 {item?.features &&

@@ -9,7 +9,7 @@ export const mongoConnect = async () => {
     await mongoose.connect(process.env.MONGO_URI, {
       dbName: "headgenAI",
     });
-  // console.log(chalk.bgGreen.bold("MongoDB connected successfully"));
+  console.log(chalk.bgGreen.bold("MongoDB connected successfully"));
   } catch (error) {
   // console.log(
       error.message

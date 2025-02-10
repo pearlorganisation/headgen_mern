@@ -10,7 +10,7 @@ const BlogCards = ({ data, datingPage }) => {
           <div className="w-[80%] -translate-y-16 md:-translate-y-20 group-hover:-translate-y-24 rounded-xl transition duration-300">
             <LazyLoadImage alt=""  src={item?.banner ? item?.banner : item?.imgPath} className="w-full rounded-xl" width={"220px"} height={"392px"} />
           </div>
-          <div className={`w-full h-[50%] flex flex-col ${item?.btnLink ? 'justify-between' : ''}  gap-4 items-center px-4`}>
+          <div className={`w-full h-[60%] flex flex-col line-clamp-2 ${item?.slug ? 'justify-between' : ''}  gap-4 items-center px-4`}>
             {item?.title?.length > 0 && (
               <div className="px-2 text-center font-bold text-[#F1F1F1] text-[18px] xl:text-[20px]">
                 {item?.title}

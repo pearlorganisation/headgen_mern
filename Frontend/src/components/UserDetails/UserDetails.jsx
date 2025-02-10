@@ -73,8 +73,8 @@ const UserDetails = ({ userData, setUserData, errors, type }) => {
                     userData?.gender === item?.name
                       ? `${
                           type === "Dating"
-                            ? "!bg-[#E23A6D] text-[#f1f1f1]"
-                            : "!bg-[#355cc9] text-[#f1f1f1]"
+                            ? " !bg-[#1d2838] text-[#F1F1F1] rounded-lg shadow-[0_0_0_2px_#E23A6D]"
+                            : "!bg-[#1d2838] text-[#F1F1F1] rounded-lg shadow-[0_0_0_2px_#224cc2]"
                         } `
                       : "bg-[#f1f1f1]"
                   }  ${

@@ -150,12 +150,51 @@ const Header = () => {
       name: "Reviews",
       path: "/reviews",
       showDropdown: false,
-    }, 
+    },
   ];
 
   // country selection
 
   const countries = [
+    // European countries first
+    {
+      countryImg: "https://flagcdn.com/w160/se.png",
+      countryName: "Sweden",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/dk.png",
+      countryName: "Denmark",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/gb.png",
+      countryName: "United Kingdom",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/ne.png",
+      countryName: "Netherlands",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/ch.png",
+      countryName: "Switzerland",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/no.png",
+      countryName: "Norway",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/fi.png",
+      countryName: "Finland",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/as.png",
+      countryName: "Austria",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/de.png",
+      countryName: "Germany",
+    },
+
+    // Non-European countries
     {
       countryImg: "https://flagcdn.com/w160/us.png",
       countryName: "United States",
@@ -165,57 +204,12 @@ const Header = () => {
       countryName: "Canada",
     },
     {
-      countryImg: "https://flagcdn.com/w160/se.png",
-      countryName: "Sweden",
-    },
-
-    {
-      countryImg: "https://flagcdn.com/w160/dk.png",
-      countryName: "Denmark",
-    },
-
-    {
-      countryImg: "https://flagcdn.com/w160/gb.png",
-      countryName: "United Kingdom",
-    },
-
-    {
-      countryImg: "https://flagcdn.com/w160/ne.png",
-      countryName: "Netherlands",
-    },
-
-    {
-      countryImg: "https://flagcdn.com/w160/ch.png",
-      countryName: "Switzerland",
-    },
-
-    {
-      countryImg: "https://flagcdn.com/w160/no.png",
-      countryName: "Norway",
-    },
-
-    {
-      countryImg: "https://flagcdn.com/w160/fi.png",
-      countryName: "Finland",
-    },
-
-    {
       countryImg: "https://flagcdn.com/w160/nz.png",
       countryName: "New Zealand",
     },
-
-    {
-      countryImg: "https://flagcdn.com/w160/as.png",
-      countryName: "Austria",
-    },
-
     {
       countryImg: "https://flagcdn.com/w160/au.png",
       countryName: "Australia",
-    },
-    {
-      countryImg: "https://flagcdn.com/w160/de.png",
-      countryName: "Germany",
     },
     {
       countryImg: "https://flagcdn.com/w160/in.png",
@@ -244,14 +238,14 @@ const Header = () => {
       localStorage.setItem(
         "selectedCountry",
         JSON.stringify({
-          countryImg: "https://flagcdn.com/w160/us.png",
-          countryName: "United States",
-        })
+          countryImg: "https://flagcdn.com/w160/se.png",
+          countryName: "Sweden",
+        },)
       );
       setSelectedCountry({
-        countryImg: "https://flagcdn.com/w160/us.png",
-        countryName: "United States",
-      });
+        countryImg: "https://flagcdn.com/w160/se.png",
+        countryName: "Sweden",
+      },);
     }
   }, []);
 
@@ -305,7 +299,6 @@ const Header = () => {
             <button
               className="oswald text-[#f1f1f1] text-[18px] font-medium p-2 text-left bg-transparent"
               onClick={() => setIsOpen(!isOpen)}
-
             >
               {selectedCountry ? (
                 <div className="flex gap-2 items-center">
@@ -322,9 +315,7 @@ const Header = () => {
               )}
             </button>
             {isOpen && (
-              <div
-                className="absolute z-10 w-[200px] mt-1 top-full left-1/2 -translate-x-1/2 bg-white border border-gray-300 rounded-md shadow-lg transition duration-300"
-              >
+              <div className="absolute z-10 w-[200px] mt-1 top-full left-1/2 -translate-x-1/2 bg-white border border-gray-300 rounded-md shadow-lg transition duration-300">
                 <ul className="max-h-96 overflow-auto">
                   {countries.map((country) => (
                     <li

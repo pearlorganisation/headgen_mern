@@ -43,7 +43,7 @@ const OrderDetails = ({ userData, files, type }) => {
           </div>
         </div>
         {type !== "freeHeadshot" && (
-          <div className="w-full md:w-1/2 overflow-auto">
+          <div className="w-full md:w-1/2 overflow-auto px-2">
             <div className="flex justify-center py-2 gap-2">
               <div
                 className={`w-[300px] !bg-gradient-to-br ${type === "Dating"

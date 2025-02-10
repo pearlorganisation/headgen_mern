@@ -42,7 +42,7 @@ const DatingTab = () => {
       title: "STARTER PACK",
       originalPrice: "€18",
       price: "€9",
-      features: ["Basic Quality"],
+      features: ["4 Headshots ( BASIC )", "4 Hours generation Time"],
       packName: "Starter Pack",
       tag: "",
     },
@@ -50,7 +50,7 @@ const DatingTab = () => {
       title: "BASIC PACK",
       originalPrice: "€45",
       price: "€29",
-      features: ["High Quality"],
+      features: ["8 Headshots ( HD )", "2 Hours generation Time"],
       packName: "Basic Pack",
       tag: "83% pick this plan",
     },
@@ -58,7 +58,7 @@ const DatingTab = () => {
       title: "PREMIUM PACK",
       originalPrice: "€79",
       price: "€35",
-      features: ["Premium Quality"],
+      features: ["16 Headshots ( 4K ) ", "20 Minutes generation Time"],
       packName: "Premium Pack",
       tag: "Best Value",
     },
@@ -339,7 +339,7 @@ const DatingTab = () => {
                   }
                 })}
 
-              <div className="flex flex-wrap justify-center gap-2">
+              <div className="flex flex-wrap-reverse justify-center gap-2">
                 {currentIndex > 0 && (
                   <button
                     className={`w-full sm:w-auto hover:squeezyBtn px-8 py-3   shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}

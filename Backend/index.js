@@ -36,7 +36,7 @@ app.use(
       "https://headgen-mern-2.vercel.app",
       "https://headgen-mern.vercel.app",
       "https://headgen.ai",
-      "https://admin.headgen.ai"
+      "https://admin.headgen.ai",
     ],
     credentials: true,
     methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
@@ -55,6 +55,6 @@ app.use("/api/v1/reviews", reviewsRouter);
 app.use(error);
 
 app.listen(PORT, () => {
-// console.log(chalk.blue(`Connected to port ${process.env.PORT}`));
+  console.log(chalk.blue(`Connected to port ${process.env.PORT}`));
   mongoConnect();
 });

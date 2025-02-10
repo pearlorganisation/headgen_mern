@@ -32,6 +32,10 @@
   );
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
 @font-face {
   font-family: "Oswald";
   src: local("Oswald"),

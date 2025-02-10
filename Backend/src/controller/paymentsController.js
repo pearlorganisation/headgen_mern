@@ -17,74 +17,74 @@ const stripeLinks = [
     price: "€9",
     packName: "Starter Pack",
     generationType: "individual",
-    id: "price_1PEOSUCvLjbx73iC6iPlOjjE",
+    id: "price_1Qk2jDCvLjbx73iCjwwH9CRF", // euro
   },
   {
-    price: "$45",
+    price: "€29",
     packName: "Basic Pack",
     generationType: "individual",
-    id: "price_1PEOVdCvLjbx73iCqI7dZ56u",
+    id: "price_1Qk2k9CvLjbx73iCSQnNwwF4", // euro
   },
   {
-    price: "$79",
+    price: "€35",
     packName: "Premium Pack",
     generationType: "individual",
-    id: "price_1PFDaeCvLjbx73iCUrwyssrf",
+    id: "price_1Qk2l0CvLjbx73iC0vWIeWxw", // euro
   },
   {
-    price: "$50",
+    price: "€50",
     packName: "Basic Pack",
     generationType: "customize",
-    id: "price_1PIPJUCvLjbx73iCp8SeZtqQ",
+    id: "price_1QmUfnCvLjbx73iC9SMh5ThC", 
   },
   {
-    price: "$100",
+    price: "€100",
     packName: "Premium Pack",
     generationType: "customize",
-    id: "price_1PIPPFCvLjbx73iCZVm1aneS",
+    id: "price_1QmUgPCvLjbx73iCx9RBbw2v", // euro
   },
   {
-    price: "$200",
+    price: "€200",
     packName: "Prompts Pack",
     generationType: "prompt",
-    id: "price_1PIPRHCvLjbx73iCLKPZ6HFA",
+    id: "price_1QmahoCvLjbx73iCgQOhNi4W", // euro - dating prompt used
   },
   {
     price: "€9",
     packName: "Starter Pack",
     generationType: "individualDating",
-    id: "price_1PIPTLCvLjbx73iCuL3vSK3C",
+    id: "price_1QmafVCvLjbx73iCpppkwGCa", //euro
   },
   {
-    price: "$45",
+    price: "€29",
     packName: "Basic Pack",
     generationType: "individualDating",
-    id: "price_1PIPVtCvLjbx73iCk7hQ69Th",
+    id: "price_1Qmag6CvLjbx73iC38GxfxVR", //euro
   },
   {
-    price: "$79",
+    price: "€35",
     packName: "Premium Pack",
     generationType: "individualDating",
-    id: "price_1PIPYECvLjbx73iCNVIghYST",
+    id: "price_1QmagQCvLjbx73iCcy2CLx97", //euro
   },
 
   {
-    price: "$50",
+    price: "€50",
     packName: "Basic Pack",
     generationType: "datingCustomize",
-    id: "price_1PIPbyCvLjbx73iCdKP949q4",
+    id: "price_1QmahJCvLjbx73iCM6B0uAGD", //euro
   },
   {
-    price: "$100",
+    price: "€100",
     packName: "Premium Pack",
     generationType: "datingCustomize",
-    id: "price_1PIPdjCvLjbx73iCEY2BPlNi",
+    id: "price_1QmahaCvLjbx73iC1ryaLTV7", //euro
   },
   {
-    price: "$200",
+    price: "€200",
     packName: "Prompts Pack",
     generationType: "datingPrompt",
-    id: "price_1PIPfOCvLjbx73iCtTf8toI0",
+    id: "price_1QmahoCvLjbx73iCgQOhNi4W", //euro
   },
 ];
 
@@ -101,7 +101,7 @@ export const checkout = async (req, res) => {
     });
 
     let price = stripeLinks[idx].id;
-
+    // console.log(price)
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {
@@ -199,7 +199,7 @@ export const teamsCheckout = async (req, res) => {
       line_items: [
         {
           price_data: {
-            currency: "usd",
+            currency: "eur",
             product_data: {
               name: "Teams plan",
             },
