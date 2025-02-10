@@ -36,6 +36,9 @@ const Tab = ({ section }) => {
       },
       imgPreview:
         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022265/headgen/Headshots/Image%20to%20appear%20on%20click/haybecoslhl5oawukalb.webp",
+TitleInfo:<div><strong>Corporate:</strong>{""} Suit & tie, indoor office background .
+</div>
+
     },
     {
       name: "Doctor Headshots",
@@ -46,7 +49,9 @@ const Tab = ({ section }) => {
       },
       imgPreview:
         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022266/headgen/Headshots/Image%20to%20appear%20on%20click/l3stzd5y9i3jjt371sol.webp",
+        TitleInfo:<div><strong>Doctor:</strong>{" "}Lab Coat, Stethoscope, Medical Background</div>
     },
+  
     {
       name: "Lawyer Headshots",
       link: "/lawyer-ai-headshots",
@@ -56,13 +61,15 @@ const Tab = ({ section }) => {
       },
       imgPreview:
         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022267/headgen/Headshots/Image%20to%20appear%20on%20click/jxk2vge6mx4a2xgdvkvh.webp",
-      info: (
+      TitleInfo: (
         <div>
           <strong>
-            Corporate:{" "} 
-          </strong>
-          Suit & tie, indoor office background .
+          Lawyer:
+          </strong>{" "} 
+          Suit & Tie, Plain White Background
+     
         </div>
+        
       )
     },
     {
@@ -74,6 +81,9 @@ const Tab = ({ section }) => {
       },
       imgPreview:
         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022267/headgen/Headshots/Image%20to%20appear%20on%20click/iqmmj3zciq7v0gkueumu.webp",
+    
+        TitleInfo: <div> <strong >Sales:</strong> {" "} Suit with Formal Shirt (no tie), Indoor office Background</div> 
+
     },
     {
       name: "Students Headshots",
@@ -84,6 +94,11 @@ const Tab = ({ section }) => {
       },
       imgPreview:
         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022268/headgen/Headshots/Image%20to%20appear%20on%20click/kgzajygbfhmsbmupz7gv.webp",
+        TitleInfo: <div>
+          <strong>Student:</strong>{" "}Semi-formal, university background
+        </div> 
+
+    
     },
     {
       name: "Teacher Headshots",
@@ -94,7 +109,9 @@ const Tab = ({ section }) => {
       },
       imgPreview:
         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022268/headgen/Headshots/Image%20to%20appear%20on%20click/rwe5vljldwisdqyihe2s.webp",
+        TitleInfo:<div><strong>Teacher:</strong> Formal attire, classroom background</div>
     },
+
   ];
 
   useEffect(() => {

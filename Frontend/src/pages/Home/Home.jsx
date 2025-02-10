@@ -953,7 +953,7 @@ const Home = () => {
           <div className="w-full object-contain">
             <LazyLoadImage
               alt=""
-              src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021956/headgen/Home/Turn%20your%20selfie%20into%20professional%20headshots/nrg3dczzklbafdfbc2lp.webp"
+              src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1738917641/ai_image_generator_headgen_ai_ehojfw.webp"
               className="w-full h-full"
               height={"250px"}
               width={"430px"}
