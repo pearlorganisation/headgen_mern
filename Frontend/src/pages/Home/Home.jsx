@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { lazy, useEffect, useState } from "react";
 import axios from "axios";
 import BeforeAfterSlider from "../../components/BeforeAfterSlider/BeforeAfterSlider";
 import InfinitySlider from "../../components/InfinitySlider/InfinitySlider";
@@ -12,12 +12,15 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import InfinityTextSlider from "../../components/InfinitySlider/InfinityTextSlider";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import AsSeenOn from "../../components/AsSeenOn/AsSeenOn";
 import { Helmet } from "react-helmet";
 import AIHeadshot from "./AI-HEADSHOT-EVERYONE/AI-headshot";
-import PricingCards from "./unbelivablePrice/UnbelivablePrice";
-import PriceTable from "./price&TImetable/price&TimeTable";
+const AsSeenOn = lazy(() => import("../../components/AsSeenOn/AsSeenOn"));
+const PricingCards = lazy(() => import("./unbelivablePrice/UnbelivablePrice"));
+const PriceTable = lazy(() => import("./price&TImetable/price&TimeTable"));
 import { Modal } from "@mui/material";
+
+
+
 
 const Home = () => {
   const [blogData, setBlogData] = useState(null);
@@ -570,10 +573,10 @@ const Home = () => {
 
         <div className="mx-auto max-w-2xl">
           <h1 className="text-[9px] md:text-base text-white font-light text-center px-8 leading-tight">
-            <span>Get Professional Images for your LinkedIn , Doctor, Student or Dating Profile</span>
+            <span>Get Professional Images for your LinkedIn , Doctor , Student or Dating Profile</span>
           </h1>
         </div>
-        
+
 
         <div className="mx-auto">
           <Link
@@ -592,105 +595,6 @@ const Home = () => {
       </div>
 
       <AsSeenOn />
-      {/* <div className="flex justify-center px-10 md:px-16 2xl:px-[200px]">
-          <div
-          className={`w-full md:w-1/2 flex flex-col items-center gap-0 pt-5 md:pt-10 text-center`}
-          >
-            <h1 className="flex flex-col leading-none mb-4 space-y-0">
-              <div
-                className={`text-md text-[2rem] md:text-[3rem] lg:text-[3.5rem] font-bold bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text `}
-              >
-                AI HEADSHOT 
-              </div>
-              <div
-                className={`text-white text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-bold pb-2`}
-              >
-                GENERATOR
-              </div>
-              <div
-                className={` font-semibold text-sm md:text-xl lg:text-2xl bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text `}
-              >
-                FOR PROFESSIONAL HEADSHOTS
-              </div>
-            </h1>
-            <div
-              className={`flex flex-col gap-6 mb-3 md:mb-0 text-center justify-center items-center md:items-start `}
-            >
-              <Link
-                to="/corporate-ai-headshots"
-                className={`w-full px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500`}
-              >
-                Get your photos for €9
-              </Link>
-
-              <div className="flex flex-col md:flex-row gap-1 justify-between">
-                <div className="flex flex-col justify-center">
-                  <LazyLoadImage alt="" 
-                    src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1729666366/aiimagegenerator_vxpsje.webp"
-                    width={"120px"}
-                    height={"45px"}
-                  />
-                </div>
-
-                <div className=" flex flex-col leading-tight">
-                  <span className="flex gap-1 justify-start items-center md:items-start">
-                    <IoIosStar className="text-yellow-400" size={21} />
-                    <IoIosStar className="text-yellow-400" size={21} />
-                    <IoIosStar className="text-yellow-400" size={21} />
-                    <IoIosStar className="text-yellow-400" size={21} />
-                    <IoIosStar className="text-yellow-400" size={21} />
-                  </span>
-
-                  <span className="text-[#f1f1f1] text-[13px] ">
-                    Rated 4.9 Stars in over
-                  </span>
-                  <span className="text-[#f1f1f1] text-[13px] ">
-                    30,000+ AI Headshots
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
-      {/* how it works */}
-
-      {/* <div className="flex justify-center px-10 md:px-16 2xl:px-[200px] py-14">
-          <div className="grid gap-8 md:gap-0 md:grid-cols-2  md:justify-between w-full">
-            <div className=" flex flex-col w-full gap-4 justify-center items-center  ">
-              <h2 className="grid grid-cols-2 md:grid-cols-1 gap-4 w-fit">
-                <div className="text-[#F1F1F1] text-3xl md:text-[60px] 2xl:text-[72px] font-medium  grid place-items-center">
-                  How it
-                </div>
-                <div className="text-3xl md:text-[60px] leading-[3rem] 2xl:text-[72px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-                  works
-                </div>
-                <Link
-                  to="/corporate-ai-headshots"
-                  className="hover:squeezyBtn col-span-2 md:col-auto flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full py-2 md:py-4  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]"
-                >
-                  Get your photos for €9
-                </Link>
-              </h2>
-            </div>
-            <div className=" flex flex-col w-full gap-6 items-center">
-              <div className="w-full flex justify-center">
-                <iframe
-                  src="https://res.cloudinary.com/dj2fvzfmm/video/upload/v1721022181/headgen/How%20it%20works%20video/ej1ci1htv6momh1v0vov.mp4"
-                  width="100%"
-                  height="100%"
-                  className="rounded-2xl h-[200px] sm:w-[500px] sm:h-[300px] md:h-[300px] md:w-[640px] 2xl:h-[400px] 2xl:w-[700px]"
-                  title="how it works video"
-                ></iframe>
-              </div>
-
-              <div className="text-[#F1F1F1] text-[10px]">
-                Upload a selfie and get Professional Images for your LinkedIn
-                Profile, Resume, TV Commercial etc
-              </div>
-            </div>
-          </div>
-        </div> */}
 
       <div className="bg-gradient-to-b gradientBg text-white px-4 py-20 pb-20">
         <div className="mx-auto text-center space-y-8 border-red-500">
@@ -701,7 +605,7 @@ const Home = () => {
             <div className="flex flex-row md:justify-center items-center w-full gap-8">
               {howitworks?.map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
-                  <div className="w-64 bg-[#111428] border border-[#143f76] shadow-lg rounded-xl md:hover:-translate-y-4 cursor-pointer transition duration-300 px-6 py-8">
+                  <div className="w-64 bg-[#111428] border border-[#143f76] hover:shadow-[0_0_0_1px_#2563EB] rounded-xl md:hover:-translate-y-4 cursor-pointer transition duration-300 px-6 py-8">
                     <div className="w-full h-56">
                       <LazyLoadImage
                         alt={item?.title || "Image"} // Optional title for accessibility
@@ -713,7 +617,7 @@ const Home = () => {
                     </div>
                   </div>
                   <div className="flex flex-row justify-between text-start gap-4">
-                    <div className="flex flex-col items-center justify-center mt-4 text-white font-semibold rounded-full text-center h-8 w-8 border-2 border-[#8bb9ed] shadow-[0_0_4px#529cde] ">
+                    <div className="flex flex-col items-center justify-center mt-4 text-white font-semibold rounded-full text-center h-8 w-8 border-2 border-[#8bceed] shadow-[0_0_8px#529cde] ">
                       <span>{index + 1}</span>
                     </div>
                     <div className=" mt-5 text-center text-sm md:text-[16px]">
@@ -771,39 +675,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* use flow card section */}
-      {/* 
-        <div className="px-10 md:px-16 2xl:px-[200px]  mt-40">
-          <div className="flex flex-wrap flex-col pt-8 md:pt-0 gap-[8rem] md:gap-2 md:flex-row justify-center items-center md:items-start md:justify-between ">
-            {cardData &&
-              cardData?.map((item, idx) => (
-                <div className="relative w-full max-w-[320px] h-[300px] md:w-[32%] rounded-t-2xl bg-white pt-6 flex flex-col gap-8 2xl:gap-4 justify-between hover:shadow-[0_0_0_6px_#3A36F3] hover:-translate-y-7 hover:scale-[1.02] cursor-default transition duration-300">
-                  <div className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] absolute -top-14 md:-top-20 right-2">
-                    <LazyLoadImage
-                      alt=""
-                      src={item?.imgPath}
-                      className="w-full h-full"
-                      // height={"150px"}
-                      // width={"150px"}
-                    />
-                  </div>
-                  {/* <div className="flex flex-col gap-2 px-6 h-[200px]">
-                    <div className="text-2xl  md:text-5xl lg:text-7xl text-[#0055D4] font-medium">
-                      {`0${idx + 1}`}
-                    </div>
-                    <div className="flex flex-col gap-8">
-                      <h3 className="text-[#0C062C] text-2xl font-medium">
-                        {item?.title}
-                      </h3>
-                    </div>
-                  </div>
-                  <div className="w-full h-[150px] bg-[#0055D4] text-white px-4 pb-2 flex justify-center items-center">
-                    {item?.content}
-                  </div> */}
-      {/* </div>
-              ))}
-          </div>
-        </div> */}
+
 
       <div className="px-10 md:px-16 2xl:px-[200px] pb-20">
         <InfinityTextSlider />
@@ -814,8 +686,8 @@ const Home = () => {
           <span className="text-blue-500">Swipe</span> to see the HeadgenAI
           results
         </h2>
-        <div className="overflow-auto p-2 no-scrollbar">
-          <div className="px-10 md:px-16 2xl:px-[200px] flex flex-row md:justify-center gap-5">
+        <div className="">
+          <div className="px-10 md:px-16 2xl:px-[200px] flex flex-row flex-wrap justify-center gap-5">
             <div className="bg-[#111428] shadow-[0_0_0_1px_#2563EB] rounded-xl px-4 py-8 h-fit w-fit">
               <BeforeAfterSlider
                 img1={
@@ -898,36 +770,7 @@ const Home = () => {
           <InfinitySlider imgData1={imgData2} imgData2={imgData3} />
         </div>
 
-        {/* <div className="flex flex-col gap-10 items-center">
-            <h2 className="text-[#F1F1F1] space-x-2  text-xl text-center md:text-4xl 2xl:text-[72px]  font-medium">
-              <span>Use Cases of</span>
-              <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text font-bold md:py-10">
-                AI Headshots
-              </span>
-            </h2>
-            <div className="flex flex-wrap justify-center items-center w-full gap-4 md:gap-2">
-              {useCaseData?.map((item) => (
-                <div className="w-auto max-w-[230px] 2xl:w-[200px] bg-white shadow-[0_0_0_1px_#2563EB] rounded-xl hover:-translate-y-4 cursor-default transition duration-300">
-                  <div className="w-full h-2/3">
-                    <LazyLoadImage
-                      alt=""
-                      src={item?.path}
-                      className="w-full h-full rounded-t-xl"
-                      height={"200px"}
-                      width={"200px"}
-                    />
-                  </div>
-                  <div className="flex flex-col justify-center px-2 py-4">
-                    <div className="text-medium text-sm font-bold flex justify-between">
-                      <span>{item?.title}</span>
-                      <span>{item?.svg}</span>
-                    </div>
-                    <div className="text-xs">{item?.content}</div>
-                  </div>
-                </div>
-              ))}
-            </div> 
-          </div> */}
+
 
         {/* turn your selfie info card */}
         <div className="w-full grid md:grid-cols-2 gap-4 bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-5 lg:py-10 rounded-xl shadow-[0_0_1px_1px#1d5eb3]  ">
