@@ -588,7 +588,7 @@ const Home = () => {
         </div>
 
         <div>
-          <div className="w-full overflow-hidden bg-[002C61] px-10 md:px-16 2xl:px-[200px]">
+          <div className="w-full overflow-hidden bg-[002C61]">
             <InfinitySlider imgData1={imgData1} />
           </div>
         </div>
@@ -637,10 +637,10 @@ const Home = () => {
 
       <div className="pb-20 px-10 md:px-16 2xl:px-[200px] gradientBg">
         <div className="w-full flex mt-28 py-8 lg:py-24 rounded-lg ">
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 mx-auto px-6 lg:px-20">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 mx-auto">
             {/* Text Section */}
             <div className="w-full lg:w-4/5 text-center lg:text-left">
-              <h1 className="text-white text-2xl text-center md:text-left md:text-2xl font-semibold  lg:text-4xl xl:text-5xl leading-snug max-w-2xl mx-auto lg:mx-0">
+              <h1 className="text-white text-xl text-center md:text-left md:text-2xl font-semibold  lg:text-4xl xl:text-5xl leading-snug max-w-2xl mx-auto lg:mx-0">
                 Get Corporate AI Headshots for your LinkedIn Profile
               </h1>
               <p className="text-white mt-4 text-base lg:text-lg">
@@ -677,14 +677,13 @@ const Home = () => {
 
 
 
-      <div className="px-10 md:px-16 2xl:px-[200px] pb-20">
+      <div className="pb-20">
         <InfinityTextSlider />
       </div>
 
-      <div className="mx-auto text-center space-y-8 border-red-500">
-        <h2 className="text-2xl text-center md:text-[45px] font-semibold lg:font-normal lg:text-[64px] px-16 text-white">
-          <span className="text-blue-500">Swipe</span> to see the HeadgenAI
-          results
+      <div className="mx-auto text-center space-y-10 border-red-500">
+        <h2 className="text-xl text-center md:text-[45px] font-semibold lg:font-normal lg:text-[64px] text-white">
+          <span className="text-blue-500">Swipe</span> to see Headgen AI Results
         </h2>
         <div className="">
           <div className="px-10 md:px-16 2xl:px-[200px] flex flex-row flex-wrap justify-center gap-5">
@@ -724,47 +723,48 @@ const Home = () => {
         </div>
       </div>
 
-      {/*    Unbeatable Prices */}
-
+      {/* Unbeatable Prices */}
       <div className="pt-20 py-10 px-10 md:px-16 2xl:px-[200px] ">
         <PricingCards />
       </div>
-      <div className="py-10 px-10 md:px-16 2xl:px-[200px]">
+      <div className="py-10 md:px-16 2xl:px-[200px]">
         <PriceTable />
       </div>
 
-      <div className="gradientBackground px-10 md:px-16 2xl:px-[200px]">
-        <h2 className="flex flex-col items-center gap-6 pt-20">
-          <div className="text-white text-2xl text-center md:text-[45px] font-semibold lg:font-normal lg:text-[64px]">
-            High Quality Images
-          </div>
-          <div className="w-full max-w-[90%] flex flex-col gap-6 items-center">
-            <div className="text-center text-white text-[16px]">
-              We take our Quality very seriously Our Engineers ensure that
-              almost all the images generated can be used in a profesional
-              setting
+      <div className="gradientBackground">
+        <div className="px-10 md:px-16 2xl:px-[200px]">
+          <h2 className="flex flex-col items-center gap-6 pt-20">
+            <div className="text-white text-2xl text-center md:text-[45px] font-semibold lg:font-normal lg:text-[64px]">
+              High Quality Images
             </div>
-            <div className="flex flex-col gap-4 w-full md:w-1/2 items-center">
-              <Link
-                to="/corporate-ai-headshots"
-                className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full py-2 px-4  md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
-              >
-                Get your photos for €9
-              </Link>
-              <span className="flex flex-col text-center text-[19px] text-[#f1f1f1]">
-                <span>
-                  Payment handled by{" "}
-                  <strong className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text ">
-                    Stripe
-                  </strong>
+            <div className="w-full max-w-[90%] flex flex-col gap-6 items-center">
+              <div className="text-center text-white text-[16px]">
+                We take our Quality very seriously Our Engineers ensure that
+                almost all the images generated can be used in a profesional
+                setting
+              </div>
+              <div className="flex flex-col gap-4 w-full md:w-1/2 items-center">
+                <Link
+                  to="/corporate-ai-headshots"
+                  className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full py-2 px-4  md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+                >
+                  Get your photos for €9
+                </Link>
+                <span className="flex flex-col text-center text-[19px] text-[#f1f1f1]">
+                  <span>
+                    Payment handled by{" "}
+                    <strong className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB]  inline-block text-transparent bg-clip-text ">
+                      Stripe
+                    </strong>
+                  </span>
+                  <span className="text-[14px]">
+                    We do not store your payment details
+                  </span>
                 </span>
-                <span className="text-[14px]">
-                  We do not store your payment details
-                </span>
-              </span>
+              </div>
             </div>
-          </div>
-        </h2>
+          </h2>
+        </div>
 
         <div className="py-8 md:py-16">
           <InfinitySlider imgData1={imgData2} imgData2={imgData3} />
@@ -773,44 +773,48 @@ const Home = () => {
 
 
         {/* turn your selfie info card */}
-        <div className="w-full grid md:grid-cols-2 gap-4 bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-5 lg:py-10 rounded-xl shadow-[0_0_1px_1px#1d5eb3]  ">
-          <div className="flex w-full flex-col  items-center md:items-start justify-evenly gap-2 md:gap-4 px-10">
-            <h3 className="text-xl md:text-[22px] lg:text-[32px] xl:text-[48px] 2xl:text-4xl text-[#F1F1F1]">
-              Turn your selfie into
-            </h3>
-            <div className=" text-center w-full md:text-left text-2xl md:text-4xl lg:text-6xl 2xl:text-7xl  bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-              Professional Headshots
+        <div className="px-10 md:px-16 2xl:px-[200px]">
+          <div className="w-full grid md:grid-cols-2 gap-4 bg-gradient-to-r from-[#131270] via-[#161497] to-[#1f1db3] mt-28 py-5 lg:py-10 rounded-xl shadow-[0_0_1px_1px#1d5eb3]  ">
+            <div className="flex w-full flex-col  items-center md:items-start justify-evenly gap-2 md:gap-4 px-10">
+              <h3 className="text-xl md:text-[22px] lg:text-[32px] xl:text-[48px] 2xl:text-4xl text-[#F1F1F1]">
+                Turn your selfie into
+              </h3>
+              <div className=" text-center w-full md:text-left text-2xl md:text-4xl lg:text-6xl 2xl:text-7xl  bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+                Professional Headshots
+              </div>
+              <div className="text-xl md:text-3xl text-center md:text-left text-[#F1F1F1]">
+                AI Headshots
+              </div>
+              <div>
+                <Link
+                  to="/corporate-ai-headshots"
+                  className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full px-6 py-2 md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
+                >
+                  Get your photos for €9
+                </Link>
+              </div>
             </div>
-            <div className="text-xl md:text-3xl text-center md:text-left text-[#F1F1F1]">
-              AI Headshots
+            <div className="w-full object-contain">
+              <LazyLoadImage
+                alt=""
+                src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1738917641/ai_image_generator_headgen_ai_ehojfw.webp"
+                className="w-full h-full"
+                height={"250px"}
+                width={"430px"}
+                style={{
+                  aspectRatio: "1920/1080",
+                  objectFit: "contain",
+                }}
+              />
             </div>
-            <div>
-              <Link
-                to="/corporate-ai-headshots"
-                className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full px-6 py-2 md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
-              >
-                Get your photos for €9
-              </Link>
-            </div>
-          </div>
-          <div className="w-full object-contain">
-            <LazyLoadImage
-              alt=""
-              src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021956/headgen/Home/Turn%20your%20selfie%20into%20professional%20headshots/nrg3dczzklbafdfbc2lp.webp"
-              className="w-full h-full"
-              height={"250px"}
-              width={"430px"}
-              style={{
-                aspectRatio: "1920/1080",
-                objectFit: "contain",
-              }}
-            />
           </div>
         </div>
 
         {/* dating hero section */}
-        <div className="flex justify-center py-20 ">
-          <DatingHero />
+        <div className="px-10 md:px-16 2xl:px-[200px]">
+          <div className="flex justify-center py-20 ">
+            <DatingHero />
+          </div>
         </div>
       </div>
       <div className="grid md:grid-cols-2 gap-8 px-10 md:px-16 2xl:px-[200px]">
@@ -823,8 +827,8 @@ const Home = () => {
 
               <span>Questions</span>
             </h2>
-            <div className="text-[#F1F1F1] text-center text-[12px] md:text-[14px]">
-              E-mail is at support@headgen.ai we are available round the clock.
+            <div className="text-[#F1F1F1] text-center text-[13px] md:text-[14px]">
+              E-mail is at support@headgen.ai <br /> we are available round the clock.
             </div>
           </div>
         </div>
@@ -832,13 +836,15 @@ const Home = () => {
           <FaqAccordian />
         </div>
       </div>
-      <div className="flex space-y-4 flex-col px-10 md:px-16 2xl:px-[200px] py-10">
-        <h2 className="text-center text-xl sm:text-2xl md:text-4xl xl:text-6xl  text-[#F1F1F1]">
-          <span className=" bg-gradient-to-r md:leading-[5rem] from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-            Our Clients love
-          </span>{" "}
-          Our Results
-        </h2>
+      <div className="flex space-y-4 flex-col  py-10">
+        <div className="px-10 md:px-16 2xl:px-[200px]">
+          <h2 className="text-center text-xl sm:text-2xl md:text-4xl xl:text-6xl  text-[#F1F1F1]">
+            <span className=" bg-gradient-to-r md:leading-[5rem] from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+              Our Clients love
+            </span>{" "}
+            Our Results
+          </h2>
+        </div>
         <InfinitySlider
           imgData1={reviewData1}
           imgData2={reviewData1}
@@ -874,7 +880,7 @@ const Home = () => {
         </div>
       </div>
       <div className="flex flex-col gap-8 py-10">
-        <h2 className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
+        <h2 className="text-center text-xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
           <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
             Premium Professional
           </span>{" "}
@@ -948,7 +954,7 @@ const Home = () => {
 
         <div className="w-full flex justify-center">
           <div className="flex flex-col items-center justify-center gap-4 md:gap-6 top-0">
-            <h2 className="text-center space-x-3 md:space-x-0 md:grid text-[#F1F1F1] text-[26px] sm:text-[32px] md:text-[42px] lg:text-[52px] 2xl:text-[60px] font-medium">
+            <h2 className="text-center space-x-3 md:space-x-0 md:grid text-[#F1F1F1] text-xl sm:text-[32px] md:text-[42px] lg:text-[52px] 2xl:text-[60px] font-medium">
               <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
                 Money-Back
               </span>
@@ -968,7 +974,7 @@ const Home = () => {
       </div>
       {blogData && blogData?.length > 0 && (
         <div className="flex flex-col gap-24 px-10 md:px-16 2xl:px-[200px]">
-          <h2 className="text-center text-2xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
+          <h2 className="text-center text-xl md:text-4xl xl:text-6xl text-[#F1F1F1]">
             <span className=" bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
               HeadGen
             </span>{" "}
@@ -988,7 +994,7 @@ const Home = () => {
       >
         <div className="relative w-[95vw] md:w-fit rounded-md left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-3 focus:none">
           <iframe
-            src="https://res.cloudinary.com/dj2fvzfmm/video/upload/v1721022181/headgen/How%20it%20works%20video/ej1ci1htv6momh1v0vov.mp4"
+            src="https://res.cloudinary.com/dj2fvzfmm/video/upload/v1738928785/HeadGen_AI_-_How_to_Use_Video_nvohts.mp4"
             width="100%"
             height="100%"
             className="rounded-2xl h-[200px] sm:w-[500px] sm:h-[300px] md:h-[300px] md:w-[640px] 2xl:h-[400px] 2xl:w-[700px]"

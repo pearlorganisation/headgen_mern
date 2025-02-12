@@ -31,8 +31,8 @@ const HeadshotSelection = ({
 
   return (
     <div className="flex flex-col gap-4 justify-between relative h-full w-full items-center ">
-      <div className="text-center font-bold lg:text-left text-xl sm:text-2xl md:text-3xl">
-        <AppSvgs name="linkedIn" /> Boost your LinkedIn / Resume
+      <div className="text-center font-bold lg:text-left text-xs sm:text-xl md:text-3xl flex flex-row gap-1 items-center justify-center">
+        <AppSvgs name="linkedIn" width={40} height={40} /> <span>Boost your LinkedIn / Resume</span>
       </div>
       <div className="grid lg:grid-cols-[40%_auto]  gap-8 w-full  ">
         {/* <div className="w-full mt-2 hidden md:flex flex-col  justify-end  rounded-xl">
@@ -79,7 +79,7 @@ const HeadshotSelection = ({
                 </>
               ))}
 
-          <div className="text-center text-base py-2">
+          <div className="text-center text-xs md:text-base py-2">
             <div>
               This image is a reference for{" "}
               <strong>
@@ -97,11 +97,10 @@ const HeadshotSelection = ({
                 <Link
                   key={`headshotType${idx}`}
                   to={item.link}
-                  className={`bg-[#f1f1f1]  text-[#131313] ${
-                    userData?.headshotType === item?.name
-                      ? "!bg-[#1d2838] text-[#F1F1F1] rounded-lg shadow-[0_0_0_2px_#224cc2]"
-                      : "bg-[#f1f1f1] "
-                  } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-full pl-2  transition duration-500 text-[12px] md:text-[12px] lg:text-[14px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
+                  className={`bg-[#f1f1f1]  text-[#131313] ${userData?.headshotType === item?.name
+                    ? "!bg-[#1d2838] text-[#F1F1F1] rounded-lg shadow-[0_0_0_2px_#224cc2]"
+                    : "bg-[#f1f1f1] "
+                    } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-full pl-2  transition duration-500 text-[12px] md:text-[12px] lg:text-[14px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
                   onClick={() => setHeadshotType(item?.name)}
                 >
                   <span className="w-5/6">{item?.name}</span>

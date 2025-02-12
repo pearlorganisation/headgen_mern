@@ -6,17 +6,17 @@ const DatingHero = () => {
   return (
     <div className="grid md:grid-cols-2 gap-6 py-8 md:py-0">
       <div className="flex flex-col items-center md:items-start justify-center gap-6 w-full">
-        <h2 className=" text-center md:text-left text-[2em] sm:text-[2.4em] lg:text-[3rem] 2xl:text-[4.3rem] font-semibold  leading-tight text-[#F1F1F1] w-full">
+        <h2 className=" text-center md:text-left text-[1.9em] sm:text-[2.4em] lg:text-[3rem] 2xl:text-[4.3rem] font-semibold leading-tight text-[#F1F1F1] w-full">
           <div>
             <span className="font-semibold bg-gradient-to-r from-[#e73e71] to-[#af1040]  inline-block text-transparent bg-clip-text">
               Double
             </span>{" "}
             your
           </div>
-          <div>matches with our</div>
+          <div className="w-full">matches with our</div>
           <div>AI dating photos</div>
         </h2>
-        <h3 className="text-[11px] sm:text-[13px] lg:text-[14px] 2xl:text-[16px] text-[#F1F1F1] text-center md:text-left">
+        <h3 className="px-10 md:px-0 text-[13px] sm:text-[13px] lg:text-[14px] 2xl:text-[16px] text-[#F1F1F1] text-center md:text-left">
           <div>
             Use our AI headshot generator built by AI researchers to improve
             your dating
@@ -35,7 +35,7 @@ const DatingHero = () => {
         </div>
       </div>
       <div className="w-full flex flex-col justify-center items-end">
-        <LazyLoadImage alt="" 
+        <LazyLoadImage alt=""
           src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1723100630/HeadGen_AI_Dating_xnvsvi.webp"
           className="w-full !max-h-[700px] !max-w-[700px]"
           height={"700px"}

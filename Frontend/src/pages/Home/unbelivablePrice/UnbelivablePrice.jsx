@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import PriceCards from "../../../components/PriceCards/PriceCards";
 
 const plans = [
@@ -32,8 +31,8 @@ const plans = [
 const PricingCards = () => {
   return (
     <div className="w-full rounded-2xl bg-[#282828] py-10 transition duration-500 mb-10 md:px-10 pt-10">
-      <h1 className="text-white  text-2xl md:text-[45px] font-semibold lg:font-normal lg:text-[64px] leading-tight sm:leading-snug text-center max-w-xl sm:max-w-4xl mx-auto px-4 sm:px-5">
-        <span>Premium Professional Images</span> <br />
+      <h1 className="text-white text-xl md:text-[45px] font-semibold lg:font-normal lg:text-[64px] leading-tight sm:leading-snug text-center max-w-xl sm:max-w-4xl mx-auto px-4 sm:px-5">
+        <span>Premium Professional Images</span><br />
         <span>at</span>
         <span className="ml-2 sm:ml-4 bg-gradient-to-r from-[#00FFA6] via-[#33A9FF] to-[#0053F9] bg-clip-text text-transparent">
           Unbeatable Prices
@@ -44,7 +43,7 @@ const PricingCards = () => {
         <PriceCards
           data={plans}
           userData={{}}
-          setUserData={() => {}}
+          setUserData={() => { }}
           errors={{}}
         />
 

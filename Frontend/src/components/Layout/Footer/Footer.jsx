@@ -126,7 +126,7 @@ const Footer = () => {
             <div className="w-[90%] px-2 py-3 bg-gradient-to-r from-[#59caff] to-[#5636F3] rounded-xl text-[#f1f1f1] text-[15px] font-medium transition duration-300 absolute -bottom-4 left-1/2 -translate-x-1/2">
               <LazyLoadImage
                 alt=""
-                src="/logo.webp"
+                src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1738921221/Your_paragraph_text_-_2025-02-07T150932.516_t2m5p2.webp"
                 width={"240px"}
                 height={"58px"}
               />
@@ -139,9 +139,8 @@ const Footer = () => {
             footerContent?.map((fc, idx) => (
               <div
                 key={`fc${idx}`}
-                className={`flex flex-col  gap-3 md:gap-1 ${
-                  fc?.multiList && "md:col-span-2"
-                }`}
+                className={`flex flex-col  gap-3 md:gap-1 ${fc?.multiList && "md:col-span-2"
+                  }`}
               >
                 <div
                   className={`text-2xl xl:text-[2.4rem] md:h-[80px] oswald text-blue-600`}

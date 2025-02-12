@@ -154,7 +154,6 @@ const Header = () => {
   ];
 
   // country selection
-
   const countries = [
     // European countries first
     {
@@ -170,7 +169,7 @@ const Header = () => {
       countryName: "United Kingdom",
     },
     {
-      countryImg: "https://flagcdn.com/w160/ne.png",
+      countryImg: "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1739351397/Flag_of_the_Netherlands.svg_a0wwqk.png",
       countryName: "Netherlands",
     },
     {
@@ -249,18 +248,6 @@ const Header = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-  //       setIsOpen(false);
-  //     }
-  //   };
-
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, []);
 
   const handleSelect = (country) => {
     setSelectedCountry(country);
@@ -272,15 +259,14 @@ const Header = () => {
 
   return (
     <nav
-      className={`fixed w-screen ${
-        toggleNav ? toggleCss : ""
-      } py-3 px-5 sm:px-8 sm:py-1 2xl:px-[100px] h-fit border-[#737373] border-b-[2px] z-[99]  `}
+      className={`fixed w-screen ${toggleNav ? toggleCss : ""
+        } py-3 px-5 sm:px-8 sm:py-1 2xl:px-[100px] h-fit border-[#737373] border-b-[2px] z-[99]  `}
     >
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex flex-col justify-center">
           <Link to="/" aria-label="Home page link in header">
             <LazyLoadImage
-              src="/logo.webp"
+              src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1738921221/Your_paragraph_text_-_2025-02-07T150932.516_t2m5p2.webp"
               alt=""
               className="w-[140px] sm:w-[180px] max-w-[180px]"
               height={"33px"}
@@ -362,9 +348,8 @@ const Header = () => {
             </svg>
           </div>
           <div
-            className={`${
-              showMobDropdown ? "" : "hidden"
-            } absolute top-[102%] right-0 w-fit bg-[#2f2f31] flex flex-col shadow-[0_2px_2px#121212]`}
+            className={`${showMobDropdown ? "" : "hidden"
+              } absolute top-[102%] right-0 w-fit bg-[#2f2f31] flex flex-col shadow-[0_2px_2px#121212]`}
           >
             {navData &&
               navData.map((item, idx) => (
@@ -448,22 +433,18 @@ const Header = () => {
           {/* button */}
           <div className="h-full flex flex-col justify-center py-3">
             <Link
-              to={`/${
-                isDatingPage ? "dating-ai-headshots" : "corporate-ai-headshots"
-              }`}
-              className={`hover:squeezyBtn px-5 py-4 ${
-                toggleNav
-                  ? `${
-                      isDatingPage
-                        ? "shadow-[0_1px_2px_0_#131313] bg-gradient-to-b from-[#c91a4f] to-[#8a0930] hover:from-[#bb2c57] hover:to-[#861436]"
-                        : "bg-[#224cc2] shadow-md hover:bg-[#1d2838]"
-                    }`
-                  : `${
-                      isDatingPage
-                        ? "bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436]"
-                        : "bg-[#224cc2] hover:bg-[#1d2838]"
-                    }`
-              } hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#ffffff] text-[15px] font-medium transition duration-[0.6s]`}
+              to={`/${isDatingPage ? "dating-ai-headshots" : "corporate-ai-headshots"
+                }`}
+              className={`hover:squeezyBtn px-5 py-4 ${toggleNav
+                ? `${isDatingPage
+                  ? "shadow-[0_1px_2px_0_#131313] bg-gradient-to-b from-[#c91a4f] to-[#8a0930] hover:from-[#bb2c57] hover:to-[#861436]"
+                  : "bg-[#224cc2] shadow-md hover:bg-[#1d2838]"
+                }`
+                : `${isDatingPage
+                  ? "bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57] hover:to-[#861436]"
+                  : "bg-[#224cc2] hover:bg-[#1d2838]"
+                }`
+                } hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#ffffff] text-[15px] font-medium transition duration-[0.6s]`}
             >
               Get Started
             </Link>

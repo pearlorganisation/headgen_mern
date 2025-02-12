@@ -69,7 +69,7 @@ const HowItWorks = () => {
 
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>
           How HeadGen AI Works | Simple AI Headshot Generator & AI Photo Generation Process
         </title>
@@ -79,144 +79,143 @@ const HowItWorks = () => {
         />
       </Helmet>
 
-    <div className="w-full py-20 flex flex-col bg-[#161616] gap-10">
-      <div className="flex justify-center px-10  xl:px-[160px] 2xl:px-[250px] py-14">
-        <div className="flex flex-row flex-wrap gap-6 lg:gap-0 md:justify-between w-full">
-          <div className="w-full lg:w-1/5 flex flex-col gap-4 justify-center items-center ">
-            <h1 className="flex flex-col gap-1 w-fit">
-              <div className="text-[#F1F1F1] text-[60px] 2xl:text-[72px] font-medium leading-6">
-                How it
-              </div>
-              <div className="text-[60px] 2xl:text-[72px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-                works
-              </div>
-              <Link
-                to="/corporate-ai-headshots"
-                className="hover:squeezyBtn flex flex-col justify-center  items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]"
-              >
-                Get your photos for €9
-              </Link>
-            </h1>
-          </div>
-          <div className="w-full lg:w-3/5 flex flex-col gap-6 items-center">
-            <div className="w-full flex justify-center">
-            <iframe
-                src="https://res.cloudinary.com/dj2fvzfmm/video/upload/v1721022181/headgen/How%20it%20works%20video/ej1ci1htv6momh1v0vov.mp4"
-                width="100%"
-                height="100%"
-                className="rounded-2xl h-[200px] sm:w-[500px] sm:h-[300px] md:h-[300px] md:w-[640px] 2xl:h-[400px] 2xl:w-[700px]"
-                title="how it works video"
-
-              ></iframe>
+      <div className="w-full py-20 flex flex-col bg-[#161616] gap-10">
+        <div className="flex justify-center px-10  xl:px-[160px] 2xl:px-[250px] py-14">
+          <div className="flex flex-row flex-wrap gap-6 lg:gap-0 md:justify-between w-full">
+            <div className="w-full lg:w-1/5 flex flex-col gap-4 justify-center items-center ">
+              <h1 className="flex flex-col gap-1 w-fit">
+                <div className="text-[#F1F1F1] text-[60px] 2xl:text-[72px] font-medium leading-6">
+                  How it
+                </div>
+                <div className="text-[60px] 2xl:text-[72px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+                  works
+                </div>
+                <Link
+                  to="/corporate-ai-headshots"
+                  className="hover:squeezyBtn flex flex-col justify-center  items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]"
+                >
+                  Get your photos for €9
+                </Link>
+              </h1>
             </div>
+            <div className="w-full lg:w-3/5 flex flex-col gap-6 items-center">
+              <div className="w-full flex justify-center">
+                <iframe
+                  src="https://res.cloudinary.com/dj2fvzfmm/video/upload/v1738928785/HeadGen_AI_-_How_to_Use_Video_nvohts.mp4"
+                  width="100%"
+                  height="100%"
+                  className="rounded-2xl h-[200px] sm:w-[500px] sm:h-[300px] md:h-[300px] md:w-[640px] 2xl:h-[400px] 2xl:w-[700px]"
+                  title="how it works video"
 
-            <div className="text-[#F1F1F1] text-[10px]">
-              Upload a selfie and get Professional Images for your LinkedIn
-              Profile, Resume, TV Commercial etc
+                ></iframe>
+              </div>
+
+              <div className="text-[#F1F1F1] text-[10px]">
+                Upload a selfie and get Professional Images for your LinkedIn
+                Profile, Resume, TV Commercial etc
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="flex flex-col gap-24 px-10  xl:px-[160px] 2xl:px-[250px]">
-        {/* <div className="text-center text-[60px] text-[#F1F1F1]">
+        <div className="flex flex-col gap-24 px-10  xl:px-[160px] 2xl:px-[250px]">
+          {/* <div className="text-center text-[60px] text-[#F1F1F1]">
           <span className="text-[55px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
             HeadGen
           </span>{" "}
           AI Blog
         </div> */}
-        <div>
-          <div className="flex flex-row flex-wrap gap-10 md:gap-0 justify-center md:justify-between">
-            {cardData?.map((item, idx) => (
-              <div
-                key={`blogCard${idx}`}
-                className={`flex flex-col justify-evenly items-center w-[80%] md:w-[32%] bg-gradient-to-b from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
-              >
-                <div className="w-[80%] -translate-y-20 group-hover:-translate-y-24 rounded-xl transition duration-300">
-                  <LazyLoadImage alt=""  src={item?.imgPath} className="w-full rounded-xl" />
-                </div>
+          <div>
+            <div className="flex flex-row flex-wrap gap-10 md:gap-0 justify-center md:justify-between">
+              {cardData?.map((item, idx) => (
                 <div
-                  className={`h-[100px] flex flex-col ${
-                    item?.btnLink ? "justify-between" : ""
-                  }  gap-4 items-center`}
+                  key={`blogCard${idx}`}
+                  className={`flex flex-col justify-evenly items-center w-[80%] md:w-[32%] bg-gradient-to-b from-[#1a1e43] to-[#1b2bbb] rounded-xl  py-10 group shadow-[0_0_0_1px_#babcbf80]`}
                 >
-                  {item?.title?.length > 0 && (
-                    <h2 className="px-2 text-center font-bold text-[#F1F1F1] text-3xl ">
-                      {item?.title}
-                    </h2>
-                  )}
+                  <div className="w-[80%] -translate-y-20 group-hover:-translate-y-24 rounded-xl transition duration-300">
+                    <LazyLoadImage alt="" src={item?.imgPath} className="w-full rounded-xl" />
+                  </div>
+                  <div
+                    className={`h-[100px] flex flex-col ${item?.btnLink ? "justify-between" : ""
+                      }  gap-4 items-center`}
+                  >
+                    {item?.title?.length > 0 && (
+                      <h2 className="px-2 text-center font-bold text-[#F1F1F1] text-3xl ">
+                        {item?.title}
+                      </h2>
+                    )}
 
-                  {item?.btnLink && (
-                    <div className="w-2/3">
-                      <button className="hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]">
-                        Learn More
-                      </button>
-                    </div>
-                  )}
+                    {item?.btnLink && (
+                      <div className="w-2/3">
+                        <button className="hover:squeezyBtn bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full h-[58px] hover:shadow-[0_0_0_2px_#224cc2] transition duration-500 px-2 text-[14px]">
+                          Learn More
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+          <div>
+            <InfinityTextSlider />
           </div>
         </div>
-        <div>
-          <InfinityTextSlider />
-        </div>
-      </div>
 
-      <div className="flex flex-col gap-10 px-10  xl:px-[160px] 2xl:px-[250px]">
-        <h2 className="text-center text-[60px] text-[#F1F1F1]">
-          Get{" "}
-          <span className="text-[55px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-            Team Headshots
-          </span>
-        </h2>
+        <div className="flex flex-col gap-10 px-10  xl:px-[160px] 2xl:px-[250px]">
+          <h2 className="text-center text-[60px] text-[#F1F1F1]">
+            Get{" "}
+            <span className="text-[55px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+              Team Headshots
+            </span>
+          </h2>
 
-        <div className="container rounded-xl flex justify-center">
-       
-            <LazyLoadImage alt="" 
+          <div className="container rounded-xl flex justify-center">
+
+            <LazyLoadImage alt=""
               src={`https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021539/headgen/yxyt5l4vqtgi18njndcr.webp`}
               className="w-[100%] rounded-xl"
             />
-        
+
+          </div>
         </div>
-      </div>
 
-      <div className="flex flex-col gap-10 px-10  xl:px-[160px] 2xl:px-[250px]">
-        <h2 className="text-center text-[60px] text-[#F1F1F1]">
-          Get{" "}
-          <span className="text-[55px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-            Custom Headshots
-          </span>
-        </h2>
+        <div className="flex flex-col gap-10 px-10  xl:px-[160px] 2xl:px-[250px]">
+          <h2 className="text-center text-[60px] text-[#F1F1F1]">
+            Get{" "}
+            <span className="text-[55px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+              Custom Headshots
+            </span>
+          </h2>
 
-        <div className="container rounded-xl flex justify-center">
-          
-            <LazyLoadImage alt="" 
+          <div className="container rounded-xl flex justify-center">
+
+            <LazyLoadImage alt=""
               src={`https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721021539/headgen/ko9jishea8ovmtycv4zi.webp`}
               className="w-full rounded-xl"
             />
-         
+
+          </div>
         </div>
-      </div>
 
-      <div className="flex flex-col gap-10 px-10  xl:px-[160px] 2xl:px-[250px]">
-        <h2 className="text-center text-[60px] text-[#F1F1F1]">
-          Create{" "}
-          <span className="text-[55px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
-            Custom Prompts
-          </span>
-        </h2>
+        <div className="flex flex-col gap-10 px-10  xl:px-[160px] 2xl:px-[250px]">
+          <h2 className="text-center text-[60px] text-[#F1F1F1]">
+            Create{" "}
+            <span className="text-[55px] bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+              Custom Prompts
+            </span>
+          </h2>
 
-        <div className="container rounded-xl flex justify-center">
-          
-            <LazyLoadImage alt="" 
+          <div className="container rounded-xl flex justify-center">
+
+            <LazyLoadImage alt=""
               src={`https://res.cloudinary.com/dj2fvzfmm/image/upload/v1728030853/promptSection_brdsnx.png`}
               className="w-full rounded-xl"
             />
-         
+
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };
