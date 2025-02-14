@@ -36,6 +36,14 @@ const Tab = ({ section }) => {
       },
       imgPreview:
         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022265/headgen/Headshots/Image%20to%20appear%20on%20click/haybecoslhl5oawukalb.webp",
+      info: (
+        <div>
+          <strong>
+            Corporate:{" "}
+          </strong>
+          Suit & tie, indoor office background .
+        </div>
+      )
     },
     {
       name: "Doctor Headshots",
@@ -46,6 +54,14 @@ const Tab = ({ section }) => {
       },
       imgPreview:
         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022266/headgen/Headshots/Image%20to%20appear%20on%20click/l3stzd5y9i3jjt371sol.webp",
+      info: (
+        <div>
+          <strong>
+            Lawyer:{" "}
+          </strong>
+          Suit & tie, indoor office background .
+        </div>
+      )
     },
     {
       name: "Lawyer Headshots",
@@ -59,7 +75,7 @@ const Tab = ({ section }) => {
       info: (
         <div>
           <strong>
-            Corporate:{" "} 
+            Lawyer:{" "}
           </strong>
           Suit & tie, indoor office background .
         </div>
@@ -74,6 +90,14 @@ const Tab = ({ section }) => {
       },
       imgPreview:
         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022267/headgen/Headshots/Image%20to%20appear%20on%20click/iqmmj3zciq7v0gkueumu.webp",
+      info: (
+        <div>
+          <strong>
+            Lawyer:{" "}
+          </strong>
+          Suit & tie, indoor office background .
+        </div>
+      )
     },
     {
       name: "Students Headshots",
@@ -84,6 +108,14 @@ const Tab = ({ section }) => {
       },
       imgPreview:
         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022268/headgen/Headshots/Image%20to%20appear%20on%20click/kgzajygbfhmsbmupz7gv.webp",
+      info: (
+        <div>
+          <strong>
+            Lawyer:{" "}
+          </strong>
+          Suit & tie, indoor office background .
+        </div>
+      )
     },
     {
       name: "Teacher Headshots",
@@ -94,13 +126,21 @@ const Tab = ({ section }) => {
       },
       imgPreview:
         "https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721022268/headgen/Headshots/Image%20to%20appear%20on%20click/rwe5vljldwisdqyihe2s.webp",
+      info: (
+        <div>
+          <strong>
+            Lawyer:{" "}
+          </strong>
+          Suit & tie, indoor office background .
+        </div>
+      )
     },
   ];
 
-  useEffect(() => {
-    // console.log(userData)
-    localStorage.setItem("userData", JSON.stringify(userData));
-  }, [userData]);
+  // useEffect(() => {
+  //   // console.log(userData)
+  //   localStorage.setItem("userData", JSON.stringify(userData));
+  // }, [userData]);
 
   useEffect(() => {
     let data = { ...userData };
@@ -199,9 +239,8 @@ const Tab = ({ section }) => {
           return (
             <div className="relative text-xs sm:text-sm md:text-base" key={`tab${idx}`}>
               <div
-                className={` ${
-                  tabText === item ? "flex" : "hidden"
-                }  absolute text-white h-full`}
+                className={` ${tabText === item ? "flex" : "hidden"
+                  }  absolute text-white h-full`}
               >
                 <span
                   className={` rounded-full h-full w-[4.1rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-r from-[#3183ff] to-[#0c4cac] z-[10] transition duration-300`}

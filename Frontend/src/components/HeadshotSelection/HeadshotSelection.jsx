@@ -109,6 +109,23 @@ const HeadshotSelection = ({
                 </Link>
               ))}
           </div>
+          <div className="text-xs md:text-base py-2">
+            {headshots &&
+              headshots
+                ?.filter((item) => {
+                  return item?.name === section && item?.headshotInfo;
+                })
+                .map((filteredItem, idx) => (
+                  <>
+                    <div
+                      key={`imgPreview${idx}`}
+                      className="flex justify-start rounded-xl "
+                    >
+                      {filteredItem?.info}
+                    </div>
+                  </>
+                ))}
+          </div>
         </div>
       </div>
     </div>
