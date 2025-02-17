@@ -34,28 +34,7 @@ const HeadshotSelection = ({
         <AppSvgs name="linkedIn" width={40} height={40} /> <span>Boost your LinkedIn / Resume</span>
       </div>
       <div className="grid lg:grid-cols-[40%_auto]  gap-8 w-full  ">
-        {/* <div className="w-full mt-2 hidden md:flex flex-col  justify-end  rounded-xl">
-          {headshots &&
-            headshots
-              ?.filter((item) => {
-                return item?.name === section && item?.headshotInfo;
-              })
-              .map((filteredItem, idx) => (
-                <div
-                  key={`filteredItem${idx}`}
-                  className="w-full  rounded-xl  shadow-[0_0_1px#ababab] "
-                >
 
-                  <LazyLoadImage alt="" 
-                    src={`${filteredItem?.headshotInfo?.imgPath}`}
-                    className="w-full h-full rounded-xl"
-                    width={"600px"}
-
-                  />
-
-                </div>
-              ))}
-        </div> */}
 
         <div className="flex flex-col justify-center  items-center w-full max-h-[400px]  overflow-auto">
           {headshots &&
