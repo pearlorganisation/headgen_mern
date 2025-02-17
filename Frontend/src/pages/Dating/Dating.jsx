@@ -120,7 +120,7 @@ const Dating = () => {
           >
             As seen on
           </h3>
-          <LazyLoadImage alt="" 
+          <LazyLoadImage alt=""
             src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023816/ai_dating_photos_logos_rr8ugz.webp"
             width={"600px"}
           />
@@ -140,7 +140,7 @@ const Dating = () => {
               <div className="flex flex-col gap-10  h-full">
                 <div className="flex flex-col sm:flex-row justify-start gap-10 items-center w-full ">
                   <div className="w-fit flex justify-center sm:block !max-h-[500px] sm:-translate-y-28">
-                    <LazyLoadImage alt="" 
+                    <LazyLoadImage alt=""
                       src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023815/Untitled_design_68_zueeax.webp"
                       width={300}
                       height={500}
@@ -162,7 +162,7 @@ const Dating = () => {
             <div className="w-full flex flex-col gap-10 ">
               <div className="w-full !glassMorphism !bg-gradient-to-br !from-[#10151dde] to-[#121720de] py-10 rounded-2xl relative px-8 shadow-[0_0_0_1px_#ffffff] h-2/3">
                 <div className="absolute w-[170px] h-[150px] sm:w-[220px] sm:h-[200px] !max-h-[200px] -top-8 -translate-y-10 -right-5">
-                  <LazyLoadImage alt="" 
+                  <LazyLoadImage alt=""
                     src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023816/Corporate_HeadShots_wscmqk.webp"
                     width={220}
                     height={200}

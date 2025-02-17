@@ -41,7 +41,7 @@ const Tab = ({ section }) => {
           <strong>
             Corporate:{" "}
           </strong>
-          Suit & tie, indoor office background .
+          Suit & tie, indoor office background.
         </div>
       )
     },
@@ -57,9 +57,9 @@ const Tab = ({ section }) => {
       info: (
         <div>
           <strong>
-            Lawyer:{" "}
+            Doctor:{" "}
           </strong>
-          Suit & tie, indoor office background .
+          Lab Coat, Stethoscope, Medical Background.
         </div>
       )
     },
@@ -77,7 +77,7 @@ const Tab = ({ section }) => {
           <strong>
             Lawyer:{" "}
           </strong>
-          Suit & tie, indoor office background .
+          Suit & Tie, Plain White Background.
         </div>
       )
     },
@@ -93,9 +93,9 @@ const Tab = ({ section }) => {
       info: (
         <div>
           <strong>
-            Lawyer:{" "}
+            Sales:{" "}
           </strong>
-          Suit & tie, indoor office background .
+          Suit with Formal Shirt (no tie), Indoor office Background.
         </div>
       )
     },
@@ -111,9 +111,9 @@ const Tab = ({ section }) => {
       info: (
         <div>
           <strong>
-            Lawyer:{" "}
+            Student:{" "}
           </strong>
-          Suit & tie, indoor office background .
+          Semi-formal, university background.
         </div>
       )
     },
@@ -129,9 +129,9 @@ const Tab = ({ section }) => {
       info: (
         <div>
           <strong>
-            Lawyer:{" "}
+            Teacher:{" "}
           </strong>
-          Suit & tie, indoor office background .
+          Formal attire, classroom background.
         </div>
       )
     },

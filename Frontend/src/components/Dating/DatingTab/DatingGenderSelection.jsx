@@ -53,9 +53,10 @@ const DatingGenderSelection = ({
 
   return (
     <div className="flex flex-col gap-4 justify-between relative h-full  w-full items-center">
-      <div className="text-center  lg:text-left text-xl sm:text-2xl md:text-3xl">
-        Pick from our custom headshot templates:
-      </div>
+      {/* <div className="text-center  lg:text-left text-xl sm:text-2xl md:text-3xl">
+        Boost your Dating Profile
+      </div> */}
+
       <div className="grid xl:grid-cols-[auto_20rem] gap-8 w-full   ">
         {/* <div className="w-full mt-2 hidden md:flex flex-col  justify-end  rounded-xl">
           {userData?.gender?.length > 0 &&
@@ -78,6 +79,17 @@ const DatingGenderSelection = ({
               ))}
         </div> */}
         <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center md:justify-start">
+            <h2
+              className={`flex flex-col justify-center text-center md:text-left font-bold text-base sm:text-4xl text-white pl-2`}
+            >
+              Boost your Dating Profile
+            </h2>
+            <LazyLoadImage alt=""
+              src="https://res.cloudinary.com/dj2fvzfmm/image/upload/v1721023816/ai_dating_photos_logos_rr8ugz.webp"
+              width={"550px"}
+            />
+          </div>
           <UserDetails
             userData={userData}
             setUserData={setUserData}
