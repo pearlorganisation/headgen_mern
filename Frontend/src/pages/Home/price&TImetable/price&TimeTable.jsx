@@ -7,8 +7,8 @@ const PriceTable = () => {
   const tableData = [
     {
       category: "Cost",
-      withAI: `€9`,
-      traditional: "€1000",
+      withAI: `$29`,
+      traditional: "$500",
     },
     {
       category: "Time",

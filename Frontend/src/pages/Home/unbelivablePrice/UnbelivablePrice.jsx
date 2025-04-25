@@ -5,14 +5,14 @@ const plans = [
   {
     title: "Starter",
     buttonText: "",
-    price: "€9",
+    price: "$29",
     features: ["4 Headshots ( BASIC )", "4 Hours generation Time"],
     link: "/corporate-ai-headshots",
     buttonCTA: "Get Photos for € 9",
   },
   {
     title: "Basic",
-    price: "€29",
+    price: "$49",
     features: ["8 Headshots ( HD )", "2 Hours generation Time"],
     buttonText: "70% Pick this Plan",
     link: "/corporate-ai-headshots",
@@ -20,7 +20,7 @@ const plans = [
   },
   {
     title: "Premium",
-    price: "€35",
+    price: "$79",
     features: ["16 Headshots ( 4K ) ", "20 Minutes generation Time"],
     buttonText: "Best Value",
     link: "/corporate-ai-headshots",

@@ -10,13 +10,13 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-export const uploadFile = async (files) => {
+export const uploadFile = async (files, folderName = "headgen") => {
   try {
     let resultArr = await Promise.all(
       files.map(async (file) => {
         try {
           const res = await cloudinary.uploader.upload(file.path, {
-            folder: "headgen",
+            folder: folderName,
           });
           // Deleting the file after successful upload
           fs.unlink(file.path, (err) => {
@@ -39,3 +39,4 @@ export const uploadFile = async (files) => {
     return { status: false, message: error?.message };
   }
 };
+

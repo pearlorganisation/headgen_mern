@@ -583,7 +583,7 @@ const Home = () => {
             to="/corporate-ai-headshots"
             className={`w-48 px-2 h-[40px] md:h-[58px] hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg  hover:shadow-[0_0_0_2px_#224cc2] transition duration-500`}
           >
-            Get your photos for €9
+            Get your photos for $29
           </Link>
         </div>
 
@@ -748,7 +748,7 @@ const Home = () => {
                   to="/corporate-ai-headshots"
                   className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full py-2 px-4  md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
                 >
-                  Get your photos for €9
+                  Get your photos for $29
                 </Link>
                 <span className="flex flex-col text-center text-[19px] text-[#f1f1f1]">
                   <span>
@@ -790,7 +790,7 @@ const Home = () => {
                   to="/corporate-ai-headshots"
                   className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full px-6 py-2 md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
                 >
-                  Get your photos for €9
+                  Get your photos for $29
                 </Link>
               </div>
             </div>
@@ -967,7 +967,7 @@ const Home = () => {
               to="/corporate-ai-headshots"
               className="hover:squeezyBtn flex flex-col justify-center items-center bg-[#224cc2] shadow-md hover:bg-[#1d2838] text-[#F1F1F1] rounded-lg w-full md:w-2/3 py-2  md:py-4 hover:shadow-[0_0_0_2px_#224cc2] transition duration-500"
             >
-              Get your photos for €9
+              Get your photos for $29
             </Link>
           </div>
         </div>

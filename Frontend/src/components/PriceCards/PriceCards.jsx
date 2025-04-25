@@ -58,9 +58,9 @@ const PriceCards = ({ data, userData, setUserData, type, errors }) => {
                   item?.features?.map((e, idx1) => (
                     <div
                       key={`PriceCardFeature${idx1}`}
-                      className="flex justify-center gap-2  w-full"
+                      className="grid grid-cols-4 gap-2 w-full"
                     >
-                      <span className="flex flex-col w-auto justify-center">
+                      <span className="flex flex-col w-auto justify-center items-end">
                         <FaCheckCircle
                           size={18}
                           className={`${type != "Dating"
@@ -71,7 +71,7 @@ const PriceCards = ({ data, userData, setUserData, type, errors }) => {
                             group-hover:text-[#ffffff]`}
                         />
                       </span>
-                      <span className="text-lg text-wrap">{e}</span>
+                      <span className="text-sm text-wrap col-span-3">{e}</span>
                     </div>
                   ))}
               </div>

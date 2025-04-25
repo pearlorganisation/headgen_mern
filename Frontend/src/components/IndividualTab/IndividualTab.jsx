@@ -26,25 +26,44 @@ const IndividualTab = ({
   const priceCardData = [
     {
       title: "STARTER PACK",
-      originalPrice: "€18",
-      price: "€9",
-      features: ["4 Headshots ( BASIC )", "4 Hours generation Time"],
+      originalPrice: "$58",
+      price: "$29",
+      features: [
+        "20 Headshots",
+        "120 Mins Generation Time",
+        "Choose 1 Attire",
+        "Choose 1 Background",
+        "Standard Resolution"
+      ],
       packName: "Starter Pack",
       tag: "",
     },
     {
       title: "BASIC PACK",
-      originalPrice: "€45",
-      price: "€29",
-      features: ["8 Headshots ( HD )", "2 Hours generation Time"],
+      originalPrice: "$98",
+      price: "$49",
+      features: [
+        "40 Headshots",
+        "120 Mins Generation Time",
+        "Choose 1 Attire",
+        "Choose 1 Background",
+        "HD Resolution"
+      ]
+      ,
       packName: "Basic Pack",
       tag: "83% pick this plan",
     },
     {
       title: "PREMIUM PACK",
-      originalPrice: "€79",
-      price: "€35",
-      features: ["16 Headshots ( 4K ) ", "20 Minutes generation Time"],
+      originalPrice: "$149",
+      price: "$79",
+      features: [
+        "100 Headshots",
+        "60 Mins Generation Time",
+        "Choose Any Attire",
+        "Choose Any Background",
+        "Enhanced Image Resolution"
+      ],
       packName: "Premium Pack",
       tag: "Best Value",
     },

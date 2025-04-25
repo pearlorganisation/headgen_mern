@@ -45,12 +45,16 @@ app.use(
   })
 );
 
-// routes
+// routes for headgen
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/payment", paymentsRouter);
 app.use("/api/v1/freeHeadshot", freeHeadshotRouter);
 app.use("/api/v1/blogs", blogsRouter);
 app.use("/api/v1/reviews", reviewsRouter);
+
+// routes for snappgen
+app.use("/api/v2/blogs", blogsRouter);
+app.use("/api/v2/reviews", reviewsRouter);
 
 app.use(error);
 
