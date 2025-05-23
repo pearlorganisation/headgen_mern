@@ -955,7 +955,7 @@ const Home = () => {
         <div className="w-full flex justify-center">
           <div className="flex flex-col items-center justify-center gap-4 md:gap-6 top-0">
             <h2 className="text-center space-x-3 md:space-x-0 md:grid text-[#F1F1F1] text-xl sm:text-[32px] md:text-[42px] lg:text-[52px] 2xl:text-[60px] font-medium">
-              <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold">
+              <span className="bg-gradient-to-r from-[#02AFDC] to-[#2563EB] inline-block text-transparent bg-clip-text font-bold p-5">
                 Money-Back
               </span>
               <span>Guarantee</span>

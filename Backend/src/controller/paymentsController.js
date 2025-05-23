@@ -12,79 +12,156 @@ dotenv.config();
 
 const stripe = Stripe(process.env.SK_LIVE);
 
+// const stripeLinks = [
+//   {
+//     price: "€9",
+//     packName: "Starter Pack",
+//     generationType: "individual",
+//     id: "price_1Qk2jDCvLjbx73iCjwwH9CRF", // euro
+//   },
+//   {
+//     price: "€29",
+//     packName: "Basic Pack",
+//     generationType: "individual",
+//     id: "price_1Qk2k9CvLjbx73iCSQnNwwF4", // euro
+//   },
+//   {
+//     price: "€35",
+//     packName: "Premium Pack",
+//     generationType: "individual",
+//     id: "price_1Qk2l0CvLjbx73iC0vWIeWxw", // euro
+//   },
+//   {
+//     price: "€50",
+//     packName: "Basic Pack",
+//     generationType: "customize",
+//     id: "price_1QmUfnCvLjbx73iC9SMh5ThC", 
+//   },
+//   {
+//     price: "€100",
+//     packName: "Premium Pack",
+//     generationType: "customize",
+//     id: "price_1QmUgPCvLjbx73iCx9RBbw2v", // euro
+//   },
+//   {
+//     price: "€200",
+//     packName: "Prompts Pack",
+//     generationType: "prompt",
+//     id: "price_1QmahoCvLjbx73iCgQOhNi4W", // euro - dating prompt used
+//   },
+//   {
+//     price: "€9",
+//     packName: "Starter Pack",
+//     generationType: "individualDating",
+//     id: "price_1QmafVCvLjbx73iCpppkwGCa", //euro
+//   },
+//   {
+//     price: "€29",
+//     packName: "Basic Pack",
+//     generationType: "individualDating",
+//     id: "price_1Qmag6CvLjbx73iC38GxfxVR", //euro
+//   },
+//   {
+//     price: "€35",
+//     packName: "Premium Pack",
+//     generationType: "individualDating",
+//     id: "price_1QmagQCvLjbx73iCcy2CLx97", //euro
+//   },
+
+//   {
+//     price: "€50",
+//     packName: "Basic Pack",
+//     generationType: "datingCustomize",
+//     id: "price_1QmahJCvLjbx73iCM6B0uAGD", //euro
+//   },
+//   {
+//     price: "€100",
+//     packName: "Premium Pack",
+//     generationType: "datingCustomize",
+//     id: "price_1QmahaCvLjbx73iC1ryaLTV7", //euro
+//   },
+//   {
+//     price: "€200",
+//     packName: "Prompts Pack",
+//     generationType: "datingPrompt",
+//     id: "price_1QmahoCvLjbx73iCgQOhNi4W", //euro
+//   },
+// ];
+
+
 const stripeLinks = [
   {
-    price: "€9",
+    price: "$29",
     packName: "Starter Pack",
     generationType: "individual",
-    id: "price_1Qk2jDCvLjbx73iCjwwH9CRF", // euro
+    id: "price_1PEOSUCvLjbx73iC6iPlOjjE",
   },
   {
-    price: "€29",
+    price: "$49",
     packName: "Basic Pack",
     generationType: "individual",
-    id: "price_1Qk2k9CvLjbx73iCSQnNwwF4", // euro
+    id: "price_1PEOVdCvLjbx73iCqI7dZ56u",
   },
   {
-    price: "€35",
+    price: "$79",
     packName: "Premium Pack",
     generationType: "individual",
-    id: "price_1Qk2l0CvLjbx73iC0vWIeWxw", // euro
+    id: "price_1PFDaeCvLjbx73iCUrwyssrf",
   },
   {
-    price: "€50",
+    price: "$50",
     packName: "Basic Pack",
     generationType: "customize",
-    id: "price_1QmUfnCvLjbx73iC9SMh5ThC", 
+    id: "price_1PIPJUCvLjbx73iCp8SeZtqQ",
   },
   {
-    price: "€100",
+    price: "$100",
     packName: "Premium Pack",
     generationType: "customize",
-    id: "price_1QmUgPCvLjbx73iCx9RBbw2v", // euro
+    id: "price_1PIPPFCvLjbx73iCZVm1aneS",
   },
   {
-    price: "€200",
+    price: "$200",
     packName: "Prompts Pack",
     generationType: "prompt",
-    id: "price_1QmahoCvLjbx73iCgQOhNi4W", // euro - dating prompt used
+    id: "price_1PIPRHCvLjbx73iCLKPZ6HFA",
   },
   {
-    price: "€9",
+    price: "$29",
     packName: "Starter Pack",
     generationType: "individualDating",
-    id: "price_1QmafVCvLjbx73iCpppkwGCa", //euro
+    id: "price_1PIPTLCvLjbx73iCuL3vSK3C",
   },
   {
-    price: "€29",
+    price: "$49",
     packName: "Basic Pack",
     generationType: "individualDating",
-    id: "price_1Qmag6CvLjbx73iC38GxfxVR", //euro
+    id: "price_1PIPVtCvLjbx73iCk7hQ69Th",
   },
   {
-    price: "€35",
+    price: "$79",
     packName: "Premium Pack",
     generationType: "individualDating",
-    id: "price_1QmagQCvLjbx73iCcy2CLx97", //euro
+    id: "price_1PIPYECvLjbx73iCNVIghYST",
   },
 
   {
-    price: "€50",
+    price: "$50",
     packName: "Basic Pack",
     generationType: "datingCustomize",
-    id: "price_1QmahJCvLjbx73iCM6B0uAGD", //euro
+    id: "price_1PIPbyCvLjbx73iCdKP949q4",
   },
   {
-    price: "€100",
+    price: "$100",
     packName: "Premium Pack",
     generationType: "datingCustomize",
-    id: "price_1QmahaCvLjbx73iC1ryaLTV7", //euro
+    id: "price_1PIPdjCvLjbx73iCEY2BPlNi",
   },
   {
-    price: "€200",
+    price: "$200",
     packName: "Prompts Pack",
     generationType: "datingPrompt",
-    id: "price_1QmahoCvLjbx73iCgQOhNi4W", //euro
+    id: "price_1PIPfOCvLjbx73iCtTf8toI0",
   },
 ];
 

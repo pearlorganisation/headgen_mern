@@ -155,6 +155,16 @@ const Header = () => {
 
   // country selection
   const countries = [
+
+    {
+      countryImg: "https://flagcdn.com/w160/us.png",
+      countryName: "United States",
+    },
+    {
+      countryImg: "https://flagcdn.com/w160/ua.png",
+      countryName: "Canada",
+    },
+
     // European countries first
     {
       countryImg: "https://flagcdn.com/w160/se.png",
@@ -193,15 +203,8 @@ const Header = () => {
       countryName: "Germany",
     },
 
-    // Non-European countries
-    {
-      countryImg: "https://flagcdn.com/w160/us.png",
-      countryName: "United States",
-    },
-    {
-      countryImg: "https://flagcdn.com/w160/ua.png",
-      countryName: "Canada",
-    },
+    // Non-European or north american countries
+
     {
       countryImg: "https://flagcdn.com/w160/nz.png",
       countryName: "New Zealand",
@@ -237,14 +240,14 @@ const Header = () => {
       localStorage.setItem(
         "selectedCountry",
         JSON.stringify({
-          countryImg: "https://flagcdn.com/w160/se.png",
-          countryName: "Sweden",
-        },)
+          countryImg: "https://flagcdn.com/w160/us.png",
+          countryName: "United States",
+        })
       );
       setSelectedCountry({
-        countryImg: "https://flagcdn.com/w160/se.png",
-        countryName: "Sweden",
-      },);
+        countryImg: "https://flagcdn.com/w160/us.png",
+        countryName: "United States",
+      });
     }
   }, []);
 

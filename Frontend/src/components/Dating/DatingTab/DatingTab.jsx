@@ -32,25 +32,33 @@ const DatingTab = () => {
   const fieldsRef = useRef();
 
   const tabContentRef = useRef(null);
-  
-
-
-
 
   const datingPriceIndividual = [
     {
       title: "STARTER PACK",
-      originalPrice: "$45",
+      originalPrice: "$58",
       price: "$29",
-      features: ["4 Headshots ( BASIC )", "4 Hours generation Time"],
+      features: [
+        "20 Headshots",
+        "120 Mins Generation Time",
+        "Choose 1 Attire",
+        "Choose 1 Background",
+        "Standard Resolution"
+      ],
       packName: "Starter Pack",
       tag: "",
     },
     {
       title: "BASIC PACK",
-      originalPrice: "$79",
+      originalPrice: "$98",
       price: "$49",
-      features: ["8 Headshots ( HD )", "2 Hours generation Time"],
+      features: [
+        "40 Headshots",
+        "120 Mins Generation Time",
+        "Choose 1 Attire",
+        "Choose 1 Background",
+        "HD Resolution"
+      ],
       packName: "Basic Pack",
       tag: "83% pick this plan",
     },
@@ -58,7 +66,13 @@ const DatingTab = () => {
       title: "PREMIUM PACK",
       originalPrice: "$149",
       price: "$79",
-      features: ["16 Headshots ( 4K ) ", "20 Minutes generation Time"],
+      features: [
+        "100 Headshots",
+        "60 Mins Generation Time",
+        "Choose Any Attire",
+        "Choose Any Background",
+        "Enhanced Image Resolution"
+      ],
       packName: "Premium Pack",
       tag: "Best Value",
     },
@@ -130,7 +144,7 @@ const DatingTab = () => {
 
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
-  // console.log(newIndex, val)
+    // console.log(newIndex, val)
     if (newIndex > 0 && newIndex < 2 && val > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (
@@ -152,7 +166,7 @@ const DatingTab = () => {
         }
         // console.log(userData?.gender?.length);
         setErrors(() => {
-        // console.log(error);
+          // console.log(error);
           return error;
         });
         return;
@@ -161,7 +175,7 @@ const DatingTab = () => {
     if (newIndex > 1 && newIndex <= 2 && val > 0) {
       if (files.length > 0 && files.length <= 4) {
         setFileErrorMsg();
-        
+
         if (maxIndex === currentIndex && val > 0) {
           return;
         }
@@ -170,7 +184,7 @@ const DatingTab = () => {
         setFileErrorMsg("Please upload 1-4 images to continue");
       }
       return;
-    }  else if (newIndex > 2 && val > 0) {
+    } else if (newIndex > 2 && val > 0) {
       if (userData?.selectedPlan) {
         setErrors({});
         if (maxIndex === currentIndex && val > 0) {
@@ -181,7 +195,7 @@ const DatingTab = () => {
         setErrors({ selectedPlan: "Please select a pack to continue" });
         return;
       }
-    }  else {
+    } else {
       if (maxIndex === currentIndex && val > 0) {
         return;
       }
@@ -285,7 +299,7 @@ const DatingTab = () => {
 
   return (
     <div className="flex flex-col items-center gap-10 px-10 2xl:px-[80px] gradientBdRed">
-    
+
       <div
         ref={fieldsRef}
         className="rounded-full  w-fit  bg-gradient-to-br from-[#1d2838] to-[#1d283880] p-1 px-2 relative h-[50px] flex justify-between"
@@ -294,9 +308,8 @@ const DatingTab = () => {
           return (
             <div className="relative text-sm md:text-base" key={`tab${idx}`}>
               <div
-                className={` ${
-                  tabText === item ? "flex" : "hidden"
-                }  absolute text-white h-full  `}
+                className={` ${tabText === item ? "flex" : "hidden"
+                  }  absolute text-white h-full  `}
               >
                 <span
                   className={` rounded-full h-full w-[5rem] sm:w-[8rem]  md:w-[10rem] cursor-pointer  flex flex-col justify-center text-center bg-gradient-to-b from-[#e73e71] to-[#af1040] z-[10] transition duration-300`}

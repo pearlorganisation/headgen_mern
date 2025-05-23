@@ -5,26 +5,44 @@ const plans = [
   {
     title: "Starter",
     buttonText: "",
-    price: "$29",
-    features: ["4 Headshots ( BASIC )", "4 Hours generation Time"],
+    price: "$58",
+    features: [
+      "20 Headshots",
+      "120 Mins Generation Time",
+      "Choose 1 Attire",
+      "Choose 1 Background",
+      "Standard Resolution"
+    ],
     link: "/corporate-ai-headshots",
-    buttonCTA: "Get Photos for € 9",
+    buttonCTA: "Get Photos for $29",
   },
   {
     title: "Basic",
-    price: "$49",
-    features: ["8 Headshots ( HD )", "2 Hours generation Time"],
+    price: "$98",
+    features: [
+      "40 Headshots",
+      "120 Mins Generation Time",
+      "Choose 1 Attire",
+      "Choose 1 Background",
+      "HD Resolution"
+    ],
     buttonText: "70% Pick this Plan",
     link: "/corporate-ai-headshots",
-    buttonCTA: "Get Photos for € 29",
+    buttonCTA: "Get Photos for $49",
   },
   {
     title: "Premium",
     price: "$79",
-    features: ["16 Headshots ( 4K ) ", "20 Minutes generation Time"],
+    features: [
+      "100 Headshots",
+      "60 Mins Generation Time",
+      "Choose Any Attire",
+      "Choose Any Background",
+      "Enhanced Image Resolution"
+    ],
     buttonText: "Best Value",
     link: "/corporate-ai-headshots",
-    buttonCTA: "Get Photos for € 35",
+    buttonCTA: "Get Photos for $79",
   },
 ];
 
@@ -70,7 +88,7 @@ const PricingCards = () => {
             </div>
             <div>
               <h1 className="text-white text-[104px] text-center mx-auto px-4 py-4 font-extrabold">
-                €{plan.price}
+                ${plan.price}
               </h1>
             </div>
             <div className="w-full px-4">
