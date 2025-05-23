@@ -5,7 +5,7 @@ const plans = [
   {
     title: "Starter",
     buttonText: "",
-    price: "$58",
+    price: "$29",
     features: [
       "20 Headshots",
       "120 Mins Generation Time",
@@ -18,7 +18,7 @@ const plans = [
   },
   {
     title: "Basic",
-    price: "$98",
+    price: "$49",
     features: [
       "40 Headshots",
       "120 Mins Generation Time",
