@@ -6,7 +6,7 @@ import Select, { useStateManager } from "react-select";
 import { Controller, useForm } from "react-hook-form";
 import { BeatLoader } from "react-spinners";
 import axios from "axios";
-import { FaEuroSign } from "react-icons/fa";
+// import { FaEuroSign } from "react-icons/fa";
 
 const Teams = ({ userData, setUserData }) => {
   const formRef = useRef();

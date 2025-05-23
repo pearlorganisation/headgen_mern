@@ -100,7 +100,7 @@ const stripeLinks = [
     price: "$49",
     packName: "Basic Pack",
     generationType: "individual",
-    id: "price_1PEOVdCvLjbx73iCqI7dZ56u",
+    id: "price_1RRsPkCvLjbx73iCjd6cj6pJ",
   },
   {
     price: "$79",
@@ -136,7 +136,7 @@ const stripeLinks = [
     price: "$49",
     packName: "Basic Pack",
     generationType: "individualDating",
-    id: "price_1PIPVtCvLjbx73iCk7hQ69Th",
+    id: "price_1RRsPkCvLjbx73iCjd6cj6pJ",
   },
   {
     price: "$79",
