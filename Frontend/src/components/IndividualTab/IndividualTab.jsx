@@ -5,6 +5,7 @@ import ImageSection from "../ImageSection/ImageSection";
 import PriceCards from "../PriceCards/PriceCards";
 import OrderDetails from "../OrderDetails/OrderDetails";
 import { BeatLoader } from "react-spinners";
+import SelectYourAttire from "../SelectYourAttire";
 
 const IndividualTab = ({
   userData,
@@ -70,7 +71,7 @@ const IndividualTab = ({
   ];
 
   useEffect(() => {
-  // console.log(userData, "updated in localStorage");
+    // console.log(userData, "updated in localStorage");
     localStorage.setItem("userData", JSON.stringify(userData));
   }, [userData]);
 
@@ -90,21 +91,17 @@ const IndividualTab = ({
       ),
     },
 
-    {
-      idx: 1,
-      ele: (
-        <>
-          <UserDetails
-            userData={userData}
-            setUserData={setUserData}
-            errors={errors}
-          />
-        </>
-      ),
-    },
+    // {
+    //   idx: 1,
+    //   ele: (
+    //     <>
+
+    //     </>
+    //   ),
+    // },
 
     {
-      idx: 2,
+      idx: 1,
       ele: (
         <>
           <ImageSection
@@ -115,6 +112,22 @@ const IndividualTab = ({
             fileErrorMsg={fileErrorMsg}
             setFileErrorMsg={setFileErrorMsg}
           />
+        </>
+      ),
+    },
+
+
+    {
+      idx: 2,
+      ele: (
+        <>
+          <div>
+            <SelectYourAttire
+              userData={userData}
+              setUserData={setUserData}
+              errors={errors}
+            />
+          </div>
         </>
       ),
     },
@@ -152,7 +165,7 @@ const IndividualTab = ({
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
 
-    if (newIndex > 1 && newIndex < 3 && val > 0) {
+    if (newIndex > 0 && newIndex < 2 && val > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (
         emailRegex.test(userData?.email) &&
@@ -172,7 +185,7 @@ const IndividualTab = ({
         if (userData?.gender?.length == 0) {
           error.gender = "Please select a gender";
         }
-      // console.log(userData?.gender?.length);
+        // console.log(userData?.gender?.length);
         setErrors(() => {
           // console.log(error);
           return error;
@@ -180,10 +193,10 @@ const IndividualTab = ({
         return;
       }
     }
-    if (newIndex > 2 && newIndex <= 3 && val > 0) {
+    if (newIndex > 1 && newIndex <= 2 && val > 0) {
       if (files.length > 0 && files.length <= 4) {
         setFileErrorMsg();
-      // console.log("in this");
+        // console.log("in this");
         if (maxIndex === currentIndex && val > 0) {
           return;
         }
@@ -193,7 +206,7 @@ const IndividualTab = ({
         setFileErrorMsg("Please upload 1-4 images to continue");
       }
       return;
-    }  else if (newIndex > 3 && val > 0) {
+    } else if (newIndex > 2 && val > 0) {
       if (userData?.selectedPlan) {
         setErrors({});
         if (maxIndex === currentIndex && val > 0) {

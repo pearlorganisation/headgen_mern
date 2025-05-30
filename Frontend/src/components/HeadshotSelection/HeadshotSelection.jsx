@@ -10,6 +10,7 @@ import "swiper/css/scrollbar";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 import AppSvgs from "../AppSvgs/AppSvgs";
+import UserDetails from "../UserDetails/UserDetails";
 
 const HeadshotSelection = ({
   userData,
@@ -46,18 +47,20 @@ const HeadshotSelection = ({
                 <>
                   <div
                     key={`imgPreview${idx}`}
-                    className="flex justify-center rounded-xl "
+                    className="flex flex-col items-center rounded-xl "
                   >
                     <LazyLoadImage
                       alt=""
                       src={filteredItem?.imgPreview}
                       className="!max-h-[320px] mx-auto rounded-xl"
                     />
+
+
+
                   </div>
                 </>
               ))}
-
-          <div className="text-center text-xs md:text-base py-2">
+          <div className="text-center text-xs md:text-sm px-[45px] sm:px-[20px] 2xl:px-[30px] w-full py-2 mt-2">
             <div>
               This image is a reference for{" "}
               <strong>
@@ -65,6 +68,7 @@ const HeadshotSelection = ({
               </strong>
             </div>
           </div>
+
         </div>
 
         <div className="px-1 flex flex-col gap-4 justify-center  w-full">
@@ -78,7 +82,7 @@ const HeadshotSelection = ({
                   className={`bg-[#f1f1f1]  text-[#131313] ${userData?.headshotType === item?.name
                     ? "!bg-[#1d2838] text-[#F1F1F1] rounded-lg shadow-[0_0_0_2px_#224cc2]"
                     : "bg-[#f1f1f1] "
-                    } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-full pl-2  transition duration-500 text-[12px] md:text-[12px] lg:text-[14px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
+                    } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-full pl-2  transition duration-500 text-[12px] lg:text-[14px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
                   onClick={() => setHeadshotType(item?.name)}
                 >
                   <span className="w-5/6">{item?.name}</span>
@@ -105,8 +109,21 @@ const HeadshotSelection = ({
                   </>
                 ))}
           </div>
+
+
         </div>
+
+
       </div>
+
+      <div className="w-full mt-5">
+        <UserDetails
+          userData={userData}
+          setUserData={setUserData}
+          errors={errors}
+        />
+      </div>
+
     </div>
   );
 };

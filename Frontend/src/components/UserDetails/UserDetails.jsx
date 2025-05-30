@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { IoManSharp, IoWoman } from "react-icons/io5";
 
 const UserDetails = ({ userData, setUserData, errors, type }) => {
@@ -32,11 +32,11 @@ const UserDetails = ({ userData, setUserData, errors, type }) => {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2  w-full">
-        <div className="flex flex-col items-center gap-4 w-full relative">
+      <div className="grid grid-cols-1 md:grid-cols-2  w-full ">
+        <div className="flex flex-col items-center gap-4 w-full relative ">
           <label
             htmlFor="email"
-            className="text-center text-lg sm:text-2xl text-white "
+            className="text-center text-lg sm:text-2xl text-white"
           >
             Enter your Email:
           </label>
