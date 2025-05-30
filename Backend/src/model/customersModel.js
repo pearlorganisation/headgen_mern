@@ -39,7 +39,7 @@ const customersSchema = new mongoose.Schema(
       default: null
     }
   },
-  { timestamps: true }
+  { strict: false, timestamps: true }
 );
 
 export const customersModel = mongoose.model("customer", customersSchema);
