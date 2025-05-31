@@ -105,9 +105,10 @@ const DatingGenderSelection = ({
               ?.filter((item) => {
                 return item?.name === userData?.gender;
               })
-              .map((filteredItem) => (
+              .map((filteredItem, idx) => (
                 <div className="flex justify-center rounded-xl ">
                   <LazyLoadImage
+                    key={`filteredItem${idx}`}
                     alt=""
                     src={filteredItem?.imgPreview}
                     className="!max-h-[320px] mx-auto rounded-xl"

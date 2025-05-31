@@ -166,9 +166,8 @@ const stripeLinks = [
 ];
 
 export const checkout = async (req, res) => {
-  // return
-// console.log("req.body", req.body);
   try {
+
     const selectedPlan = JSON.parse(req.body.selectedPlan);
     const generationType = req.body.generationType;
     const idx = stripeLinks.findIndex((e) => {
@@ -178,7 +177,6 @@ export const checkout = async (req, res) => {
     });
 
     let price = stripeLinks[idx].id;
-    // console.log(price)
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {
@@ -223,7 +221,6 @@ export const complete = async (req, res) => {
       );
       const result = deleteUser(req.query.sessionId);
       if (result) {
-      // console.log(user);
         const userBody = JSON.parse(user.user.body);
         const selectedPlan = JSON.parse(userBody.selectedPlan);
         res.render("payment-success", {
@@ -235,10 +232,8 @@ export const complete = async (req, res) => {
           FRONTEND_URL: process.env.FRONTEND_URL,
         });
 
-        // res.redirect(`${process.env.FRONTEND_URL}/success`);
       }
     } else {
-      // const result = deleteUser(req.query.sessionId);
 
       res.render("payment-success", {
         type: "solo",
@@ -247,7 +242,7 @@ export const complete = async (req, res) => {
         transactionId: transactionId,
       });
 
-      // res.redirect(`${process.env.FRONTEND_URL}/success`);
+
     }
   } else {
     const result = deleteUser(req.query.sessionId);

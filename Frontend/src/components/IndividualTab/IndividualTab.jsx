@@ -6,6 +6,7 @@ import PriceCards from "../PriceCards/PriceCards";
 import OrderDetails from "../OrderDetails/OrderDetails";
 import { BeatLoader } from "react-spinners";
 import SelectYourAttire from "../SelectYourAttire";
+import SelectYourBackground from "../SelectYourBackground";
 
 const IndividualTab = ({
   userData,
@@ -132,8 +133,23 @@ const IndividualTab = ({
       ),
     },
 
-    {
+     {
       idx: 3,
+      ele: (
+        <>
+          <div>
+            <SelectYourBackground
+              userData={userData}
+              setUserData={setUserData}
+              errors={errors}
+            />
+          </div>
+        </>
+      ),
+    },
+
+    {
+      idx: 4,
       ele: (
         <>
           <div>
@@ -149,7 +165,7 @@ const IndividualTab = ({
     },
 
     {
-      idx: 4,
+      idx: 5,
       ele: (
         <>
           <div>
@@ -160,10 +176,13 @@ const IndividualTab = ({
     },
   ];
 
-  let maxIndex = 5 - 1;
+  let maxIndex = 6 - 1;
 
   const updateIndex = (val) => {
     let newIndex = Math.max(currentIndex + val, 0);
+
+    console.log('new index', newIndex, val)
+
 
     if (newIndex > 0 && newIndex < 2 && val > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -182,7 +201,8 @@ const IndividualTab = ({
         let error = { email: "", gender: "" };
         error.email = "Incorrect/Missing email";
 
-        if (userData?.gender?.length == 0) {
+        if (userData?.gender?.length <= 0) {
+          alert('length small')
           error.gender = "Please select a gender";
         }
         // console.log(userData?.gender?.length);
@@ -206,7 +226,52 @@ const IndividualTab = ({
         setFileErrorMsg("Please upload 1-4 images to continue");
       }
       return;
-    } else if (newIndex > 2 && val > 0) {
+    }
+    else if(newIndex > 2 && newIndex <= 3 && val > 0){
+      //select you attire validation
+      if (
+        userData?.attire && 
+        userData.attire.length > 0
+      ) {
+        setErrors({});
+        if (maxIndex === currentIndex && val > 0) {
+          return;
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        setCurrentIndex(newIndex);
+      } else {
+        let error = { attire: "Select an attire" };
+       // console.log(userData?.gender?.length);
+        setErrors(() => {
+          // console.log(error);
+          return error;
+        });
+        return;
+      }
+    }
+     else if(newIndex > 3 && newIndex <= 4 && val > 0){
+      //select you background validation
+      if (
+        userData?.background && 
+        userData.background.length > 0
+      ) {
+        setErrors({});
+        if (maxIndex === currentIndex && val > 0) {
+          return;
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        setCurrentIndex(newIndex);
+      } else {
+        let error = { background: "Select a background" };
+       // console.log(userData?.gender?.length);
+        setErrors(() => {
+          // console.log(error);
+          return error;
+        });
+        return;
+      }
+    }
+    else if (newIndex > 4 && val > 0) {
       if (userData?.selectedPlan) {
         setErrors({});
         if (maxIndex === currentIndex && val > 0) {

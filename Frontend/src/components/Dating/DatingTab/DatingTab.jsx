@@ -270,6 +270,8 @@ const DatingTab = () => {
 
     if (type === 'individual') {
       formData.append("headshotType", userData.headshotType);
+      // formData.append("attire", userData?.attire)
+      // formData.append("background", userData?.background)
 
     }
     if (type === "customize") {

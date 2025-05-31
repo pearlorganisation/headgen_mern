@@ -1,87 +1,99 @@
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.hostinger.com",
-  port: 465,
-  secure: true, // Use `true` for port 465, `false` for all other ports
-  auth: {
-    user: process.env.MAIL_ID,
-    pass: process.env.MAIL_PWD,
-  },
+    host: "smtp.hostinger.com",
+    port: 465,
+    secure: true, // Use `true` for port 465, `false` for all other ports
+    auth: {
+        user: process.env.MAIL_ID,
+        pass: process.env.MAIL_PWD,
+    },
 });
 
 // solo customer mail
 
 export const sendMailToCustomer = async (userData, images) => {
-  const body = JSON.parse(userData.body);
-  const selectedPlan = JSON.parse(body.selectedPlan);
+    const body = JSON.parse(userData.body);
+    const selectedPlan = JSON.parse(body.selectedPlan);
 
-  let imgTableRows = "";
-  images?.forEach((item, idx) => {
-    imgTableRows += `<a href=${item.url}>Image ${idx + 1}</a><br>`;
-  });
+    let imgTableRows = "";
+    images?.forEach((item, idx) => {
+        imgTableRows += `<a href=${item.url}>Image ${idx + 1}</a><br>`;
+    });
 
-  let typeInfo = "";
-  let customizeData;
-  switch (body.generationType) {
-    case "individual":
-      typeInfo = `<tr>
+    let typeInfo = "";
+    let customizeData;
+    switch (body.generationType) {
+        case "individual":
+            typeInfo = `<tr>
                 <td><strong>Headshot Type</strong></td>
                 <td>${body.headshotType}</td>
             </tr>
+            ${
+                body?.attire && `
+                <tr>
+                    <td><strong>Attire</strong></td>
+                    <td>${body.attire}</td>
+                </tr>`
+            }
+            ${
+                body?.background && `
+                <tr>
+                    <td><strong>Background</strong></td>
+                    <td>${body.background}</td>
+                </tr>`
+            }
                   `;
-      break;
-    case "customize":
-      customizeData = JSON.parse(body.customizeData);
+            break;
+        case "customize":
+            customizeData = JSON.parse(body.customizeData);
 
-      typeInfo = `
+            typeInfo = `
             <tr>
                 <td><strong>Custom Section</strong></td>
                 <td>${customizeData.section}</td>
             </tr>
-            <tr className="bd">
+            <tr class="bd">
                 <td><strong>Custom Sub-Section</strong></td>
                 <td>${customizeData.subSection}</td>
             </tr>
-    
                     `;
-      break;
-    case "prompt":
-      typeInfo = `
+            break;
+        case "prompt":
+            typeInfo = `
             <tr>
                 <td><strong>Prompt</strong></td>
                 <td>${body.prompData}</td>
             </tr>`;
-      break;
-    case "individualDating":
-      typeInfo = ` <tr>
+            break;
+        case "individualDating":
+            typeInfo = ` <tr>
                 <td><strong>Headshot Type</strong></td>
                 <td>${body.prompData}</td>
             </tr>
                     `;
-      break;
-    case "datingCustomize":
-      customizeData = JSON.parse(body.customizeData);
-      typeInfo = `<tr>
+            break;
+        case "datingCustomize":
+            customizeData = JSON.parse(body.customizeData);
+            typeInfo = `<tr>
                 <td><strong>Custom Section</strong></td>
                 <td>${customizeData.section}</td>
             </tr>
-            <tr className="bd">
+            <tr class="bd">
                 <td><strong>Custom Sub-Section</strong></td>
                 <td>${customizeData.subSection}</td>
             </tr>
                       `;
-      break;
-    case "datingPrompt":
-      typeInfo = `<tr>
+            break;
+        case "datingPrompt":
+            typeInfo = `<tr>
                 <td><strong>Headshot Type</strong></td>
                 <td>${body.prompData}</td>
-            </tr>
-                    `;
-      break;
-  }
+            </tr>`;
+            break;
+    }
 
-  const htmlContent = `
+    const htmlContent = `
   
     <!DOCTYPE html>
     <html lang="en">
@@ -159,12 +171,13 @@ export const sendMailToCustomer = async (userData, images) => {
     </style>
 </head>
 <body>
-    <div className="container">
-        <div className="header"></div>
+    <div class="container">
+        <div class="header"></div>
         <table>
             <tr>
-                <td><a href="https://headgen.ai"><img alt=""  className="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
-                    <div className="title">CUSTOMER RECEIPT</div>
+                <td><a href="https://headgen.ai"><img alt=""  class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
+                <td>
+                    <div class="title">CUSTOMER RECEIPT</div>
                     <span>Your Headshot generation has been confirmed</span>
                 </td>
             </tr>
@@ -189,19 +202,19 @@ export const sendMailToCustomer = async (userData, images) => {
                 <td><strong>Final Price</strong></td>
                 <td>${selectedPlan.price}</td>
             </tr>
-            <tr className="bd">
+            <tr class="bd">
                 <td><strong>Images</strong></td>
                 <td>
                     ${imgTableRows}
                 </td>
             </tr>
-            <tr className="total">
+            <tr class="total">
                 <td><strong>Total</strong></td>
                 <td>${selectedPlan.price}</td>
             </tr>
         </table>
-        <div className="footer">
-            <span className="fHeading">AI HEADSHOT GENERATOR</span><br>
+        <div class="footer">
+            <span class="fHeading">AI HEADSHOT GENERATOR</span><br>
             <br>
             <a href="mailto:support@headgen.ai">Playcloud Technologies Limited support@headgen.ai | +91 9820442749</a> 
         </div>
@@ -209,42 +222,42 @@ export const sendMailToCustomer = async (userData, images) => {
 </body>
 </html>
   `;
-  // send mail with defined transport object
-  const info = await transporter.sendMail({
-    from: process.env.MAIL_ID, // sender address
-    to: body.email, // list of receivers
-    subject: "Order confirmed - Headgen AI", // Subject line
-    html: htmlContent, // html body
-  });
+    // send mail with defined transport object
+    const info = await transporter.sendMail({
+        from: process.env.MAIL_ID, // sender address
+        to: body.email, // list of receivers
+        subject: "Order confirmed - Headgen AI", // Subject line
+        html: htmlContent, // html body
+    });
 
-  // send mail to seller
+    // send mail to seller
 
-  await transporter.sendMail({
-    from: process.env.MAIL_ID, // sender address
-    to: process.env.SELLER_MAIL, // list of receivers
-    subject: `Order by ${body.email}`, // Subject line
-    html: htmlContent, // html body
-  });
+    await transporter.sendMail({
+        from: process.env.MAIL_ID, // sender address
+        to: process.env.SELLER_MAIL, // list of receivers
+        subject: `Order by ${body.email}`, // Subject line
+        html: htmlContent, // html body
+    });
 };
 
 // teams customer mail
 export const sendMailToTeamsCustomer = async (userData) => {
-  const data = JSON.parse(userData.body);
+    const data = JSON.parse(userData.body);
 
-  let customerData = {
-    teamName: data?.companyName,
-    firstName: data?.firstName,
-    lastName: data?.lastName,
-    email: data?.email,
-    phone: data?.whatsappNumber,
-    role: data?.Role.value,
-    teamCount: data?.users,
-    totalPrice: Number(data?.price) * Number(data?.users),
-    price: Number(data?.price),
-    website: data?.website || "",
-  };
+    let customerData = {
+        teamName: data?.companyName,
+        firstName: data?.firstName,
+        lastName: data?.lastName,
+        email: data?.email,
+        phone: data?.whatsappNumber,
+        role: data?.Role.value,
+        teamCount: data?.users,
+        totalPrice: Number(data?.price) * Number(data?.users),
+        price: Number(data?.price),
+        website: data?.website || "",
+    };
 
-  const htmlContent = `
+    const htmlContent = `
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -321,12 +334,13 @@ export const sendMailToTeamsCustomer = async (userData) => {
     </style>
 </head>
 <body>
-    <div className="container">
-        <div className="header"></div>
+    <div class="container">
+        <div class="header"></div>
         <table>
             <tr>
-                <td><a href="https://headgen.ai"><img alt=""  className="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
-                    <div className="title">CUSTOMER RECEIPT</div>
+                <td><a href="https://headgen.ai"><img alt=""  class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
+                <td>
+                    <div class="title">CUSTOMER RECEIPT</div>
                     <span>Your Headshot Request has been confirmed, we will contact you soon.</span>
                     <span>Or contact us at support@headgen.ai | +91 9820442749</span>
                 </td>
@@ -339,16 +353,15 @@ export const sendMailToTeamsCustomer = async (userData) => {
                 <td><strong>Company/Team Name</strong></td>
                 <td>${customerData.teamName}</td>
             </tr>
-             ${
-               customerData?.website?.length > 0
-                 ? `
+             ${customerData?.website?.length > 0
+            ? `
               <tr>
                 <td><strong>Website</strong></td>
                 <td>${customerData.website}</td>
               </tr>              
               `
-                 : ``
-             }
+            : ``
+        }
 
             <tr>
                 <td><strong>First Name</strong></td>
@@ -369,13 +382,13 @@ export const sendMailToTeamsCustomer = async (userData) => {
                 <td>${Number(customerData.price).toLocaleString()}</td>
             </tr>
             
-            <tr className="total">
+            <tr class="total">
                 <td><strong>Total</strong></td>
                 <td>${Number(customerData.totalPrice).toLocaleString()}</td>
             </tr>
         </table>
-        <div className="footer">
-            <span className="fHeading">AI HEADSHOT GENERATOR</span><br>
+        <div class="footer">
+            <span class="fHeading">AI HEADSHOT GENERATOR</span><br>
             <br>
             <a href="mailto:support@headgen.ai">Playcloud Technologies Limited support@headgen.ai | +91 9820442749</a> 
         </div>
@@ -384,36 +397,36 @@ export const sendMailToTeamsCustomer = async (userData) => {
 </html>
 `;
 
-  // send mail with defined transport object
-  const info = await transporter.sendMail({
-    from: process.env.MAIL_ID, // sender address
-    to: customerData.email, // list of receivers
-    subject: "Order confirmed - Headgen AI", // Subject line
-    html: htmlContent, // html body
-  });
-  // console.log(info)
+    // send mail with defined transport object
+    const info = await transporter.sendMail({
+        from: process.env.MAIL_ID, // sender address
+        to: customerData.email, // list of receivers
+        subject: "Order confirmed - Headgen AI", // Subject line
+        html: htmlContent, // html body
+    });
+    // console.log(info)
 
-  // send mail to seller
+    // send mail to seller
 
-  await transporter.sendMail({
-    from: process.env.MAIL_ID, // sender address
-    to: process.env.SELLER_MAIL, // list of receivers
-    subject: `Teams Order by ${customerData.email}`, // Subject line
-    html: htmlContent, // html body
-  });
+    await transporter.sendMail({
+        from: process.env.MAIL_ID, // sender address
+        to: process.env.SELLER_MAIL, // list of receivers
+        subject: `Teams Order by ${customerData.email}`, // Subject line
+        html: htmlContent, // html body
+    });
 };
 
 // Free headshot
 
 export const sendMailToFreeCustomer = async (userData, images) => {
-  const body = JSON.parse(userData.body);
+    const body = JSON.parse(userData.body);
 
-  let imgTableRows = "";
-  images?.forEach((item, idx) => {
-    imgTableRows += `<a href=${item.url}>Image ${idx + 1}</a><br>`;
-  });
+    let imgTableRows = "";
+    images?.forEach((item, idx) => {
+        imgTableRows += `<a href=${item.url}>Image ${idx + 1}</a><br>`;
+    });
 
-  const htmlContent = `
+    const htmlContent = `
     
     <!DOCTYPE html>
       <html lang="en">
@@ -491,13 +504,13 @@ export const sendMailToFreeCustomer = async (userData, images) => {
       </style>
     </head>
   <body>
-      <div className="container">
-          <div className="header"></div>
+      <div class="container">
+          <div class="header"></div>
           <table>
               <tr>
-                  <td><a href="https://headgen.ai"><img alt=""  className="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
+                  <td><a href="https://headgen.ai"><img alt=""  class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
                   <td>
-                      <div className="title">CUSTOMER RECEIPT</div>
+                      <div class="title">CUSTOMER RECEIPT</div>
                       <span>Your Free Headshot generation has been confirmed</span>
                   </td>
               </tr>
@@ -518,19 +531,19 @@ export const sendMailToFreeCustomer = async (userData, images) => {
                   <td><strong>Final Price</strong></td>
                   <td>0</td>
               </tr>
-              <tr className="bd">
+              <tr class="bd">
                   <td><strong>Images</strong></td>
                   <td>
                       ${imgTableRows}
                   </td>
               </tr>
-              <tr className="total">
+              <tr class="total">
                   <td><strong>Total</strong></td>
                   <td>0</td>
               </tr>
           </table>
-          <div className="footer">
-              <span className="fHeading">AI HEADSHOT GENERATOR</span><br>
+          <div class="footer">
+              <span class="fHeading">AI HEADSHOT GENERATOR</span><br>
               <br>
               <a href="mailto:support@headgen.ai">Playcloud Technologies Limited support@headgen.ai | +91 9820442749</a> 
           </div>
@@ -539,26 +552,26 @@ export const sendMailToFreeCustomer = async (userData, images) => {
   </html>
   
     `;
-  // send mail with defined transport object
-  const info = await transporter.sendMail({
-    from: process.env.MAIL_ID, // sender address
-    to: body.email, // list of receivers
-    subject: "Order confirmed - Headgen AI", // Subject line
-    html: htmlContent, // html body
-  });
+    // send mail with defined transport object
+    const info = await transporter.sendMail({
+        from: process.env.MAIL_ID, // sender address
+        to: body.email, // list of receivers
+        subject: "Order confirmed - Headgen AI", // Subject line
+        html: htmlContent, // html body
+    });
 
-  // send mail to seller
+    // send mail to seller
 
-  await transporter.sendMail({
-    from: process.env.MAIL_ID, // sender address
-    to: process.env.SELLER_MAIL, // list of receivers
-    subject: `Free Order by ${body.email}`, // Subject line
-    html: htmlContent, // html body
-  });
+    await transporter.sendMail({
+        from: process.env.MAIL_ID, // sender address
+        to: process.env.SELLER_MAIL, // list of receivers
+        subject: `Free Order by ${body.email}`, // Subject line
+        html: htmlContent, // html body
+    });
 };
 
 export const sendMailForReview = async (email, coupon) => {
-  const htmlContent = `
+    const htmlContent = `
     
     <!DOCTYPE html>
       <html lang="en">
@@ -636,13 +649,13 @@ export const sendMailForReview = async (email, coupon) => {
       </style>
     </head>
   <body>
-      <div className="container">
-          <div className="header"></div>
+      <div class="container">
+          <div class="header"></div>
           <table>
               <tr>
-                  <td><a href="https://headgen.ai"><img alt=""  className="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
+                  <td><a href="https://headgen.ai"><img alt=""  class="imgB" src="https://drive.google.com/thumbnail?id=1yKWwejv6nsy1uH5-KiXK3y3qsPhvKsoe&sz=s200" alt="HeadGen.ai"/></a></td>
                   <td>
-                      <div className="title">Review posted</div>
+                      <div class="title">Review posted</div>
                       <span>Your Coupon code has been generated</span>
                   </td>
               </tr>
@@ -653,8 +666,8 @@ export const sendMailForReview = async (email, coupon) => {
           
         
           </table>
-          <div className="footer">
-              <span className="fHeading">AI HEADSHOT GENERATOR</span><br>
+          <div class="footer">
+              <span class="fHeading">AI HEADSHOT GENERATOR</span><br>
               <br>
               <a href="mailto:support@headgen.ai">Playcloud Technologies Limited support@headgen.ai | +91 9820442749</a> 
           </div>
@@ -663,11 +676,11 @@ export const sendMailForReview = async (email, coupon) => {
   </html>
   
     `;
-  // send mail with defined transport object
-  const info = await transporter.sendMail({
-    from: process.env.MAIL_ID, // sender address
-    to: email, // list of receivers
-    subject: "Review Submitted - Headgen AI", // Subject line
-    html: htmlContent, // html body
-  });
+    // send mail with defined transport object
+    const info = await transporter.sendMail({
+        from: process.env.MAIL_ID, // sender address
+        to: email, // list of receivers
+        subject: "Review Submitted - Headgen AI", // Subject line
+        html: htmlContent, // html body
+    });
 };

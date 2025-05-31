@@ -347,9 +347,11 @@ const CustomizeTabs = ({ setUserData, userData, type }) => {
           })}
         </section>
         <section className="flex justify-around gap-4 items-center flex-wrap">
-          {subSectionImages?.map((item) => {
+          {subSectionImages?.map((item, idx) => {
             return (
-              <LazyLoadImage alt="" 
+              <LazyLoadImage 
+                key={`subSectionImg${idx}`}
+                alt="" 
                 src={item?.path}
                 className="object-contain w-full max-w-[200px] max-h-[200px] cursor-pointer hover:shadow-[0_0_0_1px#ffffff] rounded-xl transition duration-300"
                 width={200}

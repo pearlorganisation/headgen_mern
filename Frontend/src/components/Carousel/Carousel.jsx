@@ -31,8 +31,8 @@ function Carousel({ carouselData }) {
         className="swiper_container"
       >
 
-        {carouselData && carouselData?.map((item) => (
-          <SwiperSlide className='!w-fit py-1'>
+        {carouselData && carouselData?.map((item, idx) => (
+          <SwiperSlide className='!w-fit py-1' key={`carouselItem${idx}`}>
             <img alt=""  src={item?.path} className='h-[300px] rounded-md hover:shadow-[0_0_0_1px#d1d1d1] tranisiton duration-300' width={300} height={300} />
           </SwiperSlide>
         ))}

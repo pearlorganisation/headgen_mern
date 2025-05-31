@@ -79,7 +79,9 @@ const PriceCards = ({ data, userData, setUserData, type, errors }) => {
           ))}
       </div>
       {errors?.selectedPlan && (
-        <div className="text-red-500 text-base text-center">{errors?.selectedPlan}</div>
+        <div className="text-red-400 text-sm mt-2 text-center bg-red-900/20 border border-red-400/30 rounded-lg p-3 max-w-md mx-auto">
+          {errors.selectedPlan}
+        </div>
       )}
     </div>
   );

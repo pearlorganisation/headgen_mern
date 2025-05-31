@@ -61,7 +61,7 @@ const FaqAccordian = () => {
   return (
     <div>
       {faqItems.map((item, index) => (
-        <FaqItem key={index} question={item.question} answer={item.answer} />
+        <FaqItem key={`faqItem${index}`} question={item.question} answer={item.answer} />
       ))}
     </div>
   );

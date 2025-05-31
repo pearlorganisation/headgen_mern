@@ -44,7 +44,7 @@ const HeadshotSelection = ({
                 return item?.name === section && item?.headshotInfo;
               })
               .map((filteredItem, idx) => (
-                <>
+               
                   <div
                     key={`imgPreview${idx}`}
                     className="flex flex-col items-center rounded-xl "
@@ -58,7 +58,7 @@ const HeadshotSelection = ({
 
 
                   </div>
-                </>
+               
               ))}
           <div className="text-center text-xs md:text-sm px-[45px] sm:px-[20px] 2xl:px-[30px] w-full py-2 mt-2">
             <div>
@@ -99,14 +99,14 @@ const HeadshotSelection = ({
                   return item?.name === section && item?.headshotInfo;
                 })
                 .map((filteredItem, idx) => (
-                  <>
-                    <div
-                      key={`imgPreview${idx}`}
-                      className="flex justify-start rounded-xl "
-                    >
-                      {filteredItem?.info}
-                    </div>
-                  </>
+
+                  <div
+                    key={`imgPreview${idx}`}
+                    className="flex justify-start rounded-xl "
+                  >
+                    {filteredItem?.info}
+                  </div>
+
                 ))}
           </div>
 

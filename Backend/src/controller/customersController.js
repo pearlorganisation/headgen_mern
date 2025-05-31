@@ -12,9 +12,12 @@ export const addCustomer = async (userData, images) => {
       email: data?.email,
       gender: data?.gender,
       images: filteredImgUrls,
-      packDetails: data?.selectedPlan ? JSON.parse(data?.selectedPlan) : null ,
+      packDetails: data?.selectedPlan ? JSON.parse(data?.selectedPlan) : null,
       generationType: data?.generationType,
+      ...(data?.attire ? { attire: data?.attire } : {}),
+      ...(data?.background ? { background: data?.background } : {}),
     };
+
 
     switch (data?.generationType) {
       case "individual":

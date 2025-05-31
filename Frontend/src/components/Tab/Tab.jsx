@@ -203,6 +203,8 @@ const Tab = ({ section }) => {
 
     if (type === "individual") {
       formData.append("headshotType", userData.headshotType);
+      formData.append("attire", userData?.attire)
+      formData.append("background", userData?.background)
     }
     if (type === "customize") {
       formData.append("customizeData", JSON.stringify(userData?.customizeData));
