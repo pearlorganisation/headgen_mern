@@ -5,7 +5,7 @@ import PriceCards from "../../PriceCards/PriceCards";
 import ImageSection from "../../ImageSection/ImageSection";
 import Customize from "../../Customize/Customize";
 import OrderDetails from "../../OrderDetails/OrderDetails";
-import UserDetails from "../../UserDetails/UserDetails";
+// import UserDetails from "../../UserDetails/UserDetails";
 import axios from 'axios'
 import Prompt from "../../Prompt/Prompt";
 import DatingGenderSelection from "./DatingGenderSelection";
@@ -41,8 +41,6 @@ const DatingTab = () => {
       features: [
         "20 Headshots",
         "120 Mins Generation Time",
-        "Choose 1 Attire",
-        "Choose 1 Background",
         "Standard Resolution"
       ],
       packName: "Starter Pack",
@@ -55,8 +53,6 @@ const DatingTab = () => {
       features: [
         "40 Headshots",
         "120 Mins Generation Time",
-        "Choose 1 Attire",
-        "Choose 1 Background",
         "HD Resolution"
       ],
       packName: "Basic Pack",
@@ -69,8 +65,6 @@ const DatingTab = () => {
       features: [
         "100 Headshots",
         "60 Mins Generation Time",
-        "Choose Any Attire",
-        "Choose Any Background",
         "Enhanced Image Resolution"
       ],
       packName: "Premium Pack",
@@ -95,24 +89,10 @@ const DatingTab = () => {
 
 
 
-    {
-      idx: 1,
-      ele: (
-        <>
-          <ImageSection
-            userData={userData}
-            setUserData={setUserData}
-            files={files}
-            setFiles={setFiles}
-            fileErrorMsg={fileErrorMsg}
-            setFileErrorMsg={setFileErrorMsg}
-          />
-        </>
-      ),
-    },
+
 
     {
-      idx: 2,
+      idx: 1,
       ele: (
         <>
           <div>
@@ -124,6 +104,22 @@ const DatingTab = () => {
               errors={errors}
             />
           </div>
+        </>
+      ),
+    },
+
+    {
+      idx: 2,
+      ele: (
+        <>
+          <ImageSection
+            userData={userData}
+            setUserData={setUserData}
+            files={files}
+            setFiles={setFiles}
+            fileErrorMsg={fileErrorMsg}
+            setFileErrorMsg={setFileErrorMsg}
+          />
         </>
       ),
     },
@@ -173,6 +169,17 @@ const DatingTab = () => {
       }
     }
     if (newIndex > 1 && newIndex <= 2 && val > 0) {
+      if (userData?.selectedPlan) {
+        setErrors({});
+        if (maxIndex === currentIndex && val > 0) {
+          return;
+        }
+        setCurrentIndex(newIndex);
+      } else {
+        setErrors({ selectedPlan: "Please select a pack to continue" });
+        return;
+      }
+    } else if (newIndex > 2 && val > 0) {
       if (files.length > 0 && files.length <= 4) {
         setFileErrorMsg();
 
@@ -184,17 +191,6 @@ const DatingTab = () => {
         setFileErrorMsg("Please upload 1-4 images to continue");
       }
       return;
-    } else if (newIndex > 2 && val > 0) {
-      if (userData?.selectedPlan) {
-        setErrors({});
-        if (maxIndex === currentIndex && val > 0) {
-          return;
-        }
-        setCurrentIndex(newIndex);
-      } else {
-        setErrors({ selectedPlan: "Please select a pack to continue" });
-        return;
-      }
     } else {
       if (maxIndex === currentIndex && val > 0) {
         return;

@@ -33,8 +33,8 @@ const IndividualTab = ({
       features: [
         "20 Headshots",
         "120 Mins Generation Time",
-        "Choose 1 Attire",
-        "Choose 1 Background",
+
+
         "Standard Resolution"
       ],
       packName: "Starter Pack",
@@ -47,8 +47,8 @@ const IndividualTab = ({
       features: [
         "40 Headshots",
         "120 Mins Generation Time",
-        "Choose 1 Attire",
-        "Choose 1 Background",
+
+
         "HD Resolution"
       ]
       ,
@@ -62,8 +62,8 @@ const IndividualTab = ({
       features: [
         "100 Headshots",
         "60 Mins Generation Time",
-        "Choose Any Attire",
-        "Choose Any Background",
+
+
         "Enhanced Image Resolution"
       ],
       packName: "Premium Pack",
@@ -92,34 +92,9 @@ const IndividualTab = ({
       ),
     },
 
-    // {
-    //   idx: 1,
-    //   ele: (
-    //     <>
-
-    //     </>
-    //   ),
-    // },
 
     {
       idx: 1,
-      ele: (
-        <>
-          <ImageSection
-            userData={userData}
-            setUserData={setUserData}
-            files={files}
-            setFiles={setFiles}
-            fileErrorMsg={fileErrorMsg}
-            setFileErrorMsg={setFileErrorMsg}
-          />
-        </>
-      ),
-    },
-
-
-    {
-      idx: 2,
       ele: (
         <>
           <div>
@@ -133,8 +108,8 @@ const IndividualTab = ({
       ),
     },
 
-     {
-      idx: 3,
+    {
+      idx: 2,
       ele: (
         <>
           <div>
@@ -149,7 +124,7 @@ const IndividualTab = ({
     },
 
     {
-      idx: 4,
+      idx: 3,
       ele: (
         <>
           <div>
@@ -160,6 +135,23 @@ const IndividualTab = ({
               errors={errors}
             />
           </div>
+        </>
+      ),
+    },
+
+
+    {
+      idx: 4,
+      ele: (
+        <>
+          <ImageSection
+            userData={userData}
+            setUserData={setUserData}
+            files={files}
+            setFiles={setFiles}
+            fileErrorMsg={fileErrorMsg}
+            setFileErrorMsg={setFileErrorMsg}
+          />
         </>
       ),
     },
@@ -213,24 +205,11 @@ const IndividualTab = ({
         return;
       }
     }
+
     if (newIndex > 1 && newIndex <= 2 && val > 0) {
-      if (files.length > 0 && files.length <= 4) {
-        setFileErrorMsg();
-        // console.log("in this");
-        if (maxIndex === currentIndex && val > 0) {
-          return;
-        }
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-        setCurrentIndex(newIndex);
-      } else {
-        setFileErrorMsg("Please upload 1-4 images to continue");
-      }
-      return;
-    }
-    else if(newIndex > 2 && newIndex <= 3 && val > 0){
       //select you attire validation
       if (
-        userData?.attire && 
+        userData?.attire &&
         userData.attire.length > 0
       ) {
         setErrors({});
@@ -241,7 +220,7 @@ const IndividualTab = ({
         setCurrentIndex(newIndex);
       } else {
         let error = { attire: "Select an attire" };
-       // console.log(userData?.gender?.length);
+        // console.log(userData?.gender?.length);
         setErrors(() => {
           // console.log(error);
           return error;
@@ -249,10 +228,10 @@ const IndividualTab = ({
         return;
       }
     }
-     else if(newIndex > 3 && newIndex <= 4 && val > 0){
+    else if (newIndex > 2 && newIndex <= 3 && val > 0) {
       //select you background validation
       if (
-        userData?.background && 
+        userData?.background &&
         userData.background.length > 0
       ) {
         setErrors({});
@@ -263,7 +242,7 @@ const IndividualTab = ({
         setCurrentIndex(newIndex);
       } else {
         let error = { background: "Select a background" };
-       // console.log(userData?.gender?.length);
+        // console.log(userData?.gender?.length);
         setErrors(() => {
           // console.log(error);
           return error;
@@ -271,7 +250,7 @@ const IndividualTab = ({
         return;
       }
     }
-    else if (newIndex > 4 && val > 0) {
+    else if (newIndex > 3 && newIndex <= 4 && val > 0) {
       if (userData?.selectedPlan) {
         setErrors({});
         if (maxIndex === currentIndex && val > 0) {
@@ -282,6 +261,18 @@ const IndividualTab = ({
         setErrors({ selectedPlan: "Please select a pack to continue" });
         return;
       }
+    } else if (newIndex > 4 && val > 0) {
+      if (files.length > 0 && files.length <= 4) {
+        setFileErrorMsg();
+        if (maxIndex === currentIndex && val > 0) {
+          return;
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        setCurrentIndex(newIndex);
+      } else {
+        setFileErrorMsg("Please upload 1-4 images to continue");
+      }
+      return;
     } else {
       if (maxIndex === currentIndex && val > 0) {
         return;

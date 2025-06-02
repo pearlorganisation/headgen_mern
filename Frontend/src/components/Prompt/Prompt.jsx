@@ -61,24 +61,9 @@ const Prompt = ({
       ),
     },
 
-    {
-      idx: 2,
-      ele: (
-        <>
-          <ImageSection
-            userData={userData}
-            setUserData={setUserData}
-            files={files}
-            setFiles={setFiles}
-            fileErrorMsg={fileErrorMsg}
-            setFileErrorMsg={setFileErrorMsg}
-          />
-        </>
-      ),
-    },
 
     {
-      idx: 3,
+      idx: 2,
       ele: (
         <>
           <div>
@@ -90,6 +75,23 @@ const Prompt = ({
               errors={errors}
             />
           </div>
+        </>
+      ),
+    },
+
+
+    {
+      idx: 3,
+      ele: (
+        <>
+          <ImageSection
+            userData={userData}
+            setUserData={setUserData}
+            files={files}
+            setFiles={setFiles}
+            fileErrorMsg={fileErrorMsg}
+            setFileErrorMsg={setFileErrorMsg}
+          />
         </>
       ),
     },
@@ -141,6 +143,17 @@ const Prompt = ({
         return;
       }
     } else if (newIndex > 2 && newIndex <= 3 && val > 0) {
+      if (userData?.selectedPlan) {
+        setErrors({});
+        if (maxIndex === currentIndex && val > 0) {
+          return;
+        }
+        setCurrentIndex(newIndex);
+      } else {
+        setErrors({ selectedPlan: "Please select a pack to continue" });
+        return;
+      }
+    } else if (newIndex > 3 && val > 0) {
       if (files.length > 0 && files.length <= 4) {
         setFileErrorMsg();
         if (maxIndex === currentIndex && val > 0) {
@@ -152,17 +165,6 @@ const Prompt = ({
         setFileErrorMsg("Please upload 1-4 images to continue");
       }
       return;
-    } else if (newIndex > 3 && val > 0) {
-      if (userData?.selectedPlan) {
-        setErrors({});
-        if (maxIndex === currentIndex && val > 0) {
-          return;
-        }
-        setCurrentIndex(newIndex);
-      } else {
-        setErrors({ selectedPlan: "Please select a pack to continue" });
-        return;
-      }
     } else {
       if (maxIndex === currentIndex && val > 0) {
         return;
@@ -218,11 +220,10 @@ const Prompt = ({
         <div className="flex flex-wrap-reverse justify-center gap-2">
           {currentIndex > 0 && (
             <button
-              className={`w-full sm:w-auto hover:squeezyBtn px-8 py-3 ${
-                type === "Dating"
+              className={`w-full sm:w-auto hover:squeezyBtn px-8 py-3 ${type === "Dating"
                   ? " "
                   : "bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57]"
-              } shadow-[0_0_0_1px_#babcbf80] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                } shadow-[0_0_0_1px_#babcbf80] hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
               onClick={() => updateIndex(-1)}
             >
               Back
@@ -230,11 +231,10 @@ const Prompt = ({
           )}
           {currentIndex >= 0 && currentIndex < maxIndex && (
             <button
-              className={`w-full sm:w-auto hover:squeezyBtn px-8 py-3 ${
-                type === "Dating"
+              className={`w-full sm:w-auto hover:squeezyBtn px-8 py-3 ${type === "Dating"
                   ? " bg-gradient-to-b from-[#e73e71] to-[#af1040] hover:from-[#bb2c57]"
                   : "bg-[#1f58ad] hover:bg-[#1f58ad94]"
-              }  hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
+                }  hover:shadow-[0_0_0_1px_#babcbf80]  rounded-xl text-[#f1f1f1] text-[18px] font-medium transition duration-[0.4s]`}
               onClick={() => {
                 updateIndex(1);
               }}

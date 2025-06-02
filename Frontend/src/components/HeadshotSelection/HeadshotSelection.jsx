@@ -44,21 +44,21 @@ const HeadshotSelection = ({
                 return item?.name === section && item?.headshotInfo;
               })
               .map((filteredItem, idx) => (
-               
-                  <div
-                    key={`imgPreview${idx}`}
-                    className="flex flex-col items-center rounded-xl "
-                  >
-                    <LazyLoadImage
-                      alt=""
-                      src={filteredItem?.imgPreview}
-                      className="!max-h-[320px] mx-auto rounded-xl"
-                    />
+
+                <div
+                  key={`imgPreview${idx}`}
+                  className="flex flex-col items-center rounded-xl "
+                >
+                  <LazyLoadImage
+                    alt=""
+                    src={filteredItem?.imgPreview}
+                    className="!max-h-[320px] mx-auto rounded-xl"
+                  />
 
 
 
-                  </div>
-               
+                </div>
+
               ))}
           <div className="text-center text-xs md:text-sm px-[45px] sm:px-[20px] 2xl:px-[30px] w-full py-2 mt-2">
             <div>

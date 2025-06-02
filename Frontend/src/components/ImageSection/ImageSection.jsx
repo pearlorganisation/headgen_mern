@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import DragAndDrop from "./DragAndDrop/DragAndDrop";
 import ImgCropT from "./CropTool/ImgCropT";
 

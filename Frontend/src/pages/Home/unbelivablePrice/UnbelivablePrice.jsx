@@ -9,8 +9,8 @@ const plans = [
     features: [
       "20 Headshots",
       "120 Mins Generation Time",
-      "Choose 1 Attire",
-      "Choose 1 Background",
+      
+      
       "Standard Resolution"
     ],
     link: "/corporate-ai-headshots",
@@ -22,8 +22,8 @@ const plans = [
     features: [
       "40 Headshots",
       "120 Mins Generation Time",
-      "Choose 1 Attire",
-      "Choose 1 Background",
+      
+      
       "HD Resolution"
     ],
     buttonText: "70% Pick this Plan",
@@ -36,8 +36,8 @@ const plans = [
     features: [
       "100 Headshots",
       "60 Mins Generation Time",
-      "Choose Any Attire",
-      "Choose Any Background",
+      
+      
       "Enhanced Image Resolution"
     ],
     buttonText: "Best Value",
