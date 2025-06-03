@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 const SelectYourBackground = ({ userData, setUserData, errors, type }) => {
-    const [selectedBackground, setSelectedBackground] = useState(userData?.background || "")
+    const [selectedBackground, setSelectedBackground] = useState([])
 
     const backgroundOptions = [
         {
@@ -40,8 +40,28 @@ const SelectYourBackground = ({ userData, setUserData, errors, type }) => {
         }
     }, [selectedBackground, setUserData])
 
+
+    useEffect(() => {
+        if (userData?.background) {
+            setSelectedBackground(userData?.background)
+        }
+    }, [])
+
+
     const handleBackgroundSelect = (backgroundId) => {
-        setSelectedBackground(backgroundId)
+        let arr = [...selectedBackground]
+        if (arr.includes(backgroundId)) {
+            const idx = arr.findIndex((e) => e === backgroundId)
+            if (idx >= 0) {
+                arr.splice(idx, 1)
+            }
+            setSelectedBackground(arr)
+        } else if (arr.length < 3) {
+            arr.push(backgroundId)
+            setSelectedBackground(arr)
+        }
+
+
     }
 
     return (
@@ -61,19 +81,19 @@ const SelectYourBackground = ({ userData, setUserData, errors, type }) => {
                     >
                         {/* Image Card */}
                         <div
-                            className={`relative rounded-lg overflow-hidden border-3 transition-all duration-300 hover:scale-105 ${selectedBackground === option.id
+                            className={`relative rounded-lg overflow-hidden border-3 transition-all duration-300 hover:scale-105 ${selectedBackground.includes(option.id)
                                 ? "shadow-[0_0_0_2px_#224cc2] scale-105"
                                 : "border-blue-600/70 hover:border-blue-400/90"
                                 }`}
                         >
                             <img src={option.image || "/placeholder.svg"} alt={option.name} className="w-36 h-48 object-cover" />
                             {/* Overlay for selected state */}
-                            {selectedBackground === option.id && <div className="absolute inset-0 bg-blue-400/10 pointer-events-none" />}
+                            {selectedBackground.includes(option.id) && <div className="absolute inset-0 bg-blue-400/10 pointer-events-none" />}
                         </div>
 
                         {/* Label */}
                         <div
-                            className={`text-[#131313] mt-4 ${selectedBackground === option.id
+                            className={`text-[#131313] mt-4 ${selectedBackground.includes(option.id)
                                 ? "!bg-[#1d2838] text-[#F1F1F1] rounded-lg shadow-[0_0_0_2px_#224cc2]"
                                 : "bg-[#f1f1f1]"
                                 } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-full pl-2  transition duration-500 text-[12px] lg:text-[14px] font-semibold cursor-pointer flex justify-center gap-2 relative`}
@@ -82,6 +102,10 @@ const SelectYourBackground = ({ userData, setUserData, errors, type }) => {
                         </div>
                     </div>
                 ))}
+            </div>
+
+            <div className="text-center text-sm mt-6 my-5">
+                Choose One, Two or up-to Three Backgrounds - Your images will feature a blend of the selected Backgrounds.
             </div>
 
             {/* Error Message */}

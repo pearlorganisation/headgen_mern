@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 const SelectYourAttire = ({ userData, setUserData, errors, type }) => {
-  const [selectedAttire, setSelectedAttire] = useState(userData?.attire || "")
+  const [selectedAttire, setSelectedAttire] = useState([])
 
   const attireOptions = [
     {
@@ -32,15 +32,35 @@ const SelectYourAttire = ({ userData, setUserData, errors, type }) => {
   ]
 
   useEffect(() => {
-    if (selectedAttire && userData) {
+    console.log(selectedAttire)
+    if (userData) {
       const updatedUserData = { ...userData }
       updatedUserData.attire = selectedAttire
       setUserData(updatedUserData)
     }
   }, [selectedAttire, setUserData])
 
+
+  useEffect(() => {
+    if (userData?.attire) {
+      setSelectedAttire(userData?.attire)
+    }
+  }, [])
+
   const handleAttireSelect = (attireId) => {
-    setSelectedAttire(attireId)
+    let attireArr = [...selectedAttire]
+    if (attireArr.includes(attireId)) {
+      const idx = attireArr.findIndex((e) => e === attireId)
+      if (idx >= 0) {
+        attireArr.splice(idx, 1)
+      }
+      setSelectedAttire(attireArr)
+    } else if (attireArr.length < 3) {
+      attireArr.push(attireId)
+      setSelectedAttire(attireArr)
+    }
+
+
   }
 
   return (
@@ -61,27 +81,31 @@ const SelectYourAttire = ({ userData, setUserData, errors, type }) => {
           >
             {/* Image Card */}
             <div
-              className={`relative rounded-lg overflow-hidden border-3 transition-all duration-300 hover:scale-105 ${selectedAttire === option.id
-                  ? "shadow-[0_0_0_2px_#224cc2] scale-105"
-                  : "border-blue-600/70 hover:border-blue-400/90"
+              className={`relative rounded-lg overflow-hidden border-3 transition-all duration-300 hover:scale-105 ${selectedAttire.includes(option.id)
+                ? "shadow-[0_0_0_2px_#224cc2] scale-105"
+                : "border-blue-600/70 hover:border-blue-400/90"
                 }`}
             >
               <img src={option.image || "/placeholder.svg"} alt={option.name} className="w-36 h-48 object-cover" />
               {/* Overlay for selected state */}
-              {selectedAttire === option.id && <div className="absolute inset-0 bg-blue-400/10 pointer-events-none" />}
+              {selectedAttire.includes(option.id) && <div className="absolute inset-0 bg-blue-400/10 pointer-events-none" />}
             </div>
 
             {/* Label */}
             <div
-              className={`text-[#131313] mt-4 ${selectedAttire === option.id
-                  ? "!bg-[#1d2838] text-[#F1F1F1] rounded-lg shadow-[0_0_0_2px_#224cc2]"
-                  : "bg-[#f1f1f1]"
+              className={`text-[#131313] mt-4 ${selectedAttire.includes(option.id)
+                ? "!bg-[#1d2838] text-[#F1F1F1] rounded-lg shadow-[0_0_0_2px_#224cc2]"
+                : "bg-[#f1f1f1]"
                 } hover:bg-[#355cc9] hover:text-[#f1f1f1] rounded-lg w-full transition duration-500 text-xs p-2 text-center font-semibold cursor-pointer flex justify-center gap-2 relative`}
             >
               {option.name}
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="text-center text-sm mt-6 my-5">
+        Choose One, Two or up-to Three Attires - Your images will feature a blend of the selected Attires.
       </div>
 
       {/* Error Message */}

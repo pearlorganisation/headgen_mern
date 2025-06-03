@@ -49,14 +49,14 @@ const OrderDetails = ({ userData, files, type }) => {
               {userData?.attire && (
                 <div className="flex flex-col py-3">
                   <div className="mb-1 text-gray-400 md:text-lg ">Attire</div>
-                  <div className="text-lg font-semibold">{userData?.attire}</div>
+                  <div className="text-lg font-semibold">{userData?.attire.join(" , ")}</div>
                 </div>
               )}
 
               {userData?.background && (
                 <div className="flex flex-col py-3">
                   <div className="mb-1 text-gray-400 md:text-lg ">Background</div>
-                  <div className="text-lg font-semibold">{userData?.background}</div>
+                  <div className="text-lg font-semibold">{userData?.background.join(" , ")}</div>
                 </div>
               )}
 
