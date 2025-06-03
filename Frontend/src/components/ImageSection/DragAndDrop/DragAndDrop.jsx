@@ -14,7 +14,7 @@ const DragAndDrop = ({
   setFileErrorMsg,
   maxUploads,
   imgCropRef,
-  toolContainerRef,
+  // toolContainerRef,
   type = "Regular",
 }) => {
   const [isDragActive, setIsDragActive] = useState(false);
@@ -29,10 +29,10 @@ const DragAndDrop = ({
       (key) => selectedFiles[key]
     );
     filesArray.forEach((file) => {
-      if (file.size / 1000000 <= 2) {
+      if (file.size / 1000000 <= 4) {
         displayFile(file);
       } else {
-        setFileErrorMsg("Couldn't upload file greater than  2mb");
+        setFileErrorMsg("Couldn't upload file greater than  4mb");
         return;
       }
     });
@@ -56,10 +56,10 @@ const DragAndDrop = ({
       (key) => selectedFiles[key]
     );
     filesArray.forEach((file) => {
-      if (file.size / 1000000 <= 2) {
+      if (file.size / 1000000 <= 4) {
         displayFile(file);
       } else {
-        setFileErrorMsg("Couldn't upload file greater than  2mb");
+        setFileErrorMsg("Couldn't upload file greater than  4mb");
         return;
       }
     });
@@ -211,7 +211,7 @@ const DragAndDrop = ({
               : "Please upload 1-4 images."}
           </li>
           <li>Accepted format .jpeg, .jpg or .heic</li>
-          <li>Please ensure that your image is less than 2mb</li>
+          <li>Please ensure that your image is upto 4mb in size.</li>
           <li>Please make sure only 1 person is in the image.</li>
           <li>
             Please ensure all your information is correct as you will not able
