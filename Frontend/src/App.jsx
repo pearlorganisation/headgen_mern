@@ -21,10 +21,10 @@ const UploadPage = lazy(() => import("./pages/UploadPage/UploadPage"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks/HowItWorks"));
 const Blog = lazy(() => import("./pages/Blog/Blog"));
 const BlogDetails = lazy(() => import("./pages/Blog/BlogDetails"));
-const FreeHeadshots = lazy(() => import("./pages/FreeHeadshots/FreeHeadshots"));
-const FreeHeadshotsTab = lazy(() =>
-  import("./pages/FreeHeadshots/FreeHeadshotsTab")
-);
+// const FreeHeadshots = lazy(() => import("./pages/FreeHeadshots/FreeHeadshots"));
+// const FreeHeadshotsTab = lazy(() =>
+//   import("./pages/FreeHeadshots/FreeHeadshotsTab")
+// );
 const AddReview = lazy(() => import("./pages/Reviews/AddReview"));
 const Reviews = lazy(() => import("./pages/Reviews/Reviews"));
 
@@ -95,11 +95,11 @@ function App() {
             element={<UploadPage section={"Teacher Headshots"} />}
           />
 
-          <Route
+          {/* <Route
             path="/free-ai-headshot-generator"
             element={<FreeHeadshots />}
-          />
-          <Route path="/free-ai-headshots" element={<FreeHeadshotsTab />} />
+          /> */}
+          {/* <Route path="/free-ai-headshots" element={<FreeHeadshotsTab />} /> */}
           <Route path="/blogs" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogDetails />} />
           <Route path="/reviews" element={<Reviews />} />

@@ -103,10 +103,10 @@ const Header = () => {
           name: "Teacher Headshots",
           path: "/teacher-ai-headshots",
         },
-        {
-          name: "Free Headshots",
-          path: "/free-ai-headshot-generator",
-        },
+        // {
+        //   name: "Free Headshots",
+        //   path: "/free-ai-headshot-generator",
+        // },
       ],
       showDropdown: true,
     },
